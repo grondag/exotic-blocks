@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "niceblocks",
+  "version": "${version}",
+
+  "name": "Nice Blocks",
+  "description": "Test and Tutorial Companion Mod for Exotic Matter",
+  "authors": [
+    Grondag"
+  ],
+  "contact": {
+    "homepage": "https://github.com/grondag/niceblocks",
+    "sources": "https://github.com/grondag/niceblocks"
+  },
+
+  "license": "Apache 2.0",
+  "icon": "assets/niceblocks/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+    ]
+  },
+  "mixins": [
+  ],
+  "depends": {
+    "fabricloader": ">=0.4.0",
+    "fabric": "*",
+    "exotic-matter": "*"
+  },
+  "custom": {
+    "modmenu:api": false,
+    "modmenu:clientsideOnly": false
+  }
+}
