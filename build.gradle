@@ -1,6 +1,7 @@
 plugins {
 	id 'fabric-loom' version '0.2.5-SNAPSHOT'
 	id 'maven-publish'
+	id "org.ajoberstar.grgit" version "3.1.1"
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_8
@@ -8,10 +9,18 @@ targetCompatibility = JavaVersion.VERSION_1_8
 
 archivesBaseName = 'niceblocks'
 group = 'grondag'
-if (project.hasProperty('niceblocks_version')){
-	version = project.getProperty('niceblocks_version') + '.' + project.getVersionCode() + '+' + project.minecraft_version
+def version_tag = 'niceblocks_version'
+
+if (grgit == null) {
+	version = '99.0.0-nogit'
+} else if (project.hasProperty(version_tag)) {
+	if(grgit.status().isClean()) {
+		version = project.getProperty(version_tag) + '.' + grgit.log().size() + '+' + project.minecraft_version
+	} else {
+		version = project.getProperty(version_tag) + '.' + (grgit.log().size() + 1) + '-snapshot+' + project.minecraft_version
+	}
 } else {
-	version = '999.999.999+LOCAL'
+	version = '99.0.0-local'
 }
 
 minecraft {
@@ -43,6 +52,22 @@ dependencies {
 	modCompile "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	
 	modApi ("grondag:exotic-matter:${project.exotic_matter_version}+") {
+        exclude group :"net.fabricmc.fabric-api"
+	}
+	
+	modApi ("grondag:exotic-art-borders:1+") {
+        exclude group :"net.fabricmc.fabric-api"
+	}
+	
+	modApi ("grondag:exotic-art-bigtex:1+") {
+        exclude group :"net.fabricmc.fabric-api"
+	}
+	
+	modApi ("grondag:exotic-art-decals:1+") {
+        exclude group :"net.fabricmc.fabric-api"
+	}
+	
+	modApi ("grondag:exotic-art-tiles:1+") {
         exclude group :"net.fabricmc.fabric-api"
 	}
 	
@@ -96,8 +121,7 @@ jar {
 publishing {
 	publications {
 		mavenJava(MavenPublication) {
-			// add all the jars that should be included when publishing to maven
-			artifact(jar) {
+			artifact(remapJar) {
 				builtBy remapJar
 			}
 			artifact(sourcesJar) {
@@ -106,23 +130,18 @@ publishing {
 		}
 	}
 
-	// select the repositories you want to publish to
 	repositories {
-		// uncomment to publish to the local maven
-		// mavenLocal()
-	}
-	
-    repositories {
-	    maven {
-	        url "https://grondag-repo.appspot.com"
-	        credentials {
-	        	if (project.hasProperty('maven_user')){
+		mavenLocal()
+		maven {
+            url "https://grondag-repo.appspot.com"
+            credentials {
+				if (project.hasProperty('maven_user')){
 					username = project.getProperty('maven_user')
 				}
 				if (project.hasProperty('maven_password')){
 					password = project.getProperty('maven_password')
 				}
 			}
-	    }
-    }
+        }
+	}
 }

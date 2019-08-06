@@ -6,7 +6,7 @@
   "name": "Nice Blocks",
   "description": "Test and Tutorial Companion Mod for Exotic Matter",
   "authors": [
-    Grondag"
+    "Grondag"
   ],
   "contact": {
     "homepage": "https://github.com/grondag/niceblocks",
@@ -18,8 +18,7 @@
 
   "environment": "*",
   "entrypoints": {
-    "main": [
-    ]
+  	"main": [ "grondag.niceblocks.NiceBlocks" ]
   },
   "mixins": [
   ],
