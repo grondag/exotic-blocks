@@ -9,13 +9,12 @@ import java.util.function.Function;
 
 import grondag.xm.api.block.XmBlockRegistry;
 import grondag.xm.api.connect.world.BlockTest;
-import grondag.xm.api.modelstate.ImmutableModelState;
-import grondag.xm.api.modelstate.OwnedModelState;
+import grondag.xm.api.modelstate.ModelState;
+import grondag.xm.api.modelstate.MutableModelState;
 import grondag.xm.api.paint.XmPaint;
 import grondag.xm.api.texture.TextureSet;
-import grondag.xm.block.WorldToModelStateFunction;
-import grondag.xm.block.XmBlockRegistryImpl.XmBlockStateImpl;
 import grondag.xm.init.XmPrimitives;
+import grondag.xm.model.state.PrimitiveModelState;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.block.BlockRenderLayer;
 import net.minecraft.block.BlockState;
@@ -70,22 +69,10 @@ public class NiceBlocks implements ModInitializer {
                 .find();
         
         // Function to map block states to default model state
-        final Function<BlockState, ImmutableModelState> defaultStateFunc = b -> {
-            OwnedModelState ms = XmPrimitives.CUBE.newState();
+        final Function<BlockState, ModelState> defaultStateFunc = b -> {
+            MutableModelState ms = XmPrimitives.CUBE.newState();
             ms.paintAll(paint);
             return ms.releaseToImmutable();
-        };
-        
-        // Function to update model state from world state
-        WorldToModelStateFunction worldStateFunc = (xmBlockState, world, pos, refreshFromWorld) -> {
-            if (refreshFromWorld) {
-                OwnedModelState result = xmBlockState.defaultModelState().mutableCopy();
-                //TODO: refactor refresh mechanism before release
-                result.refreshFromWorld((XmBlockStateImpl) xmBlockState, world, pos);
-                return result.releaseToImmutable();
-            } else {
-                return xmBlockState.defaultModelState();
-            }
         };
         
         // Function to determine if blocks are joined for connected textures/shapes
@@ -93,9 +80,8 @@ public class NiceBlocks implements ModInitializer {
             return ctx.fromBlockState().getBlock() == ctx.toBlockState().getBlock();
         };
         
-        
         // Remap glass block using our new model
-        XmBlockRegistry.register(Blocks.GLASS, defaultStateFunc, worldStateFunc, blockJoinTest);
+        XmBlockRegistry.register(Blocks.GLASS, defaultStateFunc, PrimitiveModelState.DEFAULT_PRIMITIVE, blockJoinTest);
         
     }
 }
