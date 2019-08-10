@@ -10,7 +10,6 @@ import java.util.function.Function;
 import grondag.xm.api.block.XmBlockRegistry;
 import grondag.xm.api.connect.world.BlockTest;
 import grondag.xm.api.modelstate.ModelState;
-import grondag.xm.api.modelstate.MutableModelState;
 import grondag.xm.api.paint.XmPaint;
 import grondag.xm.api.texture.TextureSet;
 import grondag.xm.init.XmPrimitives;
@@ -70,13 +69,13 @@ public class NiceBlocks implements ModInitializer {
         
         // Function to map block states to default model state
         final Function<BlockState, ModelState> defaultStateFunc = b -> {
-            MutableModelState ms = XmPrimitives.CUBE.newState();
+            PrimitiveModelState ms = XmPrimitives.CUBE.newState();
             ms.paintAll(paint);
             return ms.releaseToImmutable();
         };
         
         // Function to determine if blocks are joined for connected textures/shapes
-        BlockTest blockJoinTest = ctx -> {
+        BlockTest<PrimitiveModelState> blockJoinTest = ctx -> {
             return ctx.fromBlockState().getBlock() == ctx.toBlockState().getBlock();
         };
         
