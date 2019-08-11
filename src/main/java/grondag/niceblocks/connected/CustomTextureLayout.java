@@ -1,4 +1,4 @@
-package grondag.niceblocks;
+package grondag.niceblocks.connected;
 
 import static grondag.xm.api.texture.TextureNameFunction.BORDER_CORNERS_ALL;
 import static grondag.xm.api.texture.TextureNameFunction.BORDER_CORNERS_BL_TR;
@@ -19,9 +19,9 @@ import grondag.xm.api.texture.TextureLayoutMap;
 
 /**
  * Example of a custom texture layout map.  Handles converting the texture
- * ordinals expected by a texture layout to a physical file name.
+ * ordinals expected by a texture layout to physical file names.
  */
-public class NiceTextureLayoutMap {
+public class CustomTextureLayout {
     
     private final static String[] BORDER_MAP = new String[TextureLayout.BORDER_13.textureCount];
     
