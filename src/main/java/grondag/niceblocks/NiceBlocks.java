@@ -14,6 +14,7 @@ import grondag.xm.api.paint.XmPaint;
 import grondag.xm.api.texture.TextureSet;
 import grondag.xm.init.XmPrimitives;
 import grondag.xm.model.state.PrimitiveModelState;
+import grondag.xm.model.state.PrimitiveModelStateImpl;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.block.BlockRenderLayer;
 import net.minecraft.block.BlockState;
@@ -69,18 +70,18 @@ public class NiceBlocks implements ModInitializer {
         
         // Function to map block states to default model state
         final Function<BlockState, ModelState> defaultStateFunc = b -> {
-            PrimitiveModelState ms = XmPrimitives.CUBE.newState();
+            PrimitiveModelState.Mutable ms = XmPrimitives.CUBE.newState();
             ms.paintAll(paint);
             return ms.releaseToImmutable();
         };
         
         // Function to determine if blocks are joined for connected textures/shapes
-        BlockTest<PrimitiveModelState> blockJoinTest = ctx -> {
+        BlockTest<PrimitiveModelStateImpl> blockJoinTest = ctx -> {
             return ctx.fromBlockState().getBlock() == ctx.toBlockState().getBlock();
         };
         
         // Remap glass block using our new model
-        XmBlockRegistry.register(Blocks.GLASS, defaultStateFunc, PrimitiveModelState.DEFAULT_PRIMITIVE, blockJoinTest);
+        XmBlockRegistry.register(Blocks.GLASS, defaultStateFunc, PrimitiveModelStateImpl.DEFAULT_PRIMITIVE, blockJoinTest);
         
     }
 }
