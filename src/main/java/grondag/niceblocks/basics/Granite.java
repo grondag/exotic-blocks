@@ -1,7 +1,6 @@
 package grondag.niceblocks.basics;
 
 import grondag.xm.api.block.XmBlockRegistry;
-import grondag.xm.api.modelstate.SimpleModelState;
 import grondag.xm.api.modelstate.SimpleModelStateFunction;
 import grondag.xm.api.paint.XmPaint;
 import grondag.xm.api.texture.XmTextures;
@@ -25,11 +24,12 @@ public class Granite {
                 .blendMode(1, BlockRenderLayer.TRANSLUCENT)
                 .find();
         
-        final SimpleModelState defaultState = XmPrimitives.CUBE.newState()
+        final SimpleModelStateFunction stateFunc = SimpleModelStateFunction.ofDefaultState(
+                XmPrimitives.CUBE.newState()
                 .paintAll(paint)
-                .releaseToImmutable();
+                .releaseToImmutable());
         
-        XmBlockRegistry.register(Blocks.GRANITE, b -> defaultState, SimpleModelStateFunction.DEFAULT);
+        XmBlockRegistry.addBlock(Blocks.GRANITE, stateFunc);
     }
     
     private static void initPolishedGranite() {
@@ -45,10 +45,11 @@ public class Granite {
                 .blendMode(2, BlockRenderLayer.TRANSLUCENT)
                 .find();
         
-        final SimpleModelState defaultState = XmPrimitives.CUBE.newState()
+        final SimpleModelStateFunction stateFunc = SimpleModelStateFunction.ofDefaultState(
+                XmPrimitives.CUBE.newState()
                 .paintAll(paint)
-                .releaseToImmutable();
+                .releaseToImmutable());
         
-        XmBlockRegistry.register(Blocks.POLISHED_GRANITE, b -> defaultState, SimpleModelStateFunction.DEFAULT);
+        XmBlockRegistry.addBlock(Blocks.POLISHED_GRANITE, stateFunc);
     }
 }

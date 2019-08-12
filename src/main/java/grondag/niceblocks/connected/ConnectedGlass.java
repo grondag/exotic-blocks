@@ -1,7 +1,6 @@
 package grondag.niceblocks.connected;
 
 import grondag.xm.api.block.XmBlockRegistry;
-import grondag.xm.api.modelstate.SimpleModelState;
 import grondag.xm.api.modelstate.SimpleModelStateFunction;
 import grondag.xm.api.paint.XmPaint;
 import grondag.xm.init.XmPrimitives;
@@ -18,11 +17,12 @@ public class ConnectedGlass {
                 .textureColor(0, 0xFFAAAAAA)
                 .find();
         
-        final SimpleModelState defaultState = XmPrimitives.CUBE.newState()
-                .paintAll(paint)
-                .releaseToImmutable();
+        final SimpleModelStateFunction stateFunc = SimpleModelStateFunction.ofDefaultState(
+                XmPrimitives.CUBE.newState()
+                    .paintAll(paint)
+                    .releaseToImmutable());
         
         // Remap glass block using our painted primitive
-        XmBlockRegistry.register(Blocks.GLASS, b -> defaultState, SimpleModelStateFunction.DEFAULT);
+        XmBlockRegistry.addBlock(Blocks.GLASS, stateFunc);
     }
 }

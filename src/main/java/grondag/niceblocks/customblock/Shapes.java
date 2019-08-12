@@ -1,5 +1,7 @@
 package grondag.niceblocks.customblock;
 
+import java.util.function.Function;
+
 import grondag.niceblocks.NiceBlocks;
 import grondag.xm.api.block.XmBlockRegistry;
 import grondag.xm.api.connect.world.BlockTest;
@@ -11,6 +13,7 @@ import grondag.xm.init.XmPrimitives;
 import grondag.xm.model.primitive.SquareColumnPrimitive;
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockRenderLayer;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Material;
 import net.minecraft.block.PillarBlock;
@@ -28,9 +31,12 @@ public class Shapes {
     private static void initSquareColumn() {
         final SimpleModelState defaultState = XmPrimitives.COLUMN_SQUARE.newState()
                 .paint(SquareColumnPrimitive.SURFACE_MAIN, XmPaint.finder()
-                        .disableAo(0, true)
-                        .texture(0, XmTextures.TILE_NOISE_LIGHT)
+                        .textureDepth(2)
+                        .texture(0, XmTextures.BIGTEX_SANDSTONE)
                         .textureColor(0, 0xFF99BBAA)
+                        .texture(1, XmTextures.BORDER_GRITTY_SINGLE_LINE)
+                        .blendMode(1, BlockRenderLayer.TRANSLUCENT)
+                        .textureColor(1, 0xFF709080)
                         .find())
                 .paint(SquareColumnPrimitive.SURFACE_CUT, XmPaint.finder()
                         .disableAo(0, true)
@@ -41,9 +47,12 @@ public class Shapes {
                         .disableAo(0, true)
                         .disableDiffuse(0, true)
                         .emissive(0, true)
-                        .texture(0, XmTextures.TILE_NOISE_LIGHT)
+                        .texture(0, XmTextures.WHITE)
                         .textureColor(0, 0xFFDDFFFF)
                         .find())
+                .apply(s -> { 
+                        SquareColumnPrimitive.setCutCount(1, s);
+                        SquareColumnPrimitive.setCutsOnEdge(false, s);})
                 .releaseToImmutable();
 
         final Block column = new PillarBlock(FabricBlockSettings.of(Material.STONE).build());
@@ -58,11 +67,11 @@ public class Shapes {
                     && fromBlock.contains(PillarBlock.AXIS)
                     && fromBlock.get(PillarBlock.AXIS) == fromBlock.get(PillarBlock.AXIS);};
         
-        SimpleModelStateFunction stateFunc = SimpleModelStateFunction.builder()
-                .withUpdate(SimpleModelStateFunction.UPDATE_AXIS)
-                .withJoin(joinFunc)
-                .build();
+        final Function<BlockState, SimpleModelStateFunction> stateFunc = bs -> SimpleModelStateFunction.builder()
+                    .withDefaultState(SimpleModelState.AXIS_FROM_BLOCKSTATE.apply(defaultState.mutableCopy(), bs))
+                    .withJoin(joinFunc)
+                    .build();
         
-        XmBlockRegistry.register(column, b -> defaultState, stateFunc);
+        XmBlockRegistry.addBlockStates(column, stateFunc);
     }
 }
