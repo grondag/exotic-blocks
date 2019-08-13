@@ -29,6 +29,25 @@ public class Shapes {
     }
 
     private static void initSquareColumn() {
+//        final SimpleModelState defaultState = XmPrimitives.COLUMN_SQUARE.newState()
+//              .paint(SquareColumnPrimitive.SURFACE_MAIN, XmPaint.finder()
+//                      .texture(0, XmTextures.TILE_NOISE_LIGHT)
+//                      .textureColor(0, 0xFFAABBBB)
+//                      .find())
+//              .paint(SquareColumnPrimitive.SURFACE_CUT, XmPaint.finder()
+//                      .texture(0, XmTextures.TILE_NOISE_LIGHT)
+//                      .textureColor(0, 0xFF99AAAA)
+//                      .find())
+//              .paint(SquareColumnPrimitive.SURFACE_LAMP, XmPaint.finder()
+//                      .texture(0, XmTextures.TILE_NOISE_LIGHT)
+//                      .textureColor(0, 0xFF889999)
+//                      .find())
+//
+//                .apply(s -> { 
+//                        SquareColumnPrimitive.setCutCount(3, s);
+//                        SquareColumnPrimitive.setCutsOnEdge(true, s);})
+//                .releaseToImmutable();
+        
         final SimpleModelState defaultState = XmPrimitives.COLUMN_SQUARE.newState()
                 .paint(SquareColumnPrimitive.SURFACE_MAIN, XmPaint.finder()
                         .textureDepth(2)
@@ -39,8 +58,7 @@ public class Shapes {
                         .textureColor(1, 0xFF709080)
                         .find())
                 .paint(SquareColumnPrimitive.SURFACE_CUT, XmPaint.finder()
-                        .disableAo(0, true)
-                        .texture(0, XmTextures.TILE_NOISE_LIGHT)
+                        .texture(0, XmTextures.BIGTEX_SANDSTONE)
                         .textureColor(0, 0xFF99BBAA)
                         .find())
                 .paint(SquareColumnPrimitive.SURFACE_LAMP, XmPaint.finder()
@@ -51,7 +69,7 @@ public class Shapes {
                         .textureColor(0, 0xFFDDFFFF)
                         .find())
                 .apply(s -> { 
-                        SquareColumnPrimitive.setCutCount(1, s);
+                        SquareColumnPrimitive.setCutCount(3, s);
                         SquareColumnPrimitive.setCutsOnEdge(false, s);})
                 .releaseToImmutable();
 
