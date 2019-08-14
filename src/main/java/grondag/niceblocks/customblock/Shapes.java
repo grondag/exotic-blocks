@@ -3,6 +3,7 @@ package grondag.niceblocks.customblock;
 import java.util.function.Function;
 
 import grondag.niceblocks.NiceBlocks;
+import grondag.niceblocks.basics.Granite;
 import grondag.xm.api.block.XmBlockRegistry;
 import grondag.xm.api.connect.world.BlockTest;
 import grondag.xm.api.modelstate.SimpleModelState;
@@ -15,6 +16,7 @@ import net.fabricmc.fabric.api.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderLayer;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
 import net.minecraft.block.PillarBlock;
 import net.minecraft.block.StairsBlock;
@@ -37,10 +39,15 @@ public class Shapes {
     }
 
     private static void initGraniteExtras() {
-//        final Block graniteStairs = new StairsBlock(Blocks.POLISHED_GRANITE.getDefaultState(), Block.Settings.copy(Blocks.POLISHED_GRANITE);
-//        Identifier id = new Identifier(NiceBlocks.MODID, "square_column");
-//        Registry.BLOCK.add(id, column);
-//        Registry.ITEM.add(id, new BlockItem(column, new Item.Settings().maxCount(64).group(ItemGroup.BUILDING_BLOCKS)));
+        final Block graniteWedge = new StairLike(Blocks.POLISHED_GRANITE.getDefaultState(), Block.Settings.copy(Blocks.POLISHED_GRANITE));
+        Identifier id = new Identifier(NiceBlocks.MODID, "polished_granite_wedge");
+        Registry.BLOCK.add(id, graniteWedge);
+        Registry.ITEM.add(id, new BlockItem(graniteWedge, new Item.Settings().maxCount(64).group(ItemGroup.BUILDING_BLOCKS)));
+        
+        XmBlockRegistry.addBlockStates(graniteWedge, bs -> SimpleModelStateFunction.builder()
+                .withDefaultState(SimpleModelState.STAIRS_FROM_BLOCKSTATE.apply(
+                        XmPrimitives.WEDGE.newState().paintAll(Granite.GRANITE_POLISHED), bs))
+                .build());
     }
     
     
