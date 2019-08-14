@@ -17,6 +17,7 @@ import net.minecraft.block.BlockRenderLayer;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Material;
 import net.minecraft.block.PillarBlock;
+import net.minecraft.block.StairsBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -26,28 +27,24 @@ import net.minecraft.util.registry.Registry;
 public class Shapes {
     public static void init() {
         initSquareColumn();
+        initGraniteExtras();
+    }
+    
+    public static class StairLike extends StairsBlock {
+        protected StairLike(BlockState blockState, Settings block$Settings) {
+            super(blockState, block$Settings);
+        }
     }
 
+    private static void initGraniteExtras() {
+//        final Block graniteStairs = new StairsBlock(Blocks.POLISHED_GRANITE.getDefaultState(), Block.Settings.copy(Blocks.POLISHED_GRANITE);
+//        Identifier id = new Identifier(NiceBlocks.MODID, "square_column");
+//        Registry.BLOCK.add(id, column);
+//        Registry.ITEM.add(id, new BlockItem(column, new Item.Settings().maxCount(64).group(ItemGroup.BUILDING_BLOCKS)));
+    }
+    
+    
     private static void initSquareColumn() {
-//        final SimpleModelState defaultState = XmPrimitives.COLUMN_SQUARE.newState()
-//              .paint(SquareColumnPrimitive.SURFACE_MAIN, XmPaint.finder()
-//                      .texture(0, XmTextures.TILE_NOISE_LIGHT)
-//                      .textureColor(0, 0xFFAABBBB)
-//                      .find())
-//              .paint(SquareColumnPrimitive.SURFACE_CUT, XmPaint.finder()
-//                      .texture(0, XmTextures.TILE_NOISE_LIGHT)
-//                      .textureColor(0, 0xFF99AAAA)
-//                      .find())
-//              .paint(SquareColumnPrimitive.SURFACE_LAMP, XmPaint.finder()
-//                      .texture(0, XmTextures.TILE_NOISE_LIGHT)
-//                      .textureColor(0, 0xFF889999)
-//                      .find())
-//
-//                .apply(s -> { 
-//                        SquareColumnPrimitive.setCutCount(3, s);
-//                        SquareColumnPrimitive.setCutsOnEdge(true, s);})
-//                .releaseToImmutable();
-        
         final SimpleModelState defaultState = XmPrimitives.COLUMN_SQUARE.newState()
                 .paint(SquareColumnPrimitive.SURFACE_MAIN, XmPaint.finder()
                         .textureDepth(2)
@@ -81,9 +78,9 @@ public class Shapes {
         BlockTest<SimpleModelState> joinFunc = ctx -> {
             final BlockState fromBlock = ctx.fromBlockState();
             final BlockState toBlock = ctx.toBlockState();
-            return fromBlock == toBlock
+            return fromBlock.getBlock() == toBlock.getBlock()
                     && fromBlock.contains(PillarBlock.AXIS)
-                    && fromBlock.get(PillarBlock.AXIS) == fromBlock.get(PillarBlock.AXIS);};
+                    && fromBlock.get(PillarBlock.AXIS) == toBlock.get(PillarBlock.AXIS);};
         
         final Function<BlockState, SimpleModelStateFunction> stateFunc = bs -> SimpleModelStateFunction.builder()
                     .withDefaultState(SimpleModelState.AXIS_FROM_BLOCKSTATE.apply(defaultState.mutableCopy(), bs))
