@@ -1,7 +1,6 @@
 package grondag.niceblocks.basics;
 
 import grondag.xm.api.block.XmBlockRegistry;
-import grondag.xm.api.modelstate.SimpleModelState;
 import grondag.xm.api.modelstate.SimpleModelStateFunction;
 import grondag.xm.api.paint.XmPaint;
 import grondag.xm.api.texture.XmTextures;
@@ -43,14 +42,14 @@ public class Granite {
                     .paintAll(GRANITE_POLISHED)
                     .releaseToImmutable()));
 
-        XmBlockRegistry.addBlockStates(Blocks.GRANITE_STAIRS, bs -> SimpleModelStateFunction.builder()
-                .withDefaultState(SimpleModelState.STAIRS_FROM_BLOCKSTATE.apply(
-                        XmPrimitives.STAIR.newState().paintAll(GRANITE_RAW), bs))
-                .build());
-        
-        XmBlockRegistry.addBlockStates(Blocks.POLISHED_GRANITE_STAIRS, bs -> SimpleModelStateFunction.builder()
-                .withDefaultState(SimpleModelState.STAIRS_FROM_BLOCKSTATE.apply(
-                        XmPrimitives.STAIR.newState().paintAll(GRANITE_POLISHED), bs))
-                .build());
+//        XmBlockRegistry.addBlockStates(Blocks.GRANITE_STAIRS, bs -> SimpleModelStateFunction.builder()
+//                .withDefaultState(SimpleModelState.STAIRS_FROM_BLOCKSTATE.apply(
+//                        XmPrimitives.STAIR.newState().paintAll(GRANITE_RAW), bs))
+//                .build());
+//        
+//        XmBlockRegistry.addBlockStates(Blocks.POLISHED_GRANITE_STAIRS, bs -> SimpleModelStateFunction.builder()
+//                .withDefaultState(SimpleModelState.STAIRS_FROM_BLOCKSTATE.apply(
+//                        XmPrimitives.STAIR.newState().paintAll(GRANITE_POLISHED), bs))
+//                .build());
     }
 }
