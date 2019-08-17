@@ -4,8 +4,8 @@ import java.util.function.Function;
 
 import grondag.niceblocks.NiceBlocks;
 import grondag.niceblocks.basics.Granite;
-import grondag.xm.api.block.StairLike;
 import grondag.xm.api.block.XmBlockRegistry;
+import grondag.xm.api.block.base.StairLike;
 import grondag.xm.api.connect.world.BlockTest;
 import grondag.xm.api.modelstate.SimpleModelState;
 import grondag.xm.api.modelstate.SimpleModelStateFunction;
