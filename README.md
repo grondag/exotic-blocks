@@ -1,4 +1,4 @@
-# Niceblocks
+# Exotic Blocks
 
-Testing and tutorial mod for use of Exotic Matter library.  See code comments for explanation.
+Building mod for Exotic Matter library. Also used for testing XM development.
 
