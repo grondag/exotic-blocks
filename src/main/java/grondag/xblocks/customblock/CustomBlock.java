@@ -1,4 +1,4 @@
-package grondag.niceblocks.customblock;
+package grondag.xblocks.customblock;
 
 public class CustomBlock {
     public static void init() {

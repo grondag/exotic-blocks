@@ -1,4 +1,4 @@
-package grondag.niceblocks.connected;
+package grondag.xblocks.connected;
 
 import static grondag.xm.api.texture.TextureNameFunction.BORDER_CORNERS_ALL;
 import static grondag.xm.api.texture.TextureNameFunction.BORDER_CORNERS_BL_TR;

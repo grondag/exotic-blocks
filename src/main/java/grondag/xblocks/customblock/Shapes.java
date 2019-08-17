@@ -1,9 +1,9 @@
-package grondag.niceblocks.customblock;
+package grondag.xblocks.customblock;
 
 import java.util.function.Function;
 
-import grondag.niceblocks.NiceBlocks;
-import grondag.niceblocks.basics.Granite;
+import grondag.xblocks.XB;
+import grondag.xblocks.basics.Granite;
 import grondag.xm.api.block.XmBlockRegistry;
 import grondag.xm.api.block.base.StairLike;
 import grondag.xm.api.connect.world.BlockTest;
@@ -67,7 +67,7 @@ public class Shapes {
         Identifier id;
         
         final Block shapeTest = new Block(Block.Settings.copy(Blocks.ACACIA_LOG));
-        id = new Identifier(NiceBlocks.MODID, "shapetest");
+        id = new Identifier(XB.MODID, "shapetest");
         Registry.BLOCK.add(id, shapeTest);
         Registry.ITEM.add(id, new BlockItem(shapeTest, new Item.Settings().maxCount(64).group(ItemGroup.BUILDING_BLOCKS)));
         
@@ -88,7 +88,7 @@ public class Shapes {
 //                .build());
         
         final Block graniteWedgeX = StairLike.ofAxisX(Blocks.POLISHED_GRANITE.getDefaultState(), Block.Settings.copy(Blocks.POLISHED_GRANITE), Wedge.INSTANCE::newState);
-        id = new Identifier(NiceBlocks.MODID, "polished_granite_wedge_x");
+        id = new Identifier(XB.MODID, "polished_granite_wedge_x");
         Registry.BLOCK.add(id, graniteWedgeX);
         Registry.ITEM.add(id, new BlockItem(graniteWedgeX, new Item.Settings().maxCount(64).group(ItemGroup.BUILDING_BLOCKS)));
         
@@ -99,7 +99,7 @@ public class Shapes {
         
         
         final Block graniteDodec = new Block(Block.Settings.copy(Blocks.POLISHED_GRANITE));
-        id = new Identifier(NiceBlocks.MODID, "polished_granite_dodec");
+        id = new Identifier(XB.MODID, "polished_granite_dodec");
         Registry.BLOCK.add(id, graniteDodec);
         Registry.ITEM.add(id, new BlockItem(graniteDodec, new Item.Settings().maxCount(64).group(ItemGroup.BUILDING_BLOCKS)));
         
@@ -137,7 +137,7 @@ public class Shapes {
                 .releaseToImmutable();
 
         final Block column = new PillarBlock(FabricBlockSettings.of(Material.STONE).build());
-        Identifier id = new Identifier(NiceBlocks.MODID, "square_column");
+        Identifier id = new Identifier(XB.MODID, "square_column");
         Registry.BLOCK.add(id, column);
         Registry.ITEM.add(id, new BlockItem(column, new Item.Settings().maxCount(64).group(ItemGroup.BUILDING_BLOCKS)));
         

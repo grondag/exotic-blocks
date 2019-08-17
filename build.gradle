@@ -7,9 +7,9 @@ plugins {
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
-archivesBaseName = 'niceblocks'
+archivesBaseName = 'exotic-blocks'
 group = 'grondag'
-def version_tag = 'niceblocks_version'
+def version_tag = 'xblocks_version'
 
 if (grgit == null) {
 	version = '99.0.0-nogit'

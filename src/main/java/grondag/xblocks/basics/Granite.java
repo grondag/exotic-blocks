@@ -1,4 +1,4 @@
-package grondag.niceblocks.basics;
+package grondag.xblocks.basics;
 
 import grondag.xm.api.block.XmBlockRegistry;
 import grondag.xm.api.modelstate.SimpleModelStateFunction;

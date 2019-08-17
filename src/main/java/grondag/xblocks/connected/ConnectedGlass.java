@@ -1,4 +1,4 @@
-package grondag.niceblocks.connected;
+package grondag.xblocks.connected;
 
 import grondag.xm.api.block.XmBlockRegistry;
 import grondag.xm.api.modelstate.SimpleModelStateFunction;

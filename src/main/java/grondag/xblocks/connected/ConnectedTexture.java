@@ -1,4 +1,4 @@
-package grondag.niceblocks.connected;
+package grondag.xblocks.connected;
 
 import static grondag.xm.api.texture.TextureGroup.STATIC_BORDERS;
 import static grondag.xm.api.texture.TextureRenderIntent.OVERLAY_ONLY;
@@ -10,12 +10,12 @@ import grondag.xm.api.texture.TextureSet;
 public class ConnectedTexture {
     public static final TextureSet GLASS_BORDER = TextureSet.builder()
             .displayNameToken("fancy_glass")
-            .baseTextureName("niceblocks:blocks/glass")
+            .baseTextureName("exotic-blocks:blocks/glass")
             .versionCount(1)
             .scale(SINGLE)
             .layout(CustomTextureLayout.BORDER_LAYOUT)
             .rotation(ROTATE_NONE)
             .renderIntent(OVERLAY_ONLY)
             .groups(STATIC_BORDERS)
-            .build("niceblocks:fancy_glass");
+            .build("exotic-blocks:fancy_glass");
 }

@@ -1,24 +1,24 @@
 {
   "schemaVersion": 1,
-  "id": "niceblocks",
+  "id": "exotic-blocks",
   "version": "${version}",
 
   "name": "Nice Blocks",
-  "description": "Test and Tutorial Companion Mod for Exotic Matter",
+  "description": "Building/Test Mod for Exotic Matter",
   "authors": [
     "Grondag"
   ],
   "contact": {
-    "homepage": "https://github.com/grondag/niceblocks",
-    "sources": "https://github.com/grondag/niceblocks"
+    "homepage": "https://github.com/grondag/exotic-blocks",
+    "sources": "https://github.com/grondag/exotic-blocks"
   },
 
   "license": "Apache 2.0",
-  "icon": "assets/niceblocks/icon.png",
+  "icon": "assets/exotic-blocks/icon.png",
 
   "environment": "*",
   "entrypoints": {
-  	"main": [ "grondag.niceblocks.NiceBlocks" ]
+  	"main": [ "grondag.xblocks.XB" ]
   },
   "mixins": [
   ],
