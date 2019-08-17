@@ -11,10 +11,11 @@ import grondag.xm.api.modelstate.SimpleModelState;
 import grondag.xm.api.modelstate.SimpleModelStateFunction;
 import grondag.xm.api.modelstate.SimpleModelStateMap;
 import grondag.xm.api.paint.XmPaint;
+import grondag.xm.api.primitive.simple.CubeWithAxis;
+import grondag.xm.api.primitive.simple.Sphere;
+import grondag.xm.api.primitive.simple.SquareColumn;
+import grondag.xm.api.primitive.simple.Wedge;
 import grondag.xm.api.texture.XmTextures;
-import grondag.xm.init.XmPrimitives;
-import grondag.xm.model.primitive.AxisCubePrimitive;
-import grondag.xm.model.primitive.SquareColumnPrimitive;
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderLayer;
@@ -72,9 +73,9 @@ public class Shapes {
         
         XmBlockRegistry.addBlockStates(shapeTest, bs -> SimpleModelStateFunction.builder()
                 .withDefaultState(((SimpleModelStateMap.Modifier)Shapes::testShape).apply(
-                        XmPrimitives.CUBE_AXIS.newState()
-                            .paint(AxisCubePrimitive.SURFACE_ENDS, RED)
-                            .paint(AxisCubePrimitive.SURFACE_SIDES, BLUE), bs))
+                        CubeWithAxis.INSTANCE.newState()
+                            .paint(CubeWithAxis.SURFACE_ENDS, RED)
+                            .paint(CubeWithAxis.SURFACE_SIDES, BLUE), bs))
                 .withUpdate((SimpleModelStateMap.Modifier)Shapes::testShape)
                 .build());
         
@@ -86,14 +87,14 @@ public class Shapes {
 //                .withUpdate((SimpleModelStateMap.Modifier)Shapes::testShape)
 //                .build());
         
-        final Block graniteWedgeX = StairLike.ofAxisX(Blocks.POLISHED_GRANITE.getDefaultState(), Block.Settings.copy(Blocks.POLISHED_GRANITE), XmPrimitives.WEDGE::newState);
+        final Block graniteWedgeX = StairLike.ofAxisX(Blocks.POLISHED_GRANITE.getDefaultState(), Block.Settings.copy(Blocks.POLISHED_GRANITE), Wedge.INSTANCE::newState);
         id = new Identifier(NiceBlocks.MODID, "polished_granite_wedge_x");
         Registry.BLOCK.add(id, graniteWedgeX);
         Registry.ITEM.add(id, new BlockItem(graniteWedgeX, new Item.Settings().maxCount(64).group(ItemGroup.BUILDING_BLOCKS)));
         
         XmBlockRegistry.addBlockStates(graniteWedgeX, bs -> SimpleModelStateFunction.builder()
                 .withDefaultState(StairLike.MODELSTATE_FROM_BLOCKSTATE.apply(
-                        XmPrimitives.WEDGE.newState().paintAll(Granite.GRANITE_POLISHED), bs))
+                        Wedge.INSTANCE.newState().paintAll(Granite.GRANITE_POLISHED), bs))
                 .build());
         
         
@@ -103,15 +104,15 @@ public class Shapes {
         Registry.ITEM.add(id, new BlockItem(graniteDodec, new Item.Settings().maxCount(64).group(ItemGroup.BUILDING_BLOCKS)));
         
         XmBlockRegistry.addBlock(graniteDodec, SimpleModelStateFunction.ofDefaultState(
-                XmPrimitives.SPHERE.newState()
+                Sphere.INSTANCE.newState()
                     .paintAll(Granite.GRANITE_POLISHED)
                     .releaseToImmutable()));
     }
     
     
     private static void initSquareColumn() {
-        final SimpleModelState defaultState = XmPrimitives.COLUMN_SQUARE.newState()
-                .paint(SquareColumnPrimitive.SURFACE_MAIN, XmPaint.finder()
+        final SimpleModelState defaultState = SquareColumn.INSTANCE.newState()
+                .paint(SquareColumn.SURFACE_MAIN, XmPaint.finder()
                         .textureDepth(2)
                         .texture(0, XmTextures.BIGTEX_SANDSTONE)
                         .textureColor(0, 0xFF99BBAA)
@@ -119,11 +120,11 @@ public class Shapes {
                         .blendMode(1, BlockRenderLayer.TRANSLUCENT)
                         .textureColor(1, 0xFF709080)
                         .find())
-                .paint(SquareColumnPrimitive.SURFACE_CUT, XmPaint.finder()
+                .paint(SquareColumn.SURFACE_CUT, XmPaint.finder()
                         .texture(0, XmTextures.BIGTEX_SANDSTONE)
                         .textureColor(0, 0xFF99BBAA)
                         .find())
-                .paint(SquareColumnPrimitive.SURFACE_LAMP, XmPaint.finder()
+                .paint(SquareColumn.SURFACE_LAMP, XmPaint.finder()
                         .disableAo(0, true)
                         .disableDiffuse(0, true)
                         .emissive(0, true)
@@ -131,8 +132,8 @@ public class Shapes {
                         .textureColor(0, 0xFFDDFFFF)
                         .find())
                 .apply(s -> { 
-                        SquareColumnPrimitive.setCutCount(3, s);
-                        SquareColumnPrimitive.setCutsOnEdge(false, s);})
+                        SquareColumn.setCutCount(3, s);
+                        SquareColumn.setCutsOnEdge(false, s);})
                 .releaseToImmutable();
 
         final Block column = new PillarBlock(FabricBlockSettings.of(Material.STONE).build());

@@ -3,7 +3,7 @@ package grondag.niceblocks.connected;
 import grondag.xm.api.block.XmBlockRegistry;
 import grondag.xm.api.modelstate.SimpleModelStateFunction;
 import grondag.xm.api.paint.XmPaint;
-import grondag.xm.init.XmPrimitives;
+import grondag.xm.api.primitive.simple.CubeWithAxisAndFace;
 import net.minecraft.block.BlockRenderLayer;
 import net.minecraft.block.Blocks;
 
@@ -18,7 +18,7 @@ public class ConnectedGlass {
                 .find();
         
         final SimpleModelStateFunction stateFunc = SimpleModelStateFunction.ofDefaultState(
-                XmPrimitives.CUBE.newState()
+                CubeWithAxisAndFace.INSTANCE.newState()
                     .paintAll(paint)
                     .releaseToImmutable());
         
