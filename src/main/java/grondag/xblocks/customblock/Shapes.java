@@ -79,13 +79,6 @@ public class Shapes {
                 .withUpdate((SimpleModelStateMap.Modifier)Shapes::testShape)
                 .build());
         
-//        XmBlockRegistry.addBlockStates(shapeTest, bs -> SimpleModelStateFunction.builder()
-//                .withDefaultState(((SimpleModelStateMap.Modifier)Shapes::testShape).apply(
-//                        XmPrimitives.CUBE.newState()
-//                            .paint(CubePrimitive.SURFACE_BOTTOM, RED)
-//                            .paint(CubePrimitive.SURFACE_FRONT, BLUE), bs))
-//                .withUpdate((SimpleModelStateMap.Modifier)Shapes::testShape)
-//                .build());
         
         final Block graniteWedgeX = StairLike.ofAxisX(Blocks.POLISHED_GRANITE.getDefaultState(), Block.Settings.copy(Blocks.POLISHED_GRANITE), Wedge.INSTANCE::newState);
         id = new Identifier(XB.MODID, "polished_granite_wedge_x");

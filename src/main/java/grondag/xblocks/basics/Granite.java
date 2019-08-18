@@ -3,7 +3,7 @@ package grondag.xblocks.basics;
 import grondag.xm.api.block.XmBlockRegistry;
 import grondag.xm.api.modelstate.SimpleModelStateFunction;
 import grondag.xm.api.paint.XmPaint;
-import grondag.xm.api.primitive.simple.CubeWithAxisAndFace;
+import grondag.xm.api.primitive.simple.Cube;
 import grondag.xm.api.texture.XmTextures;
 import net.minecraft.block.BlockRenderLayer;
 import net.minecraft.block.Blocks;
@@ -33,12 +33,12 @@ public class Granite {
     
     public static void init() {
         XmBlockRegistry.addBlock(Blocks.GRANITE, SimpleModelStateFunction.ofDefaultState(
-                CubeWithAxisAndFace.INSTANCE.newState()
+                Cube.INSTANCE.newState()
                     .paintAll(GRANITE_RAW)
                     .releaseToImmutable()));
         
         XmBlockRegistry.addBlock(Blocks.POLISHED_GRANITE, SimpleModelStateFunction.ofDefaultState(
-                CubeWithAxisAndFace.INSTANCE.newState()
+                Cube.INSTANCE.newState()
                     .paintAll(GRANITE_POLISHED)
                     .releaseToImmutable()));
 
