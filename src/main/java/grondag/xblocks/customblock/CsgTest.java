@@ -5,19 +5,19 @@ import java.util.function.Function;
 import grondag.xblocks.XB;
 import grondag.xm.api.block.XmBlockRegistry;
 import grondag.xm.api.collision.CollisionDispatcher;
-import grondag.xm.api.mesh.PolyTransform;
+import grondag.xm.api.mesh.CSG;
+import grondag.xm.api.mesh.CsgMesh;
+import grondag.xm.api.mesh.MeshHelper;
+import grondag.xm.api.mesh.WritableMesh;
+import grondag.xm.api.mesh.XmMesh;
+import grondag.xm.api.mesh.XmMeshes;
+import grondag.xm.api.mesh.polygon.PolyTransform;
 import grondag.xm.api.modelstate.SimpleModelStateFunction;
 import grondag.xm.api.paint.XmPaint;
 import grondag.xm.api.primitive.SimplePrimitive;
 import grondag.xm.api.primitive.surface.XmSurface;
 import grondag.xm.api.primitive.surface.XmSurfaceList;
 import grondag.xm.api.texture.XmTextures;
-import grondag.xm.mesh.stream.CsgPolyStream;
-import grondag.xm.mesh.stream.PolyStream;
-import grondag.xm.mesh.stream.PolyStreams;
-import grondag.xm.mesh.stream.WritablePolyStream;
-import grondag.xm.model.varia.CSG;
-import grondag.xm.model.varia.MeshHelper;
 import grondag.xm.painting.SurfaceTopology;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -59,10 +59,10 @@ public class CsgTest {
             .build();
     
     
-    static final Function<PolyTransform, PolyStream> POLY_FACTORY = transform -> {
-        CsgPolyStream quadsA = PolyStreams.claimCsg();
-        CsgPolyStream quadsB = PolyStreams.claimCsg();
-        CsgPolyStream quadsC = PolyStreams.claimCsg();
+    static final Function<PolyTransform, XmMesh> POLY_FACTORY = transform -> {
+        CsgMesh quadsA = XmMeshes.claimCsg();
+        CsgMesh quadsB = XmMeshes.claimCsg();
+        CsgMesh quadsC = XmMeshes.claimCsg();
 
         quadsA.writer()
             .lockUV(0, true)
@@ -85,7 +85,7 @@ public class CsgTest {
         quadsA.saveDefaults();
         MeshHelper.makePaintableBox(0.35f, 0.35f, 0f, 0.5f, 0.65f, 1f, quadsA);
         
-        WritablePolyStream output = PolyStreams.claimWritable();
+        WritableMesh output = XmMeshes.claimWritable();
         CSG.difference(quadsC, quadsA, output);
         
         quadsA.release();
