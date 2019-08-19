@@ -16,7 +16,7 @@
 package grondag.xblocks.connected;
 
 import grondag.xm.api.block.XmBlockRegistry;
-import grondag.xm.api.modelstate.SimpleModelStateFunction;
+import grondag.xm.api.modelstate.WorldToSimpleModelState;
 import grondag.xm.api.paint.XmPaint;
 import grondag.xm.api.primitive.simple.Cube;
 import net.minecraft.block.BlockRenderLayer;
@@ -32,7 +32,7 @@ public class ConnectedGlass {
                 .textureColor(0, 0xFFAAAAAA)
                 .find();
         
-        final SimpleModelStateFunction stateFunc = SimpleModelStateFunction.ofDefaultState(
+        final WorldToSimpleModelState stateFunc = WorldToSimpleModelState.ofDefaultState(
                 Cube.INSTANCE.newState()
                     .paintAll(paint)
                     .releaseToImmutable());

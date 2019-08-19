@@ -29,7 +29,7 @@ import grondag.xm.api.mesh.WritableMesh;
 import grondag.xm.api.mesh.XmMesh;
 import grondag.xm.api.mesh.XmMeshes;
 import grondag.xm.api.mesh.polygon.PolyTransform;
-import grondag.xm.api.modelstate.SimpleModelStateFunction;
+import grondag.xm.api.modelstate.WorldToSimpleModelState;
 import grondag.xm.api.paint.SurfaceTopology;
 import grondag.xm.api.primitive.SimplePrimitive;
 import grondag.xm.api.primitive.surface.XmSurface;
@@ -65,13 +65,13 @@ public class CsgTest {
             .lockUV(0, true)
             .surface(SURFACES.get(0));
         quadsA.saveDefaults();
-        MeshHelper.makePaintableBox(0f, 0.4f, 0.4f, 1.0f, 0.6f, 0.6f, quadsA);
+        MeshHelper.box(0f, 0.4f, 0.4f, 1.0f, 0.6f, 0.6f, quadsA);
 
         quadsB.writer()
             .lockUV(0, true)
             .surface(SURFACES.get(1));
         quadsB.saveDefaults();
-        MeshHelper.makeIcosahedron(new Vec3d(.5, .5, .5), 0.4, quadsB, false);
+        MeshHelper.icosahedron(new Vec3d(.5, .5, .5), 0.4, quadsB, false);
 
         CSG.difference(quadsB, quadsA, quadsC);
 
@@ -80,7 +80,7 @@ public class CsgTest {
             .lockUV(0, false)
             .surface(SURFACES.get(2));
         quadsA.saveDefaults();
-        MeshHelper.makePaintableBox(0.35f, 0.35f, 0f, 0.5f, 0.65f, 1f, quadsA);
+        MeshHelper.box(0.35f, 0.35f, 0f, 0.5f, 0.65f, 1f, quadsA);
         
         WritableMesh output = XmMeshes.claimWritable();
         CSG.difference(quadsC, quadsA, output);
@@ -121,7 +121,7 @@ public class CsgTest {
         Registry.BLOCK.add(id, csgTest);
         Registry.ITEM.add(id, new BlockItem(csgTest, new Item.Settings().maxCount(64).group(ItemGroup.BUILDING_BLOCKS)));
         
-        XmBlockRegistry.addBlock(csgTest, SimpleModelStateFunction.ofDefaultState(
+        XmBlockRegistry.addBlock(csgTest, WorldToSimpleModelState.ofDefaultState(
                 CSG_TEST_PRIMITIVE.newState()
                     .paint(SURFACES.get(0), RED)
                     .paint(SURFACES.get(1), BLUE)

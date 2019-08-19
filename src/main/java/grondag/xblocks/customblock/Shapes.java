@@ -23,7 +23,7 @@ import grondag.xm.api.block.XmBlockRegistry;
 import grondag.xm.api.block.base.StairLike;
 import grondag.xm.api.connect.world.BlockTest;
 import grondag.xm.api.modelstate.SimpleModelState;
-import grondag.xm.api.modelstate.SimpleModelStateFunction;
+import grondag.xm.api.modelstate.WorldToSimpleModelState;
 import grondag.xm.api.modelstate.SimpleModelStateMap;
 import grondag.xm.api.paint.XmPaint;
 import grondag.xm.api.primitive.simple.CubeWithAxis;
@@ -86,7 +86,7 @@ public class Shapes {
         Registry.BLOCK.add(id, shapeTest);
         Registry.ITEM.add(id, new BlockItem(shapeTest, new Item.Settings().maxCount(64).group(ItemGroup.BUILDING_BLOCKS)));
         
-        XmBlockRegistry.addBlockStates(shapeTest, bs -> SimpleModelStateFunction.builder()
+        XmBlockRegistry.addBlockStates(shapeTest, bs -> WorldToSimpleModelState.builder()
                 .withDefaultState(((SimpleModelStateMap.Modifier)Shapes::testShape).apply(
                         CubeWithAxis.INSTANCE.newState()
                             .paint(CubeWithAxis.SURFACE_ENDS, RED)
@@ -100,7 +100,7 @@ public class Shapes {
         Registry.BLOCK.add(id, graniteWedgeX);
         Registry.ITEM.add(id, new BlockItem(graniteWedgeX, new Item.Settings().maxCount(64).group(ItemGroup.BUILDING_BLOCKS)));
         
-        XmBlockRegistry.addBlockStates(graniteWedgeX, bs -> SimpleModelStateFunction.builder()
+        XmBlockRegistry.addBlockStates(graniteWedgeX, bs -> WorldToSimpleModelState.builder()
                 .withDefaultState(StairLike.MODELSTATE_FROM_BLOCKSTATE.apply(
                         Wedge.INSTANCE.newState().paintAll(Granite.GRANITE_POLISHED), bs))
                 .build());
@@ -111,7 +111,7 @@ public class Shapes {
         Registry.BLOCK.add(id, graniteDodec);
         Registry.ITEM.add(id, new BlockItem(graniteDodec, new Item.Settings().maxCount(64).group(ItemGroup.BUILDING_BLOCKS)));
         
-        XmBlockRegistry.addBlock(graniteDodec, SimpleModelStateFunction.ofDefaultState(
+        XmBlockRegistry.addBlock(graniteDodec, WorldToSimpleModelState.ofDefaultState(
                 Sphere.INSTANCE.newState()
                     .paintAll(Granite.GRANITE_POLISHED)
                     .releaseToImmutable()));
@@ -156,7 +156,7 @@ public class Shapes {
                     && fromBlock.contains(PillarBlock.AXIS)
                     && fromBlock.get(PillarBlock.AXIS) == toBlock.get(PillarBlock.AXIS);};
         
-        final Function<BlockState, SimpleModelStateFunction> stateFunc = bs -> SimpleModelStateFunction.builder()
+        final Function<BlockState, WorldToSimpleModelState> stateFunc = bs -> WorldToSimpleModelState.builder()
                     .withDefaultState(SimpleModelState.AXIS_FROM_BLOCKSTATE.apply(defaultState.mutableCopy(), bs))
                     .withJoin(joinFunc)
                     .build();
