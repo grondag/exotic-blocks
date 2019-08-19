@@ -2,8 +2,9 @@ package grondag.xblocks;
 
 import grondag.xblocks.basics.Granite;
 import grondag.xblocks.connected.ConnectedGlass;
-import grondag.xblocks.customblock.CsgTest;
 import grondag.xblocks.customblock.Shapes;
+import grondag.xblocks.test.CsgTest;
+import grondag.xblocks.test.RotationTest;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.util.Identifier;
 
@@ -15,6 +16,7 @@ public class XB implements ModInitializer {
         ConnectedGlass.init();
         Shapes.init();
         CsgTest.init();
+        RotationTest.init();
     }
     
     public static String idString(String path) {

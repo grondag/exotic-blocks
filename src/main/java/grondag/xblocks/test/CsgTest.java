@@ -1,6 +1,8 @@
-package grondag.xblocks.customblock;
+package grondag.xblocks.test;
 
 import java.util.function.Function;
+
+import static grondag.xblocks.test.TestPaints.*;
 
 import grondag.xblocks.XB;
 import grondag.xm.api.block.XmBlockRegistry;
@@ -13,12 +15,10 @@ import grondag.xm.api.mesh.XmMesh;
 import grondag.xm.api.mesh.XmMeshes;
 import grondag.xm.api.mesh.polygon.PolyTransform;
 import grondag.xm.api.modelstate.SimpleModelStateFunction;
-import grondag.xm.api.paint.XmPaint;
+import grondag.xm.api.paint.SurfaceTopology;
 import grondag.xm.api.primitive.SimplePrimitive;
 import grondag.xm.api.primitive.surface.XmSurface;
 import grondag.xm.api.primitive.surface.XmSurfaceList;
-import grondag.xm.api.texture.XmTextures;
-import grondag.xm.painting.SurfaceTopology;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -34,24 +34,6 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 
 public class CsgTest {
-    static final XmPaint RED = XmPaint.finder()
-            .textureDepth(1)
-            .texture(0, XmTextures.TILE_NOISE_SUBTLE)
-            .textureColor(0, 0xFFFF8080)
-            .find();
-    
-    static final XmPaint BLUE = XmPaint.finder()
-            .textureDepth(1)
-            .texture(0, XmTextures.TILE_NOISE_SUBTLE)
-            .textureColor(0, 0xFF8080FF)
-            .find();
-    
-    static final XmPaint GREEN = XmPaint.finder()
-            .textureDepth(1)
-            .texture(0, XmTextures.TILE_NOISE_SUBTLE)
-            .textureColor(0, 0xFF80FF80)
-            .find();
-    
     static final XmSurfaceList SURFACES = XmSurfaceList.builder()
             .add("red", SurfaceTopology.CUBIC, XmSurface.FLAG_NONE)
             .add("green", SurfaceTopology.CUBIC, XmSurface.FLAG_NONE)
