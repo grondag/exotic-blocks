@@ -51,35 +51,22 @@ dependencies {
 	modCompile "net.fabricmc:fabric-loader:${project.loader_version}"
 	modCompile "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	
-	modApi ("grondag:exotic-matter:${project.exotic_matter_version}+") {
-        exclude group :"net.fabricmc.fabric-api"
-	}
-	
-	modApi ("grondag:exotic-art-borders:1+") {
-        exclude group :"net.fabricmc.fabric-api"
-	}
-	
-	modApi ("grondag:exotic-art-bigtex:1+") {
-        exclude group :"net.fabricmc.fabric-api"
-	}
-	
-	modApi ("grondag:exotic-art-decals:1+") {
-        exclude group :"net.fabricmc.fabric-api"
-	}
-	
-	modApi ("grondag:exotic-art-tiles:1+") {
-        exclude group :"net.fabricmc.fabric-api"
-	}
-	
-	// For dev env
-	modRuntime ("com.jamieswhiteshirt:developer-mode:${project.devmode_version}") {
+	modImplementation ("grondag:exotic-matter:${project.exotic_matter_version}+") {
         exclude group :"net.fabricmc.fabric-api"
 	}
 	
 	modRuntime ("io.github.prospector:modmenu:${project.modmenu_version}") {
         exclude group :"net.fabricmc.fabric-api"
 	}
-		
+	
+	// For dev env testing 
+	modRuntime "com.jamieswhiteshirt:developer-mode:${project.devmode_version}" {
+        exclude group :"net.fabricmc.fabric-api"
+	}
+	modRuntime "grondag:canvas:${project.canvas_version}+" {
+        exclude group :"net.fabricmc.fabric-api"
+	}
+
 	// dev env annotation support
 	compile "org.apiguardian:apiguardian-api:1.0.0"
 	compile "com.google.code.findbugs:jsr305:3.0.2"
