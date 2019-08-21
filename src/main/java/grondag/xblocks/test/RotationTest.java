@@ -45,6 +45,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 
+/** 
+ * Test the various rotations enumerated in {@code OrientationType} 
+ */
 public class RotationTest {
     private RotationTest(){}
     

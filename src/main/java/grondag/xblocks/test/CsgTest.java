@@ -101,12 +101,6 @@ public class CsgTest {
     
     public static void init() {
         final Block csgTest = new Block(Block.Settings.copy(Blocks.ACACIA_LOG)) {
-//            //TODO: remove
-//            @Override
-//            public boolean hasDynamicBounds() {
-//                return false;
-//            }
-            
             @Override
             public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos pos, EntityContext entityContext) {
                 return CollisionDispatcher.shapeFor(CSG_TEST_PRIMITIVE.defaultState());

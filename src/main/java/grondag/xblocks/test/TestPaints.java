@@ -18,6 +18,7 @@ package grondag.xblocks.test;
 import grondag.xm.api.paint.XmPaint;
 import grondag.xm.api.texture.XmTextures;
 
+/** paints used for test models - useful for identifying surfaces visually */
 public class TestPaints {
     
     private TestPaints() {}

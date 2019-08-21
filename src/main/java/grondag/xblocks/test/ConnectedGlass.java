@@ -13,7 +13,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  ******************************************************************************/
-package grondag.xblocks.connected;
+package grondag.xblocks.test;
 
 import grondag.xm.api.block.XmBlockRegistry;
 import grondag.xm.api.modelstate.WorldToSimpleModelState;
@@ -22,11 +22,14 @@ import grondag.xm.api.primitive.simple.Cube;
 import net.minecraft.block.BlockRenderLayer;
 import net.minecraft.block.Blocks;
 
+/**
+ * Tests adding connected textures to existing blocks by giving glass a custom connected texture.
+ */
 public class ConnectedGlass {
     public static void init() {
         // Define glass appearance
         final XmPaint paint = XmPaint.finder()
-                .texture(0, ConnectedTexture.GLASS_BORDER)
+                .texture(0, CustomTextureLayout.GLASS_BORDER)
                 .blendMode(0, BlockRenderLayer.TRANSLUCENT)
                 .textureColor(0, 0xFFAAAAAA)
                 .find();
