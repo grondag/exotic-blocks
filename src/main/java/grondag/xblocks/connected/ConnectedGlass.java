@@ -24,7 +24,6 @@ import net.minecraft.block.Blocks;
 
 public class ConnectedGlass {
     public static void init() {
-        
         // Define glass appearance
         final XmPaint paint = XmPaint.finder()
                 .texture(0, ConnectedTexture.GLASS_BORDER)
