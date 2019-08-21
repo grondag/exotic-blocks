@@ -51,7 +51,7 @@ dependencies {
 	modCompile "net.fabricmc:fabric-loader:${project.loader_version}"
 	modCompile "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	
-	modImplementation ("grondag:exotic-matter:${project.exotic_matter_version}+") {
+	modImplementation ("grondag:exotic-matter:${project.exotic_matter_version}.+") {
         exclude group :"net.fabricmc.fabric-api"
 	}
 	
@@ -60,10 +60,10 @@ dependencies {
 	}
 	
 	// For dev env testing 
-	modRuntime "com.jamieswhiteshirt:developer-mode:${project.devmode_version}" {
+	modRuntime ("com.jamieswhiteshirt:developer-mode:${project.devmode_version}") {
         exclude group :"net.fabricmc.fabric-api"
 	}
-	modRuntime "grondag:canvas:${project.canvas_version}+" {
+	modRuntime ("grondag:canvas:${project.canvas_version}.+") {
         exclude group :"net.fabricmc.fabric-api"
 	}
 
