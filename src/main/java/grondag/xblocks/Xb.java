@@ -16,14 +16,20 @@
 package grondag.xblocks;
 
 import grondag.xblocks.test.ConnectedGlass;
+import grondag.xblocks.test.ConnectedShape;
 import grondag.xblocks.test.CsgTest;
 import grondag.xblocks.test.Granite;
 import grondag.xblocks.test.RotationTest;
-import grondag.xblocks.test.ConnectedShape;
+import grondag.xblocks.test.Shapes;
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.block.Block;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 
-public class XB implements ModInitializer {
+public class Xb implements ModInitializer {
     public static final String MODID = "exotic-blocks";
     @Override
     public void onInitialize() {
@@ -32,13 +38,21 @@ public class XB implements ModInitializer {
         ConnectedShape.init();
         CsgTest.init();
         RotationTest.init();
+        Shapes.init();
     }
-    
+
     public static String idString(String path) {
         return MODID + ":" + path;
     }
     
     public static Identifier id(String path) {
         return new Identifier(MODID, path);
+    }
+    
+    public static Block register(Block block, String idString) {
+        Identifier id = id(idString);
+        Registry.BLOCK.add(id, block);
+        Registry.ITEM.add(id, new BlockItem(block, new Item.Settings().maxCount(64).group(ItemGroup.BUILDING_BLOCKS)));
+        return block;
     }
 }

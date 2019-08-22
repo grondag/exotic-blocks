@@ -15,23 +15,18 @@
  ******************************************************************************/
 package grondag.xblocks.test;
 
-import grondag.xblocks.XB;
+import grondag.xblocks.Xb;
 import grondag.xm.api.block.XmBlockRegistry;
 import grondag.xm.api.block.base.StairLike;
 import grondag.xm.api.modelstate.WorldToSimpleModelState;
 import grondag.xm.api.paint.XmPaint;
 import grondag.xm.api.primitive.simple.Cube;
-import grondag.xm.api.primitive.simple.Sphere;
+import grondag.xm.api.primitive.simple.Icosahedron;
 import grondag.xm.api.primitive.simple.Wedge;
 import grondag.xm.api.texture.XmTextures;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderLayer;
 import net.minecraft.block.Blocks;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 
 /**
  * Example of multi-layer texture plus remodeling and adding new vanilla-like blocks,
@@ -73,21 +68,21 @@ public class Granite {
 
         Block block;
         
-        block = register(StairLike.ofAxisY(Blocks.GRANITE.getDefaultState(), Block.Settings.copy(Blocks.GRANITE), Wedge.INSTANCE::newState),
+        block = Xb.register(StairLike.ofAxisY(Blocks.GRANITE.getDefaultState(), Block.Settings.copy(Blocks.GRANITE), Wedge.INSTANCE::newState),
                 "granite_wedge_y");
         XmBlockRegistry.addBlockStates(block, bs -> WorldToSimpleModelState.builder()
                 .withDefaultState(StairLike.MODELSTATE_FROM_BLOCKSTATE.apply(
                         Wedge.INSTANCE.newState().paintAll(GRANITE_RAW), bs))
                 .build());
         
-        block = register(StairLike.ofAxisX(Blocks.GRANITE.getDefaultState(), Block.Settings.copy(Blocks.GRANITE), Wedge.INSTANCE::newState),
+        block = Xb.register(StairLike.ofAxisX(Blocks.GRANITE.getDefaultState(), Block.Settings.copy(Blocks.GRANITE), Wedge.INSTANCE::newState),
                 "granite_wedge_x");
         XmBlockRegistry.addBlockStates(block, bs -> WorldToSimpleModelState.builder()
                 .withDefaultState(StairLike.MODELSTATE_FROM_BLOCKSTATE.apply(
                         Wedge.INSTANCE.newState().paintAll(GRANITE_RAW), bs))
                 .build());
         
-        block = register(StairLike.ofAxisY(Blocks.GRANITE.getDefaultState(), Block.Settings.copy(Blocks.GRANITE), Wedge.INSTANCE::newState),
+        block = Xb.register(StairLike.ofAxisY(Blocks.GRANITE.getDefaultState(), Block.Settings.copy(Blocks.GRANITE), Wedge.INSTANCE::newState),
                 "granite_wedge_z");
         XmBlockRegistry.addBlockStates(block, bs -> WorldToSimpleModelState.builder()
                 .withDefaultState(StairLike.MODELSTATE_FROM_BLOCKSTATE.apply(
@@ -95,21 +90,21 @@ public class Granite {
                 .build());
         
         
-        block = register(StairLike.ofAxisY(Blocks.POLISHED_GRANITE.getDefaultState(), Block.Settings.copy(Blocks.POLISHED_GRANITE), Wedge.INSTANCE::newState),
+        block = Xb.register(StairLike.ofAxisY(Blocks.POLISHED_GRANITE.getDefaultState(), Block.Settings.copy(Blocks.POLISHED_GRANITE), Wedge.INSTANCE::newState),
                 "polished_granite_wedge_y");
         XmBlockRegistry.addBlockStates(block, bs -> WorldToSimpleModelState.builder()
                 .withDefaultState(StairLike.MODELSTATE_FROM_BLOCKSTATE.apply(
                         Wedge.INSTANCE.newState().paintAll(GRANITE_POLISHED), bs))
                 .build());
         
-        block = register(StairLike.ofAxisX(Blocks.POLISHED_GRANITE.getDefaultState(), Block.Settings.copy(Blocks.POLISHED_GRANITE), Wedge.INSTANCE::newState),
+        block = Xb.register(StairLike.ofAxisX(Blocks.POLISHED_GRANITE.getDefaultState(), Block.Settings.copy(Blocks.POLISHED_GRANITE), Wedge.INSTANCE::newState),
                 "polished_granite_wedge_x");
         XmBlockRegistry.addBlockStates(block, bs -> WorldToSimpleModelState.builder()
                 .withDefaultState(StairLike.MODELSTATE_FROM_BLOCKSTATE.apply(
                         Wedge.INSTANCE.newState().paintAll(GRANITE_POLISHED), bs))
                 .build());
         
-        block = register(StairLike.ofAxisY(Blocks.POLISHED_GRANITE.getDefaultState(), Block.Settings.copy(Blocks.POLISHED_GRANITE), Wedge.INSTANCE::newState),
+        block = Xb.register(StairLike.ofAxisY(Blocks.POLISHED_GRANITE.getDefaultState(), Block.Settings.copy(Blocks.POLISHED_GRANITE), Wedge.INSTANCE::newState),
                 "polished_granite_wedge_z");
         XmBlockRegistry.addBlockStates(block, bs -> WorldToSimpleModelState.builder()
                 .withDefaultState(StairLike.MODELSTATE_FROM_BLOCKSTATE.apply(
@@ -117,24 +112,17 @@ public class Granite {
                 .build());
         
         
-        block = register(new Block(Block.Settings.copy(Blocks.GRANITE)), "granite_dodec");
+        block = Xb.register(new Block(Block.Settings.copy(Blocks.GRANITE)), "granite_icosahedron");
         XmBlockRegistry.addBlock(block, WorldToSimpleModelState.ofDefaultState(
-                Sphere.INSTANCE.newState()
+                Icosahedron.INSTANCE.newState()
                     .paintAll(GRANITE_RAW)
                     .releaseToImmutable()));
         
-        block = register(new Block(Block.Settings.copy(Blocks.POLISHED_GRANITE)), "polished_granite_dodec");
+        block = Xb.register(new Block(Block.Settings.copy(Blocks.POLISHED_GRANITE)), "polished_granite_icosahedron");
         XmBlockRegistry.addBlock(block, WorldToSimpleModelState.ofDefaultState(
-                Sphere.INSTANCE.newState()
+                Icosahedron.INSTANCE.newState()
                     .paintAll(GRANITE_POLISHED)
                     .releaseToImmutable()));
         
-    }
-    
-    private static Block register(Block block, String idString) {
-        Identifier id = XB.id(idString);
-        Registry.BLOCK.add(id, block);
-        Registry.ITEM.add(id, new BlockItem(block, new Item.Settings().maxCount(64).group(ItemGroup.BUILDING_BLOCKS)));
-        return block;
     }
 }

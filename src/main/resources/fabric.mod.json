@@ -18,7 +18,7 @@
 
   "environment": "*",
   "entrypoints": {
-  	"main": [ "grondag.xblocks.XB" ]
+  	"main": [ "grondag.xblocks.Xb" ]
   },
   "mixins": [
   ],

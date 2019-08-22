@@ -19,7 +19,7 @@ import java.util.function.Function;
 
 import static grondag.xblocks.test.TestPaints.*;
 
-import grondag.xblocks.XB;
+import grondag.xblocks.Xb;
 import grondag.xm.api.block.XmBlockRegistry;
 import grondag.xm.api.collision.CollisionDispatcher;
 import grondag.xm.api.mesh.CSG;
@@ -32,6 +32,7 @@ import grondag.xm.api.mesh.polygon.PolyTransform;
 import grondag.xm.api.modelstate.WorldToSimpleModelState;
 import grondag.xm.api.paint.SurfaceTopology;
 import grondag.xm.api.primitive.SimplePrimitive;
+import grondag.xm.api.primitive.simple.Icosahedron;
 import grondag.xm.api.primitive.surface.XmSurface;
 import grondag.xm.api.primitive.surface.XmSurfaceList;
 import net.minecraft.block.Block;
@@ -71,7 +72,7 @@ public class CsgTest {
             .lockUV(0, true)
             .surface(SURFACES.get(1));
         quadsB.saveDefaults();
-        MeshHelper.icosahedron(new Vec3d(.5, .5, .5), 0.4, quadsB, false);
+        Icosahedron.icosahedron(new Vec3d(.5, .5, .5), 0.4, quadsB, false);
 
         CSG.difference(quadsB, quadsA, quadsC);
 
@@ -97,7 +98,7 @@ public class CsgTest {
     static final SimplePrimitive CSG_TEST_PRIMITIVE = SimplePrimitive.builder()
             .surfaceList(SURFACES)
             .polyFactory(POLY_FACTORY)
-            .build(XB.idString("csg_test"));
+            .build(Xb.idString("csg_test"));
     
     public static void init() {
         final Block csgTest = new Block(Block.Settings.copy(Blocks.ACACIA_LOG)) {
@@ -111,7 +112,7 @@ public class CsgTest {
                 return true;
             }
         };
-        Identifier id = XB.id("csgtest");
+        Identifier id = Xb.id("csgtest");
         Registry.BLOCK.add(id, csgTest);
         Registry.ITEM.add(id, new BlockItem(csgTest, new Item.Settings().maxCount(64).group(ItemGroup.BUILDING_BLOCKS)));
         

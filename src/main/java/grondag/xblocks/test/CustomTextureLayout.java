@@ -33,7 +33,7 @@ import static grondag.xm.api.texture.TextureRenderIntent.OVERLAY_ONLY;
 import static grondag.xm.api.texture.TextureRotation.ROTATE_NONE;
 import static grondag.xm.api.texture.TextureScale.SINGLE;
 
-import grondag.xblocks.XB;
+import grondag.xblocks.Xb;
 import grondag.xm.api.texture.TextureLayout;
 import grondag.xm.api.texture.TextureLayoutMap;
 import grondag.xm.api.texture.TextureSet;
@@ -68,12 +68,12 @@ public class CustomTextureLayout {
     
     public static final TextureSet GLASS_BORDER = TextureSet.builder()
     .displayNameToken("fancy_glass")
-    .baseTextureName(XB.idString("blocks/glass"))
+    .baseTextureName(Xb.idString("blocks/glass"))
     .versionCount(1)
     .scale(SINGLE)
     .layout(BORDER_LAYOUT)
     .rotation(ROTATE_NONE)
     .renderIntent(OVERLAY_ONLY)
     .groups(STATIC_BORDERS)
-    .build(XB.idString("fancy_glass"));
+    .build(Xb.idString("fancy_glass"));
 }

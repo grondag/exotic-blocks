@@ -17,7 +17,7 @@ package grondag.xblocks.test;
 
 import java.util.function.Function;
 
-import grondag.xblocks.XB;
+import grondag.xblocks.Xb;
 import grondag.xm.api.block.XmBlockRegistry;
 import grondag.xm.api.connect.world.BlockTest;
 import grondag.xm.api.modelstate.SimpleModelState;
@@ -68,7 +68,7 @@ public class ConnectedShape {
                 .releaseToImmutable();
 
         final Block column = new PillarBlock(FabricBlockSettings.of(Material.STONE).build());
-        Identifier id = XB.id("square_column");
+        Identifier id = Xb.id("square_column");
         Registry.BLOCK.add(id, column);
         Registry.ITEM.add(id, new BlockItem(column, new Item.Settings().maxCount(64).group(ItemGroup.BUILDING_BLOCKS)));
         
