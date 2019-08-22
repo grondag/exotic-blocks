@@ -23,10 +23,10 @@ public class Shapes {
     
     public static final XmPaint STUFF = XmPaint.finder()
             .textureDepth(2)
-            .texture(0, XmTextures.TILE_COBBLE)
+            .texture(0, XmTextures.TILE_NOISE_MODERATE)
             .textureColor(0, 0xFF9090A0)
             .texture(1, XmTextures.TILE_NOISE_BLUE_A)
-            .textureColor(1, 0x50506060)
+            .textureColor(1, 0x50507070)
             .blendMode(1, BlockRenderLayer.TRANSLUCENT)
             .find();
     

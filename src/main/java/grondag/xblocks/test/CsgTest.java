@@ -15,9 +15,11 @@
  ******************************************************************************/
 package grondag.xblocks.test;
 
-import java.util.function.Function;
+import static grondag.xblocks.test.TestPaints.BLUE;
+import static grondag.xblocks.test.TestPaints.GREEN;
+import static grondag.xblocks.test.TestPaints.RED;
 
-import static grondag.xblocks.test.TestPaints.*;
+import java.util.function.Function;
 
 import grondag.xblocks.Xb;
 import grondag.xm.api.block.XmBlockRegistry;
@@ -32,7 +34,7 @@ import grondag.xm.api.mesh.polygon.PolyTransform;
 import grondag.xm.api.modelstate.WorldToSimpleModelState;
 import grondag.xm.api.paint.SurfaceTopology;
 import grondag.xm.api.primitive.SimplePrimitive;
-import grondag.xm.api.primitive.simple.Icosahedron;
+import grondag.xm.api.primitive.simple.IcosahedralSphere;
 import grondag.xm.api.primitive.surface.XmSurface;
 import grondag.xm.api.primitive.surface.XmSurfaceList;
 import net.minecraft.block.Block;
@@ -44,7 +46,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
@@ -72,7 +73,7 @@ public class CsgTest {
             .lockUV(0, true)
             .surface(SURFACES.get(1));
         quadsB.saveDefaults();
-        Icosahedron.icosahedron(new Vec3d(.5, .5, .5), 0.4, quadsB, false);
+        IcosahedralSphere.sphere(quadsB);
 
         CSG.difference(quadsB, quadsA, quadsC);
 
@@ -92,7 +93,7 @@ public class CsgTest {
 
         return output.releaseToReader();
         
-//        return PolyStreams.claimRecoloredCopy(output);
+//        return XmMeshes.claimRecoloredCopy(output);
     };
     
     static final SimplePrimitive CSG_TEST_PRIMITIVE = SimplePrimitive.builder()
