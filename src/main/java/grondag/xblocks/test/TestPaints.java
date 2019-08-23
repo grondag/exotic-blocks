@@ -17,11 +17,21 @@ package grondag.xblocks.test;
 
 import grondag.xm.api.paint.XmPaint;
 import grondag.xm.api.texture.XmTextures;
+import net.minecraft.block.BlockRenderLayer;
 
-/** paints used for test models - useful for identifying surfaces visually */
+/** paints used for test models */
 public class TestPaints {
-    
     private TestPaints() {}
+    
+    public static final XmPaint STUFF = XmPaint.finder()
+        .textureDepth(2)
+        .texture(0, XmTextures.BIGTEX_SANDSTONE)
+        .textureColor(0, 0xFF9090A0)
+        .texture(1, XmTextures.TILE_NOISE_BLUE_A)
+        .textureColor(1, 0x50507070)
+        .blendMode(1, BlockRenderLayer.TRANSLUCENT)
+        .find();
+    
     
     public static final XmPaint RED = XmPaint.finder()
             .textureDepth(1)

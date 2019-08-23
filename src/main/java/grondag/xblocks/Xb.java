@@ -21,6 +21,7 @@ import grondag.xblocks.test.CsgTest;
 import grondag.xblocks.test.Granite;
 import grondag.xblocks.test.RotationTest;
 import grondag.xblocks.test.Shapes;
+import grondag.xblocks.test.Species;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
@@ -39,6 +40,7 @@ public class Xb implements ModInitializer {
         CsgTest.init();
         RotationTest.init();
         Shapes.init();
+        Species.init();
     }
 
     public static String idString(String path) {

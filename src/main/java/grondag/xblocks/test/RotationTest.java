@@ -116,7 +116,7 @@ public class RotationTest {
         XmBlockRegistry.addBlockStates(block, bs -> WorldToSimpleModelState.builder()
                 .withDefaultState(XmProperties.FACE_MODIFIER.apply(
                         CubeWithFace.INSTANCE.newState()
-                            .paint(CubeWithFace.SURFACE_FRONT, RED)
+                            .paint(CubeWithFace.SURFACE_TOP, RED)
                             .paint(CubeWithFace.SURFACE_SIDES, BLUE), bs))
                 .withUpdate(XmProperties.FACE_MODIFIER)
                 .build());
