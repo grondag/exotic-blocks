@@ -25,7 +25,7 @@
   "depends": {
     "fabricloader": ">=0.4.0",
     "fabric": "*",
-    "exotic-matter": ">=1.1.174"
+    "exotic-matter": "*"
   },
   "custom": {
     "modmenu:api": false,
