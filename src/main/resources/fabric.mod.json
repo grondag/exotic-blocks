@@ -3,7 +3,7 @@
   "id": "exotic-blocks",
   "version": "${version}",
 
-  "name": "Nice Blocks",
+  "name": "Exotic Blocks",
   "description": "Building/Test Mod for Exotic Matter",
   "authors": [
     "Grondag"
@@ -25,7 +25,7 @@
   "depends": {
     "fabricloader": ">=0.4.0",
     "fabric": "*",
-    "exotic-matter": "*"
+    "exotic-matter": ">=1.1.174"
   },
   "custom": {
     "modmenu:api": false,
