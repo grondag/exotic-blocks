@@ -53,7 +53,7 @@ dependencies {
 	
 	modImplementation ("grondag:exotic-matter:${project.exotic_matter_version}.+") {
         exclude group :"net.fabricmc.fabric-api"
-        exclude group :"io.github.prospector"
+        exclude group :"io.github.prospector.modmenu"
 	}
 	
 	modRuntime ("io.github.prospector:modmenu:${project.modmenu_version}") {
@@ -63,12 +63,12 @@ dependencies {
 	// For dev env testing 
 	modRuntime ("com.jamieswhiteshirt:developer-mode:${project.devmode_version}") {
         exclude group :"net.fabricmc.fabric-api"
-        exclude group :"io.github.prospector"
+        exclude group :"io.github.prospector.modmenu"
 	}
     
 	modRuntime ("grondag:canvas:${project.canvas_version}.+") {
         exclude group :"net.fabricmc.fabric-api"
-        exclude group :"io.github.prospector"
+        exclude group :"io.github.prospector.modmenu"
 	}
 
 	// dev env annotation support
