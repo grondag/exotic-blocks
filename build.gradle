@@ -33,7 +33,10 @@ repositories {
     maven { url "https://minecraft.curseforge.com/api/maven" }
     maven { url "https://maven.fabricmc.net/io/github/prospector/modmenu/ModMenu/" }
     maven { url "https://maven.jamieswhiteshirt.com/libs-release/"}
-    
+    maven {
+      name = "Cotton"
+      url = "http://server.bbkr.space:8081/artifactory/libs-release/"
+    }
  	maven {
     	name = "grondag"
     	url = "https://grondag-repo.appspot.com"
@@ -71,6 +74,11 @@ dependencies {
         exclude group :"io.github.prospector.modmenu"
 	}
 
+	modImplementation ("io.github.cottonmc:LibGui:1.3.1") {
+		exclude group :"net.fabricmc.fabric-api"
+	}
+	include "io.github.cottonmc:LibGui:1.3.1"
+	
 	// dev env annotation support
 	compile "org.apiguardian:apiguardian-api:1.0.0"
 	compile "com.google.code.findbugs:jsr305:3.0.2"
