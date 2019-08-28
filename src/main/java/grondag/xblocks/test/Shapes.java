@@ -17,12 +17,17 @@ package grondag.xblocks.test;
 
 import grondag.xblocks.Xb;
 import grondag.xm.api.block.XmBlockRegistry;
+import grondag.xm.api.block.XmBlockState;
 import grondag.xm.api.collision.CollisionDispatcher;
-import grondag.xm.api.modelstate.WorldToSimpleModelState;
+import grondag.xm.api.modelstate.primitive.PrimitiveState;
+import grondag.xm.api.modelstate.primitive.WorldToPrimitiveStateMap;
+import grondag.xm.api.primitive.simple.CylinderWithAxis;
 import grondag.xm.api.primitive.simple.IcosahedralSphere;
+import net.fabricmc.fabric.api.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.PillarBlock;
 import net.minecraft.entity.EntityContext;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
@@ -39,16 +44,35 @@ public class Shapes {
         block = new Block(Block.Settings.copy(Blocks.STONE)) {
             @Override
             public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos pos, EntityContext entityContext) {
-                return CollisionDispatcher.shapeFor(WorldToSimpleModelState.ofDefaultState(IcosahedralSphere.INSTANCE.defaultState())
+                return CollisionDispatcher.shapeFor(WorldToPrimitiveStateMap.ofDefaultState(IcosahedralSphere.INSTANCE.defaultState())
                         .apply(blockState, blockView, pos, false));
             }  
         };
         
         Xb.register(block, "icosphere");
         
-        XmBlockRegistry.addBlock(block, WorldToSimpleModelState.ofDefaultState(
+        XmBlockRegistry.addBlock(block, WorldToPrimitiveStateMap.ofDefaultState(
                 IcosahedralSphere.INSTANCE.newState()
-                    .paintAll(TestPaints.STUFF)
+                    .paintAll(TestPaints.WHITE)
                     .releaseToImmutable()));
+        
+        
+        ////  CYLINDER
+        
+        block = new PillarBlock(FabricBlockSettings.copy(Blocks.STONE).dynamicBounds().build()) {
+            @Override
+            public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos pos, EntityContext entityContext) {
+                return CollisionDispatcher.shapeFor(XmBlockState.modelState(blockState, blockView, pos, false));
+            }
+        };
+        
+        Xb.register(block, "cylinder");
+        
+        XmBlockRegistry.addBlockStates(block, bs -> WorldToPrimitiveStateMap.builder()
+                .withDefaultState(PrimitiveState.AXIS_FROM_BLOCKSTATE.apply(
+                        CylinderWithAxis.INSTANCE.newState()
+                            .paint(CylinderWithAxis.SURFACE_ENDS, TestPaints.STUFF)
+                            .paint(CylinderWithAxis.SURFACE_SIDES, TestPaints.STUFF), bs))
+                .build());
     }
 }

@@ -15,16 +15,15 @@
  ******************************************************************************/
 package grondag.xblocks.test;
 
-import java.util.function.Predicate;
-
 import grondag.fermion.color.ColorHelper;
 import grondag.fermion.modkeys.api.ModKeys;
 import grondag.xblocks.Xb;
-import grondag.xm.api.block.SpeciesHelper;
-import grondag.xm.api.block.SpeciesMode;
 import grondag.xm.api.block.XmBlockRegistry;
-import grondag.xm.api.block.XmProperties;
-import grondag.xm.api.modelstate.WorldToSimpleModelState;
+import grondag.xm.api.connect.species.Species;
+import grondag.xm.api.connect.species.SpeciesFunction;
+import grondag.xm.api.connect.species.SpeciesMode;
+import grondag.xm.api.connect.species.SpeciesProperty;
+import grondag.xm.api.modelstate.primitive.WorldToPrimitiveStateMap;
 import grondag.xm.api.paint.VertexProcessor;
 import grondag.xm.api.paint.XmPaint;
 import grondag.xm.api.primitive.simple.Cube;
@@ -42,7 +41,7 @@ import net.minecraft.util.math.Direction;
 /**
  * Example of varying connected textures via a species attribute.
  */
-public class Species {
+public class SpeciesBlocks {
     public static final VertexProcessor SPECIES_VARIATION = (poly, modelState, surface, paint, textureIndex) -> {
         final int mix = HashCommon.mix(modelState.species());
         final int value = mix & 0xF;
@@ -74,10 +73,10 @@ public class Species {
             @Override
             protected void appendProperties(Builder<Block, BlockState> builder) {
                 super.appendProperties(builder);
-                builder.add(XmProperties.SPECIES);
+                builder.add(SpeciesProperty.SPECIES);
             }
             
-            private final Predicate<BlockState> isSame = bs -> bs.getBlock() == this;
+            private final SpeciesFunction speciesFunc = SpeciesProperty.speciesForBlock(this);
             
             @Override
             public BlockState getPlacementState(ItemPlacementContext context) {
@@ -85,18 +84,18 @@ public class Species {
                 final BlockPos onPos = context.getBlockPos().offset(onFace.getOpposite());
                 final SpeciesMode mode = (context.isPlayerSneaking() || ModKeys.isSuperPressed(context.getPlayer()))
                         ? SpeciesMode.COUNTER_MOST : SpeciesMode.MATCH_MOST;
-                final int species = SpeciesHelper.speciesForPlacement(context.getWorld(), onPos, onFace, mode, isSame);
-                return this.getDefaultState().with(XmProperties.SPECIES, species);
+                final int species = Species.speciesForPlacement(context.getWorld(), onPos, onFace, mode, speciesFunc);
+                return this.getDefaultState().with(SpeciesProperty.SPECIES, species);
             }
             
         };
         
         Xb.register(block, "species_test");
         
-        XmBlockRegistry.addBlockStates(block, bs -> WorldToSimpleModelState.builder()
-                .withJoin(SpeciesHelper.sameBlockAndSpecies())
-                .withUpdate(XmProperties.SPECIES_MODIFIER)
-                .withDefaultState(XmProperties.SPECIES_MODIFIER.apply(
+        XmBlockRegistry.addBlockStates(block, bs -> WorldToPrimitiveStateMap.builder()
+                .withJoin(SpeciesProperty.matchBlockAndSpecies())
+                .withUpdate(SpeciesProperty.SPECIES_MODIFIER)
+                .withDefaultState(SpeciesProperty.SPECIES_MODIFIER.apply(
                         Cube.INSTANCE.newState()
                         .paintAll(VARIED_WITH_BORDER), bs))
                     .build());

@@ -30,8 +30,8 @@ import grondag.xm.api.mesh.MeshHelper;
 import grondag.xm.api.mesh.WritableMesh;
 import grondag.xm.api.mesh.XmMesh;
 import grondag.xm.api.mesh.XmMeshes;
-import grondag.xm.api.modelstate.WorldToSimpleModelState;
-import grondag.xm.api.modelstate.SimpleModelState;
+import grondag.xm.api.modelstate.primitive.PrimitiveState;
+import grondag.xm.api.modelstate.primitive.WorldToPrimitiveStateMap;
 import grondag.xm.api.paint.SurfaceTopology;
 import grondag.xm.api.primitive.SimplePrimitive;
 import grondag.xm.api.primitive.simple.IcosahedralSphere;
@@ -58,7 +58,7 @@ public class CsgTest {
             .build();
     
     
-    static final Function<SimpleModelState, XmMesh> POLY_FACTORY = modelState -> {
+    static final Function<PrimitiveState, XmMesh> POLY_FACTORY = modelState -> {
         CsgMesh quadsA = XmMeshes.claimCsg();
         CsgMesh quadsB = XmMeshes.claimCsg();
         CsgMesh quadsC = XmMeshes.claimCsg();
@@ -117,7 +117,7 @@ public class CsgTest {
         Registry.BLOCK.add(id, csgTest);
         Registry.ITEM.add(id, new BlockItem(csgTest, new Item.Settings().maxCount(64).group(ItemGroup.BUILDING_BLOCKS)));
         
-        XmBlockRegistry.addBlock(csgTest, WorldToSimpleModelState.ofDefaultState(
+        XmBlockRegistry.addBlock(csgTest, WorldToPrimitiveStateMap.ofDefaultState(
                 CSG_TEST_PRIMITIVE.newState()
                     .paint(SURFACES.get(0), RED)
                     .paint(SURFACES.get(1), BLUE)

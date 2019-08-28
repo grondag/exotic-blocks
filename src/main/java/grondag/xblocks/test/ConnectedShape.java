@@ -20,8 +20,8 @@ import java.util.function.Function;
 import grondag.xblocks.Xb;
 import grondag.xm.api.block.XmBlockRegistry;
 import grondag.xm.api.connect.world.BlockTest;
-import grondag.xm.api.modelstate.SimpleModelState;
-import grondag.xm.api.modelstate.WorldToSimpleModelState;
+import grondag.xm.api.modelstate.primitive.PrimitiveState;
+import grondag.xm.api.modelstate.primitive.WorldToPrimitiveStateMap;
 import grondag.xm.api.paint.XmPaint;
 import grondag.xm.api.primitive.simple.SquareColumn;
 import grondag.xm.api.texture.XmTextures;
@@ -42,7 +42,7 @@ import net.minecraft.util.registry.Registry;
  */
 public class ConnectedShape {
     public static void init() {
-        final SimpleModelState defaultState = SquareColumn.INSTANCE.newState()
+        final PrimitiveState defaultState = SquareColumn.INSTANCE.newState()
                 .paint(SquareColumn.SURFACE_MAIN, XmPaint.finder()
                         .textureDepth(2)
                         .texture(0, XmTextures.BIGTEX_SANDSTONE)
@@ -72,15 +72,15 @@ public class ConnectedShape {
         Registry.BLOCK.add(id, column);
         Registry.ITEM.add(id, new BlockItem(column, new Item.Settings().maxCount(64).group(ItemGroup.BUILDING_BLOCKS)));
         
-        BlockTest<SimpleModelState> joinFunc = ctx -> {
+        BlockTest<PrimitiveState> joinFunc = ctx -> {
             final BlockState fromBlock = ctx.fromBlockState();
             final BlockState toBlock = ctx.toBlockState();
             return fromBlock.getBlock() == toBlock.getBlock()
                     && fromBlock.contains(PillarBlock.AXIS)
                     && fromBlock.get(PillarBlock.AXIS) == toBlock.get(PillarBlock.AXIS);};
         
-        final Function<BlockState, WorldToSimpleModelState> stateFunc = bs -> WorldToSimpleModelState.builder()
-                    .withDefaultState(SimpleModelState.AXIS_FROM_BLOCKSTATE.apply(defaultState.mutableCopy(), bs))
+        final Function<BlockState, WorldToPrimitiveStateMap> stateFunc = bs -> WorldToPrimitiveStateMap.builder()
+                    .withDefaultState(PrimitiveState.AXIS_FROM_BLOCKSTATE.apply(defaultState.mutableCopy(), bs))
                     .withJoin(joinFunc)
                     .build();
         

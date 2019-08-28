@@ -17,6 +17,7 @@ package grondag.xblocks.test;
 
 import grondag.xm.api.paint.XmPaint;
 import grondag.xm.api.texture.XmTextures;
+import grondag.xm.texture.XmTexturesImpl;
 import net.minecraft.block.BlockRenderLayer;
 
 /** paints used for test models */
@@ -49,5 +50,22 @@ public class TestPaints {
             .textureDepth(1)
             .texture(0, XmTextures.TILE_NOISE_SUBTLE)
             .textureColor(0, 0xFF80FF80)
+            .find();
+    
+    public static final XmPaint TEST = XmPaint.finder()
+            .textureDepth(1)
+            .texture(0, XmTexturesImpl.TEST)
+            .find();
+    
+    public static final XmPaint WHITE = XmPaint.finder()
+            .textureDepth(1)
+            .texture(0, XmTextures.WHITE)
+            .find();
+    
+    public static final XmPaint XRAY_WHITE = XmPaint.finder()
+            .textureDepth(1)
+            .texture(0, XmTextures.WHITE)
+            .blendMode(0, BlockRenderLayer.TRANSLUCENT)
+            .textureColor(0, 0x70FFFFFF)
             .find();
 }
