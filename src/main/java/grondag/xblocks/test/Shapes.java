@@ -69,7 +69,7 @@ public class Shapes {
         Xb.register(block, "cylinder");
         
         XmBlockRegistry.addBlockStates(block, bs -> PrimitiveStateFunction.builder()
-                .withDefaultState(PrimitiveState.AXIS_FROM_BLOCKSTATE.apply(
+                .withDefaultState(PrimitiveState.AXIS_FROM_BLOCKSTATE.mutate(
                         CylinderWithAxis.INSTANCE.newState()
                             .paint(CylinderWithAxis.SURFACE_ENDS, TestPaints.STUFF)
                             .paint(CylinderWithAxis.SURFACE_SIDES, TestPaints.STUFF), bs))

@@ -40,7 +40,7 @@ import grondag.xm.api.mesh.XmMeshes;
 import grondag.xm.api.mesh.polygon.MutablePolygon;
 import grondag.xm.api.mesh.polygon.PolyTransform;
 import grondag.xm.api.modelstate.primitive.PrimitiveState;
-import grondag.xm.api.modelstate.primitive.WorldToPrimitiveStateMutator;
+import grondag.xm.api.modelstate.primitive.PrimitiveStateMutator;
 import grondag.xm.api.modelstate.primitive.PrimitiveStateFunction;
 import grondag.xm.api.paint.SurfaceTopology;
 import grondag.xm.api.paint.XmPaint;
@@ -396,7 +396,7 @@ public class SimpleCables {
             .simpleJoin(true)
             .build(Xb.idString("simple_cable_test"));
     
-    private static final WorldToPrimitiveStateMutator MODEL_STATE_UPDATE = (modelState, xmBlockState, world, pos, neighbors, refreshFromWorld) -> {
+    private static final PrimitiveStateMutator MODEL_STATE_UPDATE = (modelState, xmBlockState, world, pos, neighbors, refreshFromWorld) -> {
         // join should already be handled, so we just need to check if neighbors are inventory
         if(refreshFromWorld) {
             int bits = 0;

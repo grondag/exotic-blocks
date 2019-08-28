@@ -86,7 +86,7 @@ public class RotationTest {
         Registry.ITEM.add(id, new BlockItem(block, new Item.Settings().maxCount(64).group(ItemGroup.BUILDING_BLOCKS)));
         
         XmBlockRegistry.addBlockStates(block, bs -> PrimitiveStateFunction.builder()
-                .withDefaultState(XmProperties.AXIS_MODIFIER.apply(
+                .withDefaultState(XmProperties.AXIS_MODIFIER.mutate(
                         CubeWithAxis.INSTANCE.newState()
                             .paint(CubeWithAxis.SURFACE_ENDS, RED)
                             .paint(CubeWithAxis.SURFACE_SIDES, BLUE), bs))
@@ -114,7 +114,7 @@ public class RotationTest {
         Registry.ITEM.add(id, new BlockItem(block, new Item.Settings().maxCount(64).group(ItemGroup.BUILDING_BLOCKS)));
         
         XmBlockRegistry.addBlockStates(block, bs -> PrimitiveStateFunction.builder()
-                .withDefaultState(XmProperties.FACE_MODIFIER.apply(
+                .withDefaultState(XmProperties.FACE_MODIFIER.mutate(
                         CubeWithFace.INSTANCE.newState()
                             .paint(CubeWithFace.SURFACE_TOP, RED)
                             .paint(CubeWithFace.SURFACE_SIDES, BLUE), bs))
@@ -142,7 +142,7 @@ public class RotationTest {
         Registry.ITEM.add(id, new BlockItem(block, new Item.Settings().maxCount(64).group(ItemGroup.BUILDING_BLOCKS)));
         
         XmBlockRegistry.addBlockStates(block, bs -> PrimitiveStateFunction.builder()
-                .withDefaultState(XmProperties.HORIZONTAL_FACE_MODIFIER.apply(
+                .withDefaultState(XmProperties.HORIZONTAL_FACE_MODIFIER.mutate(
                         CubeWithHorizontalFace.INSTANCE.newState()
                             .paint(CubeWithHorizontalFace.SURFACE_FRONT, RED)
                             .paint(CubeWithHorizontalFace.SURFACE_SIDES, BLUE), bs))
@@ -171,7 +171,7 @@ public class RotationTest {
         Registry.ITEM.add(id, new BlockItem(block, new Item.Settings().maxCount(64).group(ItemGroup.BUILDING_BLOCKS)));
         
         XmBlockRegistry.addBlockStates(block, bs -> PrimitiveStateFunction.builder()
-                .withDefaultState(XmProperties.CORNER_MODIFIER.apply(
+                .withDefaultState(XmProperties.CORNER_MODIFIER.mutate(
                         CubeWithCorner.INSTANCE.newState()
                             .paint(CubeWithCorner.SURFACE_FRONT, RED)
                             .paint(CubeWithCorner.SURFACE_BACK, BLUE), bs))
@@ -199,7 +199,7 @@ public class RotationTest {
         Registry.ITEM.add(id, new BlockItem(block, new Item.Settings().maxCount(64).group(ItemGroup.BUILDING_BLOCKS)));
         
         XmBlockRegistry.addBlockStates(block, bs -> PrimitiveStateFunction.builder()
-                .withDefaultState(XmProperties.EDGE_MODIFIER.apply(
+                .withDefaultState(XmProperties.EDGE_MODIFIER.mutate(
                         CubeWithEdge.INSTANCE.newState()
                             .paint(CubeWithEdge.SURFACE_FRONT, RED)
                             .paint(CubeWithEdge.SURFACE_BACK, BLUE)
@@ -229,7 +229,7 @@ public class RotationTest {
         Registry.ITEM.add(id, new BlockItem(block, new Item.Settings().maxCount(64).group(ItemGroup.BUILDING_BLOCKS)));
         
         XmBlockRegistry.addBlockStates(block, bs -> PrimitiveStateFunction.builder()
-                .withDefaultState(XmProperties.ROTATION_MODIFIER.apply(
+                .withDefaultState(XmProperties.ROTATION_MODIFIER.mutate(
                         CubeWithRotation.INSTANCE.newState()
                             .paint(CubeWithRotation.SURFACE_BACK, RED)
                             .paint(CubeWithRotation.SURFACE_BOTTOM, BLUE)

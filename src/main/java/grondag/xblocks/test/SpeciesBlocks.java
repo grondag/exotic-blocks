@@ -95,7 +95,7 @@ public class SpeciesBlocks {
         XmBlockRegistry.addBlockStates(block, bs -> PrimitiveStateFunction.builder()
                 .withJoin(SpeciesProperty.matchBlockAndSpecies())
                 .withUpdate(SpeciesProperty.SPECIES_MODIFIER)
-                .withDefaultState(SpeciesProperty.SPECIES_MODIFIER.apply(
+                .withDefaultState(SpeciesProperty.SPECIES_MODIFIER.mutate(
                         Cube.INSTANCE.newState()
                         .paintAll(VARIED_WITH_BORDER), bs))
                     .build());

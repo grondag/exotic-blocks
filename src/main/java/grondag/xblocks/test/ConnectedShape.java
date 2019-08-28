@@ -80,7 +80,7 @@ public class ConnectedShape {
                     && fromBlock.get(PillarBlock.AXIS) == toBlock.get(PillarBlock.AXIS);};
         
         final Function<BlockState, PrimitiveStateFunction> stateFunc = bs -> PrimitiveStateFunction.builder()
-                    .withDefaultState(PrimitiveState.AXIS_FROM_BLOCKSTATE.apply(defaultState.mutableCopy(), bs))
+                    .withDefaultState(PrimitiveState.AXIS_FROM_BLOCKSTATE.mutate(defaultState.mutableCopy(), bs))
                     .withJoin(joinFunc)
                     .build();
         
