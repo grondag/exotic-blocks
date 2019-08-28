@@ -21,7 +21,7 @@ import grondag.xblocks.Xb;
 import grondag.xm.api.block.XmBlockRegistry;
 import grondag.xm.api.connect.world.BlockTest;
 import grondag.xm.api.modelstate.primitive.PrimitiveState;
-import grondag.xm.api.modelstate.primitive.WorldToPrimitiveStateMap;
+import grondag.xm.api.modelstate.primitive.PrimitiveStateFunction;
 import grondag.xm.api.paint.XmPaint;
 import grondag.xm.api.primitive.simple.SquareColumn;
 import grondag.xm.api.texture.XmTextures;
@@ -79,7 +79,7 @@ public class ConnectedShape {
                     && fromBlock.contains(PillarBlock.AXIS)
                     && fromBlock.get(PillarBlock.AXIS) == toBlock.get(PillarBlock.AXIS);};
         
-        final Function<BlockState, WorldToPrimitiveStateMap> stateFunc = bs -> WorldToPrimitiveStateMap.builder()
+        final Function<BlockState, PrimitiveStateFunction> stateFunc = bs -> PrimitiveStateFunction.builder()
                     .withDefaultState(PrimitiveState.AXIS_FROM_BLOCKSTATE.apply(defaultState.mutableCopy(), bs))
                     .withJoin(joinFunc)
                     .build();

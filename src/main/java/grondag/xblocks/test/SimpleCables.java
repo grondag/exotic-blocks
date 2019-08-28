@@ -41,7 +41,7 @@ import grondag.xm.api.mesh.polygon.MutablePolygon;
 import grondag.xm.api.mesh.polygon.PolyTransform;
 import grondag.xm.api.modelstate.primitive.PrimitiveState;
 import grondag.xm.api.modelstate.primitive.WorldToPrimitiveStateMutator;
-import grondag.xm.api.modelstate.primitive.WorldToPrimitiveStateMap;
+import grondag.xm.api.modelstate.primitive.PrimitiveStateFunction;
 import grondag.xm.api.paint.SurfaceTopology;
 import grondag.xm.api.paint.XmPaint;
 import grondag.xm.api.primitive.SimplePrimitive;
@@ -431,7 +431,7 @@ public class SimpleCables {
 
     
     @SuppressWarnings("unchecked")
-    private static final WorldToPrimitiveStateMap MODEL_STATE_FUNC = WorldToPrimitiveStateMap.builder()
+    private static final PrimitiveStateFunction MODEL_STATE_FUNC = PrimitiveStateFunction.builder()
             .withDefaultState(PRIMITIVE.newState()
 //                    .paint(SURFACES.get(0), PAINT_SIDE)
 //                    .paint(SURFACES.get(1), PAINT_END)

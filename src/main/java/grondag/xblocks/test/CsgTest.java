@@ -31,7 +31,7 @@ import grondag.xm.api.mesh.WritableMesh;
 import grondag.xm.api.mesh.XmMesh;
 import grondag.xm.api.mesh.XmMeshes;
 import grondag.xm.api.modelstate.primitive.PrimitiveState;
-import grondag.xm.api.modelstate.primitive.WorldToPrimitiveStateMap;
+import grondag.xm.api.modelstate.primitive.PrimitiveStateFunction;
 import grondag.xm.api.paint.SurfaceTopology;
 import grondag.xm.api.primitive.SimplePrimitive;
 import grondag.xm.api.primitive.simple.IcosahedralSphere;
@@ -117,7 +117,7 @@ public class CsgTest {
         Registry.BLOCK.add(id, csgTest);
         Registry.ITEM.add(id, new BlockItem(csgTest, new Item.Settings().maxCount(64).group(ItemGroup.BUILDING_BLOCKS)));
         
-        XmBlockRegistry.addBlock(csgTest, WorldToPrimitiveStateMap.ofDefaultState(
+        XmBlockRegistry.addBlock(csgTest, PrimitiveStateFunction.ofDefaultState(
                 CSG_TEST_PRIMITIVE.newState()
                     .paint(SURFACES.get(0), RED)
                     .paint(SURFACES.get(1), BLUE)

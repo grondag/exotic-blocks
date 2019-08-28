@@ -22,7 +22,7 @@ import static grondag.xblocks.test.TestPaints.RED;
 import grondag.xm.Xm;
 import grondag.xm.api.block.XmBlockRegistry;
 import grondag.xm.api.block.XmProperties;
-import grondag.xm.api.modelstate.primitive.WorldToPrimitiveStateMap;
+import grondag.xm.api.modelstate.primitive.PrimitiveStateFunction;
 import grondag.xm.api.primitive.simple.Cube;
 import grondag.xm.api.primitive.simple.CubeWithAxis;
 import grondag.xm.api.primitive.simple.CubeWithCorner;
@@ -60,7 +60,7 @@ public class RotationTest {
         Registry.BLOCK.add(id, block);
         Registry.ITEM.add(id, new BlockItem(block, new Item.Settings().maxCount(64).group(ItemGroup.BUILDING_BLOCKS)));
         
-        XmBlockRegistry.addBlock(block, WorldToPrimitiveStateMap.ofDefaultState(
+        XmBlockRegistry.addBlock(block, PrimitiveStateFunction.ofDefaultState(
                 Cube.INSTANCE.newState()
                 .releaseToImmutable()));
         
@@ -85,7 +85,7 @@ public class RotationTest {
         Registry.BLOCK.add(id, block);
         Registry.ITEM.add(id, new BlockItem(block, new Item.Settings().maxCount(64).group(ItemGroup.BUILDING_BLOCKS)));
         
-        XmBlockRegistry.addBlockStates(block, bs -> WorldToPrimitiveStateMap.builder()
+        XmBlockRegistry.addBlockStates(block, bs -> PrimitiveStateFunction.builder()
                 .withDefaultState(XmProperties.AXIS_MODIFIER.apply(
                         CubeWithAxis.INSTANCE.newState()
                             .paint(CubeWithAxis.SURFACE_ENDS, RED)
@@ -113,7 +113,7 @@ public class RotationTest {
         Registry.BLOCK.add(id, block);
         Registry.ITEM.add(id, new BlockItem(block, new Item.Settings().maxCount(64).group(ItemGroup.BUILDING_BLOCKS)));
         
-        XmBlockRegistry.addBlockStates(block, bs -> WorldToPrimitiveStateMap.builder()
+        XmBlockRegistry.addBlockStates(block, bs -> PrimitiveStateFunction.builder()
                 .withDefaultState(XmProperties.FACE_MODIFIER.apply(
                         CubeWithFace.INSTANCE.newState()
                             .paint(CubeWithFace.SURFACE_TOP, RED)
@@ -141,7 +141,7 @@ public class RotationTest {
         Registry.BLOCK.add(id, block);
         Registry.ITEM.add(id, new BlockItem(block, new Item.Settings().maxCount(64).group(ItemGroup.BUILDING_BLOCKS)));
         
-        XmBlockRegistry.addBlockStates(block, bs -> WorldToPrimitiveStateMap.builder()
+        XmBlockRegistry.addBlockStates(block, bs -> PrimitiveStateFunction.builder()
                 .withDefaultState(XmProperties.HORIZONTAL_FACE_MODIFIER.apply(
                         CubeWithHorizontalFace.INSTANCE.newState()
                             .paint(CubeWithHorizontalFace.SURFACE_FRONT, RED)
@@ -170,7 +170,7 @@ public class RotationTest {
         Registry.BLOCK.add(id, block);
         Registry.ITEM.add(id, new BlockItem(block, new Item.Settings().maxCount(64).group(ItemGroup.BUILDING_BLOCKS)));
         
-        XmBlockRegistry.addBlockStates(block, bs -> WorldToPrimitiveStateMap.builder()
+        XmBlockRegistry.addBlockStates(block, bs -> PrimitiveStateFunction.builder()
                 .withDefaultState(XmProperties.CORNER_MODIFIER.apply(
                         CubeWithCorner.INSTANCE.newState()
                             .paint(CubeWithCorner.SURFACE_FRONT, RED)
@@ -198,7 +198,7 @@ public class RotationTest {
         Registry.BLOCK.add(id, block);
         Registry.ITEM.add(id, new BlockItem(block, new Item.Settings().maxCount(64).group(ItemGroup.BUILDING_BLOCKS)));
         
-        XmBlockRegistry.addBlockStates(block, bs -> WorldToPrimitiveStateMap.builder()
+        XmBlockRegistry.addBlockStates(block, bs -> PrimitiveStateFunction.builder()
                 .withDefaultState(XmProperties.EDGE_MODIFIER.apply(
                         CubeWithEdge.INSTANCE.newState()
                             .paint(CubeWithEdge.SURFACE_FRONT, RED)
@@ -228,7 +228,7 @@ public class RotationTest {
         Registry.BLOCK.add(id, block);
         Registry.ITEM.add(id, new BlockItem(block, new Item.Settings().maxCount(64).group(ItemGroup.BUILDING_BLOCKS)));
         
-        XmBlockRegistry.addBlockStates(block, bs -> WorldToPrimitiveStateMap.builder()
+        XmBlockRegistry.addBlockStates(block, bs -> PrimitiveStateFunction.builder()
                 .withDefaultState(XmProperties.ROTATION_MODIFIER.apply(
                         CubeWithRotation.INSTANCE.newState()
                             .paint(CubeWithRotation.SURFACE_BACK, RED)

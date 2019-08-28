@@ -20,7 +20,7 @@ import grondag.xm.api.block.XmBlockRegistry;
 import grondag.xm.api.block.XmBlockState;
 import grondag.xm.api.collision.CollisionDispatcher;
 import grondag.xm.api.modelstate.primitive.PrimitiveState;
-import grondag.xm.api.modelstate.primitive.WorldToPrimitiveStateMap;
+import grondag.xm.api.modelstate.primitive.PrimitiveStateFunction;
 import grondag.xm.api.primitive.simple.CylinderWithAxis;
 import grondag.xm.api.primitive.simple.IcosahedralSphere;
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
@@ -44,14 +44,14 @@ public class Shapes {
         block = new Block(Block.Settings.copy(Blocks.STONE)) {
             @Override
             public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos pos, EntityContext entityContext) {
-                return CollisionDispatcher.shapeFor(WorldToPrimitiveStateMap.ofDefaultState(IcosahedralSphere.INSTANCE.defaultState())
+                return CollisionDispatcher.shapeFor(PrimitiveStateFunction.ofDefaultState(IcosahedralSphere.INSTANCE.defaultState())
                         .apply(blockState, blockView, pos, false));
             }  
         };
         
         Xb.register(block, "icosphere");
         
-        XmBlockRegistry.addBlock(block, WorldToPrimitiveStateMap.ofDefaultState(
+        XmBlockRegistry.addBlock(block, PrimitiveStateFunction.ofDefaultState(
                 IcosahedralSphere.INSTANCE.newState()
                     .paintAll(TestPaints.WHITE)
                     .releaseToImmutable()));
@@ -68,7 +68,7 @@ public class Shapes {
         
         Xb.register(block, "cylinder");
         
-        XmBlockRegistry.addBlockStates(block, bs -> WorldToPrimitiveStateMap.builder()
+        XmBlockRegistry.addBlockStates(block, bs -> PrimitiveStateFunction.builder()
                 .withDefaultState(PrimitiveState.AXIS_FROM_BLOCKSTATE.apply(
                         CylinderWithAxis.INSTANCE.newState()
                             .paint(CylinderWithAxis.SURFACE_ENDS, TestPaints.STUFF)

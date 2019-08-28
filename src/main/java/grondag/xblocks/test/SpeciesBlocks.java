@@ -23,7 +23,7 @@ import grondag.xm.api.connect.species.Species;
 import grondag.xm.api.connect.species.SpeciesFunction;
 import grondag.xm.api.connect.species.SpeciesMode;
 import grondag.xm.api.connect.species.SpeciesProperty;
-import grondag.xm.api.modelstate.primitive.WorldToPrimitiveStateMap;
+import grondag.xm.api.modelstate.primitive.PrimitiveStateFunction;
 import grondag.xm.api.paint.VertexProcessor;
 import grondag.xm.api.paint.XmPaint;
 import grondag.xm.api.primitive.simple.Cube;
@@ -92,7 +92,7 @@ public class SpeciesBlocks {
         
         Xb.register(block, "species_test");
         
-        XmBlockRegistry.addBlockStates(block, bs -> WorldToPrimitiveStateMap.builder()
+        XmBlockRegistry.addBlockStates(block, bs -> PrimitiveStateFunction.builder()
                 .withJoin(SpeciesProperty.matchBlockAndSpecies())
                 .withUpdate(SpeciesProperty.SPECIES_MODIFIER)
                 .withDefaultState(SpeciesProperty.SPECIES_MODIFIER.apply(
