@@ -24,12 +24,10 @@ import java.util.function.Function;
 import grondag.xblocks.Xb;
 import grondag.xm.api.block.XmBlockRegistry;
 import grondag.xm.api.collision.CollisionDispatcher;
-import grondag.xm.api.mesh.CSG;
 import grondag.xm.api.mesh.CsgMesh;
+import grondag.xm.api.mesh.CsgMeshBuilder;
 import grondag.xm.api.mesh.MeshHelper;
-import grondag.xm.api.mesh.WritableMesh;
 import grondag.xm.api.mesh.XmMesh;
-import grondag.xm.api.mesh.XmMeshes;
 import grondag.xm.api.modelstate.primitive.PrimitiveState;
 import grondag.xm.api.modelstate.primitive.PrimitiveStateFunction;
 import grondag.xm.api.paint.SurfaceTopology;
@@ -59,39 +57,25 @@ public class CsgTest {
     
     
     static final Function<PrimitiveState, XmMesh> POLY_FACTORY = modelState -> {
-        CsgMesh quadsA = XmMeshes.claimCsg();
-        CsgMesh quadsB = XmMeshes.claimCsg();
-        CsgMesh quadsC = XmMeshes.claimCsg();
-
-        quadsA.writer()
-            .lockUV(0, true)
-            .surface(SURFACES.get(0));
-        quadsA.saveDefaults();
-        MeshHelper.box(0f, 0.4f, 0.4f, 1.0f, 0.6f, 0.6f, quadsA);
-
-        quadsB.writer()
-            .lockUV(0, true)
-            .surface(SURFACES.get(1));
-        quadsB.saveDefaults();
-        IcosahedralSphere.sphere(quadsB);
-
-        CSG.difference(quadsB, quadsA, quadsC);
-
-        quadsA.clear();
-        quadsA.writer()
-            .lockUV(0, false)
-            .surface(SURFACES.get(2));
-        quadsA.saveDefaults();
-        MeshHelper.box(0.35f, 0.35f, 0f, 0.5f, 0.65f, 1f, quadsA);
+        final CsgMeshBuilder csg = CsgMeshBuilder.threadLocal();
         
-        WritableMesh output = XmMeshes.claimWritable();
-        CSG.difference(quadsC, quadsA, output);
-        
-        quadsA.release();
-        quadsB.release();
-        quadsC.release();
+        CsgMesh input = csg.input();
+        input.writer().lockUV(0, true).surface(SURFACES.get(1)).saveDefaults();
+        IcosahedralSphere.sphere(input);
+        csg.union();
 
-        return output.releaseToReader();
+        input = csg.input();
+        input.writer().lockUV(0, true).surface(SURFACES.get(0)).saveDefaults();
+        MeshHelper.box(0f, 0.4f, 0.4f, 1.0f, 0.6f, 0.6f, input);
+        csg.difference();;
+        
+
+        input = csg.input();
+        input.writer().lockUV(0, false).surface(SURFACES.get(2)).saveDefaults();
+        MeshHelper.box(0.35f, 0.35f, 0f, 0.5f, 0.65f, 1f, input);
+        csg.difference();
+        
+        return csg.build();
         
 //        return XmMeshes.claimRecoloredCopy(output);
     };
