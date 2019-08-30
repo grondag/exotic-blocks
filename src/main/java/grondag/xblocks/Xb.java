@@ -15,15 +15,6 @@
  ******************************************************************************/
 package grondag.xblocks;
 
-import grondag.xblocks.test.ConnectedGlass;
-import grondag.xblocks.test.ConnectedShape;
-import grondag.xblocks.test.CsgTest;
-import grondag.xblocks.test.Granite;
-import grondag.xblocks.test.RotationTest;
-import grondag.xblocks.test.Shapes;
-import grondag.xblocks.test.Cables;
-import grondag.xblocks.test.SpeciesBlocks;
-import grondag.xblocks.test.UglyRoundCables;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
@@ -36,15 +27,6 @@ public class Xb implements ModInitializer {
     public static final String MODID = "exotic-blocks";
     @Override
     public void onInitialize() {
-        Granite.init();
-        ConnectedGlass.init();
-        ConnectedShape.init();
-        CsgTest.init();
-        RotationTest.init();
-        Shapes.init();
-        SpeciesBlocks.init();
-        Cables.init();
-        UglyRoundCables.init();
     }
 
     public static String idString(String path) {
