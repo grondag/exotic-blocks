@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "connected_glass_undo",
+  "ingredients": [
+    {
+      "item": "exotic-blocks:yellow_connected_glass"
+    }
+  ],
+  "result": {
+    "item": "minecraft:yellow_stained_glass",
+    "count": 1
+  }
+}

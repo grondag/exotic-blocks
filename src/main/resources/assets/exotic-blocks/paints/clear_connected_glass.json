@@ -1,0 +1,9 @@
+{
+	"layers": [
+		{
+			"blendMode": "translucent",
+			"color": "0xFFAAAAAA",
+			"texture": "exotic-blocks:fancy_glass"
+		}
+	]
+}

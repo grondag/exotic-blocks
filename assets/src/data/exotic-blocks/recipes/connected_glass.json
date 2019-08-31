@@ -1,0 +1,17 @@
+<@pp.dropOutputFile />
+<#list colors as color>
+<@pp.changeOutputFile name=color.name+"_connected_glass.json" />
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "connected_glass",
+  "ingredients": [
+    {
+      "item": "minecraft:${color.name}_stained_glass"
+    }
+  ],
+  "result": {
+    "item": "exotic-blocks:${color.name}_connected_glass",
+    "count": 1
+  }
+}
+</#list>

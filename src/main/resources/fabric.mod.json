@@ -18,7 +18,8 @@
 
   "environment": "*",
   "entrypoints": {
-  	"main": [ "grondag.xblocks.Xb" ]
+  	"main": [ "grondag.xblocks.Xb" ],
+  	"modmenu": [ "grondag.xblocks.client.ModMenuHelper" ]
   },
   "mixins": [
   ],

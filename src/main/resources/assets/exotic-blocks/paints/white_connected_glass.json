@@ -1,0 +1,13 @@
+{
+	"layers": [
+		{
+			"blendMode": "translucent",
+			"color": "0x66F9FFFE",
+			"texture": "exotic-matter:noise_subtle"
+		}, {
+			"blendMode": "translucent",
+			"color": "0xaaF9FFFE",
+			"texture": "exotic-matter:border_single_line"
+		}
+	]
+}

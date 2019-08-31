@@ -1,0 +1,6 @@
+recommendedDefaults: 0.9.16
+sourceRoot: src
+outputRoot: ../src/main/resources
+data: {
+    colors: csv(../data/colors.csv)
+}

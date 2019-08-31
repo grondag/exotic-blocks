@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "connected_glass",
+  "ingredients": [
+    {
+      "item": "minecraft:blue_stained_glass"
+    }
+  ],
+  "result": {
+    "item": "exotic-blocks:blue_connected_glass",
+    "count": 1
+  }
+}

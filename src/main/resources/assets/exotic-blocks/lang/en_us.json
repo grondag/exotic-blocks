@@ -1,0 +1,33 @@
+{
+	"itemGroup.exotic-blocks.item_group": "Exotic Blocks",
+	
+	"block.exotic-blocks.clear_connected_glass": "Connected Glass",
+	
+	"block.exotic-blocks.white_connected_glass": "White Connected Glass",
+	"block.exotic-blocks.orange_connected_glass": "Orange Connected Glass",
+	"block.exotic-blocks.magenta_connected_glass": "Magenta Connected Glass",
+	"block.exotic-blocks.light_blue_connected_glass": "Light Blue Connected Glass",
+	
+	"block.exotic-blocks.yellow_connected_glass": "Yellow Connected Glass",
+	"block.exotic-blocks.lime_connected_glass": "Lime Connected Glass",
+	"block.exotic-blocks.pink_connected_glass": "Pink Connected Glass",
+	"block.exotic-blocks.gray_connected_glass": "Gray Connected Glass",
+	
+	"block.exotic-blocks.light_gray_connected_glass": "Light Gray Connected Glass",
+	"block.exotic-blocks.cyan_connected_glass": "Cyan Connected Glass",
+	"block.exotic-blocks.purple_connected_glass": "Purple Connected Glass",
+	"block.exotic-blocks.blue_connected_glass": "Blue Connected Glass",
+	
+	"block.exotic-blocks.brown_connected_glass": "Brown Connected Glass",
+	"block.exotic-blocks.green_connected_glass": "Green Connected Glass",
+	"block.exotic-blocks.red_connected_glass": "Red Connected Glass",
+	"block.exotic-blocks.black_connected_glass": "Black Connected Glass",
+	
+	"config.xblocks.title" : "Exotic Blocks",
+	"config.xblocks.reset" : "Reset",
+	
+	"config.xblocks.category.vanilla" : "Vanilla Blocks",
+		
+	"config.xblocks.value.fancy_glass" : "Fancy Glass",
+	"config.xblocks.help.fancy_glass" : "Connected Glass Textures"
+}
