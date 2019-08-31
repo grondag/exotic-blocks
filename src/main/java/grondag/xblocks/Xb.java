@@ -19,6 +19,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import grondag.xblocks.vanilla.ConnectedGlass;
+import grondag.xblocks.vanilla.HorizontalStairs;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.block.Block;
@@ -46,6 +47,7 @@ public class Xb implements ModInitializer {
     public void onInitialize() {
         itemGroup = FabricItemGroupBuilder.build(id("item_group"), () -> new ItemStack(Registry.ITEM.get(stackId)));
         ConnectedGlass.init();
+        HorizontalStairs.init();
     }
 
     public static String idString(String path) {
