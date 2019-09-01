@@ -47,7 +47,7 @@ public class Xb implements ModInitializer {
     public void onInitialize() {
         itemGroup = FabricItemGroupBuilder.build(id("item_group"), () -> new ItemStack(Registry.ITEM.get(stackId)));
         ConnectedGlass.init();
-//        HorizontalStairs.init();
+        HorizontalStairs.init();
     }
 
     public static String idString(String path) {
