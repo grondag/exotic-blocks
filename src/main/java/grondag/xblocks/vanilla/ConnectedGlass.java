@@ -29,6 +29,7 @@ import static grondag.xm.api.texture.TextureNameFunction.BORDER_SIDES_TOP_BOTTOM
 import static grondag.xm.api.texture.TextureNameFunction.BORDER_SIDES_TOP_LEFT_RIGHT;
 import static grondag.xm.api.texture.TextureNameFunction.BORDER_SIDES_TOP_RIGHT;
 import static grondag.xm.api.texture.TextureNameFunction.BORDER_SIDE_TOP;
+import static grondag.xm.api.texture.TextureNameFunction.BORDER_NONE;
 import static grondag.xm.api.texture.TextureRenderIntent.OVERLAY_ONLY;
 import static grondag.xm.api.texture.TextureTransform.IDENTITY;
 import static grondag.xm.api.texture.TextureScale.SINGLE;
@@ -51,7 +52,7 @@ import net.minecraft.util.Identifier;
  * Tests adding connected textures to existing blocks by giving glass a custom connected texture.
  */
 public class ConnectedGlass {
-    private final static String[] BORDER_MAP = new String[TextureLayout.BORDER_13.textureCount];
+    private final static String[] BORDER_MAP = new String[TextureLayout.BORDER_14.textureCount];
     
     static {
         BORDER_MAP[BORDER_SIDES_ALL] = "all_edges";
@@ -67,9 +68,10 @@ public class ConnectedGlass {
         BORDER_MAP[BORDER_CORNERS_BL_TR] = "opposite_corners";
         BORDER_MAP[BORDER_CORNERS_BL_TR_BR] = "three_corners";
         BORDER_MAP[BORDER_CORNERS_ALL] = "all_corners";
+        BORDER_MAP[BORDER_NONE] = "full";
     }
     
-    public static final TextureLayoutMap BORDER_LAYOUT = TextureLayoutMap.create(TextureLayout.BORDER_13, (s, v, i) -> s + "_" + BORDER_MAP[i]);
+    public static final TextureLayoutMap BORDER_LAYOUT = TextureLayoutMap.create(TextureLayout.BORDER_14, (s, v, i) -> s + "_" + BORDER_MAP[i]);
     
     public static final TextureSet GLASS_BORDER = TextureSet.builder()
         .displayNameToken("fancy_glass")
@@ -80,6 +82,7 @@ public class ConnectedGlass {
         .transform(IDENTITY)
         .renderIntent(OVERLAY_ONLY)
         .groups(STATIC_BORDERS)
+        .renderNoBorderAsTile(true)
         .build(Xb.idString("fancy_glass"));
     
     public static void init() {
