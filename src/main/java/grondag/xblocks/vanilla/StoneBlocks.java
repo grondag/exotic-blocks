@@ -24,10 +24,11 @@ import grondag.xm.api.paint.XmPaint;
 import grondag.xm.api.primitive.simple.Stair;
 import grondag.xm.api.primitive.simple.Wedge;
 import grondag.xm.api.texture.McTextures;
+import grondag.xm.api.texture.TextureSet;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 
-public class HorizontalStairs {
+public class StoneBlocks {
 
     public static void init() {
         //TODO: wood after woodcutter available
@@ -37,51 +38,92 @@ public class HorizontalStairs {
 //        jungle_stairs.json
 //        oak_stairs.json
 //        spruce_stairs.json
+        
+        register(Blocks.TERRACOTTA, "terracotta", McTextures.TERRACOTTA);
+        register(Blocks.WHITE_TERRACOTTA, "white_terracotta", McTextures.WHITE_TERRACOTTA);
+        register(Blocks.LIGHT_GRAY_TERRACOTTA, "light_gray_terracotta", McTextures.LIGHT_GRAY_TERRACOTTA);
+        register(Blocks.GRAY_TERRACOTTA, "gray_terracotta", McTextures.GRAY_TERRACOTTA);
+        register(Blocks.BLACK_TERRACOTTA, "black_terracotta", McTextures.BLACK_TERRACOTTA);
+        register(Blocks.RED_TERRACOTTA, "red_terracotta", McTextures.RED_TERRACOTTA);
+        register(Blocks.BROWN_TERRACOTTA, "brown_terracotta", McTextures.BROWN_TERRACOTTA);
+        register(Blocks.ORANGE_TERRACOTTA, "orange_terracotta", McTextures.ORANGE_TERRACOTTA);
+        register(Blocks.YELLOW_TERRACOTTA, "yellow_terracotta", McTextures.YELLOW_TERRACOTTA);
+        register(Blocks.LIME_TERRACOTTA, "lime_terracotta", McTextures.LIME_TERRACOTTA);
+        register(Blocks.GREEN_TERRACOTTA, "green_terracotta", McTextures.GREEN_TERRACOTTA);
+        register(Blocks.CYAN_TERRACOTTA, "cyan_terracotta", McTextures.CYAN_TERRACOTTA);
+        register(Blocks.LIGHT_BLUE_TERRACOTTA, "light_blue_terracotta", McTextures.LIGHT_BLUE_TERRACOTTA);
+        register(Blocks.BLUE_TERRACOTTA, "blue_terracotta", McTextures.BLUE_TERRACOTTA);
+        register(Blocks.PINK_TERRACOTTA, "pink_terracotta", McTextures.PINK_TERRACOTTA);
+        register(Blocks.MAGENTA_TERRACOTTA, "magenta_terracotta", McTextures.MAGENTA_TERRACOTTA);
+        register(Blocks.PURPLE_TERRACOTTA, "purple_terracotta", McTextures.PURPLE_TERRACOTTA);
 
-        horizontal(Blocks.ANDESITE, "andesite", XmPaint.finder().texture(0, McTextures.ANDESITE).find());
-        horizontal(Blocks.BRICKS, "brick", XmPaint.finder().texture(0, McTextures.BRICK).find());
-        horizontal(Blocks.COBBLESTONE, "cobblestone", XmPaint.finder().texture(0, McTextures.COBBLESTONE).find());
-        horizontal(Blocks.DARK_PRISMARINE, "dark_prismarine", XmPaint.finder().texture(0, McTextures.DARK_PRISMARINE).find());
-        horizontal(Blocks.DIORITE, "diorite", XmPaint.finder().texture(0, McTextures.DIORITE).find());
-        horizontal(Blocks.END_STONE_BRICKS, "end_stone_brick", XmPaint.finder().texture(0, McTextures.END_STONE_BRICK).find());
-        horizontal(Blocks.GRANITE, "granite", XmPaint.finder().texture(0, McTextures.GRANITE).find());
-        horizontal(Blocks.MOSSY_COBBLESTONE, "mossy_cobblestone", XmPaint.finder().texture(0, McTextures.MOSSY_COBBLESTONE).find());
-        horizontal(Blocks.MOSSY_STONE_BRICKS, "mossy_stone_brick", XmPaint.finder().texture(0, McTextures.MOSSY_STONE_BRICK).find());
-        horizontal(Blocks.NETHER_BRICKS, "nether_brick", XmPaint.finder().texture(0, McTextures.NETHER_BRICK).find());
-        horizontal(Blocks.POLISHED_ANDESITE, "polished_andesite", XmPaint.finder().texture(0, McTextures.POLISHED_ANDESITE).find());
-        horizontal(Blocks.POLISHED_DIORITE, "polished_diorite", XmPaint.finder().texture(0, McTextures.POLISHED_DIORITE).find());
-        horizontal(Blocks.POLISHED_GRANITE, "polished_granite", XmPaint.finder().texture(0, McTextures.POLISHED_GRANITE).find());
-        horizontal(Blocks.PRISMARINE_BRICKS, "prismarine_brick", XmPaint.finder().texture(0, McTextures.PRISMARINE_BRICK).find());
-        horizontal(Blocks.PRISMARINE, "prismarine", XmPaint.finder().texture(0, McTextures.PRISMARINE).find());
-        horizontal(Blocks.PURPUR_BLOCK, "purpur", XmPaint.finder().texture(0, McTextures.PURPUR_BLOCK).find());
-        horizontal(Blocks.SMOOTH_QUARTZ, "smooth_quartz", XmPaint.finder().texture(0, McTextures.QUARTZ_BLOCK_BOTTOM).find());
-        horizontal(Blocks.RED_NETHER_BRICKS, "red_nether_brick", XmPaint.finder().texture(0, McTextures.RED_NETHER_BRICK).find());
-        horizontal(Blocks.QUARTZ_BLOCK, "quartz", 
-                XmPaint.finder().texture(0, McTextures.QUARTZ_BLOCK_BOTTOM).find(),
-                XmPaint.finder().texture(0, McTextures.QUARTZ_BLOCK_TOP).find(),
-                XmPaint.finder().texture(0, McTextures.QUARTZ_BLOCK_SIDE).find());
-        horizontal(Blocks.SANDSTONE, "sandstone", 
+        register(Blocks.WHITE_CONCRETE, "white_concrete", McTextures.WHITE_CONCRETE);
+        register(Blocks.LIGHT_GRAY_CONCRETE, "light_gray_concrete", McTextures.LIGHT_GRAY_CONCRETE);
+        register(Blocks.GRAY_CONCRETE, "gray_concrete", McTextures.GRAY_CONCRETE);
+        register(Blocks.BLACK_CONCRETE, "black_concrete", McTextures.BLACK_CONCRETE);
+        register(Blocks.RED_CONCRETE, "red_concrete", McTextures.RED_CONCRETE);
+        register(Blocks.BROWN_CONCRETE, "brown_concrete", McTextures.BROWN_CONCRETE);
+        register(Blocks.ORANGE_CONCRETE, "orange_concrete", McTextures.ORANGE_CONCRETE);
+        register(Blocks.YELLOW_CONCRETE, "yellow_concrete", McTextures.YELLOW_CONCRETE);
+        register(Blocks.LIME_CONCRETE, "lime_concrete", McTextures.LIME_CONCRETE);
+        register(Blocks.GREEN_CONCRETE, "green_concrete", McTextures.GREEN_CONCRETE);
+        register(Blocks.CYAN_CONCRETE, "cyan_concrete", McTextures.CYAN_CONCRETE);
+        register(Blocks.LIGHT_BLUE_CONCRETE, "light_blue_concrete", McTextures.LIGHT_BLUE_CONCRETE);
+        register(Blocks.BLUE_CONCRETE, "blue_concrete", McTextures.BLUE_CONCRETE);
+        register(Blocks.PINK_CONCRETE, "pink_concrete", McTextures.PINK_CONCRETE);
+        register(Blocks.MAGENTA_CONCRETE, "magenta_concrete", McTextures.MAGENTA_CONCRETE);
+        register(Blocks.PURPLE_CONCRETE, "purple_concrete", McTextures.PURPLE_CONCRETE);
+        
+        register(Blocks.STONE, "stone", McTextures.STONE);
+        register(Blocks.STONE_BRICKS, "stone_brick", McTextures.STONE_BRICK);
+        register(Blocks.MOSSY_STONE_BRICKS, "mossy_stone_brick", McTextures.MOSSY_STONE_BRICK);
+        register(Blocks.COBBLESTONE, "cobblestone", McTextures.COBBLESTONE);
+        register(Blocks.MOSSY_COBBLESTONE, "mossy_cobblestone", McTextures.MOSSY_COBBLESTONE);
+
+        register(Blocks.ANDESITE, "andesite", McTextures.ANDESITE);
+        register(Blocks.POLISHED_ANDESITE, "polished_andesite", McTextures.POLISHED_ANDESITE);
+        register(Blocks.DIORITE, "diorite", McTextures.DIORITE);
+        register(Blocks.POLISHED_DIORITE, "polished_diorite", McTextures.POLISHED_DIORITE);
+        register(Blocks.GRANITE, "granite", McTextures.GRANITE);
+        register(Blocks.POLISHED_GRANITE, "polished_granite", McTextures.POLISHED_GRANITE);
+
+        register(Blocks.BRICKS, "brick", McTextures.BRICK);
+        register(Blocks.SANDSTONE, "sandstone", 
                 XmPaint.finder().texture(0, McTextures.SANDSTONE_BOTTOM).find(),
                 XmPaint.finder().texture(0, McTextures.SANDSTONE_TOP).find(),
                 XmPaint.finder().texture(0, McTextures.SANDSTONE).find());
-        horizontal(Blocks.RED_SANDSTONE, "red_sandstone", 
+        register(Blocks.SMOOTH_SANDSTONE, "smooth_sandstone", McTextures.SANDSTONE_TOP);
+        register(Blocks.RED_SANDSTONE, "red_sandstone", 
                 XmPaint.finder().texture(0, McTextures.RED_SANDSTONE_BOTTOM).find(),
                 XmPaint.finder().texture(0, McTextures.RED_SANDSTONE_TOP).find(),
                 XmPaint.finder().texture(0, McTextures.RED_SANDSTONE).find());
-        horizontal(Blocks.SMOOTH_RED_SANDSTONE, "smooth_red_sandstone", XmPaint.finder().texture(0, McTextures.RED_SANDSTONE_TOP).find());
-        horizontal(Blocks.SMOOTH_SANDSTONE, "smooth_sandstone", XmPaint.finder().texture(0, McTextures.SANDSTONE_TOP).find());
-        horizontal(Blocks.STONE_BRICKS, "stone_brick", XmPaint.finder().texture(0, McTextures.STONE_BRICK).find());
-        horizontal(Blocks.STONE, "stone", XmPaint.finder().texture(0, McTextures.STONE).find());
+        register(Blocks.SMOOTH_RED_SANDSTONE, "smooth_red_sandstone", McTextures.RED_SANDSTONE_TOP);
+
+        register(Blocks.PRISMARINE, "prismarine", McTextures.PRISMARINE);
+        register(Blocks.PRISMARINE_BRICKS, "prismarine_brick", McTextures.PRISMARINE_BRICK);
+        register(Blocks.DARK_PRISMARINE, "dark_prismarine", McTextures.DARK_PRISMARINE);
+
+        register(Blocks.NETHER_BRICKS, "nether_brick", McTextures.NETHER_BRICK);
+        register(Blocks.RED_NETHER_BRICKS, "red_nether_brick", McTextures.RED_NETHER_BRICK);
+        register(Blocks.SMOOTH_QUARTZ, "smooth_quartz", McTextures.QUARTZ_BLOCK_BOTTOM);
+        register(Blocks.QUARTZ_BLOCK, "quartz", 
+                XmPaint.finder().texture(0, McTextures.QUARTZ_BLOCK_BOTTOM).find(),
+                XmPaint.finder().texture(0, McTextures.QUARTZ_BLOCK_TOP).find(),
+                XmPaint.finder().texture(0, McTextures.QUARTZ_BLOCK_SIDE).find());
+
+        register(Blocks.END_STONE_BRICKS, "end_stone_brick", McTextures.END_STONE_BRICK);
+        register(Blocks.PURPUR_BLOCK, "purpur", McTextures.PURPUR_BLOCK);
     }
     
-    private static void horizontal(Block block, String name, XmPaint paint) {
-        horizontal(block, name, paint, paint, paint);
+    private static void register(Block block, String name, TextureSet tex) {
+        final XmPaint paint = XmPaint.finder().texture(0, tex).find();
+        register(block, name, paint, paint, paint);
     }
     
-    private static void horizontal(final Block blockIn, String name, XmPaint paintBottom, XmPaint paintTop, XmPaint paintSide) {
+    private static void register(final Block blockIn, String name, XmPaint paintBottom, XmPaint paintTop, XmPaint paintSide) {
         
         Block block = Xb.register(new StairLike(blockIn.getDefaultState(), Block.Settings.copy(blockIn), StairLike.Shape.STRAIGHT),
-                name + "_wedge");
+                name + "_wedge_straight");
         XmBlockRegistry.addBlockStates(block, bs -> PrimitiveStateFunction.builder()
                 .withDefaultState(StairLike.MODELSTATE_FROM_BLOCKSTATE.mutate(
                         Wedge.INSTANCE.newState()
@@ -151,62 +193,5 @@ public class HorizontalStairs {
                         .paint(Stair.SURFACE_RIGHT, paintSide)
                         .paint(Stair.SURFACE_LEFT, paintSide), bs))
                 .build());
-        
     }
-    
-//    private static void horizontalStair(Block block, String name, XmPaint paintBack, XmPaint paintFront, XmPaint paintSide) {
-//        
-//        Block newBlock = Xb.register(
-//                new HorizontalWedge.Straight(block.getDefaultState()), name + "_horizontal_stair");
-//        
-//        Function<BlockState, PrimitiveStateFunction> stateFunc = bs -> PrimitiveStateFunction.builder()
-//                .withDefaultState(HorizontalWedge.STRAIGHT_MUTATOR.mutate(
-//                        HorizontalStair.STRAIGHT.newState()
-//                            .paint(HorizontalStair.SURFACE_BACK, paintBack)
-//                            .paint(HorizontalStair.SURFACE_FRONT, paintFront)
-//                            .paint(HorizontalStair.SURFACE_SIDE, paintSide),
-//                            bs))
-//                .withUpdate(HorizontalWedge.STRAIGHT_MUTATOR)
-//                .build();
-//        
-//        XmBlockRegistry.addBlockStates(newBlock, stateFunc);
-//    }
-//    
-//    private static void horizontalInsideCorner(Block block, String name, 
-//            XmPaint paintBack, XmPaint paintFront, XmPaint paintSide) {
-//        
-//        Block newBlock = Xb.register(
-//                new HorizontalWedge.Corner(block.getDefaultState()), name + "_horizontal_inside_corner");
-//        
-//        Function<BlockState, PrimitiveStateFunction> stateFunc = bs -> PrimitiveStateFunction.builder()
-//                .withDefaultState(HorizontalWedge.CORNER_MUTATOR.mutate(
-//                        HorizontalStair.INSIDE_CORNER.newState()
-//                            .paint(HorizontalStair.SURFACE_BACK, paintBack)
-//                            .paint(HorizontalStair.SURFACE_FRONT, paintFront)
-//                            .paint(HorizontalStair.SURFACE_SIDE, paintSide),
-//                            bs))
-//                .withUpdate(HorizontalWedge.CORNER_MUTATOR)
-//                .build();
-//        
-//        XmBlockRegistry.addBlockStates(newBlock, stateFunc);
-//    }
-//    
-//    private static void horizontalOutsideCorner(Block block, String name, 
-//            XmPaint paintBack, XmPaint paintFront, XmPaint paintSide) {
-//        
-//        Block newBlock = Xb.register(
-//                new HorizontalWedge.Corner(block.getDefaultState()), name + "_horizontal_outside_corner");
-//        
-//        Function<BlockState, PrimitiveStateFunction> stateFunc = bs -> PrimitiveStateFunction.builder()
-//                .withDefaultState(HorizontalWedge.CORNER_MUTATOR.mutate(
-//                        HorizontalStair.OUTSIDE_CORNER.newState()
-//                            .paint(HorizontalStair.SURFACE_BACK, paintBack)
-//                            .paint(HorizontalStair.SURFACE_FRONT, paintFront)
-//                            .paint(HorizontalStair.SURFACE_SIDE, paintSide),
-//                            bs))
-//                .withUpdate(HorizontalWedge.CORNER_MUTATOR)
-//                .build();
-//        
-//        XmBlockRegistry.addBlockStates(newBlock, stateFunc);
-//    }
 }

@@ -15,11 +15,14 @@
  ******************************************************************************/
 package grondag.xblocks;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import grondag.xblocks.vanilla.ConnectedGlass;
-import grondag.xblocks.vanilla.HorizontalStairs;
+import grondag.xblocks.vanilla.StoneBlocks;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.block.Block;
@@ -37,17 +40,28 @@ public class Xb implements ModInitializer {
 
     private static ItemGroup itemGroup;
     
+    private static final ArrayList<Item> items = new ArrayList<>();
+    
     static ItemGroup itemGroup() {
         return itemGroup;
     }
     
     private static final Identifier stackId = id("clear_connected_glass");
 
+    private static void stackAppender(List<ItemStack> list) {
+        for(Item item : items) {
+            list.add(new ItemStack(item));
+        }
+    }
+    
     @Override
     public void onInitialize() {
-        itemGroup = FabricItemGroupBuilder.build(id("item_group"), () -> new ItemStack(Registry.ITEM.get(stackId)));
+        itemGroup = FabricItemGroupBuilder.create(id("item_group"))
+                .icon(() -> new ItemStack(Registry.ITEM.get(stackId)))
+                .appendItems(Xb::stackAppender)
+                .build();
         ConnectedGlass.init();
-        HorizontalStairs.init();
+        StoneBlocks.init();
     }
 
     public static String idString(String path) {
@@ -61,7 +75,7 @@ public class Xb implements ModInitializer {
     public static Block register(Block block, String idString) {
         Identifier id = id(idString);
         block = Registry.BLOCK.add(id, block);
-        Registry.ITEM.add(id, new BlockItem(block, new Item.Settings().maxCount(64).group(itemGroup)));
+        items.add(Registry.ITEM.add(id, new BlockItem(block, new Item.Settings().maxCount(64).group(itemGroup))));
         return block;
     }
 }
