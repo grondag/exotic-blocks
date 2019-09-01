@@ -24,7 +24,7 @@ import grondag.xm.api.block.base.HorizontalWedge;
 import grondag.xm.api.modelstate.primitive.PrimitiveStateFunction;
 import grondag.xm.api.paint.XmPaint;
 import grondag.xm.api.primitive.simple.HorizontalStair;
-import grondag.xm.api.texture.XmTextures;
+import grondag.xm.api.texture.McTextures;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -32,7 +32,7 @@ import net.minecraft.block.Blocks;
 public class HorizontalStairs {
 
     public static void init() {
-        horizontalStair(Blocks.STONE, "stone", XmPaint.finder().texture(0, XmTextures.TILE_NOISE_MODERATE).find());
+        horizontalStair(Blocks.STONE, "stone", XmPaint.finder().texture(0, McTextures.STONE).find());
     }
     
     private static void horizontalStair(Block block, String name, XmPaint paint) {
