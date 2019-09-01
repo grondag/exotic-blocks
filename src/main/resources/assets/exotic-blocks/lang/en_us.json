@@ -26,8 +26,8 @@
 	"config.xblocks.title" : "Exotic Blocks",
 	"config.xblocks.reset" : "Reset",
 	
-	"config.xblocks.category.vanilla" : "Vanilla Blocks",
+	"config.xblocks.category.vanilla" : "Work In Progress",
 		
-	"config.xblocks.value.fancy_glass" : "Fancy Glass",
-	"config.xblocks.help.fancy_glass" : "Connected Glass Textures"
+	"config.xblocks.value.fancy_glass" : "Would you like some cake?",
+	"config.xblocks.help.fancy_glass" : "Trust me..."
 }

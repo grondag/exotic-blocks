@@ -79,6 +79,12 @@ dependencies {
 	}
 	include "io.github.cottonmc:LibGui:1.3.1"
 	
+	modImplementation ("me.shedaniel.cloth:config-2:${clothconfig_version}") {
+        exclude group :"io.github.prospector.modmenu"
+        exclude group :"net.fabricmc.fabric-api"
+    }
+	include "me.shedaniel.cloth:config-2:${clothconfig_version}"
+	
 	// dev env annotation support
 	compile "org.apiguardian:apiguardian-api:1.0.0"
 	compile "com.google.code.findbugs:jsr305:3.0.2"
