@@ -30,7 +30,7 @@ import static grondag.xm.api.texture.TextureNameFunction.BORDER_SIDES_TOP_LEFT_R
 import static grondag.xm.api.texture.TextureNameFunction.BORDER_SIDES_TOP_RIGHT;
 import static grondag.xm.api.texture.TextureNameFunction.BORDER_SIDE_TOP;
 import static grondag.xm.api.texture.TextureRenderIntent.OVERLAY_ONLY;
-import static grondag.xm.api.texture.TextureRotation.ROTATE_NONE;
+import static grondag.xm.api.texture.TextureTransform.IDENTITY;
 import static grondag.xm.api.texture.TextureScale.SINGLE;
 
 import grondag.xblocks.Xb;
@@ -77,7 +77,7 @@ public class ConnectedGlass {
         .versionCount(1)
         .scale(SINGLE)
         .layout(BORDER_LAYOUT)
-        .rotation(ROTATE_NONE)
+        .transform(IDENTITY)
         .renderIntent(OVERLAY_ONLY)
         .groups(STATIC_BORDERS)
         .build(Xb.idString("fancy_glass"));
