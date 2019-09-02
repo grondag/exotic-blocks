@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:sandstone"
+  },
+  "result": "exotic-blocks:sandstone_omni_stair_outside",
+  "count": 1
+}

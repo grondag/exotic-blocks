@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:lime_terracotta"
+  },
+  "result": "exotic-blocks:lime_terracotta_wedge_outside",
+  "count": 1
+}

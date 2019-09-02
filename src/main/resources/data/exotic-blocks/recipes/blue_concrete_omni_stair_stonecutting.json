@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:blue_concrete"
+  },
+  "result": "exotic-blocks:blue_concrete_omni_stair",
+  "count": 1
+}

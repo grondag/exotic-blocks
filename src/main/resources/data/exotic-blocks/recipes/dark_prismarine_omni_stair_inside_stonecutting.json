@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:dark_prismarine"
+  },
+  "result": "exotic-blocks:dark_prismarine_omni_stair_inside",
+  "count": 1
+}

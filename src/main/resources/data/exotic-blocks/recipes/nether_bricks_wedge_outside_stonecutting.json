@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:nether_bricks"
+  },
+  "result": "exotic-blocks:nether_bricks_wedge_outside",
+  "count": 1
+}

@@ -11,18 +11,6 @@
 
 <#list colors as color>
 	"block.exotic-blocks.${color.name?lower_case}_connected_glass": "${color.name?replace("_"," ")?capitalize} Connected Glass",
-	"block.exotic-blocks.${color.name?lower_case}_terracotta_wedge_straight": "${color.name?replace("_"," ")?capitalize} Terracotta Wedge",
-	"block.exotic-blocks.${color.name?lower_case}_terracotta_wedge_inside": "${color.name?replace("_"," ")?capitalize} Terracotta Wedge Inside Corner",
-	"block.exotic-blocks.${color.name?lower_case}_terracotta_wedge_outside": "${color.name?replace("_"," ")?capitalize} Terracotta Wedge Outside Corner",
-	"block.exotic-blocks.${color.name?lower_case}_terracotta_omni_stair": "${color.name?replace("_"," ")?capitalize} Terracotta Omnidirectional Stair",
-	"block.exotic-blocks.${color.name?lower_case}_terracotta_omni_stair_inside": "${color.name?replace("_"," ")?capitalize} Terracotta Omnidirectional Stair Inside Corner",
-	"block.exotic-blocks.${color.name?lower_case}_terracotta_omni_stair_outside": "${color.name?replace("_"," ")?capitalize} Terracotta Omnidirectional Stair Outside Corner",
-	"block.exotic-blocks.${color.name?lower_case}_concrete_wedge_straight": "${color.name?replace("_"," ")?capitalize} Concrete Wedge",
-	"block.exotic-blocks.${color.name?lower_case}_concrete_wedge_inside": "${color.name?replace("_"," ")?capitalize} Concrete Wedge Inside Corner",
-	"block.exotic-blocks.${color.name?lower_case}_concrete_wedge_outside": "${color.name?replace("_"," ")?capitalize} Concrete Wedge Outside Corner",
-	"block.exotic-blocks.${color.name?lower_case}_concrete_omni_stair": "${color.name?replace("_"," ")?capitalize} Concrete Omnidirectional Stair",
-	"block.exotic-blocks.${color.name?lower_case}_concrete_omni_stair_inside": "${color.name?replace("_"," ")?capitalize} Concrete Omnidirectional Stair Inside Corner",
-	"block.exotic-blocks.${color.name?lower_case}_concrete_omni_stair_outside": "${color.name?replace("_"," ")?capitalize} Concrete Omnidirectional Stair Outside Corner",
 </#list>
 
 <#list stones as stone>

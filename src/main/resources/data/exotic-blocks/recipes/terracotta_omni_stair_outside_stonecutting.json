@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:terracotta"
+  },
+  "result": "exotic-blocks:terracotta_omni_stair_outside",
+  "count": 1
+}

@@ -1,0 +1,57 @@
+<@pp.dropOutputFile />
+<#list stones as stone>
+<@pp.changeOutputFile name=stone.name+"_wedge_straight_stonecutting.json" />
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:${stone.name}"
+  },
+  "result": "exotic-blocks:${stone.name}_wedge_straight",
+  "count": 2
+}
+<@pp.changeOutputFile name=stone.name+"_wedge_inside_stonecutting.json" />
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:${stone.name}"
+  },
+  "result": "exotic-blocks:${stone.name}_wedge_inside",
+  "count": 1
+}
+<@pp.changeOutputFile name=stone.name+"_wedge_outside_stonecutting.json" />
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:${stone.name}"
+  },
+  "result": "exotic-blocks:${stone.name}_wedge_outside",
+  "count": 1
+}
+<@pp.changeOutputFile name=stone.name+"_omni_stair_stonecutting.json" />
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:${stone.name}"
+  },
+  "result": "exotic-blocks:${stone.name}_omni_stair",
+  "count": 1
+}
+<@pp.changeOutputFile name=stone.name+"_omni_stair_inside_stonecutting.json" />
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:${stone.name}"
+  },
+  "result": "exotic-blocks:${stone.name}_omni_stair_inside",
+  "count": 1
+}
+<@pp.changeOutputFile name=stone.name+"_omni_stair_outside_stonecutting.json" />
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:${stone.name}"
+  },
+  "result": "exotic-blocks:${stone.name}_omni_stair_outside",
+  "count": 1
+}
+</#list>

@@ -75,8 +75,8 @@ public class StoneBlocks {
         register(Blocks.PURPLE_CONCRETE, "purple_concrete", McTextures.PURPLE_CONCRETE);
         
         register(Blocks.STONE, "stone", McTextures.STONE);
-        register(Blocks.STONE_BRICKS, "stone_brick", McTextures.STONE_BRICK);
-        register(Blocks.MOSSY_STONE_BRICKS, "mossy_stone_brick", McTextures.MOSSY_STONE_BRICK);
+        register(Blocks.STONE_BRICKS, "stone_bricks", McTextures.STONE_BRICK);
+        register(Blocks.MOSSY_STONE_BRICKS, "mossy_stone_bricks", McTextures.MOSSY_STONE_BRICK);
         register(Blocks.COBBLESTONE, "cobblestone", McTextures.COBBLESTONE);
         register(Blocks.MOSSY_COBBLESTONE, "mossy_cobblestone", McTextures.MOSSY_COBBLESTONE);
 
@@ -87,7 +87,7 @@ public class StoneBlocks {
         register(Blocks.GRANITE, "granite", McTextures.GRANITE);
         register(Blocks.POLISHED_GRANITE, "polished_granite", McTextures.POLISHED_GRANITE);
 
-        register(Blocks.BRICKS, "brick", McTextures.BRICK);
+        register(Blocks.BRICKS, "bricks", McTextures.BRICK);
         register(Blocks.SANDSTONE, "sandstone", 
                 XmPaint.finder().texture(0, McTextures.SANDSTONE_BOTTOM).find(),
                 XmPaint.finder().texture(0, McTextures.SANDSTONE_TOP).find(),
@@ -103,16 +103,16 @@ public class StoneBlocks {
         register(Blocks.PRISMARINE_BRICKS, "prismarine_brick", McTextures.PRISMARINE_BRICK);
         register(Blocks.DARK_PRISMARINE, "dark_prismarine", McTextures.DARK_PRISMARINE);
 
-        register(Blocks.NETHER_BRICKS, "nether_brick", McTextures.NETHER_BRICK);
-        register(Blocks.RED_NETHER_BRICKS, "red_nether_brick", McTextures.RED_NETHER_BRICK);
+        register(Blocks.NETHER_BRICKS, "nether_bricks", McTextures.NETHER_BRICK);
+        register(Blocks.RED_NETHER_BRICKS, "red_nether_bricks", McTextures.RED_NETHER_BRICK);
         register(Blocks.SMOOTH_QUARTZ, "smooth_quartz", McTextures.QUARTZ_BLOCK_BOTTOM);
         register(Blocks.QUARTZ_BLOCK, "quartz", 
                 XmPaint.finder().texture(0, McTextures.QUARTZ_BLOCK_BOTTOM).find(),
                 XmPaint.finder().texture(0, McTextures.QUARTZ_BLOCK_TOP).find(),
                 XmPaint.finder().texture(0, McTextures.QUARTZ_BLOCK_SIDE).find());
 
-        register(Blocks.END_STONE_BRICKS, "end_stone_brick", McTextures.END_STONE_BRICK);
-        register(Blocks.PURPUR_BLOCK, "purpur", McTextures.PURPUR_BLOCK);
+        register(Blocks.END_STONE_BRICKS, "end_stone_bricks", McTextures.END_STONE_BRICK);
+        register(Blocks.PURPUR_BLOCK, "purpur_block", McTextures.PURPUR_BLOCK);
     }
     
     private static void register(Block block, String name, TextureSet tex) {
