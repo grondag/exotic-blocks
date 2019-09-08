@@ -21,8 +21,9 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import grondag.xblocks.vanilla.ConnectedGlass;
-import grondag.xblocks.vanilla.StoneBlocks;
+import grondag.xblocks.block.ConnectedGlass;
+import grondag.xblocks.block.LampBlocks;
+import grondag.xblocks.block.StoneBlocks;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.block.Block;
@@ -60,6 +61,7 @@ public class Xb implements ModInitializer {
                 .icon(() -> new ItemStack(Registry.ITEM.get(stackId)))
                 .appendItems(Xb::stackAppender)
                 .build();
+        LampBlocks.init();
         ConnectedGlass.init();
         StoneBlocks.init();
     }

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:light_blue_terracotta"
+  },
+  "result": "exotic-blocks:light_blue_terracotta_square_column",
+  "count": 1
+}

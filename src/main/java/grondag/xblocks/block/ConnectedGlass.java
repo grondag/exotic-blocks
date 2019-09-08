@@ -13,7 +13,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  ******************************************************************************/
-package grondag.xblocks.vanilla;
+package grondag.xblocks.block;
 
 import static grondag.xm.api.texture.TextureGroup.STATIC_BORDERS;
 import static grondag.xm.api.texture.TextureNameFunction.BORDER_CORNERS_ALL;

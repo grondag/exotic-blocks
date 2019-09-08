@@ -1,0 +1,10 @@
+{
+	"layers": [
+		{
+			"blendMode": "solid",
+			"color": "0xFFCCFFFF",
+			"emissive": "true",
+			"texture": "exotic-matter:tile_noise_light"
+		}
+	]
+}

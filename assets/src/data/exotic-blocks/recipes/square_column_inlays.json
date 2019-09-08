@@ -1,0 +1,47 @@
+<@pp.dropOutputFile />
+<#list stones as stone>
+<@pp.changeOutputFile name=stone.name+"_glowstone_square_column.json" />
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "glowstone_square_column",
+  "pattern": [
+    "###",
+    "#G#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "exotic-blocks:${stone.name}_square_column"
+    },
+    "G": {
+      "item": "minecraft:glowstone_dust"
+    }
+  },
+  "result": {
+    "item": "exotic-blocks:${stone.name}_glowstone_square_column",
+    "count": 8
+  }
+}
+<@pp.changeOutputFile name=stone.name+"_prismarine_square_column.json" />
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "prismarine_square_column",
+  "pattern": [
+    "###",
+    "#G#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "exotic-blocks:${stone.name}_square_column"
+    },
+    "G": {
+      "item": "minecraft:prismarine_crystals"
+    }
+  },
+  "result": {
+    "item": "exotic-blocks:${stone.name}_prismarine_square_column",
+    "count": 8
+  }
+}
+</#list>

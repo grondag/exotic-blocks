@@ -54,4 +54,13 @@
   "result": "exotic-blocks:${stone.name}_omni_stair_outside",
   "count": 1
 }
+<@pp.changeOutputFile name=stone.name+"_square_columns_stonecutting.json" />
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:${stone.name}"
+  },
+  "result": "exotic-blocks:${stone.name}_square_column",
+  "count": 1
+}
 </#list>
