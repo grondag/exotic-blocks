@@ -20,6 +20,7 @@ import java.util.function.Function;
 
 import grondag.xblocks.Xb;
 import grondag.xm.api.block.XmBlockRegistry;
+import grondag.xm.api.block.base.NonCubicPillarBlock;
 import grondag.xm.api.connect.world.BlockTest;
 import grondag.xm.api.modelstate.primitive.PrimitiveState;
 import grondag.xm.api.modelstate.primitive.PrimitiveStateFunction;
@@ -30,17 +31,10 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.PillarBlock;
 import net.minecraft.entity.EntityContext;
-import net.minecraft.fluid.FluidState;
-import net.minecraft.fluid.Fluids;
-import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.state.StateFactory.Builder;
-import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
-import net.minecraft.world.IWorld;
 
 public class ColumnHelper {
     
@@ -83,45 +77,11 @@ public class ColumnHelper {
                         SquareColumn.setCutsOnEdge(true, s);})
                 .releaseToImmutable();
     
-        final Block column = Xb.register(new PillarBlock(FabricBlockSettings.copy(template).build()) {
-
-            @Override
-            public BlockState getPlacementState(ItemPlacementContext ctx) {
-                FluidState fluidState = ctx.getWorld().getFluidState(ctx.getBlockPos());
-                return this.getDefaultState()
-                        .with(AXIS, ctx.getSide().getAxis())
-                        .with(Properties.WATERLOGGED, fluidState.getFluid() == Fluids.WATER);
-             }
-            
-            @Override
-            protected void appendProperties(Builder<Block, BlockState> builder) {
-                super.appendProperties(builder);
-                builder.add(Properties.WATERLOGGED);
-            }
-            
-            @Override
-            public boolean hasSidedTransparency(BlockState blockState_1) {
-                return true;
-            }
-
+        final Block column = Xb.register(new NonCubicPillarBlock(FabricBlockSettings.copy(template).build()) {
             @Override
             public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos pos, EntityContext entityContext) {
                 return SHAPE;
             }
-            
-            @Override
-            public BlockState getStateForNeighborUpdate(BlockState blockState, Direction face, BlockState blockState2, IWorld world, BlockPos pos, BlockPos pos2) {
-                if (blockState.get(Properties.WATERLOGGED)) {
-                   world.getFluidTickScheduler().schedule(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
-                }
-                return super.getStateForNeighborUpdate(blockState, face, blockState2, world, pos, pos2);
-             }
-            
-            @Override
-            public FluidState getFluidState(BlockState blockState) {
-                return blockState.get(Properties.WATERLOGGED) ? Fluids.WATER.getStill(false) : super.getFluidState(blockState);
-             }
-            
         }, idString + "_square_column");
         
         BlockTest<PrimitiveState> joinFunc = ctx -> {
