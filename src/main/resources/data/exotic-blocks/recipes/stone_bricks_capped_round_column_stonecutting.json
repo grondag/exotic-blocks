@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:stone_bricks"
+  },
+  "result": "exotic-blocks:stone_bricks_capped_round_column",
+  "count": 1
+}

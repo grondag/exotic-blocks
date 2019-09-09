@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:smooth_sandstone"
+  },
+  "result": "exotic-blocks:smooth_sandstone_capped_round_column",
+  "count": 1
+}

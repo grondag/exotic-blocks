@@ -20,11 +20,15 @@ import java.util.function.Function;
 
 import grondag.xblocks.Xb;
 import grondag.xm.api.block.XmBlockRegistry;
+import grondag.xm.api.block.XmBlockState;
 import grondag.xm.api.block.base.NonCubicPillarBlock;
+import grondag.xm.api.collision.CollisionDispatcher;
 import grondag.xm.api.connect.world.BlockTest;
 import grondag.xm.api.modelstate.primitive.PrimitiveState;
 import grondag.xm.api.modelstate.primitive.PrimitiveStateFunction;
 import grondag.xm.api.paint.XmPaint;
+import grondag.xm.api.primitive.simple.CappedRoundColumn;
+import grondag.xm.api.primitive.simple.CylinderWithAxis;
 import grondag.xm.api.primitive.simple.SquareColumn;
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
 import net.minecraft.block.Block;
@@ -32,6 +36,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.PillarBlock;
 import net.minecraft.entity.EntityContext;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction.Axis;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
@@ -66,7 +71,7 @@ public class ColumnHelper {
         SHAPE = shape;
     }
     
-    public static Block register(String idString, Block template, XmPaint endPaint, XmPaint sidePaint, XmPaint cutPaint, XmPaint innerPaint, int cutCount) {
+    public static Block square(String idString, Block template, XmPaint endPaint, XmPaint sidePaint, XmPaint cutPaint, XmPaint innerPaint, int cutCount) {
         final PrimitiveState defaultState = SquareColumn.INSTANCE.newState()
                 .paint(SquareColumn.SURFACE_END, endPaint)
                 .paint(SquareColumn.SURFACE_SIDE, sidePaint)
@@ -99,5 +104,71 @@ public class ColumnHelper {
         XmBlockRegistry.addBlockStates(column, stateFunc);
         
         return column;
+    }
+    
+    public static Block round(String idString, Block template, XmPaint endPaint, XmPaint sidePaint, XmPaint cutPaint, XmPaint innerPaint, int cutCount) {
+        final PrimitiveState defaultState = CylinderWithAxis.INSTANCE.newState()
+                .paint(CylinderWithAxis.SURFACE_ENDS, endPaint)
+                .paint(CylinderWithAxis.SURFACE_SIDES, sidePaint)
+                .releaseToImmutable();
+        
+        
+        Block block = Xb.register(new NonCubicPillarBlock(FabricBlockSettings.copy(template).dynamicBounds().build()) {
+            @Override
+            public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos pos, EntityContext entityContext) {
+                return CollisionDispatcher.shapeFor(XmBlockState.modelState(blockState, blockView, pos, false));
+            }
+        }, idString + "_round_column");
+        
+        
+        XmBlockRegistry.addBlockStates(block, bs -> PrimitiveStateFunction.builder()
+                .withDefaultState(PrimitiveState.AXIS_FROM_BLOCKSTATE.mutate(defaultState.mutableCopy(), bs))
+                .build());
+        
+        return block;
+    }
+    
+    private static BlockTest<PrimitiveState> AXIS_JOIN = ctx -> {
+        // must be an axis block, obviously.
+        final BlockState fromBlock = ctx.fromBlockState();
+        if (!fromBlock.contains(PillarBlock.AXIS)) return false;
+
+        // must be same block
+        final BlockState toBlock = ctx.toBlockState();
+        if (fromBlock.getBlock() != toBlock.getBlock()) return false;
+        
+        // must be same axis
+        final Axis axis = fromBlock.get(PillarBlock.AXIS);
+        if (axis != toBlock.get(PillarBlock.AXIS)) return false;
+                
+        // must be adjacent along that axis
+        final BlockPos fromPos = ctx.fromPos();
+        final BlockPos toPos = ctx.toPos();
+        final int dist = axis.choose(fromPos.getX(), fromPos.getY(), fromPos.getZ()) 
+                - axis.choose(toPos.getX(), toPos.getY(), toPos.getZ());
+        return Math.abs(dist) == 1;
+    };
+    
+    public static Block cappedRound(String idString, Block template, XmPaint endPaint, XmPaint sidePaint, XmPaint cutPaint, XmPaint innerPaint, int cutCount) {
+        final PrimitiveState defaultState = CappedRoundColumn.INSTANCE.newState()
+                .paint(CappedRoundColumn.SURFACE_ENDS, endPaint)
+                .paint(CappedRoundColumn.SURFACE_SIDES, sidePaint)
+                .releaseToImmutable();
+        
+        
+        Block block = Xb.register(new NonCubicPillarBlock(FabricBlockSettings.copy(template).dynamicBounds().build()) {
+            @Override
+            public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos pos, EntityContext entityContext) {
+                return CollisionDispatcher.shapeFor(XmBlockState.modelState(blockState, blockView, pos, true));
+            }
+        }, idString + "_capped_round_column");
+        
+        
+        XmBlockRegistry.addBlockStates(block, bs -> PrimitiveStateFunction.builder()
+                .withJoin(AXIS_JOIN)
+                .withDefaultState(PrimitiveState.AXIS_FROM_BLOCKSTATE.mutate(defaultState.mutableCopy(), bs))
+                .build());
+        
+        return block;
     }
 }

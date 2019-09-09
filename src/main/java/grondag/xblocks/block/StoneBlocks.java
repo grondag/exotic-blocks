@@ -199,14 +199,18 @@ public class StoneBlocks {
         
         final XmPaint paintInner = XmPaint.finder().copy(paintTop).textureColor(0, ColorHelper.multiplyRGB(paintTop.textureColor(0), 0.85f)).find();
         final XmPaint paintCut = XmPaint.finder().copy(paintSide).textureColor(0, ColorHelper.multiplyRGB(paintSide.textureColor(0), 0.92f)).find();
-        ColumnHelper.register(name, blockIn, paintTop, paintSide, paintCut, paintInner, coarse ? 1 : 3);
+        ColumnHelper.square(name, blockIn, paintTop, paintSide, paintCut, paintInner, coarse ? 1 : 3);
+        ColumnHelper.round(name, blockIn, paintTop, paintSide, paintCut, paintInner, coarse ? 1 : 3);
+        ColumnHelper.cappedRound(name, blockIn, paintTop, paintSide, paintCut, paintInner, coarse ? 1 : 3);
         
         XmPaint paint = XmPaintRegistry.INSTANCE.get(new Identifier("exotic-blocks:prismarine_glow"));
         
-        ColumnHelper.register(name + "_prismarine", blockIn, paintTop, paintSide, paintSide, paint, coarse ? 2 : 3);
+        ColumnHelper.square(name + "_prismarine", blockIn, paintTop, paintSide, paintSide, paint, coarse ? 2 : 3);
         
         paint = XmPaintRegistry.INSTANCE.get(new Identifier("exotic-blocks:glowstone_glow"));
         
-        ColumnHelper.register(name + "_glowstone", blockIn, paintTop, paintSide, paintSide, paint, coarse ? 1 : 2);
+        ColumnHelper.square(name + "_glowstone", blockIn, paintTop, paintSide, paintSide, paint, coarse ? 1 : 2);
+        
+        
     }
 }

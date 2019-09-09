@@ -21,6 +21,8 @@
 	"block.exotic-blocks.${stone.name?lower_case}_omni_stair_inside": "${stone.name?replace("_"," ")?capitalize} Omnidirectional Stair Inside Corner",
 	"block.exotic-blocks.${stone.name?lower_case}_omni_stair_outside": "${stone.name?replace("_"," ")?capitalize} Omnidirectional Stair Outside Corner",
 	"block.exotic-blocks.${stone.name?lower_case}_square_column": "${stone.name?replace("_"," ")?capitalize} Square Column",
+	"block.exotic-blocks.${stone.name?lower_case}_round_column": "${stone.name?replace("_"," ")?capitalize} Round Column",
+	"block.exotic-blocks.${stone.name?lower_case}_capped_round_column": "${stone.name?replace("_"," ")?capitalize} Capped Round Column",
 	"block.exotic-blocks.${stone.name?lower_case}_prismarine_square_column": "${stone.name?replace("_"," ")?capitalize} Square Column with Prismarine Inlay",
 	"block.exotic-blocks.${stone.name?lower_case}_glowstone_square_column": "${stone.name?replace("_"," ")?capitalize} Square Column with Glowstone Inlay",
 </#list>
