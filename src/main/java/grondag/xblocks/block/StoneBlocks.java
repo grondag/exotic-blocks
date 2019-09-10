@@ -199,18 +199,23 @@ public class StoneBlocks {
         
         final XmPaint paintInner = XmPaint.finder().copy(paintTop).textureColor(0, ColorHelper.multiplyRGB(paintTop.textureColor(0), 0.85f)).find();
         final XmPaint paintCut = XmPaint.finder().copy(paintSide).textureColor(0, ColorHelper.multiplyRGB(paintSide.textureColor(0), 0.92f)).find();
-        ColumnHelper.square(name, blockIn, paintTop, paintSide, paintCut, paintInner, coarse ? 1 : 3);
-        ColumnHelper.round(name, blockIn, paintTop, paintSide, paintCut, paintInner, coarse ? 1 : 3);
-        ColumnHelper.cappedRound(name, blockIn, paintTop, paintSide, paintCut, paintInner, coarse ? 1 : 3);
+        BlockHelper.squareInsetColumn(name, blockIn, paintTop, paintSide, paintCut, paintInner, coarse ? 1 : 3);
+        BlockHelper.roundColumn(name, blockIn, paintTop, paintSide, paintCut, paintInner, coarse ? 1 : 3);
+        BlockHelper.cappedRoundColumn(name, blockIn, paintTop, paintSide, paintCut, paintInner, coarse ? 1 : 3);
+        BlockHelper.insetPanel(name, blockIn, paintTop, paintCut, paintInner, 0);
         
         XmPaint paint = XmPaintRegistry.INSTANCE.get(new Identifier("exotic-blocks:prismarine_glow"));
         
-        ColumnHelper.square(name + "_prismarine", blockIn, paintTop, paintSide, paintSide, paint, coarse ? 2 : 3);
+        BlockHelper.insetPanel(name + "_prismarine", blockIn, paintTop, paintSide, paint, 0);
+        BlockHelper.squareInsetColumn(name + "_prismarine", blockIn, paintTop, paintSide, paintSide, paint, coarse ? 2 : 3);
         
         paint = XmPaintRegistry.INSTANCE.get(new Identifier("exotic-blocks:glowstone_glow"));
         
-        ColumnHelper.square(name + "_glowstone", blockIn, paintTop, paintSide, paintSide, paint, coarse ? 1 : 2);
+        BlockHelper.insetPanel(name + "_glowstone", blockIn, paintTop, paintSide, paint, 0);
+        BlockHelper.squareInsetColumn(name + "_glowstone", blockIn, paintTop, paintSide, paintSide, paint, coarse ? 1 : 2);
         
+        paint = XmPaintRegistry.INSTANCE.get(new Identifier("exotic-blocks:lamp_glow"));
         
+        BlockHelper.insetPanel(name + "_lamp", blockIn, paintTop, paintSide, paint, 15);
     }
 }

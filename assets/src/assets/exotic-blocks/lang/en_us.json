@@ -25,6 +25,10 @@
 	"block.exotic-blocks.${stone.name?lower_case}_capped_round_column": "${stone.name?replace("_"," ")?capitalize} Capped Round Column",
 	"block.exotic-blocks.${stone.name?lower_case}_prismarine_square_column": "${stone.name?replace("_"," ")?capitalize} Square Column with Prismarine Inlay",
 	"block.exotic-blocks.${stone.name?lower_case}_glowstone_square_column": "${stone.name?replace("_"," ")?capitalize} Square Column with Glowstone Inlay",
+	"block.exotic-blocks.${stone.name?lower_case}_inset_panel": "${stone.name?replace("_"," ")?capitalize} Inset Panel",
+	"block.exotic-blocks.${stone.name?lower_case}_lamp_inset_panel": "${stone.name?replace("_"," ")?capitalize} Inset Panel Lamp",
+	"block.exotic-blocks.${stone.name?lower_case}_prismarine_inset_panel": "${stone.name?replace("_"," ")?capitalize} Inset Panel with Prismarine Inlay",
+	"block.exotic-blocks.${stone.name?lower_case}_glowstone_inset_panel": "${stone.name?replace("_"," ")?capitalize} Inset Panel with Glowstone Inlay",
 </#list>
 
     "itemGroup.exotic-blocks.item_group": "Exotic Blocks"

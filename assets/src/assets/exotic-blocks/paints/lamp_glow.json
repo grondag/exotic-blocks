@@ -1,0 +1,12 @@
+{
+	"layers": [
+		{
+			"blendMode": "solid",
+			"color": "0xFFFFFFFF",
+			"emissive": "true",
+			"disableDiffuse": "true",
+			"disableAo": "true",
+			"texture": "exotic-matter:noise_subtle"
+		}
+	]
+}
