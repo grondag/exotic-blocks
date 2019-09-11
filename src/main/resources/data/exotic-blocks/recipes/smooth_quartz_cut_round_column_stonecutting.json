@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:smooth_quartz"
+  },
+  "result": "exotic-blocks:smooth_quartz_cut_round_column",
+  "count": 1
+}

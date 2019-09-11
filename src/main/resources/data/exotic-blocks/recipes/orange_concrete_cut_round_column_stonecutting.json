@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:orange_concrete"
+  },
+  "result": "exotic-blocks:orange_concrete_cut_round_column",
+  "count": 1
+}

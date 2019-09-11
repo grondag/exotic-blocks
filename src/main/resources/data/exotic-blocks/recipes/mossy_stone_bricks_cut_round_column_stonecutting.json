@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:mossy_stone_bricks"
+  },
+  "result": "exotic-blocks:mossy_stone_bricks_cut_round_column",
+  "count": 1
+}

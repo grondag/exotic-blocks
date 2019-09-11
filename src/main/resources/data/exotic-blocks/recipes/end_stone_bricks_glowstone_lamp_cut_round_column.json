@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "lamp_cut_round_column",
+  "pattern": [
+    " G ",
+    "G#G",
+    " G "
+  ],
+  "key": {
+    "#": {
+      "item": "exotic-blocks:end_stone_bricks_cut_round_column"
+    },
+    "G": {
+      "item": "minecraft:glowstone_dust"
+    }
+  },
+  "result": {
+    "item": "exotic-blocks:end_stone_bricks_lamp_cut_round_column",
+    "count": 1
+  }
+}

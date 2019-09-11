@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "lamp_cut_round_column",
+  "pattern": [
+    " G ",
+    "G#G",
+    " G "
+  ],
+  "key": {
+    "#": {
+      "item": "exotic-blocks:red_terracotta_cut_round_column"
+    },
+    "G": {
+      "item": "minecraft:prismarine_crystals"
+    }
+  },
+  "result": {
+    "item": "exotic-blocks:red_terracotta_lamp_cut_round_column",
+    "count": 1
+  }
+}
