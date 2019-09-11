@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "lamp_capped_square_column",
+  "pattern": [
+    " G ",
+    "G#G",
+    " G "
+  ],
+  "key": {
+    "#": {
+      "item": "exotic-blocks:red_concrete_capped_square_column"
+    },
+    "G": {
+      "item": "minecraft:glowstone_dust"
+    }
+  },
+  "result": {
+    "item": "exotic-blocks:red_concrete_lamp_capped_square_column",
+    "count": 1
+  }
+}

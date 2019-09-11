@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "prismarine_capped_square_column",
+  "pattern": [
+    "###",
+    "#G#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "exotic-blocks:quartz_capped_square_column"
+    },
+    "G": {
+      "item": "minecraft:prismarine_crystals"
+    }
+  },
+  "result": {
+    "item": "exotic-blocks:quartz_prismarine_capped_square_column",
+    "count": 8
+  }
+}

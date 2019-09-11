@@ -202,6 +202,7 @@ public class StoneBlocks {
         BlockHelper.squareInsetColumn(name, blockIn, paintTop, paintSide, paintCut, paintInner, coarse ? 1 : 3);
         BlockHelper.roundColumn(name, blockIn, paintTop, paintSide, paintCut, paintInner, coarse ? 1 : 3);
         BlockHelper.cappedRoundColumn(name, blockIn, paintTop, paintSide, paintCut, paintInner, coarse ? 1 : 3);
+        BlockHelper.cappedSquareColumn(name, blockIn, paintTop, paintSide, paintCut, paintInner, 0);
         BlockHelper.insetPanel(name, blockIn, paintTop, paintCut, paintInner, 0);
         
         XmPaint paint = XmPaintRegistry.INSTANCE.get(new Identifier("exotic-blocks:prismarine_glow"));
@@ -209,16 +210,19 @@ public class StoneBlocks {
         BlockHelper.insetPanel(name + "_prismarine", blockIn, paintTop, paintSide, paint, 0);
         BlockHelper.flatPanel(name + "_prismarine", blockIn, paintTop, paint, 0);
         BlockHelper.squareInsetColumn(name + "_prismarine", blockIn, paintTop, paintSide, paintSide, paint, coarse ? 2 : 3);
+        BlockHelper.cappedSquareColumn(name + "_prismarine", blockIn, paintTop, paintSide, paintSide, paint, 0);
         
         paint = XmPaintRegistry.INSTANCE.get(new Identifier("exotic-blocks:glowstone_glow"));
         
         BlockHelper.insetPanel(name + "_glowstone", blockIn, paintTop, paintSide, paint, 0);
         BlockHelper.flatPanel(name + "_glowstone", blockIn, paintTop, paint, 0);
         BlockHelper.squareInsetColumn(name + "_glowstone", blockIn, paintTop, paintSide, paintSide, paint, coarse ? 1 : 2);
+        BlockHelper.cappedSquareColumn(name + "_glowstone", blockIn, paintTop, paintSide, paintSide, paint, 0);
         
         paint = XmPaintRegistry.INSTANCE.get(new Identifier("exotic-blocks:lamp_glow"));
         
         BlockHelper.insetPanel(name + "_lamp", blockIn, paintTop, paintSide, paint, 15);
         BlockHelper.flatPanel(name + "_lamp", blockIn, paintTop, paint, 15);
+        BlockHelper.cappedSquareColumn(name + "_lamp", blockIn, paintTop, paintSide, paintSide, paint, 15);
     }
 }

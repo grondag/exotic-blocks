@@ -30,6 +30,7 @@ import grondag.xm.api.modelstate.primitive.PrimitiveState;
 import grondag.xm.api.modelstate.primitive.PrimitiveStateFunction;
 import grondag.xm.api.paint.XmPaint;
 import grondag.xm.api.primitive.simple.CappedRoundColumn;
+import grondag.xm.api.primitive.simple.CappedSquareInsetColumn;
 import grondag.xm.api.primitive.simple.CylinderWithAxis;
 import grondag.xm.api.primitive.simple.FlatPanel;
 import grondag.xm.api.primitive.simple.InsetPanel;
@@ -137,6 +138,30 @@ public class BlockHelper {
                 return CollisionDispatcher.shapeFor(XmBlockState.modelState(blockState, blockView, pos, true));
             }
         }, idString + "_capped_round_column");
+        
+        
+        XmBlockRegistry.addBlockStates(block, bs -> PrimitiveStateFunction.builder()
+                .withJoin(AXIS_JOIN)
+                .withDefaultState(PrimitiveState.AXIS_FROM_BLOCKSTATE.mutate(defaultState.mutableCopy(), bs))
+                .build());
+        
+        return block;
+    }
+    
+    public static Block cappedSquareColumn(String idString, Block template, XmPaint endPaint, XmPaint sidePaint, XmPaint cutPaint, XmPaint innerPaint, int light) {
+        final PrimitiveState defaultState = CappedSquareInsetColumn.INSTANCE.newState()
+                .paint(CappedSquareInsetColumn.SURFACE_ENDS, endPaint)
+                .paint(CappedSquareInsetColumn.SURFACE_CUT, cutPaint)
+                .paint(CappedSquareInsetColumn.SURFACE_INNER, innerPaint)
+                .paint(CappedSquareInsetColumn.SURFACE_OUTER, sidePaint)
+                .releaseToImmutable();
+        
+        Block block = Xb.register(new NonCubicPillarBlock(FabricBlockSettings.copy(template).dynamicBounds().lightLevel(light).build()) {
+            @Override
+            public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos pos, EntityContext entityContext) {
+                return CollisionDispatcher.shapeFor(XmBlockState.modelState(blockState, blockView, pos, true));
+            }
+        }, idString + "_capped_square_column");
         
         
         XmBlockRegistry.addBlockStates(block, bs -> PrimitiveStateFunction.builder()

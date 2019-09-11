@@ -90,4 +90,13 @@
   "result": "exotic-blocks:${stone.name}_inset_panel",
   "count": 1
 }
+<@pp.changeOutputFile name=stone.name+"_capped_square_column_stonecutting.json" />
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:${stone.name}"
+  },
+  "result": "exotic-blocks:${stone.name}_capped_square_column",
+  "count": 1
+}
 </#list>

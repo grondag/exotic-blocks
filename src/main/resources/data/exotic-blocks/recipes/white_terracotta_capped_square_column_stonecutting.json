@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:white_terracotta"
+  },
+  "result": "exotic-blocks:white_terracotta_capped_square_column",
+  "count": 1
+}

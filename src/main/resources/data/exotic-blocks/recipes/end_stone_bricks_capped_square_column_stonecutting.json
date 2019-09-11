@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:end_stone_bricks"
+  },
+  "result": "exotic-blocks:end_stone_bricks_capped_square_column",
+  "count": 1
+}
