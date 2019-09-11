@@ -31,6 +31,7 @@ import grondag.xm.api.modelstate.primitive.PrimitiveStateFunction;
 import grondag.xm.api.paint.XmPaint;
 import grondag.xm.api.primitive.simple.CappedRoundColumn;
 import grondag.xm.api.primitive.simple.CylinderWithAxis;
+import grondag.xm.api.primitive.simple.FlatPanel;
 import grondag.xm.api.primitive.simple.InsetPanel;
 import grondag.xm.api.primitive.simple.SquareColumn;
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
@@ -160,6 +161,22 @@ public class BlockHelper {
             }
         }, idString + "_inset_panel");
         
+        
+        XmBlockRegistry.addBlockStates(block, bs -> PrimitiveStateFunction.builder()
+                .withJoin(BlockTest.sameBlock())
+                .withDefaultState(defaultState.mutableCopy())
+                .build());
+        
+        return block;        
+    }
+    
+    public static Block flatPanel(String idString, Block template, XmPaint paintOuter, XmPaint paintInner, int lightLevel) {
+        final PrimitiveState defaultState = FlatPanel.INSTANCE.newState()
+                .paint(FlatPanel.SURFACE_OUTER, paintOuter)
+                .paint(FlatPanel.SURFACE_INNER, paintInner)
+                .releaseToImmutable();
+        
+        Block block = Xb.register(new Block(FabricBlockSettings.copy(template).lightLevel(lightLevel).build()), idString + "_flat_panel");
         
         XmBlockRegistry.addBlockStates(block, bs -> PrimitiveStateFunction.builder()
                 .withJoin(BlockTest.sameBlock())

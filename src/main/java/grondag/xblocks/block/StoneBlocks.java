@@ -207,15 +207,18 @@ public class StoneBlocks {
         XmPaint paint = XmPaintRegistry.INSTANCE.get(new Identifier("exotic-blocks:prismarine_glow"));
         
         BlockHelper.insetPanel(name + "_prismarine", blockIn, paintTop, paintSide, paint, 0);
+        BlockHelper.flatPanel(name + "_prismarine", blockIn, paintTop, paint, 0);
         BlockHelper.squareInsetColumn(name + "_prismarine", blockIn, paintTop, paintSide, paintSide, paint, coarse ? 2 : 3);
         
         paint = XmPaintRegistry.INSTANCE.get(new Identifier("exotic-blocks:glowstone_glow"));
         
         BlockHelper.insetPanel(name + "_glowstone", blockIn, paintTop, paintSide, paint, 0);
+        BlockHelper.flatPanel(name + "_glowstone", blockIn, paintTop, paint, 0);
         BlockHelper.squareInsetColumn(name + "_glowstone", blockIn, paintTop, paintSide, paintSide, paint, coarse ? 1 : 2);
         
         paint = XmPaintRegistry.INSTANCE.get(new Identifier("exotic-blocks:lamp_glow"));
         
         BlockHelper.insetPanel(name + "_lamp", blockIn, paintTop, paintSide, paint, 15);
+        BlockHelper.flatPanel(name + "_lamp", blockIn, paintTop, paint, 15);
     }
 }

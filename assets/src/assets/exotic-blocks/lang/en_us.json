@@ -29,6 +29,9 @@
 	"block.exotic-blocks.${stone.name?lower_case}_lamp_inset_panel": "${stone.name?replace("_"," ")?capitalize} Inset Panel Lamp",
 	"block.exotic-blocks.${stone.name?lower_case}_prismarine_inset_panel": "${stone.name?replace("_"," ")?capitalize} Inset Panel with Prismarine Inlay",
 	"block.exotic-blocks.${stone.name?lower_case}_glowstone_inset_panel": "${stone.name?replace("_"," ")?capitalize} Inset Panel with Glowstone Inlay",
+	"block.exotic-blocks.${stone.name?lower_case}_lamp_flat_panel": "${stone.name?replace("_"," ")?capitalize} Flat Panel Lamp",
+	"block.exotic-blocks.${stone.name?lower_case}_prismarine_flat_panel": "${stone.name?replace("_"," ")?capitalize} Flat Panel with Prismarine Inlay",
+	"block.exotic-blocks.${stone.name?lower_case}_glowstone_flat_panel": "${stone.name?replace("_"," ")?capitalize} Flat Panel with Glowstone Inlay",
 </#list>
 
     "itemGroup.exotic-blocks.item_group": "Exotic Blocks"
