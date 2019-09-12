@@ -205,6 +205,7 @@ public class StoneBlocks {
         BlockHelper.cappedSquareColumn(name, blockIn, paintTop, paintSide, paintCut, paintInner, 0);
         BlockHelper.insetPanel(name, blockIn, paintTop, paintCut, paintInner, 0);
         BlockHelper.cutRoundColumn(name, blockIn, paintTop, paintSide, paintCut, paintInner, 0);
+        BlockHelper.wedgeCap(name, blockIn, paintTop, paintBottom);
         
         XmPaint paint = XmPaintRegistry.INSTANCE.get(new Identifier("exotic-blocks:prismarine_glow"));
         

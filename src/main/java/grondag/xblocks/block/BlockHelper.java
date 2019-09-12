@@ -21,7 +21,9 @@ import java.util.function.Function;
 import grondag.xblocks.Xb;
 import grondag.xm.api.block.XmBlockRegistry;
 import grondag.xm.api.block.XmBlockState;
+import grondag.xm.api.block.XmProperties;
 import grondag.xm.api.block.base.CubicCutoutBlock;
+import grondag.xm.api.block.base.NonCubicFacingBlock;
 import grondag.xm.api.block.base.NonCubicPillarBlock;
 import grondag.xm.api.collision.CollisionDispatcher;
 import grondag.xm.api.collision.CollisionShapes;
@@ -36,12 +38,14 @@ import grondag.xm.api.primitive.simple.CylinderWithAxis;
 import grondag.xm.api.primitive.simple.FlatPanel;
 import grondag.xm.api.primitive.simple.InsetPanel;
 import grondag.xm.api.primitive.simple.SquareColumn;
+import grondag.xm.api.primitive.simple.WedgeCap;
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.PillarBlock;
 import net.minecraft.entity.EntityContext;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Direction.Axis;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
@@ -226,6 +230,26 @@ public class BlockHelper {
         XmBlockRegistry.addBlockStates(block, bs -> PrimitiveStateFunction.builder()
                 .withJoin(BlockTest.sameBlock())
                 .withDefaultState(defaultState.mutableCopy())
+                .build());
+        
+        return block;        
+    }
+    
+    public static Block wedgeCap(String idString, Block template, XmPaint paintBottom, XmPaint paintTop) {
+        final PrimitiveState defaultState = WedgeCap.INSTANCE.newState()
+                .paint(WedgeCap.SURFACE_BOTTOM, paintBottom)
+                .paint(WedgeCap.SURFACE_TOP, paintTop)
+                .releaseToImmutable();
+        
+        Block block = Xb.register(new NonCubicFacingBlock(FabricBlockSettings.copy(template).dynamicBounds().build(), Direction.DOWN) {
+            @Override
+            public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos pos, EntityContext entityContext) {
+                return CollisionDispatcher.shapeFor(XmBlockState.modelState(blockState, blockView, pos, false));
+            }
+        }, idString + "_wedge_cap");
+        
+        XmBlockRegistry.addBlockStates(block, bs -> PrimitiveStateFunction.builder()
+                .withDefaultState(XmProperties.FACE_MODIFIER.mutate(defaultState.mutableCopy(), bs))
                 .build());
         
         return block;        

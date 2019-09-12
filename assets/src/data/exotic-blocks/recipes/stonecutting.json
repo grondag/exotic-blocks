@@ -108,4 +108,13 @@
   "result": "exotic-blocks:${stone.name}_cut_round_column",
   "count": 1
 }
+<@pp.changeOutputFile name=stone.name+"_wedge_cap_stonecutting.json" />
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:${stone.name}"
+  },
+  "result": "exotic-blocks:${stone.name}_wedge_cap",
+  "count": 6
+}
 </#list>

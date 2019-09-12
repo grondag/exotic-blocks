@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:cyan_concrete"
+  },
+  "result": "exotic-blocks:cyan_concrete_wedge_cap",
+  "count": 6
+}

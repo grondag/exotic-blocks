@@ -17,6 +17,7 @@
 	"block.exotic-blocks.${stone.name?lower_case}_wedge_straight": "${stone.name?replace("_"," ")?capitalize} Wedge",
 	"block.exotic-blocks.${stone.name?lower_case}_wedge_inside": "${stone.name?replace("_"," ")?capitalize} Wedge Inside Corner",
 	"block.exotic-blocks.${stone.name?lower_case}_wedge_outside": "${stone.name?replace("_"," ")?capitalize} Wedge Outside Corner",
+	"block.exotic-blocks.${stone.name?lower_case}_wedge_cap": "${stone.name?replace("_"," ")?capitalize} Wedge Cap",
 	"block.exotic-blocks.${stone.name?lower_case}_omni_stair": "${stone.name?replace("_"," ")?capitalize} Omnidirectional Stair",
 	"block.exotic-blocks.${stone.name?lower_case}_omni_stair_inside": "${stone.name?replace("_"," ")?capitalize} Omnidirectional Stair Inside Corner",
 	"block.exotic-blocks.${stone.name?lower_case}_omni_stair_outside": "${stone.name?replace("_"," ")?capitalize} Omnidirectional Stair Outside Corner",
