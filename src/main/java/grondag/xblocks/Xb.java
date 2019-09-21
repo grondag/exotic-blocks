@@ -23,6 +23,7 @@ import org.apache.logging.log4j.Logger;
 
 import grondag.xblocks.block.ConnectedGlass;
 import grondag.xblocks.block.StoneBlocks;
+import grondag.xblocks.block.StoneSpecies;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.block.Block;
@@ -62,6 +63,7 @@ public class Xb implements ModInitializer {
                 .build();
         ConnectedGlass.init();
         StoneBlocks.init();
+        StoneSpecies.init();
     }
 
     public static String idString(String path) {
