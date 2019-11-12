@@ -1,12 +1,12 @@
 /*******************************************************************************
  * Copyright 2019 grondag
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License.  You may obtain a copy
  * of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  See the
@@ -35,49 +35,49 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class Xb implements ModInitializer {
-    public static final String MODID = "exotic-blocks";
-    
-    public static Logger LOG = LogManager.getLogger("Exotic Blocks");
+	public static final String MODID = "exotic-blocks";
 
-    private static ItemGroup itemGroup;
-    
-    private static final ArrayList<Item> items = new ArrayList<>();
-    
-    static ItemGroup itemGroup() {
-        return itemGroup;
-    }
-    
-    private static final Identifier stackId = id("clear_connected_glass");
+	public static Logger LOG = LogManager.getLogger("Exotic Blocks");
 
-    private static void stackAppender(List<ItemStack> list) {
-        for(Item item : items) {
-            list.add(new ItemStack(item));
-        }
-    }
-    
-    @Override
-    public void onInitialize() {
-        itemGroup = FabricItemGroupBuilder.create(id("item_group"))
-                .icon(() -> new ItemStack(Registry.ITEM.get(stackId)))
-                .appendItems(Xb::stackAppender)
-                .build();
-        ConnectedGlass.init();
-        StoneBlocks.init();
-        StoneSpecies.init();
-    }
+	private static ItemGroup itemGroup;
 
-    public static String idString(String path) {
-        return MODID + ":" + path;
-    }
-    
-    public static Identifier id(String path) {
-        return new Identifier(MODID, path);
-    }
-    
-    public static Block register(Block block, String idString) {
-        Identifier id = id(idString);
-        block = Registry.BLOCK.add(id, block);
-        items.add(Registry.ITEM.add(id, new BlockItem(block, new Item.Settings().maxCount(64).group(itemGroup))));
-        return block;
-    }
+	private static final ArrayList<Item> items = new ArrayList<>();
+
+	static ItemGroup itemGroup() {
+		return itemGroup;
+	}
+
+	private static final Identifier stackId = id("clear_connected_glass");
+
+	private static void stackAppender(List<ItemStack> list) {
+		for(final Item item : items) {
+			list.add(new ItemStack(item));
+		}
+	}
+
+	@Override
+	public void onInitialize() {
+		itemGroup = FabricItemGroupBuilder.create(id("item_group"))
+			.icon(() -> new ItemStack(Registry.ITEM.get(stackId)))
+			.appendItems(Xb::stackAppender)
+			.build();
+		ConnectedGlass.init();
+		StoneBlocks.init();
+		StoneSpecies.init();
+	}
+
+	public static String idString(String path) {
+		return MODID + ":" + path;
+	}
+
+	public static Identifier id(String path) {
+		return new Identifier(MODID, path);
+	}
+
+	public static Block register(Block block, String idString) {
+		final Identifier id = id(idString);
+		block = Registry.BLOCK.add(id, block);
+		items.add(Registry.ITEM.add(id, new BlockItem(block, new Item.Settings().maxCount(64).group(itemGroup))));
+		return block;
+	}
 }
