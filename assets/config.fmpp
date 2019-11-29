@@ -3,5 +3,6 @@ sourceRoot: src
 outputRoot: ../src/main/resources
 data: {
     colors: csv(../data/colors.csv)
-    stones: csv(../data/stones.csv)
+    blocks: csv(../data/blocks.csv)
+    conversions: csv(../data/conversions.csv)
 }

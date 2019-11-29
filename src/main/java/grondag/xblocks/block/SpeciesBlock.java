@@ -8,10 +8,15 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 
 import grondag.fermion.modkeys.api.ModKeys;
+import grondag.xblocks.Xb;
+import grondag.xm.api.block.XmBlockRegistry;
 import grondag.xm.api.connect.species.Species;
 import grondag.xm.api.connect.species.SpeciesFunction;
 import grondag.xm.api.connect.species.SpeciesMode;
 import grondag.xm.api.connect.species.SpeciesProperty;
+import grondag.xm.api.modelstate.primitive.PrimitiveStateFunction;
+import grondag.xm.api.paint.XmPaint;
+import grondag.xm.api.primitive.simple.Cube;
 
 public class SpeciesBlock extends Block {
 	public SpeciesBlock(Settings settings) {
@@ -34,5 +39,22 @@ public class SpeciesBlock extends Block {
 				? SpeciesMode.COUNTER_MOST : SpeciesMode.MATCH_MOST;
 		final int species = Species.speciesForPlacement(context.getWorld(), onPos, onFace, mode, speciesFunc);
 		return getDefaultState().with(SpeciesProperty.SPECIES, species);
+	}
+
+	public static Block species(Block template, String id, XmPaint paint) {
+	
+		Block block = new SpeciesBlock(Block.Settings.copy(template));
+	
+		block = Xb.register(block, id);
+	
+		XmBlockRegistry.addBlockStates(block, bs -> PrimitiveStateFunction.builder()
+				.withJoin(SpeciesProperty.matchBlockAndSpecies())
+				.withUpdate(SpeciesProperty.SPECIES_MODIFIER)
+				.withDefaultState(SpeciesProperty.SPECIES_MODIFIER.mutate(
+						Cube.INSTANCE.newState()
+						.paintAll(paint), bs))
+				.build());
+	
+		return block;
 	}
 }

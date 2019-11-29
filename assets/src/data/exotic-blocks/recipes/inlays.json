@@ -1,6 +1,6 @@
 <@pp.dropOutputFile />
-<#list stones as stone>
-<@pp.changeOutputFile name=stone.name+"_glowstone_square_column.json" />
+<#list blocks as block>
+<@pp.changeOutputFile name=block.name+"_glowstone_square_column.json" />
 {
   "type": "minecraft:crafting_shaped",
   "group": "glowstone_square_column",
@@ -11,18 +11,18 @@
   ],
   "key": {
     "#": {
-      "item": "exotic-blocks:${stone.name}_square_column"
+      "item": "exotic-blocks:${block.name}_square_column"
     },
     "G": {
       "item": "minecraft:glowstone_dust"
     }
   },
   "result": {
-    "item": "exotic-blocks:${stone.name}_glowstone_square_column",
+    "item": "exotic-blocks:${block.name}_glowstone_square_column",
     "count": 8
   }
 }
-<@pp.changeOutputFile name=stone.name+"_prismarine_square_column.json" />
+<@pp.changeOutputFile name=block.name+"_prismarine_square_column.json" />
 {
   "type": "minecraft:crafting_shaped",
   "group": "prismarine_square_column",
@@ -33,18 +33,18 @@
   ],
   "key": {
     "#": {
-      "item": "exotic-blocks:${stone.name}_square_column"
+      "item": "exotic-blocks:${block.name}_square_column"
     },
     "G": {
       "item": "minecraft:prismarine_crystals"
     }
   },
   "result": {
-    "item": "exotic-blocks:${stone.name}_prismarine_square_column",
+    "item": "exotic-blocks:${block.name}_prismarine_square_column",
     "count": 8
   }
 }
-<@pp.changeOutputFile name=stone.name+"_glowstone_inset_panel.json" />
+<@pp.changeOutputFile name=block.name+"_glowstone_inset_panel.json" />
 {
   "type": "minecraft:crafting_shaped",
   "group": "glowstone_inset_panel",
@@ -55,18 +55,18 @@
   ],
   "key": {
     "#": {
-      "item": "exotic-blocks:${stone.name}_inset_panel"
+      "item": "exotic-blocks:${block.name}_inset_panel"
     },
     "G": {
       "item": "minecraft:glowstone_dust"
     }
   },
   "result": {
-    "item": "exotic-blocks:${stone.name}_glowstone_inset_panel",
+    "item": "exotic-blocks:${block.name}_glowstone_inset_panel",
     "count": 8
   }
 }
-<@pp.changeOutputFile name=stone.name+"_prismarine_inset_panel.json" />
+<@pp.changeOutputFile name=block.name+"_prismarine_inset_panel.json" />
 {
   "type": "minecraft:crafting_shaped",
   "group": "prismarine_inset_panel",
@@ -77,18 +77,18 @@
   ],
   "key": {
     "#": {
-      "item": "exotic-blocks:${stone.name}_inset_panel"
+      "item": "exotic-blocks:${block.name}_inset_panel"
     },
     "G": {
       "item": "minecraft:prismarine_crystals"
     }
   },
   "result": {
-    "item": "exotic-blocks:${stone.name}_prismarine_inset_panel",
+    "item": "exotic-blocks:${block.name}_prismarine_inset_panel",
     "count": 8
   }
 }
-<@pp.changeOutputFile name=stone.name+"_glowstone_lamp_inset_panel.json" />
+<@pp.changeOutputFile name=block.name+"_glowstone_lamp_inset_panel.json" />
 {
   "type": "minecraft:crafting_shaped",
   "group": "lamp_inset_panel",
@@ -99,18 +99,18 @@
   ],
   "key": {
     "#": {
-      "item": "exotic-blocks:${stone.name}_inset_panel"
+      "item": "exotic-blocks:${block.name}_inset_panel"
     },
     "G": {
       "item": "minecraft:glowstone_dust"
     }
   },
   "result": {
-    "item": "exotic-blocks:${stone.name}_lamp_inset_panel",
+    "item": "exotic-blocks:${block.name}_lamp_inset_panel",
     "count": 1
   }
 }
-<@pp.changeOutputFile name=stone.name+"_prismarine_lamp_inset_panel.json" />
+<@pp.changeOutputFile name=block.name+"_prismarine_lamp_inset_panel.json" />
 {
   "type": "minecraft:crafting_shaped",
   "group": "lamp_inset_panel",
@@ -121,18 +121,18 @@
   ],
   "key": {
     "#": {
-      "item": "exotic-blocks:${stone.name}_inset_panel"
+      "item": "exotic-blocks:${block.name}_inset_panel"
     },
     "G": {
       "item": "minecraft:prismarine_crystals"
     }
   },
   "result": {
-    "item": "exotic-blocks:${stone.name}_lamp_inset_panel",
+    "item": "exotic-blocks:${block.name}_lamp_inset_panel",
     "count": 1
   }
 }
-<@pp.changeOutputFile name=stone.name+"_glowstone_flat_panel.json" />
+<@pp.changeOutputFile name=block.name+"_glowstone_flat_panel.json" />
 {
   "type": "minecraft:crafting_shaped",
   "group": "glowstone_flat_panel",
@@ -143,18 +143,18 @@
   ],
   "key": {
     "#": {
-      "item": "minecraft:${stone.name}"
+      "item": "${block.mod}:${block.name}"
     },
     "G": {
       "item": "minecraft:glowstone_dust"
     }
   },
   "result": {
-    "item": "exotic-blocks:${stone.name}_glowstone_flat_panel",
+    "item": "exotic-blocks:${block.name}_glowstone_flat_panel",
     "count": 8
   }
 }
-<@pp.changeOutputFile name=stone.name+"_prismarine_flat_panel.json" />
+<@pp.changeOutputFile name=block.name+"_prismarine_flat_panel.json" />
 {
   "type": "minecraft:crafting_shaped",
   "group": "prismarine_flat_panel",
@@ -165,18 +165,18 @@
   ],
   "key": {
     "#": {
-      "item": "minecraft:${stone.name}"
+      "item": "${block.mod}:${block.name}"
     },
     "G": {
       "item": "minecraft:prismarine_crystals"
     }
   },
   "result": {
-    "item": "exotic-blocks:${stone.name}_prismarine_flat_panel",
+    "item": "exotic-blocks:${block.name}_prismarine_flat_panel",
     "count": 8
   }
 }
-<@pp.changeOutputFile name=stone.name+"_glowstone_lamp_flat_panel.json" />
+<@pp.changeOutputFile name=block.name+"_glowstone_lamp_flat_panel.json" />
 {
   "type": "minecraft:crafting_shaped",
   "group": "lamp_flat_panel",
@@ -187,18 +187,18 @@
   ],
   "key": {
     "#": {
-      "item": "minecraft:${stone.name}"
+      "item": "${block.mod}:${block.name}"
     },
     "G": {
       "item": "minecraft:glowstone_dust"
     }
   },
   "result": {
-    "item": "exotic-blocks:${stone.name}_lamp_flat_panel",
+    "item": "exotic-blocks:${block.name}_lamp_flat_panel",
     "count": 1
   }
 }
-<@pp.changeOutputFile name=stone.name+"_prismarine_lamp_flat_panel.json" />
+<@pp.changeOutputFile name=block.name+"_prismarine_lamp_flat_panel.json" />
 {
   "type": "minecraft:crafting_shaped",
   "group": "lamp_flat_panel",
@@ -209,18 +209,18 @@
   ],
   "key": {
     "#": {
-      "item": "minecraft:${stone.name}"
+      "item": "${block.mod}:${block.name}"
     },
     "G": {
       "item": "minecraft:prismarine_crystals"
     }
   },
   "result": {
-    "item": "exotic-blocks:${stone.name}_lamp_flat_panel",
+    "item": "exotic-blocks:${block.name}_lamp_flat_panel",
     "count": 1
   }
 }
-<@pp.changeOutputFile name=stone.name+"_glowstone_capped_square_column.json" />
+<@pp.changeOutputFile name=block.name+"_glowstone_capped_square_column.json" />
 {
   "type": "minecraft:crafting_shaped",
   "group": "glowstone_capped_square_column",
@@ -231,18 +231,18 @@
   ],
   "key": {
     "#": {
-      "item": "exotic-blocks:${stone.name}_capped_square_column"
+      "item": "exotic-blocks:${block.name}_capped_square_column"
     },
     "G": {
       "item": "minecraft:glowstone_dust"
     }
   },
   "result": {
-    "item": "exotic-blocks:${stone.name}_glowstone_capped_square_column",
+    "item": "exotic-blocks:${block.name}_glowstone_capped_square_column",
     "count": 8
   }
 }
-<@pp.changeOutputFile name=stone.name+"_prismarine_capped_square_column.json" />
+<@pp.changeOutputFile name=block.name+"_prismarine_capped_square_column.json" />
 {
   "type": "minecraft:crafting_shaped",
   "group": "prismarine_capped_square_column",
@@ -253,18 +253,18 @@
   ],
   "key": {
     "#": {
-      "item": "exotic-blocks:${stone.name}_capped_square_column"
+      "item": "exotic-blocks:${block.name}_capped_square_column"
     },
     "G": {
       "item": "minecraft:prismarine_crystals"
     }
   },
   "result": {
-    "item": "exotic-blocks:${stone.name}_prismarine_capped_square_column",
+    "item": "exotic-blocks:${block.name}_prismarine_capped_square_column",
     "count": 8
   }
 }
-<@pp.changeOutputFile name=stone.name+"_glowstone_lamp_capped_square_column.json" />
+<@pp.changeOutputFile name=block.name+"_glowstone_lamp_capped_square_column.json" />
 {
   "type": "minecraft:crafting_shaped",
   "group": "lamp_capped_square_column",
@@ -275,18 +275,18 @@
   ],
   "key": {
     "#": {
-      "item": "exotic-blocks:${stone.name}_capped_square_column"
+      "item": "exotic-blocks:${block.name}_capped_square_column"
     },
     "G": {
       "item": "minecraft:glowstone_dust"
     }
   },
   "result": {
-    "item": "exotic-blocks:${stone.name}_lamp_capped_square_column",
+    "item": "exotic-blocks:${block.name}_lamp_capped_square_column",
     "count": 1
   }
 }
-<@pp.changeOutputFile name=stone.name+"_prismarine_lamp_capped_square_column.json" />
+<@pp.changeOutputFile name=block.name+"_prismarine_lamp_capped_square_column.json" />
 {
   "type": "minecraft:crafting_shaped",
   "group": "lamp_capped_square_column",
@@ -297,18 +297,18 @@
   ],
   "key": {
     "#": {
-      "item": "exotic-blocks:${stone.name}_capped_square_column"
+      "item": "exotic-blocks:${block.name}_capped_square_column"
     },
     "G": {
       "item": "minecraft:prismarine_crystals"
     }
   },
   "result": {
-    "item": "exotic-blocks:${stone.name}_lamp_capped_square_column",
+    "item": "exotic-blocks:${block.name}_lamp_capped_square_column",
     "count": 1
   }
 }
-<@pp.changeOutputFile name=stone.name+"_glowstone_cut_round_column.json" />
+<@pp.changeOutputFile name=block.name+"_glowstone_cut_round_column.json" />
 {
   "type": "minecraft:crafting_shaped",
   "group": "glowstone_cut_round_column",
@@ -319,18 +319,18 @@
   ],
   "key": {
     "#": {
-      "item": "exotic-blocks:${stone.name}_cut_round_column"
+      "item": "exotic-blocks:${block.name}_cut_round_column"
     },
     "G": {
       "item": "minecraft:glowstone_dust"
     }
   },
   "result": {
-    "item": "exotic-blocks:${stone.name}_glowstone_cut_round_column",
+    "item": "exotic-blocks:${block.name}_glowstone_cut_round_column",
     "count": 8
   }
 }
-<@pp.changeOutputFile name=stone.name+"_prismarine_cut_round_column.json" />
+<@pp.changeOutputFile name=block.name+"_prismarine_cut_round_column.json" />
 {
   "type": "minecraft:crafting_shaped",
   "group": "prismarine_cut_round_column",
@@ -341,18 +341,18 @@
   ],
   "key": {
     "#": {
-      "item": "exotic-blocks:${stone.name}_cut_round_column"
+      "item": "exotic-blocks:${block.name}_cut_round_column"
     },
     "G": {
       "item": "minecraft:prismarine_crystals"
     }
   },
   "result": {
-    "item": "exotic-blocks:${stone.name}_prismarine_cut_round_column",
+    "item": "exotic-blocks:${block.name}_prismarine_cut_round_column",
     "count": 8
   }
 }
-<@pp.changeOutputFile name=stone.name+"_glowstone_lamp_cut_round_column.json" />
+<@pp.changeOutputFile name=block.name+"_glowstone_lamp_cut_round_column.json" />
 {
   "type": "minecraft:crafting_shaped",
   "group": "lamp_cut_round_column",
@@ -363,18 +363,18 @@
   ],
   "key": {
     "#": {
-      "item": "exotic-blocks:${stone.name}_cut_round_column"
+      "item": "exotic-blocks:${block.name}_cut_round_column"
     },
     "G": {
       "item": "minecraft:glowstone_dust"
     }
   },
   "result": {
-    "item": "exotic-blocks:${stone.name}_lamp_cut_round_column",
+    "item": "exotic-blocks:${block.name}_lamp_cut_round_column",
     "count": 1
   }
 }
-<@pp.changeOutputFile name=stone.name+"_prismarine_lamp_cut_round_column.json" />
+<@pp.changeOutputFile name=block.name+"_prismarine_lamp_cut_round_column.json" />
 {
   "type": "minecraft:crafting_shaped",
   "group": "lamp_cut_round_column",
@@ -385,14 +385,14 @@
   ],
   "key": {
     "#": {
-      "item": "exotic-blocks:${stone.name}_cut_round_column"
+      "item": "exotic-blocks:${block.name}_cut_round_column"
     },
     "G": {
       "item": "minecraft:prismarine_crystals"
     }
   },
   "result": {
-    "item": "exotic-blocks:${stone.name}_lamp_cut_round_column",
+    "item": "exotic-blocks:${block.name}_lamp_cut_round_column",
     "count": 1
   }
 }

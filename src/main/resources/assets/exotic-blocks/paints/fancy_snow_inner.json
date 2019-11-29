@@ -1,0 +1,9 @@
+{
+	"layers": [
+		{
+			"blendMode": "solid",
+			"color": "0xFFDFDFFF",
+			"texture": "exotic-matter:snow"
+		}
+	]
+}

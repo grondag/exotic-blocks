@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "exotic-blocks:fancy_stone_block"
+  },
+  "result": "exotic-blocks:fancy_stone_block_wedge_outside",
+  "count": 1
+}

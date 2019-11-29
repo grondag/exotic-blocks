@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "exotic-blocks:fancy_snow_block"
+  },
+  "result": "exotic-blocks:fancy_snow_block_wedge_cap",
+  "count": 6
+}

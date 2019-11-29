@@ -1,0 +1,13 @@
+{
+	"layers": [
+		{
+			"blendMode": "solid",
+			"color": "0xFFFFFFFF",
+			"texture": "exotic-matter:snow"
+		}, {
+			"blendMode": "translucent",
+			"color": "0xFFa3c9e1",
+			"texture": "exotic-matter:border_weathered_blend"
+		}
+	]
+}

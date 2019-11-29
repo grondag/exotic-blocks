@@ -1,0 +1,22 @@
+{
+    "replace": false,
+    "values": [
+        "exotic-blocks:clear_connected_glass",
+        "exotic-blocks:white_connected_glass",
+        "exotic-blocks:orange_connected_glass",
+        "exotic-blocks:magenta_connected_glass",
+        "exotic-blocks:light_blue_connected_glass",
+        "exotic-blocks:yellow_connected_glass",
+        "exotic-blocks:lime_connected_glass",
+        "exotic-blocks:pink_connected_glass",
+        "exotic-blocks:gray_connected_glass",
+        "exotic-blocks:light_gray_connected_glass",
+        "exotic-blocks:cyan_connected_glass",
+        "exotic-blocks:purple_connected_glass",
+        "exotic-blocks:blue_connected_glass",
+        "exotic-blocks:brown_connected_glass",
+        "exotic-blocks:green_connected_glass",
+        "exotic-blocks:red_connected_glass",
+        "exotic-blocks:black_connected_glass"
+    ]
+}

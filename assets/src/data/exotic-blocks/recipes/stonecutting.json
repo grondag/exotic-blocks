@@ -1,120 +1,120 @@
 <@pp.dropOutputFile />
-<#list stones as stone>
-<@pp.changeOutputFile name=stone.name+"_wedge_straight_stonecutting.json" />
+<#list blocks as block>
+<@pp.changeOutputFile name=block.name+"_wedge_straight_stonecutting.json" />
 {
   "type": "minecraft:stonecutting",
   "ingredient": {
-    "item": "minecraft:${stone.name}"
+    "item": "${block.mod}:${block.name}"
   },
-  "result": "exotic-blocks:${stone.name}_wedge_straight",
+  "result": "exotic-blocks:${block.name}_wedge_straight",
   "count": 2
 }
-<@pp.changeOutputFile name=stone.name+"_wedge_inside_stonecutting.json" />
+<@pp.changeOutputFile name=block.name+"_wedge_inside_stonecutting.json" />
 {
   "type": "minecraft:stonecutting",
   "ingredient": {
-    "item": "minecraft:${stone.name}"
+    "item": "${block.mod}:${block.name}"
   },
-  "result": "exotic-blocks:${stone.name}_wedge_inside",
+  "result": "exotic-blocks:${block.name}_wedge_inside",
   "count": 1
 }
-<@pp.changeOutputFile name=stone.name+"_wedge_outside_stonecutting.json" />
+<@pp.changeOutputFile name=block.name+"_wedge_outside_stonecutting.json" />
 {
   "type": "minecraft:stonecutting",
   "ingredient": {
-    "item": "minecraft:${stone.name}"
+    "item": "${block.mod}:${block.name}"
   },
-  "result": "exotic-blocks:${stone.name}_wedge_outside",
+  "result": "exotic-blocks:${block.name}_wedge_outside",
   "count": 1
 }
-<@pp.changeOutputFile name=stone.name+"_omni_stair_stonecutting.json" />
+<@pp.changeOutputFile name=block.name+"_omni_stair_stonecutting.json" />
 {
   "type": "minecraft:stonecutting",
   "ingredient": {
-    "item": "minecraft:${stone.name}"
+    "item": "${block.mod}:${block.name}"
   },
-  "result": "exotic-blocks:${stone.name}_omni_stair",
+  "result": "exotic-blocks:${block.name}_omni_stair",
   "count": 1
 }
-<@pp.changeOutputFile name=stone.name+"_omni_stair_inside_stonecutting.json" />
+<@pp.changeOutputFile name=block.name+"_omni_stair_inside_stonecutting.json" />
 {
   "type": "minecraft:stonecutting",
   "ingredient": {
-    "item": "minecraft:${stone.name}"
+    "item": "${block.mod}:${block.name}"
   },
-  "result": "exotic-blocks:${stone.name}_omni_stair_inside",
+  "result": "exotic-blocks:${block.name}_omni_stair_inside",
   "count": 1
 }
-<@pp.changeOutputFile name=stone.name+"_omni_stair_outside_stonecutting.json" />
+<@pp.changeOutputFile name=block.name+"_omni_stair_outside_stonecutting.json" />
 {
   "type": "minecraft:stonecutting",
   "ingredient": {
-    "item": "minecraft:${stone.name}"
+    "item": "${block.mod}:${block.name}"
   },
-  "result": "exotic-blocks:${stone.name}_omni_stair_outside",
+  "result": "exotic-blocks:${block.name}_omni_stair_outside",
   "count": 1
 }
-<@pp.changeOutputFile name=stone.name+"_square_columns_stonecutting.json" />
+<@pp.changeOutputFile name=block.name+"_square_columns_stonecutting.json" />
 {
   "type": "minecraft:stonecutting",
   "ingredient": {
-    "item": "minecraft:${stone.name}"
+    "item": "${block.mod}:${block.name}"
   },
-  "result": "exotic-blocks:${stone.name}_square_column",
+  "result": "exotic-blocks:${block.name}_square_column",
   "count": 1
 }
-<@pp.changeOutputFile name=stone.name+"_capped_round_column_stonecutting.json" />
+<@pp.changeOutputFile name=block.name+"_capped_round_column_stonecutting.json" />
 {
   "type": "minecraft:stonecutting",
   "ingredient": {
-    "item": "minecraft:${stone.name}"
+    "item": "${block.mod}:${block.name}"
   },
-  "result": "exotic-blocks:${stone.name}_capped_round_column",
+  "result": "exotic-blocks:${block.name}_capped_round_column",
   "count": 1
 }
-<@pp.changeOutputFile name=stone.name+"_round_column_stonecutting.json" />
+<@pp.changeOutputFile name=block.name+"_round_column_stonecutting.json" />
 {
   "type": "minecraft:stonecutting",
   "ingredient": {
-    "item": "minecraft:${stone.name}"
+    "item": "${block.mod}:${block.name}"
   },
-  "result": "exotic-blocks:${stone.name}_round_column",
+  "result": "exotic-blocks:${block.name}_round_column",
   "count": 1
 }
-<@pp.changeOutputFile name=stone.name+"_inset_panel_stonecutting.json" />
+<@pp.changeOutputFile name=block.name+"_inset_panel_stonecutting.json" />
 {
   "type": "minecraft:stonecutting",
   "ingredient": {
-    "item": "minecraft:${stone.name}"
+    "item": "${block.mod}:${block.name}"
   },
-  "result": "exotic-blocks:${stone.name}_inset_panel",
+  "result": "exotic-blocks:${block.name}_inset_panel",
   "count": 1
 }
-<@pp.changeOutputFile name=stone.name+"_capped_square_column_stonecutting.json" />
+<@pp.changeOutputFile name=block.name+"_capped_square_column_stonecutting.json" />
 {
   "type": "minecraft:stonecutting",
   "ingredient": {
-    "item": "minecraft:${stone.name}"
+    "item": "${block.mod}:${block.name}"
   },
-  "result": "exotic-blocks:${stone.name}_capped_square_column",
+  "result": "exotic-blocks:${block.name}_capped_square_column",
   "count": 1
 }
-<@pp.changeOutputFile name=stone.name+"_cut_round_column_stonecutting.json" />
+<@pp.changeOutputFile name=block.name+"_cut_round_column_stonecutting.json" />
 {
   "type": "minecraft:stonecutting",
   "ingredient": {
-    "item": "minecraft:${stone.name}"
+    "item": "${block.mod}:${block.name}"
   },
-  "result": "exotic-blocks:${stone.name}_cut_round_column",
+  "result": "exotic-blocks:${block.name}_cut_round_column",
   "count": 1
 }
-<@pp.changeOutputFile name=stone.name+"_wedge_cap_stonecutting.json" />
+<@pp.changeOutputFile name=block.name+"_wedge_cap_stonecutting.json" />
 {
   "type": "minecraft:stonecutting",
   "ingredient": {
-    "item": "minecraft:${stone.name}"
+    "item": "${block.mod}:${block.name}"
   },
-  "result": "exotic-blocks:${stone.name}_wedge_cap",
+  "result": "exotic-blocks:${block.name}_wedge_cap",
   "count": 6
 }
 </#list>
