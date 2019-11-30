@@ -1,0 +1,13 @@
+name;outputCount;
+wedge_straight;2;
+wedge_inside;1;
+wedge_outside;1;
+omni_stair;1;
+omni_stair_inside;1;
+omni_stair_outside;1;
+square_column;1;
+capped_round_column;1;
+round_column;1;
+inset_panel;1;
+capped_square_column;1;
+wedge_cap;6;

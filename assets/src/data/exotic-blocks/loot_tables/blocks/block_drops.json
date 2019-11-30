@@ -23,3 +23,25 @@
 }
 </#list>
 </#list>
+<#list block_variants as block>
+<@pp.changeOutputFile name = block.variant_id + ".json" />
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "exotic-blocks:${block.variant_id}"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ]
+    }
+  ]
+}
+</#list>

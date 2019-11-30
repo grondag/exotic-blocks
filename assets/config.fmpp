@@ -5,6 +5,5 @@ data: {
     colors: csv(../data/colors.csv)
     shape_blocks: csv(../data/shape_blocks.csv)
     block_variants: csv(../data/block_variants.csv)
-    conversions: csv(../data/conversions.csv)
     shapes: csv(../data/shapes.csv)
 }
