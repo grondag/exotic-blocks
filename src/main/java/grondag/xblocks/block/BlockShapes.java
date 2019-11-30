@@ -122,9 +122,9 @@ public class BlockShapes {
 	}
 
 	public static void register(Block block, String name, String paintName, boolean coarse) {
-		final XmPaint paint = XmPaintRegistry.INSTANCE.get(Xb.id(paintName));
-		final XmPaint paintInner = XmPaintRegistry.INSTANCE.get(Xb.id(paintName + "_inner"));
-		final XmPaint paintCut = XmPaintRegistry.INSTANCE.get(Xb.id(paintName + "_cut"));
+		final XmPaint paint = XmPaintRegistry.INSTANCE.get(Xb.REG.id(paintName));
+		final XmPaint paintInner = XmPaintRegistry.INSTANCE.get(Xb.REG.id(paintName + "_inner"));
+		final XmPaint paintCut = XmPaintRegistry.INSTANCE.get(Xb.REG.id(paintName + "_cut"));
 		register(block, name, paint, paint, paint, paintInner, paintCut, coarse);
 	}
 
@@ -165,8 +165,9 @@ public class BlockShapes {
 			XmPaint paintCut,
 			boolean coarse) {
 
-		Block block = Xb.register(new StairLike(blockIn.getDefaultState(), Block.Settings.copy(blockIn), StairLike.Shape.STRAIGHT),
-				name + "_wedge_straight");
+		Block block = Xb.REG.block(
+				name + "_wedge_straight",
+				new StairLike(blockIn.getDefaultState(), Block.Settings.copy(blockIn), StairLike.Shape.STRAIGHT));
 		XmBlockRegistry.addBlockStates(block, bs -> PrimitiveStateFunction.builder()
 				.withDefaultState(StairLike.MODELSTATE_FROM_BLOCKSTATE.mutate(
 						Wedge.INSTANCE.newState()
@@ -176,8 +177,9 @@ public class BlockShapes {
 						.paint(Wedge.SURFACE_SIDES, paintSide), bs))
 				.build());
 
-		block = Xb.register(new StairLike(blockIn.getDefaultState(), Block.Settings.copy(blockIn), StairLike.Shape.INSIDE_CORNER),
-				name + "_wedge_inside");
+		block = Xb.REG.block(
+				name + "_wedge_inside",
+				new StairLike(blockIn.getDefaultState(), Block.Settings.copy(blockIn), StairLike.Shape.INSIDE_CORNER));
 		XmBlockRegistry.addBlockStates(block, bs -> PrimitiveStateFunction.builder()
 				.withDefaultState(StairLike.MODELSTATE_FROM_BLOCKSTATE.mutate(
 						Wedge.INSTANCE.newState()
@@ -187,8 +189,9 @@ public class BlockShapes {
 						.paint(Wedge.SURFACE_SIDES, paintSide), bs))
 				.build());
 
-		block = Xb.register(new StairLike(blockIn.getDefaultState(), Block.Settings.copy(blockIn), StairLike.Shape.OUTSIDE_CORNER),
-				name + "_wedge_outside");
+		block = Xb.REG.block(
+				name + "_wedge_outside",
+				new StairLike(blockIn.getDefaultState(), Block.Settings.copy(blockIn), StairLike.Shape.OUTSIDE_CORNER));
 		XmBlockRegistry.addBlockStates(block, bs -> PrimitiveStateFunction.builder()
 				.withDefaultState(StairLike.MODELSTATE_FROM_BLOCKSTATE.mutate(
 						Wedge.INSTANCE.newState()
@@ -198,8 +201,9 @@ public class BlockShapes {
 						.paint(Wedge.SURFACE_SIDES, paintSide), bs))
 				.build());
 
-		block = Xb.register(new StairLike(blockIn.getDefaultState(), Block.Settings.copy(blockIn), StairLike.Shape.STRAIGHT),
-				name + "_omni_stair");
+		block = Xb.REG.block(
+				name + "_omni_stair",
+				new StairLike(blockIn.getDefaultState(), Block.Settings.copy(blockIn), StairLike.Shape.STRAIGHT));
 		XmBlockRegistry.addBlockStates(block, bs -> PrimitiveStateFunction.builder()
 				.withDefaultState(StairLike.MODELSTATE_FROM_BLOCKSTATE.mutate(
 						Stair.INSTANCE.newState()
@@ -211,8 +215,9 @@ public class BlockShapes {
 						.paint(Stair.SURFACE_LEFT, paintSide), bs))
 				.build());
 
-		block = Xb.register(new StairLike(blockIn.getDefaultState(), Block.Settings.copy(blockIn), StairLike.Shape.INSIDE_CORNER),
-				name + "_omni_stair_inside");
+		block = Xb.REG.block(
+				name + "_omni_stair_inside",
+				new StairLike(blockIn.getDefaultState(), Block.Settings.copy(blockIn), StairLike.Shape.INSIDE_CORNER));
 		XmBlockRegistry.addBlockStates(block, bs -> PrimitiveStateFunction.builder()
 				.withDefaultState(StairLike.MODELSTATE_FROM_BLOCKSTATE.mutate(
 						Stair.INSTANCE.newState()
@@ -224,8 +229,9 @@ public class BlockShapes {
 						.paint(Stair.SURFACE_LEFT, paintSide), bs))
 				.build());
 
-		block = Xb.register(new StairLike(blockIn.getDefaultState(), Block.Settings.copy(blockIn), StairLike.Shape.OUTSIDE_CORNER),
-				name + "_omni_stair_outside");
+		block = Xb.REG.block(
+				name + "_omni_stair_outside",
+				new StairLike(blockIn.getDefaultState(), Block.Settings.copy(blockIn), StairLike.Shape.OUTSIDE_CORNER));
 		XmBlockRegistry.addBlockStates(block, bs -> PrimitiveStateFunction.builder()
 				.withDefaultState(StairLike.MODELSTATE_FROM_BLOCKSTATE.mutate(
 						Stair.INSTANCE.newState()

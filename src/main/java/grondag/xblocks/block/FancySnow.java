@@ -20,17 +20,17 @@ public enum FancySnow {
 	static final String ID_BLOCK = ID_BASE + "_block";
 
 	public static final Material FANCY_SNOW_MATERIAL = (new Material.Builder(MaterialColor.WHITE)).build();
-	public final static Block FANCY_SNOW_BLOCK = Xb.register(new Block(FabricBlockSettings.of(FANCY_SNOW_MATERIAL).strength(0.2F, 0.2F).sounds(BlockSoundGroup.SNOW).breakByHand(true).build()), ID_BLOCK);
+	public final static Block FANCY_SNOW_BLOCK = Xb.REG.block(ID_BLOCK, new Block(FabricBlockSettings.of(FANCY_SNOW_MATERIAL).strength(0.2F, 0.2F).sounds(BlockSoundGroup.SNOW).breakByHand(true).build()));
 
 
 	static {
 		XmBlockRegistry.addBlock(FANCY_SNOW_BLOCK, PrimitiveStateFunction.ofDefaultState(
 				Cube.INSTANCE.newState()
-				.paintAll(XmPaintRegistry.INSTANCE.get(Xb.id(ID_BASE)))
+				.paintAll(XmPaintRegistry.INSTANCE.get(Xb.REG.id(ID_BASE)))
 				.releaseToImmutable()));
 
 		BlockShapes.register(FANCY_SNOW_BLOCK, ID_BLOCK, ID_BASE, false);
 
-		SpeciesBlock.species(FANCY_SNOW_BLOCK, ID_BLOCK + "_species", XmPaintRegistry.INSTANCE.get(Xb.id(ID_BASE + "_species")));
+		SpeciesBlock.species(FANCY_SNOW_BLOCK, ID_BLOCK + "_species", XmPaintRegistry.INSTANCE.get(Xb.REG.id(ID_BASE + "_species")));
 	}
 }

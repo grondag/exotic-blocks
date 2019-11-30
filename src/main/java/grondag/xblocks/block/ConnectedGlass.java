@@ -78,7 +78,7 @@ public enum ConnectedGlass {
 
 	public static final TextureSet GLASS_BORDER = TextureSet.builder()
 			.displayNameToken("fancy_glass")
-			.baseTextureName(Xb.idString("blocks/glass"))
+			.baseTextureName(Xb.REG.id("block/glass").toString())
 			.versionCount(1)
 			.scale(SINGLE)
 			.layout(BORDER_LAYOUT)
@@ -86,7 +86,7 @@ public enum ConnectedGlass {
 			.renderIntent(OVERLAY_ONLY)
 			.groups(STATIC_BORDERS)
 			.renderNoBorderAsTile(true)
-			.build(Xb.idString("fancy_glass"));
+			.build(Xb.REG.id("fancy_glass").toString());
 
 	public static void init() {
 		connectedGlass(Blocks.GLASS, "clear");
@@ -113,12 +113,12 @@ public enum ConnectedGlass {
 	}
 
 	private static void connectedGlass(Block block, String color) {
-		final Identifier paintId = Xb.id(color + "_connected_glass");
+		final Identifier paintId = Xb.REG.id(color + "_connected_glass");
 		final XmPaint paint = XmPaintRegistry.INSTANCE.get(paintId);
 
-		final Block connectedGlass = Xb.register(
-				new GlassBlock(Block.Settings.copy(block)),
-				color + "_connected_glass");
+		final Block connectedGlass = Xb.REG.block(
+				color + "_connected_glass",
+				new GlassBlock(Block.Settings.copy(block)));
 
 		final PrimitiveStateFunction stateFunc = PrimitiveStateFunction.ofDefaultState(
 				Cube.INSTANCE.newState()

@@ -37,4 +37,9 @@ dependencies {
 	modImplementation ("grondag:exotic-matter-${project.mc_tag}:${project.exotic_matter_version}.+") {
         exclude group :"net.fabricmc.fabric-api"
 	}
+	
+	modImplementation ("me.shedaniel:RoughlyEnoughItems:${project.rei_version}") {
+        exclude module:  "ModMenu"
+        exclude group: "net.fabricmc.fabric-api"
+	}
 }

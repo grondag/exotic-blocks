@@ -42,11 +42,11 @@ public class SpeciesBlock extends Block {
 	}
 
 	public static Block species(Block template, String id, XmPaint paint) {
-	
+
 		Block block = new SpeciesBlock(Block.Settings.copy(template));
-	
-		block = Xb.register(block, id);
-	
+
+		block = Xb.REG.block(id, block);
+
 		XmBlockRegistry.addBlockStates(block, bs -> PrimitiveStateFunction.builder()
 				.withJoin(SpeciesProperty.matchBlockAndSpecies())
 				.withUpdate(SpeciesProperty.SPECIES_MODIFIER)
@@ -54,7 +54,7 @@ public class SpeciesBlock extends Block {
 						Cube.INSTANCE.newState()
 						.paintAll(paint), bs))
 				.build());
-	
+
 		return block;
 	}
 }

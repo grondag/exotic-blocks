@@ -58,7 +58,7 @@ public enum FancyStone {
 				.blendMode(2, BlendMode.TRANSLUCENT)
 				.find();
 
-		final Block fancyStone = Xb.register(new Block(Block.Settings.copy(Blocks.STONE)), ID_BLOCK);
+		final Block fancyStone = Xb.REG.block(ID_BLOCK, new Block(Block.Settings.copy(Blocks.STONE)));
 		XmBlockRegistry.addBlock(fancyStone, PrimitiveStateFunction.ofDefaultState(
 				Cube.INSTANCE.newState()
 				.paintAll(mainPaint)

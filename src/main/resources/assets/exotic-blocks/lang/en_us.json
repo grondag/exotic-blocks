@@ -7,6 +7,7 @@
 	"config.xblocks.value.fancy_glass" : "Would you like some cake?",
 	"config.xblocks.help.fancy_glass" : "Trust me...",
 
+	"item.exotic-blocks.iron_cutter": "Portable Block Cutter",
 	"block.exotic-blocks.clear_connected_glass": "Connected Glass",
 
 	"block.exotic-blocks.fancy_snow_block": "Fancy Snow",
