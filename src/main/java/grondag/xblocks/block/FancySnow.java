@@ -1,7 +1,11 @@
 package grondag.xblocks.block;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
+import net.minecraft.block.Material;
+import net.minecraft.block.MaterialColor;
+import net.minecraft.sound.BlockSoundGroup;
+
+import net.fabricmc.fabric.api.block.FabricBlockSettings;
 
 import grondag.xblocks.Xb;
 import grondag.xm.api.block.XmBlockRegistry;
@@ -15,16 +19,18 @@ public enum FancySnow {
 	static final String ID_BASE = "fancy_snow";
 	static final String ID_BLOCK = ID_BASE + "_block";
 
-	static {
+	public static final Material FANCY_SNOW_MATERIAL = (new Material.Builder(MaterialColor.WHITE)).build();
+	public final static Block FANCY_SNOW_BLOCK = Xb.register(new Block(FabricBlockSettings.of(FANCY_SNOW_MATERIAL).strength(0.2F, 0.2F).sounds(BlockSoundGroup.SNOW).breakByHand(true).build()), ID_BLOCK);
 
-		final Block fancySnow = Xb.register(new Block(Block.Settings.copy(Blocks.SNOW_BLOCK)), ID_BLOCK);
-		XmBlockRegistry.addBlock(fancySnow, PrimitiveStateFunction.ofDefaultState(
+
+	static {
+		XmBlockRegistry.addBlock(FANCY_SNOW_BLOCK, PrimitiveStateFunction.ofDefaultState(
 				Cube.INSTANCE.newState()
 				.paintAll(XmPaintRegistry.INSTANCE.get(Xb.id(ID_BASE)))
 				.releaseToImmutable()));
 
-		BlockShapes.register(fancySnow, ID_BLOCK, ID_BASE, false);
+		BlockShapes.register(FANCY_SNOW_BLOCK, ID_BLOCK, ID_BASE, false);
 
-		SpeciesBlock.species(fancySnow, ID_BLOCK + "_species", XmPaintRegistry.INSTANCE.get(Xb.id(ID_BASE + "_species")));
+		SpeciesBlock.species(FANCY_SNOW_BLOCK, ID_BLOCK + "_species", XmPaintRegistry.INSTANCE.get(Xb.id(ID_BASE + "_species")));
 	}
 }

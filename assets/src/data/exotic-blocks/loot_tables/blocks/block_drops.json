@@ -1,0 +1,25 @@
+<@pp.dropOutputFile />
+<#list shape_blocks as block>
+<#list shapes as shape>
+<@pp.changeOutputFile name = block.name + "_" + shape.name + ".json" />
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "exotic-blocks:${block.name}_${shape.name}"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ]
+    }
+  ]
+}
+</#list>
+</#list>

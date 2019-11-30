@@ -9,4 +9,13 @@
   "result": "${conversion.to_mod}:${conversion.to_name}",
   "count": 1
 }
+<@pp.changeOutputFile name=conversion.to_name + "_to_" + conversion.from_name + ".json" />
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "${conversion.to_mod}:${conversion.to_name}"
+  },
+  "result": "${conversion.from_mod}:${conversion.from_name}",
+  "count": 1
+}
 </#list>

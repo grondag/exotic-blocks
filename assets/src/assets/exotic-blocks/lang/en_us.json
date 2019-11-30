@@ -8,16 +8,16 @@
 	"config.xblocks.help.fancy_glass" : "Trust me...",
 
 	"block.exotic-blocks.clear_connected_glass": "Connected Glass",
-	"block.exotic-blocks.fancy_snow_block": "Fancy Snow Block",
-	"block.exotic-blocks.fancy_snow_block_species": "Connected Fancy Snow Block",
-	"block.exotic-blocks.fancy_stone_block": "Fancy Stone Block",
-	"block.exotic-blocks.fancy_stone_block_species": "Connected Fancy Stone Block",
+
+<#list block_variants as block>
+	"block.exotic-blocks.${block.variant_id}": "${block.variant_name}",
+</#list>
 
 <#list colors as color>
 	"block.exotic-blocks.${color.name?lower_case}_connected_glass": "${color.name?replace("_"," ")?capitalize} Connected Glass",
 </#list>
 
-<#list blocks as block>
+<#list shape_blocks as block>
 	"block.exotic-blocks.${block.name?lower_case}_wedge_straight": "${block.name?replace("_"," ")?capitalize} Wedge",
 	"block.exotic-blocks.${block.name?lower_case}_wedge_inside": "${block.name?replace("_"," ")?capitalize} Wedge Inside Corner",
 	"block.exotic-blocks.${block.name?lower_case}_wedge_outside": "${block.name?replace("_"," ")?capitalize} Wedge Outside Corner",

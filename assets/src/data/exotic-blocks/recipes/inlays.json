@@ -1,5 +1,5 @@
 <@pp.dropOutputFile />
-<#list blocks as block>
+<#list shape_blocks as block>
 <@pp.changeOutputFile name=block.name+"_glowstone_square_column.json" />
 {
   "type": "minecraft:crafting_shaped",

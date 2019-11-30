@@ -8,10 +8,11 @@
 	"config.xblocks.help.fancy_glass" : "Trust me...",
 
 	"block.exotic-blocks.clear_connected_glass": "Connected Glass",
-	"block.exotic-blocks.fancy_snow_block": "Fancy Snow Block",
-	"block.exotic-blocks.fancy_snow_block_species": "Connected Fancy Snow Block",
-	"block.exotic-blocks.fancy_stone_block": "Fancy Stone Block",
-	"block.exotic-blocks.fancy_stone_block_species": "Connected Fancy Stone Block",
+
+	"block.exotic-blocks.fancy_snow_block": "Fancy Snow",
+	"block.exotic-blocks.fancy_snow_block_species": "Connected Fancy Snow",
+	"block.exotic-blocks.fancy_stone_block": "Fancy Stone",
+	"block.exotic-blocks.fancy_stone_block_species": "Connected Fancy Snow",
 
 	"block.exotic-blocks.black_connected_glass": "Black Connected Glass",
 	"block.exotic-blocks.blue_connected_glass": "Blue Connected Glass",
