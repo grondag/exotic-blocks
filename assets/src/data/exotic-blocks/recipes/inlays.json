@@ -1,399 +1,47 @@
 <@pp.dropOutputFile />
 <#list shape_blocks as block>
-<@pp.changeOutputFile name=block.name+"_glowstone_square_column.json" />
+<#list inlays as inlay>
+<@pp.changeOutputFile name=block.name + "_" + inlay.prefix + "_" + inlay.baseName + ".json" />
 {
   "type": "minecraft:crafting_shaped",
-  "group": "glowstone_square_column",
+<#if inlay.outputCount == "8">
+  "group": "${inlay.prefix}_${inlay.baseName}",
+<#else>
+  "group": "${inlay.baseName}",
+</#if>
   "pattern": [
+<#if inlay.outputCount == "8">
     "###",
     "#G#",
     "###"
-  ],
-  "key": {
-    "#": {
-      "item": "exotic-blocks:${block.name}_square_column"
-    },
-    "G": {
-      "item": "minecraft:glowstone_dust"
-    }
-  },
-  "result": {
-    "item": "exotic-blocks:${block.name}_glowstone_square_column",
-    "count": 8
-  }
-}
-<@pp.changeOutputFile name=block.name+"_prismarine_square_column.json" />
-{
-  "type": "minecraft:crafting_shaped",
-  "group": "prismarine_square_column",
-  "pattern": [
-    "###",
-    "#G#",
-    "###"
-  ],
-  "key": {
-    "#": {
-      "item": "exotic-blocks:${block.name}_square_column"
-    },
-    "G": {
-      "item": "minecraft:prismarine_crystals"
-    }
-  },
-  "result": {
-    "item": "exotic-blocks:${block.name}_prismarine_square_column",
-    "count": 8
-  }
-}
-<@pp.changeOutputFile name=block.name+"_glowstone_inset_panel.json" />
-{
-  "type": "minecraft:crafting_shaped",
-  "group": "glowstone_inset_panel",
-  "pattern": [
-    "###",
-    "#G#",
-    "###"
-  ],
-  "key": {
-    "#": {
-      "item": "exotic-blocks:${block.name}_inset_panel"
-    },
-    "G": {
-      "item": "minecraft:glowstone_dust"
-    }
-  },
-  "result": {
-    "item": "exotic-blocks:${block.name}_glowstone_inset_panel",
-    "count": 8
-  }
-}
-<@pp.changeOutputFile name=block.name+"_prismarine_inset_panel.json" />
-{
-  "type": "minecraft:crafting_shaped",
-  "group": "prismarine_inset_panel",
-  "pattern": [
-    "###",
-    "#G#",
-    "###"
-  ],
-  "key": {
-    "#": {
-      "item": "exotic-blocks:${block.name}_inset_panel"
-    },
-    "G": {
-      "item": "minecraft:prismarine_crystals"
-    }
-  },
-  "result": {
-    "item": "exotic-blocks:${block.name}_prismarine_inset_panel",
-    "count": 8
-  }
-}
-<@pp.changeOutputFile name=block.name+"_glowstone_lamp_inset_panel.json" />
-{
-  "type": "minecraft:crafting_shaped",
-  "group": "lamp_inset_panel",
-  "pattern": [
+<#else>
     " G ",
     "G#G",
     " G "
+</#if>
   ],
   "key": {
     "#": {
-      "item": "exotic-blocks:${block.name}_inset_panel"
-    },
-    "G": {
-      "item": "minecraft:glowstone_dust"
-    }
-  },
-  "result": {
-    "item": "exotic-blocks:${block.name}_lamp_inset_panel",
-    "count": 1
-  }
-}
-<@pp.changeOutputFile name=block.name+"_prismarine_lamp_inset_panel.json" />
-{
-  "type": "minecraft:crafting_shaped",
-  "group": "lamp_inset_panel",
-  "pattern": [
-    " G ",
-    "G#G",
-    " G "
-  ],
-  "key": {
-    "#": {
-      "item": "exotic-blocks:${block.name}_inset_panel"
-    },
-    "G": {
-      "item": "minecraft:prismarine_crystals"
-    }
-  },
-  "result": {
-    "item": "exotic-blocks:${block.name}_lamp_inset_panel",
-    "count": 1
-  }
-}
-<@pp.changeOutputFile name=block.name+"_glowstone_flat_panel.json" />
-{
-  "type": "minecraft:crafting_shaped",
-  "group": "glowstone_flat_panel",
-  "pattern": [
-    "###",
-    "#G#",
-    "###"
-  ],
-  "key": {
-    "#": {
+<#if inlay.useRawInput == "Y">
       "item": "${block.mod}:${block.name}"
+<#elseif inlay.outputCount == "8">
+      "item": "exotic-blocks:${block.name}_${inlay.baseName}"
+<#else>
+      "item": "exotic-blocks:${block.name}_${inlay.baseName[5..]}"
+</#if>
     },
     "G": {
-      "item": "minecraft:glowstone_dust"
+      "item": "${inlay.glowItem}"
     }
   },
   "result": {
-    "item": "exotic-blocks:${block.name}_glowstone_flat_panel",
-    "count": 8
+<#if inlay.outputCount == "8">
+    "item": "exotic-blocks:${block.name}_${inlay.prefix}_${inlay.baseName}",
+<#else>
+    "item": "exotic-blocks:${block.name}_${inlay.baseName}",
+</#if>
+    "count": ${inlay.outputCount}
   }
 }
-<@pp.changeOutputFile name=block.name+"_prismarine_flat_panel.json" />
-{
-  "type": "minecraft:crafting_shaped",
-  "group": "prismarine_flat_panel",
-  "pattern": [
-    "###",
-    "#G#",
-    "###"
-  ],
-  "key": {
-    "#": {
-      "item": "${block.mod}:${block.name}"
-    },
-    "G": {
-      "item": "minecraft:prismarine_crystals"
-    }
-  },
-  "result": {
-    "item": "exotic-blocks:${block.name}_prismarine_flat_panel",
-    "count": 8
-  }
-}
-<@pp.changeOutputFile name=block.name+"_glowstone_lamp_flat_panel.json" />
-{
-  "type": "minecraft:crafting_shaped",
-  "group": "lamp_flat_panel",
-  "pattern": [
-    " G ",
-    "G#G",
-    " G "
-  ],
-  "key": {
-    "#": {
-      "item": "${block.mod}:${block.name}"
-    },
-    "G": {
-      "item": "minecraft:glowstone_dust"
-    }
-  },
-  "result": {
-    "item": "exotic-blocks:${block.name}_lamp_flat_panel",
-    "count": 1
-  }
-}
-<@pp.changeOutputFile name=block.name+"_prismarine_lamp_flat_panel.json" />
-{
-  "type": "minecraft:crafting_shaped",
-  "group": "lamp_flat_panel",
-  "pattern": [
-    " G ",
-    "G#G",
-    " G "
-  ],
-  "key": {
-    "#": {
-      "item": "${block.mod}:${block.name}"
-    },
-    "G": {
-      "item": "minecraft:prismarine_crystals"
-    }
-  },
-  "result": {
-    "item": "exotic-blocks:${block.name}_lamp_flat_panel",
-    "count": 1
-  }
-}
-<@pp.changeOutputFile name=block.name+"_glowstone_capped_square_column.json" />
-{
-  "type": "minecraft:crafting_shaped",
-  "group": "glowstone_capped_square_column",
-  "pattern": [
-    "###",
-    "#G#",
-    "###"
-  ],
-  "key": {
-    "#": {
-      "item": "exotic-blocks:${block.name}_capped_square_column"
-    },
-    "G": {
-      "item": "minecraft:glowstone_dust"
-    }
-  },
-  "result": {
-    "item": "exotic-blocks:${block.name}_glowstone_capped_square_column",
-    "count": 8
-  }
-}
-<@pp.changeOutputFile name=block.name+"_prismarine_capped_square_column.json" />
-{
-  "type": "minecraft:crafting_shaped",
-  "group": "prismarine_capped_square_column",
-  "pattern": [
-    "###",
-    "#G#",
-    "###"
-  ],
-  "key": {
-    "#": {
-      "item": "exotic-blocks:${block.name}_capped_square_column"
-    },
-    "G": {
-      "item": "minecraft:prismarine_crystals"
-    }
-  },
-  "result": {
-    "item": "exotic-blocks:${block.name}_prismarine_capped_square_column",
-    "count": 8
-  }
-}
-<@pp.changeOutputFile name=block.name+"_glowstone_lamp_capped_square_column.json" />
-{
-  "type": "minecraft:crafting_shaped",
-  "group": "lamp_capped_square_column",
-  "pattern": [
-    " G ",
-    "G#G",
-    " G "
-  ],
-  "key": {
-    "#": {
-      "item": "exotic-blocks:${block.name}_capped_square_column"
-    },
-    "G": {
-      "item": "minecraft:glowstone_dust"
-    }
-  },
-  "result": {
-    "item": "exotic-blocks:${block.name}_lamp_capped_square_column",
-    "count": 1
-  }
-}
-<@pp.changeOutputFile name=block.name+"_prismarine_lamp_capped_square_column.json" />
-{
-  "type": "minecraft:crafting_shaped",
-  "group": "lamp_capped_square_column",
-  "pattern": [
-    " G ",
-    "G#G",
-    " G "
-  ],
-  "key": {
-    "#": {
-      "item": "exotic-blocks:${block.name}_capped_square_column"
-    },
-    "G": {
-      "item": "minecraft:prismarine_crystals"
-    }
-  },
-  "result": {
-    "item": "exotic-blocks:${block.name}_lamp_capped_square_column",
-    "count": 1
-  }
-}
-<@pp.changeOutputFile name=block.name+"_glowstone_cut_round_column.json" />
-{
-  "type": "minecraft:crafting_shaped",
-  "group": "glowstone_cut_round_column",
-  "pattern": [
-    "###",
-    "#G#",
-    "###"
-  ],
-  "key": {
-    "#": {
-      "item": "exotic-blocks:${block.name}_cut_round_column"
-    },
-    "G": {
-      "item": "minecraft:glowstone_dust"
-    }
-  },
-  "result": {
-    "item": "exotic-blocks:${block.name}_glowstone_cut_round_column",
-    "count": 8
-  }
-}
-<@pp.changeOutputFile name=block.name+"_prismarine_cut_round_column.json" />
-{
-  "type": "minecraft:crafting_shaped",
-  "group": "prismarine_cut_round_column",
-  "pattern": [
-    "###",
-    "#G#",
-    "###"
-  ],
-  "key": {
-    "#": {
-      "item": "exotic-blocks:${block.name}_cut_round_column"
-    },
-    "G": {
-      "item": "minecraft:prismarine_crystals"
-    }
-  },
-  "result": {
-    "item": "exotic-blocks:${block.name}_prismarine_cut_round_column",
-    "count": 8
-  }
-}
-<@pp.changeOutputFile name=block.name+"_glowstone_lamp_cut_round_column.json" />
-{
-  "type": "minecraft:crafting_shaped",
-  "group": "lamp_cut_round_column",
-  "pattern": [
-    " G ",
-    "G#G",
-    " G "
-  ],
-  "key": {
-    "#": {
-      "item": "exotic-blocks:${block.name}_cut_round_column"
-    },
-    "G": {
-      "item": "minecraft:glowstone_dust"
-    }
-  },
-  "result": {
-    "item": "exotic-blocks:${block.name}_lamp_cut_round_column",
-    "count": 1
-  }
-}
-<@pp.changeOutputFile name=block.name+"_prismarine_lamp_cut_round_column.json" />
-{
-  "type": "minecraft:crafting_shaped",
-  "group": "lamp_cut_round_column",
-  "pattern": [
-    " G ",
-    "G#G",
-    " G "
-  ],
-  "key": {
-    "#": {
-      "item": "exotic-blocks:${block.name}_cut_round_column"
-    },
-    "G": {
-      "item": "minecraft:prismarine_crystals"
-    }
-  },
-  "result": {
-    "item": "exotic-blocks:${block.name}_lamp_cut_round_column",
-    "count": 1
-  }
-}
+</#list>
 </#list>
