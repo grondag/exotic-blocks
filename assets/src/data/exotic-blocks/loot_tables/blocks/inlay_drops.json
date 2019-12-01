@@ -1,0 +1,36 @@
+<@pp.dropOutputFile />
+<#list shape_blocks as block>
+<#list inlays as inlay>
+<#-- Lamp blocks have two entries but we only want to output one - they result in same block  -->
+<#if inlay.outputCount == "8" || inlay.prefix == "glowstone">
+  <#if inlay.outputCount == "8">
+    <@pp.changeOutputFile name = block.name + "_" + inlay.prefix + "_" + inlay.baseName + ".json" />
+  <#else>
+    <@pp.changeOutputFile name = block.name + "_" + inlay.baseName + ".json" />
+  </#if>
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+  <#if inlay.outputCount == "8">
+          "name": "exotic-blocks:${block.name}_${inlay.prefix}_${inlay.baseName}"
+  <#else>
+          "name": "exotic-blocks:${block.name}_${inlay.baseName}"
+  </#if>
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ]
+    }
+  ]
+}
+</#if>
+</#list>
+</#list>
