@@ -49,6 +49,7 @@ import grondag.xm.api.primitive.simple.CutRoundColumn;
 import grondag.xm.api.primitive.simple.CylinderWithAxis;
 import grondag.xm.api.primitive.simple.FlatPanel;
 import grondag.xm.api.primitive.simple.InsetPanel;
+import grondag.xm.api.primitive.simple.RoundCappedRoundColumn;
 import grondag.xm.api.primitive.simple.SquareColumn;
 import grondag.xm.api.primitive.simple.WedgeCap;
 
@@ -149,6 +150,29 @@ public class BlockHelper {
 			}
 		});
 
+
+		XmBlockRegistry.addBlockStates(block, bs -> PrimitiveStateFunction.builder()
+				.withJoin(AXIS_JOIN)
+				.withDefaultState(PrimitiveState.AXIS_FROM_BLOCKSTATE.mutate(defaultState.mutableCopy(), bs))
+				.build());
+
+		return block;
+	}
+
+	public static Block roundCappedRoundColumn(String idString, Block template, XmPaint endPaint, XmPaint sidePaint, XmPaint cutPaint, XmPaint innerPaint) {
+		final PrimitiveState defaultState = RoundCappedRoundColumn.INSTANCE.newState()
+				.paint(CutRoundColumn.SURFACE_ENDS, endPaint)
+				.paint(CutRoundColumn.SURFACE_CUT, cutPaint)
+				.paint(CutRoundColumn.SURFACE_INNER, innerPaint)
+				.paint(CutRoundColumn.SURFACE_OUTER, sidePaint)
+				.releaseToImmutable();
+
+		final Block block = Xb.REG.block(idString + "_round_capped_round_column", new NonCubicPillarBlock(FabricBlockSettings.copy(template).dynamicBounds().build()) {
+			@Override
+			public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos pos, EntityContext entityContext) {
+				return CollisionDispatcher.shapeFor(XmBlockState.modelState(blockState, blockView, pos, true));
+			}
+		});
 
 		XmBlockRegistry.addBlockStates(block, bs -> PrimitiveStateFunction.builder()
 				.withJoin(AXIS_JOIN)

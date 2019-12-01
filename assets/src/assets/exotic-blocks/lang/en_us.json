@@ -29,6 +29,7 @@
 	"block.exotic-blocks.${block.name?lower_case}_square_column": "${block.name?replace("_"," ")?capitalize} Square Column",
 	"block.exotic-blocks.${block.name?lower_case}_round_column": "${block.name?replace("_"," ")?capitalize} Round Column",
 	"block.exotic-blocks.${block.name?lower_case}_capped_round_column": "${block.name?replace("_"," ")?capitalize} Capped Round Column",
+	"block.exotic-blocks.${block.name?lower_case}_round_capped_round_column": "${block.name?replace("_"," ")?capitalize} Round-Capped Round Column",
 	"block.exotic-blocks.${block.name?lower_case}_prismarine_square_column": "${block.name?replace("_"," ")?capitalize} Square Column with Prismarine Inlay",
 	"block.exotic-blocks.${block.name?lower_case}_glowstone_square_column": "${block.name?replace("_"," ")?capitalize} Square Column with Glowstone Inlay",
 	"block.exotic-blocks.${block.name?lower_case}_inset_panel": "${block.name?replace("_"," ")?capitalize} Inset Panel",

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:light_blue_concrete"
+  },
+  "result": "exotic-blocks:light_blue_concrete_round_capped_round_column",
+  "count": 1
+}

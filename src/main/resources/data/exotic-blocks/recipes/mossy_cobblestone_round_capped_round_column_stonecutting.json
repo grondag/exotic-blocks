@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:mossy_cobblestone"
+  },
+  "result": "exotic-blocks:mossy_cobblestone_round_capped_round_column",
+  "count": 1
+}
