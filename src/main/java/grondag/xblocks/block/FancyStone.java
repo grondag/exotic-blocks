@@ -5,12 +5,11 @@ import it.unimi.dsi.fastutil.HashCommon;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 
-import net.fabricmc.fabric.api.renderer.v1.material.BlendMode;
-
 import grondag.fermion.color.ColorHelper;
 import grondag.xblocks.Xb;
 import grondag.xm.api.block.XmBlockRegistry;
 import grondag.xm.api.modelstate.primitive.PrimitiveStateFunction;
+import grondag.xm.api.paint.PaintBlendMode;
 import grondag.xm.api.paint.VertexProcessor;
 import grondag.xm.api.paint.XmPaint;
 import grondag.xm.api.primitive.simple.Cube;
@@ -41,7 +40,7 @@ public enum FancyStone {
 				.texture(0, XmTextures.BIGTEX_SANDSTONE)
 				.textureColor(0, 0xFF9090A0)
 				.texture(1, XmTextures.TILE_NOISE_BLUE_A)
-				.blendMode(1, BlendMode.TRANSLUCENT)
+				.blendMode(1, PaintBlendMode.TRANSLUCENT)
 				.textureColor(1, 0xA0656d75)
 				.find();
 
@@ -52,10 +51,10 @@ public enum FancyStone {
 				.textureColor(0, 0xFF9090A0)
 				.texture(1, XmTextures.TILE_NOISE_BLUE_A)
 				.textureColor(1, 0xA0656d75)
-				.blendMode(1, BlendMode.TRANSLUCENT)
+				.blendMode(1, PaintBlendMode.TRANSLUCENT)
 				.texture(2, XmTextures.BORDER_SMOOTH_BLEND)
 				.textureColor(2, 0x802b2f33)
-				.blendMode(2, BlendMode.TRANSLUCENT)
+				.blendMode(2, PaintBlendMode.TRANSLUCENT)
 				.find();
 
 		final Block fancyStone = Xb.REG.block(ID_BLOCK, new Block(Block.Settings.copy(Blocks.STONE)));
