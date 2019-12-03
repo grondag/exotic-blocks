@@ -1,0 +1,48 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "lamp_inset_panel",
+  "pattern": [
+    "RGR",
+    "G#G",
+    "RGR"
+  ],
+  "key": {
+    "#": {
+      "item": "exotic-blocks:lime_terracotta_inset_panel"
+    },
+  "R": {
+    "item": "minecraft:redstone"
+  },
+    "G": {
+      "item": "minecraft:glowstone_dust"
+    }
+  },
+  "result": {
+    "item": "exotic-blocks:lime_terracotta_lamp_inset_panel",
+    "count": 1
+  }
+}
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "lamp_inset_panel",
+  "pattern": [
+    "RGR",
+    "G#G",
+    "RGR"
+  ],
+  "key": {
+    "#": {
+      "item": "exotic-blocks:lime_terracotta_inset_panel"
+    },
+  "R": {
+    "item": "minecraft:redstone"
+  },
+    "G": {
+      "item": "minecraft:prismarine_crystals"
+    }
+  },
+  "result": {
+    "item": "exotic-blocks:lime_terracotta_lamp_inset_panel",
+    "count": 1
+  }
+}

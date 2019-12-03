@@ -1,6 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
-  "group": "lamp_inset_panel",
+  "group": "glowstone_lamp_inset_panel",
   "pattern": [
     " G ",
     "G#G",
@@ -15,7 +15,7 @@
     }
   },
   "result": {
-    "item": "exotic-blocks:terracotta_lamp_inset_panel",
+    "item": "exotic-blocks:terracotta_glowstone_lamp_inset_panel",
     "count": 1
   }
 }

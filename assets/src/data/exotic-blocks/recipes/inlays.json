@@ -1,46 +1,55 @@
 <@pp.dropOutputFile />
 <#list shape_blocks as block>
-<#list inlays as inlay>
-<@pp.changeOutputFile name=block.name + "_" + inlay.prefix + "_" + inlay.baseName + ".json" />
+  <#list inlays as inlay>
+    <#if inlay.recipeType == "lamp">
+      <#assign groupName = inlay.prefix + "_lamp_" + inlay.baseName>
+      <#assign outCount = "1">
+    <#elseif inlay.recipeType == "white_lamp">
+      <#assign groupName = "lamp_" + inlay.baseName>
+      <#assign outCount = "1">
+    <#else>
+      <#assign groupName = inlay.prefix + "_" + inlay.baseName>
+      <#assign outCount = "8">
+    </#if>
+<@pp.changeOutputFile name=block.name + "_" + groupName + ".json" />
 {
   "type": "minecraft:crafting_shaped",
-<#if inlay.outputCount == "8">
-  "group": "${inlay.prefix}_${inlay.baseName}",
-<#else>
-  "group": "${inlay.baseName}",
-</#if>
+  "group": "${groupName}",
   "pattern": [
-<#if inlay.outputCount == "8">
-    "###",
-    "#G#",
-    "###"
-<#else>
+<#if inlay.recipeType == "lamp">
     " G ",
     "G#G",
     " G "
+<#elseif inlay.recipeType == "white_lamp">
+    "RGR",
+    "G#G",
+    "RGR"
+<#else>
+    "###",
+    "#G#",
+    "###"
 </#if>
   ],
   "key": {
     "#": {
 <#if inlay.useRawInput == "Y">
       "item": "${block.mod}:${block.name}"
-<#elseif inlay.outputCount == "8">
-      "item": "exotic-blocks:${block.name}_${inlay.baseName}"
 <#else>
-      "item": "exotic-blocks:${block.name}_${inlay.baseName[5..]}"
+      "item": "exotic-blocks:${block.name}_${inlay.baseName}"
 </#if>
     },
+<#if inlay.recipeType == "white_lamp">
+  "R": {
+    "item": "minecraft:redstone"
+  },
+</#if>
     "G": {
       "item": "${inlay.glowItem}"
     }
   },
   "result": {
-<#if inlay.outputCount == "8">
-    "item": "exotic-blocks:${block.name}_${inlay.prefix}_${inlay.baseName}",
-<#else>
-    "item": "exotic-blocks:${block.name}_${inlay.baseName}",
-</#if>
-    "count": ${inlay.outputCount}
+    "item": "exotic-blocks:${block.name}_${groupName}",
+    "count": ${outCount}
   }
 }
 </#list>

@@ -260,6 +260,11 @@ public class BlockShapes {
 		BlockHelper.cappedSquareColumn(name + "_prismarine", blockIn, paintTop, paintSide, paintSide, glow, 0);
 		BlockHelper.cutRoundColumn(name + "_prismarine", blockIn, paintTop, paintSide, paintSide, glow, 0);
 
+		BlockHelper.insetPanel(name + "_prismarine_lamp", blockIn, paintTop, paintSide, glow, 15);
+		BlockHelper.flatPanel(name + "_prismarine_lamp", blockIn, paintTop, glow, 15);
+		BlockHelper.cappedSquareColumn(name + "_prismarine_lamp", blockIn, paintTop, paintSide, paintSide, glow, 15);
+		BlockHelper.cutRoundColumn(name + "_prismarine_lamp", blockIn, paintTop, paintSide, paintSide, glow, 15);
+
 		glow = XmPaintRegistry.INSTANCE.get(new Identifier("exotic-blocks:glowstone_glow"));
 
 		BlockHelper.insetPanel(name + "_glowstone", blockIn, paintTop, paintSide, glow, 0);
@@ -267,6 +272,11 @@ public class BlockShapes {
 		BlockHelper.squareInsetColumn(name + "_glowstone", blockIn, paintTop, paintSide, paintSide, glow, coarse ? 1 : 2);
 		BlockHelper.cappedSquareColumn(name + "_glowstone", blockIn, paintTop, paintSide, paintSide, glow, 0);
 		BlockHelper.cutRoundColumn(name + "_glowstone", blockIn, paintTop, paintSide, paintSide, glow, 0);
+
+		BlockHelper.insetPanel(name + "_glowstone_lamp", blockIn, paintTop, paintSide, glow, 15);
+		BlockHelper.flatPanel(name + "_glowstone_lamp", blockIn, paintTop, glow, 15);
+		BlockHelper.cappedSquareColumn(name + "_glowstone_lamp", blockIn, paintTop, paintSide, paintSide, glow, 15);
+		BlockHelper.cutRoundColumn(name + "_glowstone_lamp", blockIn, paintTop, paintSide, paintSide, glow, 15);
 
 		glow = XmPaintRegistry.INSTANCE.get(new Identifier("exotic-blocks:lamp_glow"));
 

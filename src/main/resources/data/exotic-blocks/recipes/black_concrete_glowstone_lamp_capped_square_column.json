@@ -1,6 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
-  "group": "lamp_capped_square_column",
+  "group": "glowstone_lamp_capped_square_column",
   "pattern": [
     " G ",
     "G#G",
@@ -15,7 +15,7 @@
     }
   },
   "result": {
-    "item": "exotic-blocks:black_concrete_lamp_capped_square_column",
+    "item": "exotic-blocks:black_concrete_glowstone_lamp_capped_square_column",
     "count": 1
   }
 }

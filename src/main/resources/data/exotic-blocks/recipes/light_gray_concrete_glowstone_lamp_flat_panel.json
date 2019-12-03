@@ -1,6 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
-  "group": "lamp_flat_panel",
+  "group": "glowstone_lamp_flat_panel",
   "pattern": [
     " G ",
     "G#G",
@@ -15,7 +15,7 @@
     }
   },
   "result": {
-    "item": "exotic-blocks:light_gray_concrete_lamp_flat_panel",
+    "item": "exotic-blocks:light_gray_concrete_glowstone_lamp_flat_panel",
     "count": 1
   }
 }

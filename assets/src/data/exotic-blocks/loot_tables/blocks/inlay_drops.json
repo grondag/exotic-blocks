@@ -1,13 +1,19 @@
 <@pp.dropOutputFile />
 <#list shape_blocks as block>
 <#list inlays as inlay>
-<#-- Lamp blocks have two entries but we only want to output one - they result in same block  -->
-<#if inlay.outputCount == "8" || inlay.prefix == "glowstone">
-  <#if inlay.outputCount == "8">
-    <@pp.changeOutputFile name = block.name + "_" + inlay.prefix + "_" + inlay.baseName + ".json" />
+  <#if inlay.recipeType == "lamp">
+    <#assign groupName = inlay.prefix + "_lamp_" + inlay.baseName>
+    <#assign outCount = "1">
+  <#elseif inlay.recipeType == "white_lamp">
+    <#assign groupName = "lamp_" + inlay.baseName>
+    <#assign outCount = "1">
   <#else>
-    <@pp.changeOutputFile name = block.name + "_" + inlay.baseName + ".json" />
+    <#assign groupName = inlay.prefix + "_" + inlay.baseName>
+    <#assign outCount = "8">
   </#if>
+<#-- White lamp blocks have two entries but we only want to output one - they result in same block  -->
+<#if inlay.recipeType != "white_lamp" || inlay.prefix == "glowstone">
+<@pp.changeOutputFile name = block.name + "_" + groupName + ".json" />
 {
   "type": "minecraft:block",
   "pools": [
@@ -16,11 +22,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-  <#if inlay.outputCount == "8">
-          "name": "exotic-blocks:${block.name}_${inlay.prefix}_${inlay.baseName}"
-  <#else>
-          "name": "exotic-blocks:${block.name}_${inlay.baseName}"
-  </#if>
+          "name": "exotic-blocks:${block.name}_${groupName}"
         }
       ],
       "conditions": [

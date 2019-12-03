@@ -1,0 +1,48 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "lamp_cut_round_column",
+  "pattern": [
+    "RGR",
+    "G#G",
+    "RGR"
+  ],
+  "key": {
+    "#": {
+      "item": "exotic-blocks:smooth_red_sandstone_cut_round_column"
+    },
+  "R": {
+    "item": "minecraft:redstone"
+  },
+    "G": {
+      "item": "minecraft:glowstone_dust"
+    }
+  },
+  "result": {
+    "item": "exotic-blocks:smooth_red_sandstone_lamp_cut_round_column",
+    "count": 1
+  }
+}
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "lamp_cut_round_column",
+  "pattern": [
+    "RGR",
+    "G#G",
+    "RGR"
+  ],
+  "key": {
+    "#": {
+      "item": "exotic-blocks:smooth_red_sandstone_cut_round_column"
+    },
+  "R": {
+    "item": "minecraft:redstone"
+  },
+    "G": {
+      "item": "minecraft:prismarine_crystals"
+    }
+  },
+  "result": {
+    "item": "exotic-blocks:smooth_red_sandstone_lamp_cut_round_column",
+    "count": 1
+  }
+}
