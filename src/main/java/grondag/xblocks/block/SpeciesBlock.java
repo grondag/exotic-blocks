@@ -7,8 +7,8 @@ import net.minecraft.state.StateManager.Builder;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 
-import grondag.fermion.modkeys.api.ModKeys;
 import grondag.xblocks.Xb;
+import grondag.xblocks.XbConfig;
 import grondag.xm.api.block.XmBlockRegistry;
 import grondag.xm.api.connect.species.Species;
 import grondag.xm.api.connect.species.SpeciesFunction;
@@ -35,7 +35,7 @@ public class SpeciesBlock extends Block {
 	public BlockState getPlacementState(ItemPlacementContext context) {
 		final Direction onFace = context.getSide();
 		final BlockPos onPos = context.getBlockPos().offset(onFace.getOpposite());
-		final SpeciesMode mode = (context.getPlayer().isSneaking() || ModKeys.isSuperPressed(context.getPlayer()))
+		final SpeciesMode mode = XbConfig.modKey.test(context.getPlayer())
 				? SpeciesMode.COUNTER_MOST : SpeciesMode.MATCH_MOST;
 		final int species = Species.speciesForPlacement(context.getWorld(), onPos, onFace, mode, speciesFunc);
 		return getDefaultState().with(SpeciesProperty.SPECIES, species);

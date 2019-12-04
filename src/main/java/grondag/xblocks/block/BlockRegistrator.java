@@ -21,6 +21,7 @@ import net.minecraft.util.Identifier;
 
 import grondag.fermion.color.ColorHelper;
 import grondag.xblocks.Xb;
+import grondag.xblocks.XbConfig;
 import grondag.xm.api.block.XmBlockRegistry;
 import grondag.xm.api.block.base.StairLike;
 import grondag.xm.api.modelstate.primitive.PrimitiveStateFunction;
@@ -78,7 +79,7 @@ public class BlockRegistrator {
 
 		final Block wedge = Xb.REG.block(
 				name + "_wedge_straight",
-				new StairLike(blockIn.getDefaultState(), Block.Settings.copy(blockIn), StairLike.Shape.STRAIGHT));
+				new StairLike(blockIn.getDefaultState(), Block.Settings.copy(blockIn), StairLike.Shape.STRAIGHT, XbConfig::isModKeyPressed, XbConfig::isForceKeyPressed));
 		XmBlockRegistry.addBlockStates(wedge, bs -> PrimitiveStateFunction.builder()
 				.withDefaultState(StairLike.MODELSTATE_FROM_BLOCKSTATE.mutate(
 						Wedge.INSTANCE.newState()
@@ -90,7 +91,7 @@ public class BlockRegistrator {
 
 		final Block insideWedge = Xb.REG.block(
 				name + "_wedge_inside",
-				new StairLike(blockIn.getDefaultState(), Block.Settings.copy(blockIn), StairLike.Shape.INSIDE_CORNER));
+				new StairLike(blockIn.getDefaultState(), Block.Settings.copy(blockIn), StairLike.Shape.INSIDE_CORNER, XbConfig::isModKeyPressed, XbConfig::isForceKeyPressed));
 		XmBlockRegistry.addBlockStates(insideWedge, bs -> PrimitiveStateFunction.builder()
 				.withDefaultState(StairLike.MODELSTATE_FROM_BLOCKSTATE.mutate(
 						Wedge.INSTANCE.newState()
@@ -102,7 +103,7 @@ public class BlockRegistrator {
 
 		final Block outsideWedge = Xb.REG.block(
 				name + "_wedge_outside",
-				new StairLike(blockIn.getDefaultState(), Block.Settings.copy(blockIn), StairLike.Shape.OUTSIDE_CORNER));
+				new StairLike(blockIn.getDefaultState(), Block.Settings.copy(blockIn), StairLike.Shape.OUTSIDE_CORNER, XbConfig::isModKeyPressed, XbConfig::isForceKeyPressed));
 		XmBlockRegistry.addBlockStates(outsideWedge, bs -> PrimitiveStateFunction.builder()
 				.withDefaultState(StairLike.MODELSTATE_FROM_BLOCKSTATE.mutate(
 						Wedge.INSTANCE.newState()
@@ -114,7 +115,7 @@ public class BlockRegistrator {
 
 		final Block omniStair = Xb.REG.block(
 				name + "_omni_stair",
-				new StairLike(blockIn.getDefaultState(), Block.Settings.copy(blockIn), StairLike.Shape.STRAIGHT));
+				new StairLike(blockIn.getDefaultState(), Block.Settings.copy(blockIn), StairLike.Shape.STRAIGHT, XbConfig::isModKeyPressed, XbConfig::isForceKeyPressed));
 		XmBlockRegistry.addBlockStates(omniStair, bs -> PrimitiveStateFunction.builder()
 				.withDefaultState(StairLike.MODELSTATE_FROM_BLOCKSTATE.mutate(
 						Stair.INSTANCE.newState()
@@ -128,7 +129,7 @@ public class BlockRegistrator {
 
 		final Block omniStairInside = Xb.REG.block(
 				name + "_omni_stair_inside",
-				new StairLike(blockIn.getDefaultState(), Block.Settings.copy(blockIn), StairLike.Shape.INSIDE_CORNER));
+				new StairLike(blockIn.getDefaultState(), Block.Settings.copy(blockIn), StairLike.Shape.INSIDE_CORNER, XbConfig::isModKeyPressed, XbConfig::isForceKeyPressed));
 		XmBlockRegistry.addBlockStates(omniStairInside, bs -> PrimitiveStateFunction.builder()
 				.withDefaultState(StairLike.MODELSTATE_FROM_BLOCKSTATE.mutate(
 						Stair.INSTANCE.newState()
@@ -142,7 +143,7 @@ public class BlockRegistrator {
 
 		final Block omniStairOutside = Xb.REG.block(
 				name + "_omni_stair_outside",
-				new StairLike(blockIn.getDefaultState(), Block.Settings.copy(blockIn), StairLike.Shape.OUTSIDE_CORNER));
+				new StairLike(blockIn.getDefaultState(), Block.Settings.copy(blockIn), StairLike.Shape.OUTSIDE_CORNER, XbConfig::isModKeyPressed, XbConfig::isForceKeyPressed));
 		XmBlockRegistry.addBlockStates(omniStairOutside, bs -> PrimitiveStateFunction.builder()
 				.withDefaultState(StairLike.MODELSTATE_FROM_BLOCKSTATE.mutate(
 						Stair.INSTANCE.newState()

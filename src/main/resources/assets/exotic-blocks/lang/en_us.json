@@ -4,8 +4,11 @@
 
 	"config.xblocks.category.vanilla" : "Work In Progress",
 
-	"config.xblocks.value.fancy_glass" : "Would you like some cake?",
-	"config.xblocks.help.fancy_glass" : "Trust me...",
+	"config.xblocks.value.mod_key" : "Placement Modifier",
+	"config.xblocks.help.mod_key" : "Hold while placing for horizontal placement;and to break connection with neighbors",
+	"config.xblocks.value.force_key" : "Secondary Placement Modifier",
+	"config.xblocks.help.force_key" : "Hold while placing for additional control",
+
 
 	"item.exotic-blocks.iron_cutter": "Portable Block Cutter",
 	"block.exotic-blocks.clear_connected_glass": "Connected Glass",
