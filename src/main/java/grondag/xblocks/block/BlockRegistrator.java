@@ -163,6 +163,7 @@ public class BlockRegistrator {
 		final Block cutRoundColumn = BlockMaker.cutRoundColumn(name, blockIn, paintTop, paintSide, paintCut, paintInner, 0);
 		final Block roundCappedRoundColumn = BlockMaker.roundCappedRoundColumn(name, blockIn, paintTop, paintSide, paintCut, paintInner);
 		final Block wedgeCap =  BlockMaker.wedgeCap(name, blockIn, paintTop, paintBottom);
+		final Block slab =  BlockMaker.slab(name, blockIn, paintTop, paintBottom, paintSide);
 
 		XmPaint glow = XmPaintRegistry.INSTANCE.get(new Identifier("exotic-blocks:prismarine_glow"));
 

@@ -49,6 +49,7 @@ import grondag.xm.api.primitive.simple.CylinderWithAxis;
 import grondag.xm.api.primitive.simple.FlatPanel;
 import grondag.xm.api.primitive.simple.InsetPanel;
 import grondag.xm.api.primitive.simple.RoundCappedRoundColumn;
+import grondag.xm.api.primitive.simple.Slab;
 import grondag.xm.api.primitive.simple.SquareColumn;
 import grondag.xm.api.primitive.simple.WedgeCap;
 
@@ -249,6 +250,27 @@ public class BlockMaker {
 				.releaseToImmutable();
 
 		final Block block = Xb.REG.block(idString + "_wedge_cap", new NonCubicFacingBlock(FabricBlockSettings.copy(template).dynamicBounds().build(), Direction.DOWN) {
+			@Override
+			public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos pos, EntityContext entityContext) {
+				return CollisionDispatcher.shapeFor(XmBlockState.modelState(blockState, blockView, pos, false));
+			}
+		});
+
+		XmBlockRegistry.addBlockStates(block, bs -> PrimitiveStateFunction.builder()
+				.withDefaultState(XmProperties.FACE_MODIFIER.mutate(defaultState.mutableCopy(), bs))
+				.build());
+
+		return block;
+	}
+
+	public static Block slab(String idString, Block template, XmPaint paintBottom, XmPaint paintTop, XmPaint paintSides) {
+		final PrimitiveState defaultState = Slab.INSTANCE.newState()
+				.paint(Slab.SURFACE_BOTTOM, paintBottom)
+				.paint(Slab.SURFACE_TOP, paintTop)
+				.paint(Slab.SURFACE_SIDES, paintSides)
+				.releaseToImmutable();
+
+		final Block block = Xb.REG.block(idString + "_omni_slab", new NonCubicFacingBlock(FabricBlockSettings.copy(template).dynamicBounds().build(), Direction.DOWN) {
 			@Override
 			public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos pos, EntityContext entityContext) {
 				return CollisionDispatcher.shapeFor(XmBlockState.modelState(blockState, blockView, pos, false));
