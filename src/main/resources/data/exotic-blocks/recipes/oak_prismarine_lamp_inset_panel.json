@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "prismarine_lamp_inset_panel",
+  "pattern": [
+    " G ",
+    "G#G",
+    " G "
+  ],
+  "key": {
+    "#": {
+      "item": "exotic-blocks:oak_inset_panel"
+    },
+    "G": {
+      "item": "minecraft:prismarine_crystals"
+    }
+  },
+  "result": {
+    "item": "exotic-blocks:oak_prismarine_lamp_inset_panel",
+    "count": 1
+  }
+}

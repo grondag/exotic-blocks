@@ -11,6 +11,11 @@
       <#assign groupName = inlay.prefix + "_" + inlay.baseName>
       <#assign outCount = "8">
     </#if>
+    <#if block.input?length != 0 && inlay.useRawInput == "Y">
+      <#assign inputBlock = block.input>
+    <#else>
+      <#assign inputBlock = block.name>
+    </#if>
 <@pp.changeOutputFile name=block.name + "_" + groupName + ".json" />
 {
   "type": "minecraft:crafting_shaped",
@@ -33,9 +38,9 @@
   "key": {
     "#": {
 <#if inlay.useRawInput == "Y">
-      "item": "${block.mod}:${block.name}"
+      "item": "${block.mod}:${inputBlock}"
 <#else>
-      "item": "exotic-blocks:${block.name}_${inlay.baseName}"
+      "item": "exotic-blocks:${inputBlock}_${inlay.baseName}"
 </#if>
     },
 <#if inlay.recipeType == "white_lamp">

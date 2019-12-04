@@ -1,11 +1,16 @@
 <@pp.dropOutputFile />
 <#list shape_blocks as block>
 <#list shapes as shape>
+<#if block.input?length == 0>
+  <#assign inputBlock = block.name>
+<#else>
+  <#assign inputBlock = block.input>
+</#if>
 <@pp.changeOutputFile name = block.name + "_" + shape.name + "_stonecutting.json" />
 {
   "type": "minecraft:stonecutting",
   "ingredient": {
-    "item": "${block.mod}:${block.name}"
+    "item": "${block.mod}:${inputBlock}"
   },
   "result": "exotic-blocks:${block.name}_${shape.name}",
   "count": ${shape.outputCount}

@@ -12,7 +12,7 @@ import net.fabricmc.loader.api.SemanticVersion;
 import net.fabricmc.loader.util.version.VersionParsingException;
 
 import grondag.xblocks.Xb;
-import grondag.xblocks.item.XbItems;
+import grondag.xblocks.init.XbItems;
 
 public class XbReiPlugin implements REIPluginV0 {
 	public static final Identifier ID = Xb.REG.id("rei_plugin");

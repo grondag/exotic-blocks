@@ -21,11 +21,11 @@ import org.apache.logging.log4j.Logger;
 import net.fabricmc.api.ModInitializer;
 
 import grondag.fermion.registrar.Registrar;
-import grondag.xblocks.block.BlockShapes;
-import grondag.xblocks.block.ConnectedGlass;
-import grondag.xblocks.block.FancySnow;
-import grondag.xblocks.block.FancyStone;
-import grondag.xblocks.item.XbItems;
+import grondag.xblocks.init.ConnectedGlass;
+import grondag.xblocks.init.FancySnow;
+import grondag.xblocks.init.FancyStone;
+import grondag.xblocks.init.XbBlocks;
+import grondag.xblocks.init.XbItems;
 
 public class Xb implements ModInitializer {
 	public static final String MODID = "exotic-blocks";
@@ -36,10 +36,10 @@ public class Xb implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		ConnectedGlass.init();
-		BlockShapes.init();
-		FancyStone.values();
+		ConnectedGlass.values();
 		FancySnow.values();
+		XbBlocks.values();
+		FancyStone.values();
 		XbItems.values();
 	}
 }
