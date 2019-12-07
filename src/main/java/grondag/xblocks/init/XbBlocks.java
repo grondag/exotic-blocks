@@ -1,14 +1,29 @@
 package grondag.xblocks.init;
 
 import static grondag.xblocks.block.BlockRegistrator.register;
+import static grondag.xblocks.block.FestiveLightsBlock.BLUE;
+import static grondag.xblocks.block.FestiveLightsBlock.COOL_WHITE;
+import static grondag.xblocks.block.FestiveLightsBlock.CYAN;
+import static grondag.xblocks.block.FestiveLightsBlock.GREEN;
+import static grondag.xblocks.block.FestiveLightsBlock.MAGENTA;
+import static grondag.xblocks.block.FestiveLightsBlock.PURPLE;
+import static grondag.xblocks.block.FestiveLightsBlock.RED;
+import static grondag.xblocks.block.FestiveLightsBlock.WARM_WHITE;
+import static grondag.xblocks.block.FestiveLightsBlock.YELLOW;
+
+import java.util.ArrayList;
+import java.util.function.Function;
 
 import net.minecraft.block.Blocks;
 
+import grondag.xblocks.Xb;
+import grondag.xblocks.block.FestiveLightsBlock;
 import grondag.xm.api.paint.XmPaint;
 import grondag.xm.api.texture.McTextures;
 
 public enum XbBlocks {
 	;
+	public static final ArrayList<String> FESTIVE_LIGHTS = new ArrayList<>();
 
 	static {
 		register(Blocks.ACACIA_PLANKS, "acacia", McTextures.ACACIA_PLANKS, false);
@@ -94,5 +109,38 @@ public enum XbBlocks {
 		register(Blocks.PURPUR_BLOCK, "purpur_block", McTextures.PURPUR_BLOCK, true);
 
 		register(FancySnow.FANCY_SNOW_BLOCK, "snow_block", McTextures.SNOW, true);
+
+		festiveLights("warm_white", FestiveLightsBlock.All::new, WARM_WHITE);
+		festiveLights("cool_white", FestiveLightsBlock.All::new, COOL_WHITE);
+		festiveLights("blue", FestiveLightsBlock.All::new, BLUE);
+		festiveLights("cyan", FestiveLightsBlock.All::new, CYAN);
+		festiveLights("magenta", FestiveLightsBlock.All::new, MAGENTA);
+		festiveLights("purple", FestiveLightsBlock.All::new, PURPLE);
+		festiveLights("red", FestiveLightsBlock.All::new, RED);
+		festiveLights("yellow", FestiveLightsBlock.All::new, YELLOW);
+		festiveLights("green", FestiveLightsBlock.All::new, GREEN);
+		festiveLights("multi", FestiveLightsBlock.All::new, BLUE, CYAN, MAGENTA, PURPLE, RED, YELLOW, GREEN);
+		festiveLights("hot_mix", FestiveLightsBlock.All::new, RED, YELLOW, MAGENTA);
+		festiveLights("cool_mix", FestiveLightsBlock.All::new, BLUE, CYAN, MAGENTA, PURPLE, GREEN);
+		festiveLights("bluish_mix", FestiveLightsBlock.All::new, BLUE, CYAN, GREEN);
+		festiveLights("erie_mix", FestiveLightsBlock.All::new, GREEN, YELLOW, PURPLE);
+		festiveLights("green_red_mix", FestiveLightsBlock.All::new, GREEN, RED);
+		festiveLights("primary_mix", FestiveLightsBlock.All::new, GREEN, RED, BLUE);
+		festiveLights("blue_white_mix", FestiveLightsBlock.All::new, BLUE, COOL_WHITE);
+		festiveLights("red_white_mix", FestiveLightsBlock.All::new, BLUE, WARM_WHITE);
+		festiveLights("red_white_blue_mix", FestiveLightsBlock.All::new, BLUE, RED, WARM_WHITE);
+	}
+
+	static void festiveLights(String colorName, Function<int[], FestiveLightsBlock> func, int... colors) {
+		final String name = "festive_lights_" + colorName;
+		Xb.REG.block(addLightName(name  + "_all"), new  FestiveLightsBlock.All(colors));
+		Xb.REG.block(addLightName(name  + "_horizontal"), new  FestiveLightsBlock.Horizontal(colors));
+		Xb.REG.block(addLightName(name  + "_single"), new  FestiveLightsBlock.Single(colors));
+		Xb.REG.block(addLightName(name  + "_pendant"), new  FestiveLightsBlock.Pendant(colors));
+	}
+
+	static String addLightName(String name) {
+		FESTIVE_LIGHTS.add(name);
+		return name;
 	}
 }

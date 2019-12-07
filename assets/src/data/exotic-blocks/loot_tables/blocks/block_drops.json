@@ -45,3 +45,27 @@
   ]
 }
 </#list>
+<#list light_colors as color>
+	<#list light_shapes as shape>
+  <@pp.changeOutputFile name = "festive_lights_" + color.name + "_" + shape.name + ".json" />
+  {
+    "type": "minecraft:block",
+    "pools": [
+      {
+        "rolls": 1,
+        "entries": [
+          {
+            "type": "minecraft:item",
+            "name": "exotic-blocks:festive_lights_${color.name}_${shape.name}"
+          }
+        ],
+        "conditions": [
+          {
+            "condition": "minecraft:survives_explosion"
+          }
+        ]
+      }
+    ]
+  }
+	</#list>
+</#list>

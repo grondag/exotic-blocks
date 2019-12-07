@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "festive_lights",
+  "ingredients": [
+		{
+			"item": "exotic-blocks:festive_lights_red_white_blue_mix_horizontal"
+		}
+  ],
+  "result": {
+    "item": "exotic-blocks:festive_lights_red_white_blue_mix_single",
+    "count": 1
+  }
+}

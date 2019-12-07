@@ -1,0 +1,19 @@
+<@pp.dropOutputFile />
+<#list light_colors as color>
+	<#list light_shapes as shape>
+<@pp.changeOutputFile name= "festive_lights_convert_" + color.name + "_" + shape.name + ".json" />
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "festive_lights",
+  "ingredients": [
+		{
+			"item": "exotic-blocks:festive_lights_${color.name}_${shape.convertsFrom}"
+		}
+  ],
+  "result": {
+    "item": "exotic-blocks:festive_lights_${color.name}_${shape.name}",
+    "count": 1
+  }
+}
+</#list>
+</#list>

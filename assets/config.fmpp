@@ -7,4 +7,6 @@ data: {
     block_variants: csv(../data/block_variants.csv)
     inlays: csv(../data/inlays.csv)
     shapes: csv(../data/shapes.csv)
+    light_colors: csv(../data/light_colors.csv)
+    light_shapes: csv(../data/light_shapes.csv)
 }

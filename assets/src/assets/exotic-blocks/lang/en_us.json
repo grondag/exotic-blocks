@@ -64,5 +64,11 @@
 	"block.exotic-blocks.${block.name?lower_case}_glowstone_lamp_cut_round_column": "${block.name?replace("_"," ")?capitalize} Cut Round Column with Glowstone Lamp",
 </#list>
 
+<#list light_colors as color>
+	<#list light_shapes as shape>
+	"block.exotic-blocks.festive_lights_${color.name}_${shape.name}": "Festive Lights - ${color.english}, ${shape.english}",
+	</#list>
+</#list>
+
   "itemGroup.exotic-blocks.group": "Exotic Blocks"
 }

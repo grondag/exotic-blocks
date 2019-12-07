@@ -26,6 +26,7 @@ import grondag.xblocks.init.FancySnow;
 import grondag.xblocks.init.FancyStone;
 import grondag.xblocks.init.XbBlocks;
 import grondag.xblocks.init.XbItems;
+import grondag.xblocks.init.XbTags;
 
 public class Xb implements ModInitializer {
 	public static final String MODID = "exotic-blocks";
@@ -41,5 +42,6 @@ public class Xb implements ModInitializer {
 		XbBlocks.values();
 		FancyStone.values();
 		XbItems.values();
+		XbTags.values();
 	}
 }

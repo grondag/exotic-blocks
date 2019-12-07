@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "festive_lights",
+  "pattern": [
+    "GGG",
+    "G#G",
+    "GGG"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:prismarine_crystals"
+    },
+    "G": {
+      "item": "minecraft:glass_pane"
+    }
+  },
+  "result": {
+    "item": "exotic-blocks:festive_lights_warm_white_all",
+    "count": 16
+  }
+}
