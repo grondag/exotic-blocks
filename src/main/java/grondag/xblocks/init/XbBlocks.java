@@ -127,7 +127,7 @@ public enum XbBlocks {
 		festiveLights("green_red_mix", FestiveLightsBlock.All::new, GREEN, RED);
 		festiveLights("primary_mix", FestiveLightsBlock.All::new, GREEN, RED, BLUE);
 		festiveLights("blue_white_mix", FestiveLightsBlock.All::new, BLUE, COOL_WHITE);
-		festiveLights("red_white_mix", FestiveLightsBlock.All::new, BLUE, WARM_WHITE);
+		festiveLights("red_white_mix", FestiveLightsBlock.All::new, RED, WARM_WHITE);
 		festiveLights("red_white_blue_mix", FestiveLightsBlock.All::new, BLUE, RED, WARM_WHITE);
 	}
 

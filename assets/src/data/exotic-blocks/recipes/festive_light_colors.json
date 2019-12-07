@@ -1,19 +1,27 @@
 <@pp.dropOutputFile />
 <#list light_colors as color>
-	<#list light_shapes as shape>
-<@pp.changeOutputFile name= "festive_lights_convert_" + color.name + "_" + shape.name + ".json" />
+<#if color.dye != "none">
+<@pp.changeOutputFile name= "festive_lights_coloring_" + color.name + ".json" />
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "minecraft:crafting_shaped",
   "group": "festive_lights",
-  "ingredients": [
-		{
-			"item": "exotic-blocks:festive_lights_${color.name}_${shape.convertsFrom}"
-		}
+  "pattern": [
+    "GGG",
+    "G#G",
+    "GGG"
   ],
+  "key": {
+    "G": {
+      "tag": "exotic-blocks:festive_lights_white"
+    },
+    "#": {
+      "item": "minecraft:${color.dye}"
+    }
+  },
   "result": {
-    "item": "exotic-blocks:festive_lights_${color.name}_${shape.name}",
-    "count": 1
+    "item": "exotic-blocks:festive_lights_${color.name}_all",
+    "count": 8
   }
 }
-</#list>
+</#if>
 </#list>

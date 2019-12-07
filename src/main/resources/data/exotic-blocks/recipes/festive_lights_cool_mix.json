@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "festive_lights",
+  "pattern": [
+    "ABC",
+    "DE "
+  ],
+  "key": {
+    "A": {
+      "tag": "exotic-blocks:festive_lights_cyan"
+    },
+    "B": {
+      "tag": "exotic-blocks:festive_lights_blue"
+    },
+    "C": {
+      "tag": "exotic-blocks:festive_lights_green"
+    },
+    "D": {
+      "tag": "exotic-blocks:festive_lights_magenta"
+    },
+    "E": {
+      "tag": "exotic-blocks:festive_lights_purple"
+    }
+  },
+  "result": {
+    "item": "exotic-blocks:festive_lights_cool_mix_all",
+    "count": 5
+  }
+}

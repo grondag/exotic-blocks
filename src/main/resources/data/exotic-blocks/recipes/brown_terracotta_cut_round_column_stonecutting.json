@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:brown_terracotta"
-  },
-  "result": "exotic-blocks:brown_terracotta_cut_round_column",
-  "count": 1
-}

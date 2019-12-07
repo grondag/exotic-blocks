@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:lime_terracotta"
-  },
-  "result": "exotic-blocks:lime_terracotta_square_column",
-  "count": 1
-}
