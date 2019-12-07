@@ -16,6 +16,7 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.Direction.Axis;
 import net.minecraft.world.BlockRenderView;
 
 import net.fabricmc.fabric.api.renderer.v1.Renderer;
@@ -91,28 +92,46 @@ public class FestiveLightsModel extends SimpleModel {
 		final QuadEmitter qe = context.getEmitter();
 		final Random rand = randomSupplier.get();
 
-		if (block.hasFace(state, Direction.UP)) {
-			emitQuadsForFace(qe, Direction.UP, NOISE[pos.getX() & 15][pos.getZ() & 15], colors, rand, STEP);
-		}
+		if (block.isPendant()) {
+			if (block.hasFace(state, Direction.EAST)) {
+				emitPendantQuadsForFace(qe, Direction.EAST, colors, rand);
+			}
 
-		if (block.hasFace(state, Direction.DOWN)) {
-			emitQuadsForFace(qe, Direction.DOWN, NOISE[(pos.getX() + 8) & 15][(pos.getZ() + 8) & 15], colors, rand, STEP);
-		}
+			if (block.hasFace(state, Direction.WEST)) {
+				emitPendantQuadsForFace(qe, Direction.WEST, colors, rand);
+			}
 
-		if (block.hasFace(state, Direction.EAST)) {
-			emitQuadsForFace(qe, Direction.EAST, NOISE[(pos.getZ() + 8) & 15][(pos.getY() + 8) & 15], colors, rand, STEP);
-		}
+			if (block.hasFace(state, Direction.NORTH)) {
+				emitPendantQuadsForFace(qe, Direction.NORTH, colors, rand);
+			}
 
-		if (block.hasFace(state, Direction.WEST)) {
-			emitQuadsForFace(qe, Direction.WEST, NOISE[pos.getZ() & 15][pos.getY() & 15], colors, rand, STEP);
-		}
+			if (block.hasFace(state, Direction.SOUTH)) {
+				emitPendantQuadsForFace(qe, Direction.SOUTH, colors, rand);
+			}
+		}  else  {
+			if (block.hasFace(state, Direction.UP)) {
+				emitQuadsForFace(qe, Direction.UP, NOISE[pos.getX() & 15][pos.getZ() & 15], colors, rand, STEP);
+			}
 
-		if (block.hasFace(state, Direction.NORTH)) {
-			emitQuadsForFace(qe, Direction.NORTH, NOISE[pos.getX() & 15][pos.getY() & 15], colors, rand, STEP);
-		}
+			if (block.hasFace(state, Direction.DOWN)) {
+				emitQuadsForFace(qe, Direction.DOWN, NOISE[(pos.getX() + 8) & 15][(pos.getZ() + 8) & 15], colors, rand, STEP);
+			}
 
-		if (block.hasFace(state, Direction.SOUTH)) {
-			emitQuadsForFace(qe, Direction.SOUTH, NOISE[(pos.getX() + 8) & 15][(pos.getY() + 8) & 15], colors, rand, STEP);
+			if (block.hasFace(state, Direction.EAST)) {
+				emitQuadsForFace(qe, Direction.EAST, NOISE[(pos.getZ() + 8) & 15][(pos.getY() + 8) & 15], colors, rand, STEP);
+			}
+
+			if (block.hasFace(state, Direction.WEST)) {
+				emitQuadsForFace(qe, Direction.WEST, NOISE[pos.getZ() & 15][pos.getY() & 15], colors, rand, STEP);
+			}
+
+			if (block.hasFace(state, Direction.NORTH)) {
+				emitQuadsForFace(qe, Direction.NORTH, NOISE[pos.getX() & 15][pos.getY() & 15], colors, rand, STEP);
+			}
+
+			if (block.hasFace(state, Direction.SOUTH)) {
+				emitQuadsForFace(qe, Direction.SOUTH, NOISE[(pos.getX() + 8) & 15][(pos.getY() + 8) & 15], colors, rand, STEP);
+			}
 		}
 	}
 
@@ -130,17 +149,29 @@ public class FestiveLightsModel extends SimpleModel {
 			final float step =  0.25f;
 
 			if (block instanceof FestiveLightsBlock) {
-				final int[] colors = ((FestiveLightsBlock) block).colors;
-
+				final FestiveLightsBlock myBlock = (FestiveLightsBlock) block;
+				final int[] colors = myBlock.colors;
 				final int colorCount = colors.length;
 				final QuadEmitter qe = context.getEmitter();
-				emitQuads(qe, colors[0], 0.03f, 0.07f, 0.375f, step);
-				emitQuads(qe, colors[1 % colorCount], 0.35f, 0.0f, 0.375f, step);
-				emitQuads(qe, colors[2 % colorCount], 0.65f, 0.09f, 0.375f, step);
-				emitQuads(qe, colors[3 % colorCount], 0.375f, 0.375f, 0.375f, step);
-				emitQuads(qe, colors[4 % colorCount], 0.05f, 0.6f, 0.375f, step);
-				emitQuads(qe, colors[5 % colorCount], 0.4f, 0.72f, 0.375f, step);
-				emitQuads(qe, colors[6 % colorCount], 0.72f, 0.45f, 0.375f, step);
+
+				if (myBlock.isPendant()) {
+					emitPendantQuads(qe, colors[0], 0.0f, 0.5f, 0.375f, 0.08f);
+					emitPendantQuads(qe, colors[1 % colorCount], 0.15f, 0.3f, 0.375f, 0.08f);
+					emitPendantQuads(qe, colors[2 % colorCount], 0.30f, 0.7f, 0.375f, 0.08f);
+					emitPendantQuads(qe, colors[3 % colorCount], 0.45f, 0.4f, 0.375f, 0.08f);
+					emitPendantQuads(qe, colors[4 % colorCount], 0.60f, 0.3f, 0.375f, 0.08f);
+					emitPendantQuads(qe, colors[5 % colorCount], 0.75f, 0.5f, 0.375f, 0.08f);
+					emitPendantQuads(qe, colors[6 % colorCount], 0.90f, 0.3f, 0.375f, 0.08f);
+				} else {
+					emitQuads(qe, colors[0], 0.03f, 0.07f, 0.375f, step);
+					emitQuads(qe, colors[1 % colorCount], 0.35f, 0.0f, 0.375f, step);
+					emitQuads(qe, colors[2 % colorCount], 0.65f, 0.09f, 0.375f, step);
+					emitQuads(qe, colors[3 % colorCount], 0.375f, 0.375f, 0.375f, step);
+					emitQuads(qe, colors[4 % colorCount], 0.05f, 0.6f, 0.375f, step);
+					emitQuads(qe, colors[5 % colorCount], 0.4f, 0.72f, 0.375f, step);
+					emitQuads(qe, colors[6 % colorCount], 0.72f, 0.45f, 0.375f, step);
+				}
+
 				return;
 			}
 		}
@@ -189,17 +220,11 @@ public class FestiveLightsModel extends SimpleModel {
 	}
 
 	protected final void emitQuads(QuadEmitter qe, int color, float x, float y, float z, float step) {
-
 		emitFace(qe, Direction.UP, color, x, 1 - z - step, 1 - y - step, step);
-
 		emitFace(qe, Direction.DOWN, color, x, z, y, step);
-
 		emitFace(qe, Direction.EAST, color, 1 - z - step, y, 1 - x - step, step);
-
 		emitFace(qe, Direction.WEST, color, z, y, x, step);
-
 		emitFace(qe, Direction.NORTH, color, x, y, z, step);
-
 		emitFace(qe, Direction.SOUTH, color, 1 - x - step, y, 1 - z - step, step);
 	}
 
@@ -209,6 +234,58 @@ public class FestiveLightsModel extends SimpleModel {
 
 		qe.material(material)
 		.square(face, x, y, x + step, y + step, d)
+		.sprite(0, 0, u,  v)
+		.sprite(1, 0, u + UV_STEP, v)
+		.sprite(2, 0, u + UV_STEP, v + UV_STEP)
+		.sprite(3, 0, u, v + UV_STEP)
+		.spriteColor(0, -1, -1, -1, -1)
+		.spriteBake(0, modelSprite, MutableQuadView.BAKE_NORMALIZED);
+		//SimpleModels.contractUVs(0, modelSprite, qe);
+		qe.emit();
+	}
+
+	protected final void emitPendantQuadsForFace(QuadEmitter qe, Direction face, int[] colors, Random rand) {
+		final int colorCount = colors.length;
+
+		for (int i = 0; i < 4; i++) {
+			final int color = colors[rand.nextInt(colorCount)];
+			final float x = (1 + (i * 4)) * SCALE;
+			final float y  = rand.nextFloat() * 0.5f + 0.25f;
+
+			switch(face) {
+			case EAST:
+				emitPendantQuads(qe, color, 1 - STEP, y, x, STEP);
+				break;
+			case NORTH:
+				emitPendantQuads(qe, color, x, y, 0, STEP);
+				break;
+			case SOUTH:
+				emitPendantQuads(qe, color, x, y, 1 - STEP, STEP);
+				break;
+			case WEST:
+				emitPendantQuads(qe, color, 0, y, x, STEP);
+				break;
+			default:
+				break;
+			}
+		}
+	}
+
+	protected final void emitPendantQuads(QuadEmitter qe, int color, float x, float y, float z, float step) {
+		emitPendantFace(qe, Direction.UP, color, x, 1 - z - step, 0, step);
+		emitPendantFace(qe, Direction.DOWN, color, x, z, 1 - y, step);
+		emitPendantFace(qe, Direction.EAST, color, 1 - z - step, 1 - y, 1 - x - step, step);
+		emitPendantFace(qe, Direction.WEST, color, z, 1 - y, x, step);
+		emitPendantFace(qe, Direction.NORTH, color, x, 1 - y, z, step);
+		emitPendantFace(qe, Direction.SOUTH, color, 1 - x - step, 1 - y, 1 - z - step, step);
+	}
+
+	protected final void emitPendantFace(QuadEmitter qe, Direction face, int color, float x, float y, float d, float step) {
+		final float u = COLOR_UV[color * 2];
+		final float v = COLOR_UV[color * 2 + 1];
+		final float yMax  = face.getAxis() == Axis.Y ?  y + step : 1;
+		qe.material(material)
+		.square(face, x, y, x + step, yMax, d)
 		.sprite(0, 0, u,  v)
 		.sprite(1, 0, u + UV_STEP, v)
 		.sprite(2, 0, u + UV_STEP, v + UV_STEP)

@@ -70,7 +70,12 @@ public abstract class FestiveLightsBlock extends Block implements Waterloggable 
 	public final int colors[];
 
 	public FestiveLightsBlock(int... colors) {
-		super(FabricBlockSettings.of(Material.PART).breakByHand(true).strength(0.2F, 0.2F).noCollision().sounds(BlockSoundGroup.LANTERN).build());
+		super(FabricBlockSettings.of(Material.PART)
+				.breakByHand(true)
+				.strength(0.2F, 0.2F)
+				.noCollision()
+				.lightLevel(4)
+				.sounds(BlockSoundGroup.LANTERN).build());
 		setDefaultState(defaultState());
 		this.colors = colors;
 	}
@@ -93,6 +98,7 @@ public abstract class FestiveLightsBlock extends Block implements Waterloggable 
 	@Override
 	public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos blockPos, EntityContext entityContext) {
 		VoxelShape voxelShape = VoxelShapes.empty();
+
 		if (hasFace(blockState, Direction.UP)) {
 			voxelShape = VoxelShapes.union(voxelShape, UP_SHAPE);
 		}
