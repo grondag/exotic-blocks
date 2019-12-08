@@ -41,6 +41,19 @@ public class FestiveLightsModel extends SimpleModel {
 		return new FestiveLightsModel(spriteMap.apply(TEXTURES.get(0)));
 	}
 
+	@FunctionalInterface
+	private interface RangeFilter {
+		boolean test(float f);
+	}
+
+	private static final float SCALE = 1f / 16f;
+	private static final float STEP = SCALE;
+
+	private static final RangeFilter FILTER_NONE = f -> true;
+	private static final RangeFilter FILTER_HIGH = f -> f < 1 - STEP;
+	private static final RangeFilter FILTER_LOW = f -> f > STEP;
+	private static final RangeFilter FILTER_ENDS = f -> f > STEP  && f < 1 - STEP;
+
 	private static final float UV_STEP = 5f / 16f;
 	private static final float[] COLOR_UV = {
 			0, 0, 0, UV_STEP, 0, UV_STEP * 2,
@@ -50,7 +63,7 @@ public class FestiveLightsModel extends SimpleModel {
 	private static final float[][][] NOISE = new float[16][16][];
 
 	static {
-		final  BlueNoise noise = BlueNoise.create(256, 6, 1225);
+		final  BlueNoise noise = BlueNoise.create(256, 4, 1225);
 		final FloatArrayList list = new FloatArrayList();
 
 		for (int x = 0; x < 256; x += 16) {
@@ -109,28 +122,44 @@ public class FestiveLightsModel extends SimpleModel {
 				emitPendantQuadsForFace(qe, Direction.SOUTH, colors, rand);
 			}
 		}  else  {
-			if (block.hasFace(state, Direction.UP)) {
-				emitQuadsForFace(qe, Direction.UP, NOISE[pos.getX() & 15][pos.getZ() & 15], colors, rand, STEP);
+			final boolean hasUp = block.hasFace(state, Direction.UP);
+			final boolean hasDown = block.hasFace(state, Direction.DOWN);
+			final boolean hasEast = block.hasFace(state, Direction.EAST);
+			final boolean hasWest = block.hasFace(state, Direction.WEST);
+			final boolean hasNorth = block.hasFace(state, Direction.NORTH);
+			final boolean hasSouth = block.hasFace(state, Direction.SOUTH);
+
+			if (hasUp) {
+				emitQuadsForFace(qe, Direction.UP, NOISE[pos.getX() & 15][pos.getZ() & 15], colors, rand, STEP, FILTER_NONE, FILTER_NONE);
 			}
 
-			if (block.hasFace(state, Direction.DOWN)) {
-				emitQuadsForFace(qe, Direction.DOWN, NOISE[(pos.getX() + 8) & 15][(pos.getZ() + 8) & 15], colors, rand, STEP);
+			if (hasDown) {
+				emitQuadsForFace(qe, Direction.DOWN, NOISE[(pos.getX() + 8) & 15][(pos.getZ() + 8) & 15], colors, rand, STEP, FILTER_NONE, FILTER_NONE);
 			}
 
-			if (block.hasFace(state, Direction.EAST)) {
-				emitQuadsForFace(qe, Direction.EAST, NOISE[(pos.getZ() + 8) & 15][(pos.getY() + 8) & 15], colors, rand, STEP);
+			final RangeFilter filterY = hasUp
+					? hasDown ?  FILTER_ENDS : FILTER_HIGH
+							: hasDown ? FILTER_LOW : FILTER_NONE;
+
+
+			if (hasEast) {
+				final RangeFilter filterX = hasSouth ? FILTER_HIGH : FILTER_NONE;
+				emitQuadsForFace(qe, Direction.EAST, NOISE[(pos.getZ() + 8) & 15][(pos.getY() + 8) & 15], colors, rand, STEP, filterX, filterY);
 			}
 
-			if (block.hasFace(state, Direction.WEST)) {
-				emitQuadsForFace(qe, Direction.WEST, NOISE[pos.getZ() & 15][pos.getY() & 15], colors, rand, STEP);
+			if (hasWest) {
+				final RangeFilter filterX = hasSouth ? FILTER_HIGH : FILTER_NONE;
+				emitQuadsForFace(qe, Direction.WEST, NOISE[pos.getZ() & 15][pos.getY() & 15], colors, rand, STEP, filterX, filterY);
 			}
 
-			if (block.hasFace(state, Direction.NORTH)) {
-				emitQuadsForFace(qe, Direction.NORTH, NOISE[pos.getX() & 15][pos.getY() & 15], colors, rand, STEP);
+			if (hasNorth) {
+				final RangeFilter filterX = hasEast ? FILTER_HIGH : FILTER_NONE;
+				emitQuadsForFace(qe, Direction.NORTH, NOISE[pos.getX() & 15][pos.getY() & 15], colors, rand, STEP, filterX, filterY);
 			}
 
-			if (block.hasFace(state, Direction.SOUTH)) {
-				emitQuadsForFace(qe, Direction.SOUTH, NOISE[(pos.getX() + 8) & 15][(pos.getY() + 8) & 15], colors, rand, STEP);
+			if (hasSouth) {
+				final RangeFilter filterX = hasEast ? FILTER_HIGH : FILTER_NONE;
+				emitQuadsForFace(qe, Direction.SOUTH, NOISE[(pos.getX() + 8) & 15][(pos.getY() + 8) & 15], colors, rand, STEP, filterX, filterY);
 			}
 		}
 	}
@@ -179,11 +208,7 @@ public class FestiveLightsModel extends SimpleModel {
 		super.emitItemQuads(stack, randomSupplier, context);
 	}
 
-	private static final float SCALE = 1f / 16f;
-	private static final float STEP = SCALE;
-
-
-	protected final void emitQuadsForFace(QuadEmitter qe, Direction face, float[] noise, int[] colors, Random rand, float step) {
+	protected final void emitQuadsForFace(QuadEmitter qe, Direction face, float[] noise, int[] colors, Random rand, float step, RangeFilter xFilter, RangeFilter yFilter) {
 		final int pointSize = noise.length;
 		final int colorCount = colors.length;
 
@@ -193,28 +218,30 @@ public class FestiveLightsModel extends SimpleModel {
 			final float x = noise[i++];
 			final float y  = noise[i];
 
-			switch(face) {
-			case UP:
-				emitQuads(qe, color, x, 1 - step, y, step);
-				break;
-			case DOWN:
-				emitQuads(qe, color, x, 0, y, step);
-				break;
-			case EAST:
-				emitQuads(qe, color, 1 - step, y, x, step);
-				break;
-			case NORTH:
-				emitQuads(qe, color, x, y, 0, step);
-				break;
-			case SOUTH:
-				emitQuads(qe, color, x, y, 1 - step, step);
-				break;
-			case WEST:
-				emitQuads(qe, color, 0, y, x, step);
-				break;
-			default:
-				break;
+			if(xFilter.test(x) && yFilter.test(y)) {
+				switch(face) {
+				case UP:
+					emitQuads(qe, color, x, 1 - step, y, step);
+					break;
+				case DOWN:
+					emitQuads(qe, color, x, 0, y, step);
+					break;
+				case EAST:
+					emitQuads(qe, color, 1 - step, y, x, step);
+					break;
+				case NORTH:
+					emitQuads(qe, color, x, y, 0, step);
+					break;
+				case SOUTH:
+					emitQuads(qe, color, x, y, 1 - step, step);
+					break;
+				case WEST:
+					emitQuads(qe, color, 0, y, x, step);
+					break;
+				default:
+					break;
 
+				}
 			}
 		}
 	}
