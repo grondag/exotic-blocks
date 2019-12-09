@@ -3,3 +3,10 @@ minecraft;snow_block;fancy_snow_block;Fancy Snow;
 minecraft;snow_block;fancy_snow_block_species;Connected Fancy Snow;
 minecraft;stone;fancy_stone_block;Fancy Stone
 minecraft;stone;fancy_stone_block_species;Connected Fancy Stone;
+minecraft;andesite;fancy_andesite_block;Fancy Andesite;
+minecraft;andesite;fancy_andesite_block_species;Connected Fancy Andesite;
+minecraft;diorite;fancy_diorite_block;Fancy Diorite;
+minecraft;diorite;fancy_diorite_block_species;Connected Fancy Diorite;
+minecraft;granite;fancy_granite_block;Fancy Granite;
+minecraft;granite;fancy_granite_block_species;Connected Fancy Granite;
+exotic-blocks;rammed_earth;rammed_earth_species;Connected Rammed Earth;

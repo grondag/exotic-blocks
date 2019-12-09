@@ -1,0 +1,48 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "lamp_flat_panel",
+  "pattern": [
+    "RGR",
+    "G#G",
+    "RGR"
+  ],
+  "key": {
+    "#": {
+      "item": "exotic-blocks:fancy_granite_block"
+    },
+  "R": {
+    "item": "minecraft:redstone"
+  },
+    "G": {
+      "item": "minecraft:glowstone_dust"
+    }
+  },
+  "result": {
+    "item": "exotic-blocks:fancy_granite_block_lamp_flat_panel",
+    "count": 1
+  }
+}
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "lamp_flat_panel",
+  "pattern": [
+    "RGR",
+    "G#G",
+    "RGR"
+  ],
+  "key": {
+    "#": {
+      "item": "exotic-blocks:fancy_granite_block"
+    },
+  "R": {
+    "item": "minecraft:redstone"
+  },
+    "G": {
+      "item": "minecraft:prismarine_crystals"
+    }
+  },
+  "result": {
+    "item": "exotic-blocks:fancy_granite_block_lamp_flat_panel",
+    "count": 1
+  }
+}

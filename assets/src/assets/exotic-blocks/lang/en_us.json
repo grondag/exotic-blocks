@@ -12,6 +12,9 @@
 
 	"item.exotic-blocks.iron_cutter": "Portable Block Cutter",
 	"block.exotic-blocks.clear_connected_glass": "Connected Glass",
+	"block.exotic-blocks.cobble_squares_block": "Cobblestone - Small Squares",
+	"block.exotic-blocks.rammed_earth": "Rammed Earth",
+	"block.exotic-blocks.rammed_earth_species": "Connected Rammed Earth",
 
 <#list block_variants as block>
 	"block.exotic-blocks.${block.variant_id}": "${block.variant_name}",

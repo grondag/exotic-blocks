@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "exotic-blocks:fancy_diorite_block"
+  },
+  "result": "minecraft:diorite",
+  "count": 1
+}

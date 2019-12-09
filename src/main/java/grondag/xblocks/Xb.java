@@ -21,9 +21,14 @@ import org.apache.logging.log4j.Logger;
 import net.fabricmc.api.ModInitializer;
 
 import grondag.fermion.registrar.Registrar;
+import grondag.xblocks.init.Cobbles;
 import grondag.xblocks.init.ConnectedGlass;
+import grondag.xblocks.init.FancyAndesite;
+import grondag.xblocks.init.FancyDiorite;
+import grondag.xblocks.init.FancyGranite;
 import grondag.xblocks.init.FancySnow;
 import grondag.xblocks.init.FancyStone;
+import grondag.xblocks.init.RammedEarth;
 import grondag.xblocks.init.XbBlocks;
 import grondag.xblocks.init.XbItems;
 
@@ -40,6 +45,11 @@ public class Xb implements ModInitializer {
 		FancySnow.values();
 		XbBlocks.values();
 		FancyStone.values();
+		RammedEarth.values();
+		FancyGranite.values();
+		FancyDiorite.values();
+		FancyAndesite.values();
+		Cobbles.values();
 		XbItems.values();
 	}
 }

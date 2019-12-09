@@ -66,3 +66,7 @@ oak;minecraft;oak_planks;
 dark_oak;minecraft;dark_oak_planks;
 jungle;minecraft;jungle_planks;
 birch;minecraft;birch_planks;
+fancy_andesite_block;exotic-blocks;;
+fancy_diorite_block;exotic-blocks;;
+fancy_granite_block;exotic-blocks;;
+rammed_earth;exotic-blocks;;

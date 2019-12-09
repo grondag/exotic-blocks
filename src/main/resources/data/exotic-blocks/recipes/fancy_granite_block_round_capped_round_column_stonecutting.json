@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "exotic-blocks:fancy_granite_block"
+  },
+  "result": "exotic-blocks:fancy_granite_block_round_capped_round_column",
+  "count": 1
+}

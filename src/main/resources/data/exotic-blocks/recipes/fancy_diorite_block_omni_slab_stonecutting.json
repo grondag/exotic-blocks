@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "exotic-blocks:fancy_diorite_block"
+  },
+  "result": "exotic-blocks:fancy_diorite_block_omni_slab",
+  "count": 2
+}

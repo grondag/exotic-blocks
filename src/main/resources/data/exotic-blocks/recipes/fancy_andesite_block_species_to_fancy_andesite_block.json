@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "exotic-blocks:fancy_andesite_block_species"
+  },
+  "result": "exotic-blocks:fancy_andesite_block",
+  "count": 1
+}

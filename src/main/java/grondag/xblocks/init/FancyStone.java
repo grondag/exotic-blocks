@@ -1,18 +1,15 @@
 package grondag.xblocks.init;
 
-import it.unimi.dsi.fastutil.HashCommon;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 
-import grondag.fermion.color.ColorHelper;
 import grondag.xblocks.Xb;
 import grondag.xblocks.block.BlockRegistrator;
 import grondag.xblocks.block.SpeciesBlock;
+import grondag.xblocks.block.VertexProcessors;
 import grondag.xm.api.block.XmBlockRegistry;
 import grondag.xm.api.modelstate.primitive.PrimitiveStateFunction;
 import grondag.xm.api.paint.PaintBlendMode;
-import grondag.xm.api.paint.VertexProcessor;
 import grondag.xm.api.paint.XmPaint;
 import grondag.xm.api.primitive.simple.Cube;
 import grondag.xm.api.texture.XmTextures;
@@ -20,20 +17,8 @@ import grondag.xm.api.texture.XmTextures;
 public enum FancyStone {
 	;
 
-	public static final VertexProcessor SPECIES_VARIATION = (poly, modelState, surface, paint, textureIndex) -> {
-		final int mix = HashCommon.mix(modelState.species());
-		final int value = mix & 0xF;
-		final int mixColor = 0xFFFFFFFF - (mix & 0x0F0000) - value - (value << 8);
-		final int color = ColorHelper.multiplyColor(mixColor, paint.textureColor(textureIndex));
-
-		for (int i = 0; i < poly.vertexCount(); i++) {
-			final int c = ColorHelper.multiplyColor(color, poly.color(i, textureIndex));
-			poly.color(i, textureIndex, c);
-		}
-	};
-
-	static final String ID_BASE = "fancy_stone";
-	static final String ID_BLOCK = ID_BASE + "_block";
+	static final String ID = "fancy_stone";
+	static final String ID_BLOCK = ID + "_block";
 
 	static {
 
@@ -49,7 +34,7 @@ public enum FancyStone {
 		final XmPaint connectedPaint = XmPaint.finder()
 				.textureDepth(3)
 				.texture(0, XmTextures.BIGTEX_SANDSTONE)
-				.vertexProcessor(0, SPECIES_VARIATION)
+				.vertexProcessor(0, VertexProcessors.SPECIES_VARIATION)
 				.textureColor(0, 0xFF9090A0)
 				.texture(1, XmTextures.TILE_NOISE_BLUE_A)
 				.textureColor(1, 0xA0656d75)
