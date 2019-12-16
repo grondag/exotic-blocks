@@ -23,26 +23,26 @@ public enum FancyDiorite {
 
 		final XmPaint mainPaint = XmPaint.finder()
 				.textureDepth(2)
-				.texture(0, XmTextures.TILE_NOISE_MODERATE)
-				.textureColor(0, 0xFFe8e6e9)
-				.texture(1, XmTextures.TILE_NOISE_BLUE_B)
-				.textureColor(1, 0xFF2d2d2d)
+				.texture(0, XmTextures.BIGTEX_GRANITE)
+				.textureColor(0, 0xFFFFFFFF)
+				.texture(1, XmTextures.TILE_NOISE_BLUE)
+				.textureColor(1, 0x40000000)
 				.blendMode(1, PaintBlendMode.TRANSLUCENT)
 				.find();
 
 		final XmPaint connectedPaint = XmPaint.finder()
 				.textureDepth(3)
-				.texture(0, XmTextures.TILE_NOISE_MODERATE)
-				.textureColor(0, 0xFFe8e6e9)
-				.texture(1, XmTextures.TILE_NOISE_BLUE_B)
-				.textureColor(1, 0xFF2d2d2d)
+				.texture(0, XmTextures.BIGTEX_GRANITE)
+				.textureColor(0, 0xFFFFFFFF)
+				.texture(1, XmTextures.TILE_NOISE_BLUE)
+				.textureColor(1, 0x40000000)
 				.blendMode(1, PaintBlendMode.TRANSLUCENT)
-				.texture(2, XmTextures.BORDER_SINGLE_LINE)
-				.textureColor(2, 0xA08a8581)
+				.texture(2, XmTextures.BORDER_SMOOTH_BLEND)
+				.textureColor(2, 0x60000000)
 				.blendMode(2, PaintBlendMode.TRANSLUCENT)
 				.find();
 
-		final Block block = Xb.REG.block(ID_BLOCK, new Block(Block.Settings.copy(Blocks.ANDESITE)));
+		final Block block = Xb.REG.block(ID_BLOCK, new Block(Block.Settings.copy(Blocks.DIORITE)));
 		XmBlockRegistry.addBlock(block, PrimitiveStateFunction.ofDefaultState(
 				Cube.INSTANCE.newState()
 				.paintAll(mainPaint)
