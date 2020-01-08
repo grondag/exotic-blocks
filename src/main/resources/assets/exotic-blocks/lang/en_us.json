@@ -5,9 +5,9 @@
 	"config.xblocks.category.vanilla" : "Work In Progress",
 
 	"config.xblocks.value.mod_key" : "Placement Modifier",
-	"config.xblocks.help.mod_key" : "Hold while placing for horizontal placement;and to break connection with neighbors",
+	"config.xblocks.help.mod_key" : "Hold while placing for horizontal placement;and to break connection with neighbors.;(Primary/Secondary/Tertiary is in Fermion Mod Keys config.)",
 	"config.xblocks.value.force_key" : "Secondary Placement Modifier",
-	"config.xblocks.help.force_key" : "Hold while placing to use crosshair location instead;of view angle to control placement",
+	"config.xblocks.help.force_key" : "Hold while placing to use crosshair location instead;of view angle to control placement.;(Primary/Secondary/Tertiary is in Fermion Mod Keys config.)",
 
 
 	"item.exotic-blocks.iron_cutter": "Portable Block Cutter",
@@ -26,7 +26,6 @@
 	"block.exotic-blocks.fancy_diorite_block_species": "Connected Fancy Diorite",
 	"block.exotic-blocks.fancy_granite_block": "Fancy Granite",
 	"block.exotic-blocks.fancy_granite_block_species": "Connected Fancy Granite",
-	"block.exotic-blocks.rammed_earth_species": "Connected Rammed Earth",
 
 	"block.exotic-blocks.black_connected_glass": "Black Connected Glass",
 	"block.exotic-blocks.blue_connected_glass": "Blue Connected Glass",

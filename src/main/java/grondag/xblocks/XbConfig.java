@@ -33,11 +33,10 @@ import grondag.fermion.modkeys.api.ModKeys;
 
 public class XbConfig {
 
-	// TODO:  move to ModKeys library
 	public enum Key {
-		ALT(ModKeys::isAltPressed),
-		CTL(ModKeys::isControlPressed),
-		MENU(ModKeys::isSuperPressed);
+		PRIMARY(ModKeys::isPrimaryPressed),
+		SECONDARY(ModKeys::isSecondaryPressed),
+		TERTIARY(ModKeys::isTertiaryPressed);
 
 		private final Predicate<PlayerEntity> test;
 
@@ -51,11 +50,11 @@ public class XbConfig {
 	}
 
 	public static class ConfigData {
-		@Comment("Modifier key for horizontal placement/connection breaking. ALT, CTL or MENU.")
-		public Key modKey = Key.CTL;
+		@Comment("Modifier key for horizontal placement/connection breaking. PRIMARY, SECONDARY or TERTIARY.")
+		public Key modKey = Key.PRIMARY;
 
-		@Comment("Secondary modifier key for block placement. ALT, CTL or MENU.")
-		public Key forceKey = Key.ALT;
+		@Comment("Modifier key for block placement. PRIMARY, SECONDARY or TERTIARY.")
+		public Key forceKey = Key.SECONDARY;
 	}
 
 	public static final ConfigData DEFAULTS = new ConfigData();
