@@ -73,6 +73,8 @@ public class BlockMaker {
 			}
 		});
 
+		FenceHelper.add(column);
+
 		final BlockTest<PrimitiveState> joinFunc = ctx -> {
 			final BlockState fromBlock = ctx.fromBlockState();
 			final BlockState toBlock = ctx.toBlockState();
@@ -197,6 +199,8 @@ public class BlockMaker {
 			}
 		});
 
+		FenceHelper.add(block);
+
 		XmBlockRegistry.addBlockStates(block, bs -> PrimitiveStateFunction.builder()
 				.withJoin(BlockConnectors.AXIS_JOIN_SAME_OR_CONNECTABLE)
 				.withDefaultState(PrimitiveState.AXIS_FROM_BLOCKSTATE.mutate(defaultState.mutableCopy(), bs))
@@ -219,6 +223,8 @@ public class BlockMaker {
 			}
 		});
 
+		FenceHelper.add(block);
+
 		XmBlockRegistry.addBlockStates(block, bs -> PrimitiveStateFunction.builder()
 				.withJoin(BlockConnectors.SAME_BLOCK_OR_CONNECTABLE)
 				.withDefaultState(defaultState.mutableCopy())
@@ -234,6 +240,8 @@ public class BlockMaker {
 				.releaseToImmutable();
 
 		final Block block = Xb.REG.block(idString + "_flat_panel", new Block(FabricBlockSettings.copy(template).lightLevel(lightLevel).build()));
+
+		FenceHelper.add(block);
 
 		XmBlockRegistry.addBlockStates(block, bs -> PrimitiveStateFunction.builder()
 				.withJoin(BlockConnectors.SAME_BLOCK_OR_CONNECTABLE)
