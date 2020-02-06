@@ -1,8 +1,8 @@
 package grondag.xblocks.item;
 
-import net.minecraft.client.network.ClientDummyContainerProvider;
 import net.minecraft.container.BlockContext;
-import net.minecraft.container.NameableContainerProvider;
+import net.minecraft.container.NameableContainerFactory;
+import net.minecraft.container.SimpleNamedContainerFactory;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -23,7 +23,7 @@ public class PortableCutter extends Item {
 	@Override
 	public TypedActionResult<ItemStack> use(World world, PlayerEntity playerEntity, Hand hand) {
 		if (!world.isClient) {
-			final NameableContainerProvider provider = new ClientDummyContainerProvider((i, playerInventory, player) -> {
+			final NameableContainerFactory provider = new SimpleNamedContainerFactory((i, playerInventory, player) -> {
 				return new PortableCutterContainer(i, playerInventory, BlockContext.create(world, playerEntity.getBlockPos()), player.getStackInHand(hand));
 			}, CONTAINER_NAME);
 
