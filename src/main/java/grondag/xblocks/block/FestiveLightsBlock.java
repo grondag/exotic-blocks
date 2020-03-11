@@ -5,7 +5,7 @@ import javax.annotation.Nullable;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.ConnectedPlantBlock;
+import net.minecraft.block.ConnectingBlock;
 import net.minecraft.block.Material;
 import net.minecraft.block.Waterloggable;
 import net.minecraft.entity.EntityContext;
@@ -30,12 +30,12 @@ import net.minecraft.world.WorldView;
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
 
 public abstract class FestiveLightsBlock extends Block implements Waterloggable {
-	public static final BooleanProperty UP = ConnectedPlantBlock.UP;
-	public static final BooleanProperty DOWN = ConnectedPlantBlock.DOWN;
-	public static final BooleanProperty NORTH = ConnectedPlantBlock.NORTH;
-	public static final BooleanProperty EAST = ConnectedPlantBlock.EAST;
-	public static final BooleanProperty SOUTH = ConnectedPlantBlock.SOUTH;
-	public static final BooleanProperty WEST = ConnectedPlantBlock.WEST;
+	public static final BooleanProperty UP = ConnectingBlock.UP;
+	public static final BooleanProperty DOWN = ConnectingBlock.DOWN;
+	public static final BooleanProperty NORTH = ConnectingBlock.NORTH;
+	public static final BooleanProperty EAST = ConnectingBlock.EAST;
+	public static final BooleanProperty SOUTH = ConnectingBlock.SOUTH;
+	public static final BooleanProperty WEST = ConnectingBlock.WEST;
 
 	private static final Direction[] FACES = Direction.values();
 	public static final BooleanProperty[] FACING_PROPERTIES;
