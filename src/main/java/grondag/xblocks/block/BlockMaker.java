@@ -21,7 +21,7 @@ import java.util.function.Function;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.PillarBlock;
-import net.minecraft.entity.EntityContext;
+import net.minecraft.block.ShapeContext;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
@@ -68,7 +68,7 @@ public class BlockMaker {
 
 		final Block column = Xb.REG.block(idString + "_square_column", new NonCubicPillarBlock(FabricBlockSettings.copy(template).lightLevel(lightLevel).build()) {
 			@Override
-			public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos pos, EntityContext entityContext) {
+			public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos pos, ShapeContext entityContext) {
 				return CollisionShapes.CUBE_WITH_CUTOUTS;
 			}
 		});
@@ -103,7 +103,7 @@ public class BlockMaker {
 
 		final Block block = Xb.REG.block(idString + "_round_column", new NonCubicPillarBlock(FabricBlockSettings.copy(template).dynamicBounds().build()) {
 			@Override
-			public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos pos, EntityContext entityContext) {
+			public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos pos, ShapeContext entityContext) {
 				return CollisionDispatcher.shapeFor(XmBlockState.modelState(blockState, blockView, pos, false));
 			}
 		});
@@ -123,7 +123,7 @@ public class BlockMaker {
 
 		final Block block = Xb.REG.block(idString + "_capped_round_column", new NonCubicPillarBlock(FabricBlockSettings.copy(template).dynamicBounds().build()) {
 			@Override
-			public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos pos, EntityContext entityContext) {
+			public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos pos, ShapeContext entityContext) {
 				return CollisionDispatcher.shapeFor(XmBlockState.modelState(blockState, blockView, pos, true));
 			}
 		});
@@ -147,7 +147,7 @@ public class BlockMaker {
 
 		final Block block = Xb.REG.block(idString + "_round_capped_round_column", new NonCubicPillarBlock(FabricBlockSettings.copy(template).dynamicBounds().build()) {
 			@Override
-			public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos pos, EntityContext entityContext) {
+			public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos pos, ShapeContext entityContext) {
 				return CollisionDispatcher.shapeFor(XmBlockState.modelState(blockState, blockView, pos, true));
 			}
 		});
@@ -170,7 +170,7 @@ public class BlockMaker {
 
 		final Block block = Xb.REG.block(idString + "_cut_round_column", new NonCubicPillarBlock(FabricBlockSettings.copy(template).dynamicBounds().lightLevel(lightLevel).build()) {
 			@Override
-			public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos pos, EntityContext entityContext) {
+			public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos pos, ShapeContext entityContext) {
 				return CollisionDispatcher.shapeFor(XmBlockState.modelState(blockState, blockView, pos, true));
 			}
 		});
@@ -194,7 +194,7 @@ public class BlockMaker {
 
 		final Block block = Xb.REG.block(idString + "_capped_square_column", new NonCubicPillarBlock(FabricBlockSettings.copy(template).dynamicBounds().lightLevel(light).build()) {
 			@Override
-			public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos pos, EntityContext entityContext) {
+			public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos pos, ShapeContext entityContext) {
 				return CollisionDispatcher.shapeFor(XmBlockState.modelState(blockState, blockView, pos, true));
 			}
 		});
@@ -218,7 +218,7 @@ public class BlockMaker {
 
 		final Block block = Xb.REG.block(idString + "_inset_panel", new CubicCutoutBlock(FabricBlockSettings.copy(template).lightLevel(lightLevel).build()) {
 			@Override
-			public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos pos, EntityContext entityContext) {
+			public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos pos, ShapeContext entityContext) {
 				return CollisionShapes.CUBE_WITH_CUTOUTS;
 			}
 		});
@@ -259,7 +259,7 @@ public class BlockMaker {
 
 		final Block block = Xb.REG.block(idString + "_wedge_cap", new NonCubicFacingBlock(FabricBlockSettings.copy(template).dynamicBounds().build(), Direction.DOWN) {
 			@Override
-			public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos pos, EntityContext entityContext) {
+			public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos pos, ShapeContext entityContext) {
 				return CollisionDispatcher.shapeFor(XmBlockState.modelState(blockState, blockView, pos, false));
 			}
 		});
@@ -280,7 +280,7 @@ public class BlockMaker {
 
 		final Block block = Xb.REG.block(idString + "_omni_slab", new NonCubicFacingBlock(FabricBlockSettings.copy(template).dynamicBounds().build(), Direction.DOWN) {
 			@Override
-			public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos pos, EntityContext entityContext) {
+			public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos pos, ShapeContext entityContext) {
 				return CollisionDispatcher.shapeFor(XmBlockState.modelState(blockState, blockView, pos, false));
 			}
 		});
