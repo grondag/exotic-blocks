@@ -1,8 +1,5 @@
 package grondag.xblocks.item;
 
-import net.minecraft.container.BlockContext;
-import net.minecraft.container.NameableContainerFactory;
-import net.minecraft.container.SimpleNamedContainerFactory;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

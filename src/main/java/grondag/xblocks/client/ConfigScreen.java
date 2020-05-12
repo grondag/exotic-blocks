@@ -20,14 +20,18 @@ import static grondag.xblocks.XbConfig.DEFAULTS;
 import static grondag.xblocks.XbConfig.forceKey;
 import static grondag.xblocks.XbConfig.modKey;
 
-import java.util.Optional;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 import me.shedaniel.clothconfig2.api.ConfigBuilder;
 import me.shedaniel.clothconfig2.api.ConfigCategory;
-import me.shedaniel.clothconfig2.gui.entries.EnumListEntry;
+import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
 
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.resource.language.I18n;
+import net.minecraft.text.LiteralText;
+import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -37,33 +41,37 @@ import grondag.xblocks.XbConfig.Key;
 
 @Environment(EnvType.CLIENT)
 public class ConfigScreen {
-	@SuppressWarnings("deprecation")
+	private static ConfigEntryBuilder ENTRY_BUILDER = ConfigEntryBuilder.create();
+
+	static Text[] parse(String key) {
+		return Arrays.stream(I18n.translate("config.xblocks.help.force_key").split(";")).map(s ->  new LiteralText(s)).collect(Collectors.toList()).toArray(new Text[0]);
+	}
+
 	static Screen getScreen(Screen parent) {
 
-		final ConfigBuilder builder = ConfigBuilder.create().setParentScreen(parent).setTitle("config.xblocks.title").setSavingRunnable(ConfigScreen::saveUserInput);
-
+		final ConfigBuilder builder = ConfigBuilder.create().setParentScreen(parent).setTitle(new TranslatableText("config.xblocks.title")).setSavingRunnable(ConfigScreen::saveUserInput);
 		// VANILLA
-		final ConfigCategory blocks = builder.getOrCreateCategory("config.xblocks.category.vanilla");
+		final ConfigCategory blocks = builder.getOrCreateCategory(new TranslatableText("config.xblocks.category.vanilla"));
 
-		blocks.addEntry(new EnumListEntry<>(
-				"config.xblocks.value.mod_key",
+		blocks.addEntry(ENTRY_BUILDER.startEnumSelector(
+				new TranslatableText("config.xblocks.value.mod_key"),
 				Key.class,
-				modKey,
-				"config.xblocks.reset",
-				() -> DEFAULTS.modKey,
-				b -> modKey = b,
-				a -> a.toString(),
-				() -> Optional.of(I18n.translate("config.xblocks.help.mod_key").split(";"))));
+				modKey)
+				.setDefaultValue(DEFAULTS.modKey)
+				.setSaveConsumer(b -> modKey = b)
+				.setEnumNameProvider(a -> new LiteralText(a.toString()))
+				.setTooltip(parse("config.xblocks.help.mod_key"))
+				.build());
 
-		blocks.addEntry(new EnumListEntry<>(
-				"config.xblocks.value.force_key",
+		blocks.addEntry(ENTRY_BUILDER.startEnumSelector(
+				new TranslatableText("config.xblocks.value.force_key"),
 				Key.class,
-				forceKey,
-				"config.xblocks.reset",
-				() -> DEFAULTS.forceKey,
-				b -> forceKey = b,
-				a -> a.toString(),
-				() -> Optional.of(I18n.translate("config.xblocks.help.force_key").split(";"))));
+				forceKey)
+				.setDefaultValue(DEFAULTS.forceKey)
+				.setSaveConsumer(b -> forceKey = b)
+				.setEnumNameProvider(a -> new LiteralText(a.toString()))
+				.setTooltip(parse("config.xblocks.help.force_key"))
+				.build());
 
 		return builder.build();
 	}
