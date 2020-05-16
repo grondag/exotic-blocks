@@ -24,10 +24,10 @@ import net.minecraft.util.math.Direction.Axis;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
-import net.minecraft.world.IWorld;
+import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 
-import net.fabricmc.fabric.api.block.FabricBlockSettings;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 
 public abstract class FestiveLightsBlock extends Block implements Waterloggable {
 	public static final BooleanProperty UP = ConnectingBlock.UP;
@@ -70,12 +70,12 @@ public abstract class FestiveLightsBlock extends Block implements Waterloggable 
 	public final int colors[];
 
 	public FestiveLightsBlock(int... colors) {
-		super(FabricBlockSettings.of(Material.PART)
+		super(FabricBlockSettings.of(Material.SUPPORTED)
 				.breakByHand(true)
 				.strength(0.2F, 0.2F)
 				.noCollision()
 				.lightLevel(4)
-				.sounds(BlockSoundGroup.LANTERN).build());
+				.sounds(BlockSoundGroup.LANTERN));
 		setDefaultState(defaultState());
 		this.colors = colors;
 	}
@@ -163,7 +163,7 @@ public abstract class FestiveLightsBlock extends Block implements Waterloggable 
 	}
 
 	@Override
-	public BlockState getStateForNeighborUpdate(BlockState blockState, Direction direction, BlockState blockState2, IWorld iWorld, BlockPos blockPos, BlockPos blockPos2) {
+	public BlockState getStateForNeighborUpdate(BlockState blockState, Direction direction, BlockState blockState2, WorldAccess iWorld, BlockPos blockPos, BlockPos blockPos2) {
 		for(int i = 0; i < 6; i++) {
 			final Direction face = FACES[i];
 			final boolean needsFace = shouldHaveSide(iWorld, blockPos, face);
@@ -329,7 +329,7 @@ public abstract class FestiveLightsBlock extends Block implements Waterloggable 
 		}
 
 		@Override
-		public BlockState getStateForNeighborUpdate(BlockState blockState, Direction direction, BlockState blockState2, IWorld iWorld, BlockPos blockPos, BlockPos blockPos2) {
+		public BlockState getStateForNeighborUpdate(BlockState blockState, Direction direction, BlockState blockState2, WorldAccess iWorld, BlockPos blockPos, BlockPos blockPos2) {
 			if (direction != blockState.get(Properties.FACING)) {
 				return blockState;
 			}else {
