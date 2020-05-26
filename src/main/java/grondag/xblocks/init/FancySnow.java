@@ -5,7 +5,7 @@ import net.minecraft.block.Material;
 import net.minecraft.block.MaterialColor;
 import net.minecraft.sound.BlockSoundGroup;
 
-import net.fabricmc.fabric.api.block.FabricBlockSettings;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 
 import grondag.xblocks.Xb;
 import grondag.xblocks.block.BlockRegistrator;
@@ -32,7 +32,7 @@ public enum FancySnow {
 	//	public static Block basalt_cut = null;
 
 	static Block.Settings settings() {
-		return FabricBlockSettings.of(FANCY_SNOW_MATERIAL).strength(0.2F, 0.2F).sounds(BlockSoundGroup.SNOW).breakByHand(true).build();
+		return FabricBlockSettings.of(FANCY_SNOW_MATERIAL).strength(0.2F, 0.2F).sounds(BlockSoundGroup.SNOW).breakByHand(true);
 	}
 
 	static {

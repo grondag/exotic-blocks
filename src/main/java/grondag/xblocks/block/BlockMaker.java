@@ -27,7 +27,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 
-import net.fabricmc.fabric.api.block.FabricBlockSettings;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 
 import grondag.xblocks.Xb;
 import grondag.xm.api.block.XmBlockRegistry;
@@ -66,7 +66,7 @@ public class BlockMaker {
 					SquareColumn.setCutsOnEdge(true, s);})
 				.releaseToImmutable();
 
-		final Block column = Xb.REG.block(idString + "_square_column", new NonCubicPillarBlock(FabricBlockSettings.copy(template).lightLevel(lightLevel).build()) {
+		final Block column = Xb.REG.block(idString + "_square_column", new NonCubicPillarBlock(FabricBlockSettings.copy(template).lightLevel(b -> lightLevel)) {
 			@Override
 			public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos pos, ShapeContext entityContext) {
 				return CollisionShapes.CUBE_WITH_CUTOUTS;
@@ -101,7 +101,7 @@ public class BlockMaker {
 				.paint(CylinderWithAxis.SURFACE_SIDES, sidePaint)
 				.releaseToImmutable();
 
-		final Block block = Xb.REG.block(idString + "_round_column", new NonCubicPillarBlock(FabricBlockSettings.copy(template).dynamicBounds().build()) {
+		final Block block = Xb.REG.block(idString + "_round_column", new NonCubicPillarBlock(FabricBlockSettings.copy(template).dynamicBounds()) {
 			@Override
 			public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos pos, ShapeContext entityContext) {
 				return CollisionDispatcher.shapeFor(XmBlockState.modelState(blockState, blockView, pos, false));
@@ -121,7 +121,7 @@ public class BlockMaker {
 				.paint(CappedRoundColumn.SURFACE_SIDES, sidePaint)
 				.releaseToImmutable();
 
-		final Block block = Xb.REG.block(idString + "_capped_round_column", new NonCubicPillarBlock(FabricBlockSettings.copy(template).dynamicBounds().build()) {
+		final Block block = Xb.REG.block(idString + "_capped_round_column", new NonCubicPillarBlock(FabricBlockSettings.copy(template).dynamicBounds()) {
 			@Override
 			public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos pos, ShapeContext entityContext) {
 				return CollisionDispatcher.shapeFor(XmBlockState.modelState(blockState, blockView, pos, true));
@@ -145,7 +145,7 @@ public class BlockMaker {
 				.paint(CutRoundColumn.SURFACE_OUTER, sidePaint)
 				.releaseToImmutable();
 
-		final Block block = Xb.REG.block(idString + "_round_capped_round_column", new NonCubicPillarBlock(FabricBlockSettings.copy(template).dynamicBounds().build()) {
+		final Block block = Xb.REG.block(idString + "_round_capped_round_column", new NonCubicPillarBlock(FabricBlockSettings.copy(template).dynamicBounds()) {
 			@Override
 			public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos pos, ShapeContext entityContext) {
 				return CollisionDispatcher.shapeFor(XmBlockState.modelState(blockState, blockView, pos, true));
@@ -168,7 +168,7 @@ public class BlockMaker {
 				.paint(CutRoundColumn.SURFACE_OUTER, sidePaint)
 				.releaseToImmutable();
 
-		final Block block = Xb.REG.block(idString + "_cut_round_column", new NonCubicPillarBlock(FabricBlockSettings.copy(template).dynamicBounds().lightLevel(lightLevel).build()) {
+		final Block block = Xb.REG.block(idString + "_cut_round_column", new NonCubicPillarBlock(FabricBlockSettings.copy(template).dynamicBounds().lightLevel(b -> lightLevel)) {
 			@Override
 			public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos pos, ShapeContext entityContext) {
 				return CollisionDispatcher.shapeFor(XmBlockState.modelState(blockState, blockView, pos, true));
@@ -192,7 +192,7 @@ public class BlockMaker {
 				.paint(CappedSquareInsetColumn.SURFACE_OUTER, sidePaint)
 				.releaseToImmutable();
 
-		final Block block = Xb.REG.block(idString + "_capped_square_column", new NonCubicPillarBlock(FabricBlockSettings.copy(template).dynamicBounds().lightLevel(light).build()) {
+		final Block block = Xb.REG.block(idString + "_capped_square_column", new NonCubicPillarBlock(FabricBlockSettings.copy(template).dynamicBounds().lightLevel(b -> light)) {
 			@Override
 			public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos pos, ShapeContext entityContext) {
 				return CollisionDispatcher.shapeFor(XmBlockState.modelState(blockState, blockView, pos, true));
@@ -216,7 +216,7 @@ public class BlockMaker {
 				.paint(InsetPanel.SURFACE_INNER, paintInner)
 				.releaseToImmutable();
 
-		final Block block = Xb.REG.block(idString + "_inset_panel", new CubicCutoutBlock(FabricBlockSettings.copy(template).lightLevel(lightLevel).build()) {
+		final Block block = Xb.REG.block(idString + "_inset_panel", new CubicCutoutBlock(FabricBlockSettings.copy(template).lightLevel(b -> lightLevel)) {
 			@Override
 			public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos pos, ShapeContext entityContext) {
 				return CollisionShapes.CUBE_WITH_CUTOUTS;
@@ -239,7 +239,7 @@ public class BlockMaker {
 				.paint(FlatPanel.SURFACE_INNER, paintInner)
 				.releaseToImmutable();
 
-		final Block block = Xb.REG.block(idString + "_flat_panel", new Block(FabricBlockSettings.copy(template).lightLevel(lightLevel).build()));
+		final Block block = Xb.REG.block(idString + "_flat_panel", new Block(FabricBlockSettings.copy(template).lightLevel(b -> lightLevel)));
 
 		FenceHelper.add(block);
 
@@ -257,7 +257,7 @@ public class BlockMaker {
 				.paint(WedgeCap.SURFACE_TOP, paintTop)
 				.releaseToImmutable();
 
-		final Block block = Xb.REG.block(idString + "_wedge_cap", new NonCubicFacingBlock(FabricBlockSettings.copy(template).dynamicBounds().build(), Direction.DOWN) {
+		final Block block = Xb.REG.block(idString + "_wedge_cap", new NonCubicFacingBlock(FabricBlockSettings.copy(template).dynamicBounds(), Direction.DOWN) {
 			@Override
 			public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos pos, ShapeContext entityContext) {
 				return CollisionDispatcher.shapeFor(XmBlockState.modelState(blockState, blockView, pos, false));
@@ -278,7 +278,7 @@ public class BlockMaker {
 				.paint(Slab.SURFACE_SIDES, paintSides)
 				.releaseToImmutable();
 
-		final Block block = Xb.REG.block(idString + "_omni_slab", new NonCubicFacingBlock(FabricBlockSettings.copy(template).dynamicBounds().build(), Direction.DOWN) {
+		final Block block = Xb.REG.block(idString + "_omni_slab", new NonCubicFacingBlock(FabricBlockSettings.copy(template).dynamicBounds(), Direction.DOWN) {
 			@Override
 			public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos pos, ShapeContext entityContext) {
 				return CollisionDispatcher.shapeFor(XmBlockState.modelState(blockState, blockView, pos, false));
