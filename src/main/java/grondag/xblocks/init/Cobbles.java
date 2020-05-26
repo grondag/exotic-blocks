@@ -5,7 +5,7 @@ import net.minecraft.block.Blocks;
 import grondag.xblocks.block.SpeciesBlock;
 import grondag.xm.api.paint.PaintBlendMode;
 import grondag.xm.api.paint.XmPaint;
-import grondag.xm.api.texture.XmTextures;
+import grondag.xm.api.texture.content.CoreTextures;
 
 public enum Cobbles {
 	;
@@ -14,9 +14,9 @@ public enum Cobbles {
 
 		final XmPaint connectedPaint = XmPaint.finder()
 				.textureDepth(2)
-				.texture(0, XmTextures.BIGTEX_COBBLE_SQUARES)
+				.texture(0, CoreTextures.BIGTEX_COBBLE_SQUARES)
 				.textureColor(0, 0xFF949698)
-				.texture(1, XmTextures.BORDER_COBBLE)
+				.texture(1, CoreTextures.BORDER_COBBLE)
 				.textureColor(1, 0xFF949698)
 				.blendMode(1, PaintBlendMode.TRANSLUCENT)
 				.find();

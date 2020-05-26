@@ -11,7 +11,7 @@ import grondag.xm.api.modelstate.primitive.PrimitiveStateFunction;
 import grondag.xm.api.paint.PaintBlendMode;
 import grondag.xm.api.paint.XmPaint;
 import grondag.xm.api.primitive.simple.Cube;
-import grondag.xm.api.texture.XmTextures;
+import grondag.xm.api.texture.content.XmTextures;
 
 public enum FancyAndesite {
 	;

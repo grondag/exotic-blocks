@@ -11,7 +11,8 @@ import grondag.xm.api.modelstate.primitive.PrimitiveStateFunction;
 import grondag.xm.api.paint.PaintBlendMode;
 import grondag.xm.api.paint.XmPaint;
 import grondag.xm.api.primitive.simple.Cube;
-import grondag.xm.api.texture.XmTextures;
+import grondag.xm.api.texture.content.CoreTextures;
+import grondag.xm.api.texture.content.XmTextures;
 
 public enum FancyGranite {
 	;
@@ -37,7 +38,7 @@ public enum FancyGranite {
 				.texture(1, XmTextures.TILE_NOISE_BLUE_A)
 				.textureColor(1, 0x70FFEEDD)
 				.blendMode(1, PaintBlendMode.TRANSLUCENT)
-				.texture(2, XmTextures.BORDER_BEVEL)
+				.texture(2, CoreTextures.BORDER_BEVEL)
 				.textureColor(2, 0x80604030)
 				.blendMode(2, PaintBlendMode.TRANSLUCENT)
 				.find();

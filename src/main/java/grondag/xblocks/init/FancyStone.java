@@ -12,7 +12,8 @@ import grondag.xm.api.modelstate.primitive.PrimitiveStateFunction;
 import grondag.xm.api.paint.PaintBlendMode;
 import grondag.xm.api.paint.XmPaint;
 import grondag.xm.api.primitive.simple.Cube;
-import grondag.xm.api.texture.XmTextures;
+import grondag.xm.api.texture.content.CoreTextures;
+import grondag.xm.api.texture.content.XmTextures;
 
 public enum FancyStone {
 	;
@@ -24,7 +25,7 @@ public enum FancyStone {
 
 		final XmPaint mainPaint = XmPaint.finder()
 				.textureDepth(2)
-				.texture(0, XmTextures.BIGTEX_SANDSTONE)
+				.texture(0, CoreTextures.BIGTEX_SANDSTONE)
 				.textureColor(0, 0xFF9090A0)
 				.texture(1, XmTextures.TILE_NOISE_BLUE_A)
 				.blendMode(1, PaintBlendMode.TRANSLUCENT)
@@ -33,13 +34,13 @@ public enum FancyStone {
 
 		final XmPaint connectedPaint = XmPaint.finder()
 				.textureDepth(3)
-				.texture(0, XmTextures.BIGTEX_SANDSTONE)
+				.texture(0, CoreTextures.BIGTEX_SANDSTONE)
 				.vertexProcessor(0, VertexProcessors.SPECIES_VARIATION)
 				.textureColor(0, 0xFF9090A0)
 				.texture(1, XmTextures.TILE_NOISE_BLUE_A)
 				.textureColor(1, 0xA0656d75)
 				.blendMode(1, PaintBlendMode.TRANSLUCENT)
-				.texture(2, XmTextures.BORDER_SMOOTH_BLEND)
+				.texture(2, CoreTextures.BORDER_SMOOTH_BLEND)
 				.textureColor(2, 0x802b2f33)
 				.blendMode(2, PaintBlendMode.TRANSLUCENT)
 				.find();

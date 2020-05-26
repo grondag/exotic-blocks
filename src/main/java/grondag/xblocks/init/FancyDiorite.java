@@ -11,7 +11,8 @@ import grondag.xm.api.modelstate.primitive.PrimitiveStateFunction;
 import grondag.xm.api.paint.PaintBlendMode;
 import grondag.xm.api.paint.XmPaint;
 import grondag.xm.api.primitive.simple.Cube;
-import grondag.xm.api.texture.XmTextures;
+import grondag.xm.api.texture.content.CoreTextures;
+import grondag.xm.api.texture.content.XmTextures;
 
 public enum FancyDiorite {
 	;
@@ -23,7 +24,7 @@ public enum FancyDiorite {
 
 		final XmPaint mainPaint = XmPaint.finder()
 				.textureDepth(2)
-				.texture(0, XmTextures.BIGTEX_GRANITE)
+				.texture(0, CoreTextures.BIGTEX_GRANITE)
 				.textureColor(0, 0xFFFFFFFF)
 				.texture(1, XmTextures.TILE_NOISE_BLUE)
 				.textureColor(1, 0x40000000)
@@ -32,12 +33,12 @@ public enum FancyDiorite {
 
 		final XmPaint connectedPaint = XmPaint.finder()
 				.textureDepth(3)
-				.texture(0, XmTextures.BIGTEX_GRANITE)
+				.texture(0, CoreTextures.BIGTEX_GRANITE)
 				.textureColor(0, 0xFFFFFFFF)
 				.texture(1, XmTextures.TILE_NOISE_BLUE)
 				.textureColor(1, 0x40000000)
 				.blendMode(1, PaintBlendMode.TRANSLUCENT)
-				.texture(2, XmTextures.BORDER_SMOOTH_BLEND)
+				.texture(2, CoreTextures.BORDER_SMOOTH_BLEND)
 				.textureColor(2, 0x60000000)
 				.blendMode(2, PaintBlendMode.TRANSLUCENT)
 				.find();
