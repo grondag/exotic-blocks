@@ -19,7 +19,7 @@ import net.minecraft.block.Blocks;
 import grondag.xblocks.Xb;
 import grondag.xblocks.block.FestiveLightsBlock;
 import grondag.xm.api.paint.XmPaint;
-import grondag.xm.api.texture.content.McTextures;
+import grondag.xm.api.texture.McTextures;
 
 public enum XbBlocks {
 	;

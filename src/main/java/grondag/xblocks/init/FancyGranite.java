@@ -11,8 +11,8 @@ import grondag.xm.api.modelstate.primitive.PrimitiveStateFunction;
 import grondag.xm.api.paint.PaintBlendMode;
 import grondag.xm.api.paint.XmPaint;
 import grondag.xm.api.primitive.simple.Cube;
-import grondag.xm.api.texture.content.CoreTextures;
-import grondag.xm.api.texture.content.XmTextures;
+import grondag.xm.api.texture.XmTextures;
+import grondag.xm.api.texture.core.CoreTextures;
 
 public enum FancyGranite {
 	;

@@ -5,7 +5,7 @@ import net.minecraft.block.Blocks;
 import grondag.xblocks.block.SpeciesBlock;
 import grondag.xm.api.paint.PaintBlendMode;
 import grondag.xm.api.paint.XmPaint;
-import grondag.xm.api.texture.content.CoreTextures;
+import grondag.xm.api.texture.core.CoreTextures;
 
 public enum Cobbles {
 	;
