@@ -54,42 +54,40 @@ public enum FancySnow {
 		//		terrainModel.paint(terrainModel.primitive().surfaces(terrainModel).get(0), paint);
 		//		terrainModel.paint(terrainModel.primitive().surfaces(terrainModel).get(1), paint);
 		//
-		//		basalt_cool_dynamic_height = Xb.REG.block("drifting_snow_dynamic_height", new TerrainDynamicBlock(settings(), terrainModel.toImmutable(), false));
+		//		final Block dynamicHeight = Xb.REG.block("drifting_snow_dynamic_height", new TerrainDynamicBlock(settings(), terrainModel.toImmutable(), false));
 		//
 		//		terrainModel.setStatic(true);
-		//		basalt_cool_static_height = Xb.REG.block("drifting_snow_static_height", new TerrainDynamicBlock(settings(), terrainModel.toImmutable(), false));
+		//		final Block staticHeight = Xb.REG.block("drifting_snow_static_height", new TerrainDynamicBlock(settings(), terrainModel.toImmutable(), false));
 		//
 		//		terrainModel.release();
-		//
 		//
 		//		terrainModel = TerrainSurface.FILLER.newState();
 		//		terrainModel.paint(terrainModel.primitive().surfaces(terrainModel).get(0), paint);
 		//		terrainModel.paint(terrainModel.primitive().surfaces(terrainModel).get(1), paint);
 		//
-		//		basalt_cool_dynamic_filler = Xb.REG.block("drifting_snow_dynamic_filler", new TerrainDynamicBlock(settings(), terrainModel.toImmutable(), true));
+		//		final Block dynamicFiller = Xb.REG.block("drifting_snow_dynamic_filler", new TerrainDynamicBlock(settings(), terrainModel.toImmutable(), true));
 		//
 		//		terrainModel.setStatic(true);
-		//		basalt_cool_static_filler = Xb.REG.block("drifting_snow_static_filler", new TerrainDynamicBlock(settings(), terrainModel.toImmutable(), true));
+		//		final Block staticFiller = Xb.REG.block("drifting_snow_static_filler", new TerrainDynamicBlock(settings(), terrainModel.toImmutable(), true));
 		//
 		//		terrainModel.release();
 		//
-		//		TerrainBlockRegistry.TERRAIN_STATE_REGISTRY.registerFiller(basalt_cool_dynamic_height, basalt_cool_dynamic_filler);
-		//		TerrainBlockRegistry.TERRAIN_STATE_REGISTRY.registerFiller(basalt_cool_static_height, basalt_cool_static_filler);
+		//		TerrainBlockRegistry.TERRAIN_STATE_REGISTRY.registerFiller(dynamicHeight, dynamicFiller);
+		//		TerrainBlockRegistry.TERRAIN_STATE_REGISTRY.registerFiller(staticHeight, staticFiller);
 		//
-		//		TerrainBlockRegistry.TERRAIN_STATE_REGISTRY.registerStateTransition(basalt_cool_dynamic_height, basalt_cool_static_height);
-		//		TerrainBlockRegistry.TERRAIN_STATE_REGISTRY.registerStateTransition(basalt_cool_dynamic_filler, basalt_cool_static_filler);
+		//		TerrainBlockRegistry.TERRAIN_STATE_REGISTRY.registerStateTransition(dynamicHeight, staticHeight);
+		//		TerrainBlockRegistry.TERRAIN_STATE_REGISTRY.registerStateTransition(dynamicFiller, staticFiller);
 		//
 		//		//FIXME: probably won't work as cube - 1.12 had a dedicated cubic terrain block
 		//		terrainModel = TerrainCubePrimitive.INSTANCE.newState();
 		//		terrainModel.paintAll(paint);
 		//		terrainModel.setTerrainStateKey(TerrainState.FULL_BLOCK_STATE_KEY);
-		//		basalt_cut = Xb.REG.block("drifting_snow_block", new TerrainDynamicBlock(settings(), terrainModel, false));
+		//		final Block cubic = Xb.REG.block("drifting_snow_block", new TerrainDynamicBlock(settings(), terrainModel, false));
 		//		terrainModel.release();
 		//
-		//		TerrainBlockRegistry.TERRAIN_STATE_REGISTRY.registerCubic(basalt_cool_dynamic_height, basalt_cut);
-		//		TerrainBlockRegistry.TERRAIN_STATE_REGISTRY.registerCubic(basalt_cool_dynamic_filler, basalt_cut);
-		//		TerrainBlockRegistry.TERRAIN_STATE_REGISTRY.registerCubic(basalt_cool_static_height, basalt_cut);
-		//		TerrainBlockRegistry.TERRAIN_STATE_REGISTRY.registerCubic(basalt_cool_static_filler, basalt_cut);
-
+		//		TerrainBlockRegistry.TERRAIN_STATE_REGISTRY.registerCubic(dynamicHeight, cubic);
+		//		TerrainBlockRegistry.TERRAIN_STATE_REGISTRY.registerCubic(dynamicFiller, cubic);
+		//		TerrainBlockRegistry.TERRAIN_STATE_REGISTRY.registerCubic(staticHeight, cubic);
+		//		TerrainBlockRegistry.TERRAIN_STATE_REGISTRY.registerCubic(staticFiller, cubic);
 	}
 }

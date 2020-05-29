@@ -1,5 +1,6 @@
 package grondag.xblocks.compat.rei;
 
+import me.shedaniel.rei.api.EntryRegistry;
 import me.shedaniel.rei.api.EntryStack;
 import me.shedaniel.rei.api.RecipeHelper;
 import me.shedaniel.rei.api.plugins.REIPluginV0;
@@ -31,4 +32,12 @@ public class XbReiPlugin implements REIPluginV0 {
 	public SemanticVersion getMinimumVersion() throws VersionParsingException {
 		return SemanticVersion.parse("3.0");
 	}
+
+	@Override
+	public void registerEntries(EntryRegistry entryRegistry) {
+		// TODO Auto-generated method stub
+		REIPluginV0.super.registerEntries(entryRegistry);
+	}
+
+
 }
