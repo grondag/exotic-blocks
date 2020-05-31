@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "connected_glass_undo",
+  "ingredients": [
+    {
+      "item": "xb:gu"
+    }
+  ],
+  "result": {
+    "item": "minecraft:light_blue_stained_glass",
+    "count": 1
+  }
+}

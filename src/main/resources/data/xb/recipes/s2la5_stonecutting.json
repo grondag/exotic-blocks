@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:warped_hyphae"
+  },
+  "result": "xb:s2la5",
+  "count": 1
+}
+

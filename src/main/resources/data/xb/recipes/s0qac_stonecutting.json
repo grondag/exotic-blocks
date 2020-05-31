@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:magenta_concrete"
+  },
+  "result": "xb:s0qac",
+  "count": 1
+}
+

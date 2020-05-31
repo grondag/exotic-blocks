@@ -1,0 +1,37 @@
+<@pp.dropOutputFile />
+<#list block_variants as A>
+<#list block_variants as B>
+<#if A.base_mod == B.base_mod && A.base_id == B.base_id && A.base_mod != "">
+<#if A.name == B.name>
+<@pp.changeOutputFile name=A.base_id + "_to_" + A.name + ".json" />
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "${A.base_mod}:${A.base_id}"
+  },
+  "result": "xb:${A.name}",
+  "count": 1
+}
+<@pp.changeOutputFile name=A.name + "_to_" + A.base_id + ".json" />
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "xb:${A.name}"
+  },
+  "result": "${A.base_mod}:${A.base_id}",
+  "count": 1
+}
+<#else>
+<@pp.changeOutputFile name=A.name + "_to_" + B.name + ".json" />
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "xb:${A.name}"
+  },
+  "result": "xb:${B.name}",
+  "count": 1
+}
+</#if>
+</#if>
+</#list>
+</#list>

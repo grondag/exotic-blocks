@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:polished_diorite"
-  },
-  "result": "exotic-blocks:polished_diorite_round_capped_round_column",
-  "count": 1
-}

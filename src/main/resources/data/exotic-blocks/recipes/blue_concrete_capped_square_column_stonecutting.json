@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:blue_concrete"
-  },
-  "result": "exotic-blocks:blue_concrete_capped_square_column",
-  "count": 1
-}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:bubble_coral"
+  },
+  "result": "xb:s2wad",
+  "count": 1
+}
+

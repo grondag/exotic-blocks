@@ -21,6 +21,7 @@ import org.apache.logging.log4j.Logger;
 import net.fabricmc.api.ModInitializer;
 
 import grondag.fermion.registrar.Registrar;
+import grondag.xblocks.data.BlockNames;
 import grondag.xblocks.init.Cobbles;
 import grondag.xblocks.init.ConnectedGlass;
 import grondag.xblocks.init.FancyAndesite;
@@ -28,28 +29,30 @@ import grondag.xblocks.init.FancyDiorite;
 import grondag.xblocks.init.FancyGranite;
 import grondag.xblocks.init.FancySnow;
 import grondag.xblocks.init.FancyStone;
+import grondag.xblocks.init.FestiveLights;
 import grondag.xblocks.init.RammedEarth;
-import grondag.xblocks.init.XbBlocks;
+import grondag.xblocks.init.ShapedBlocks;
 import grondag.xblocks.init.XbItems;
 
 public class Xb implements ModInitializer {
-	public static final String MODID = "exotic-blocks";
+	public static final String MODID = "xb";
 
 	public static Logger LOG = LogManager.getLogger("Exotic Blocks");
 
-	public static Registrar REG  = new Registrar(MODID, "fancy_stone_block_species");
+	public static Registrar REG  = new Registrar(MODID, BlockNames.BLOCK_CONNECTED_FANCY_STONE);
 
 	@Override
 	public void onInitialize() {
 		ConnectedGlass.values();
 		FancySnow.values();
-		XbBlocks.values();
 		FancyStone.values();
 		RammedEarth.values();
 		FancyGranite.values();
 		FancyDiorite.values();
 		FancyAndesite.values();
 		Cobbles.values();
+		ShapedBlocks.values();
+		FestiveLights.values();
 		XbItems.values();
 	}
 }

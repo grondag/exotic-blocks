@@ -40,6 +40,7 @@ import net.minecraft.block.GlassBlock;
 import net.minecraft.util.Identifier;
 
 import grondag.xblocks.Xb;
+import grondag.xblocks.data.ColorNames;
 import grondag.xm.api.block.XmBlockRegistry;
 import grondag.xm.api.modelstate.primitive.PrimitiveStateFunction;
 import grondag.xm.api.paint.XmPaint;
@@ -89,35 +90,35 @@ public enum ConnectedGlass {
 			.build(Xb.REG.id("fancy_glass").toString());
 
 	static {
-		connectedGlass(Blocks.GLASS, "clear");
+		connectedGlass(Blocks.GLASS, "clear", "");
 
-		connectedGlass(Blocks.WHITE_STAINED_GLASS, "white");
-		connectedGlass(Blocks.ORANGE_STAINED_GLASS, "orange");
-		connectedGlass(Blocks.MAGENTA_STAINED_GLASS, "magenta");
-		connectedGlass(Blocks.LIGHT_BLUE_STAINED_GLASS, "light_blue");
+		connectedGlass(Blocks.WHITE_STAINED_GLASS, "white", ColorNames.WHITE);
+		connectedGlass(Blocks.ORANGE_STAINED_GLASS, "orange", ColorNames.ORANGE);
+		connectedGlass(Blocks.MAGENTA_STAINED_GLASS, "magenta", ColorNames.MAGENTA);
+		connectedGlass(Blocks.LIGHT_BLUE_STAINED_GLASS, "light_blue", ColorNames.LIGHT_BLUE);
 
-		connectedGlass(Blocks.YELLOW_STAINED_GLASS, "yellow");
-		connectedGlass(Blocks.LIME_STAINED_GLASS, "lime");
-		connectedGlass(Blocks.PINK_STAINED_GLASS, "pink");
-		connectedGlass(Blocks.GRAY_STAINED_GLASS, "gray");
+		connectedGlass(Blocks.YELLOW_STAINED_GLASS,"yellow", ColorNames.YELLOW);
+		connectedGlass(Blocks.LIME_STAINED_GLASS, "lime", ColorNames.LIME);
+		connectedGlass(Blocks.PINK_STAINED_GLASS, "pink", ColorNames.PINK);
+		connectedGlass(Blocks.GRAY_STAINED_GLASS, "gray", ColorNames.GRAY);
 
-		connectedGlass(Blocks.LIGHT_GRAY_STAINED_GLASS, "light_gray");
-		connectedGlass(Blocks.CYAN_STAINED_GLASS, "cyan");
-		connectedGlass(Blocks.PURPLE_STAINED_GLASS, "purple");
-		connectedGlass(Blocks.BLUE_STAINED_GLASS, "blue");
+		connectedGlass(Blocks.LIGHT_GRAY_STAINED_GLASS, "light_gray", ColorNames.LIGHT_GRAY);
+		connectedGlass(Blocks.CYAN_STAINED_GLASS, "cyan", ColorNames.CYAN);
+		connectedGlass(Blocks.PURPLE_STAINED_GLASS, "purple", ColorNames.PURPLE);
+		connectedGlass(Blocks.BLUE_STAINED_GLASS, "blue", ColorNames.BLUE);
 
-		connectedGlass(Blocks.BROWN_STAINED_GLASS, "brown");
-		connectedGlass(Blocks.GREEN_STAINED_GLASS, "green");
-		connectedGlass(Blocks.RED_STAINED_GLASS, "red");
-		connectedGlass(Blocks.BLACK_STAINED_GLASS, "black");
+		connectedGlass(Blocks.BROWN_STAINED_GLASS, "brown", ColorNames.BROWN);
+		connectedGlass(Blocks.GREEN_STAINED_GLASS, "green", ColorNames.GREEN);
+		connectedGlass(Blocks.RED_STAINED_GLASS, "red", ColorNames.RED);
+		connectedGlass(Blocks.BLACK_STAINED_GLASS, "black", ColorNames.BLACK);
 	}
 
-	private static void connectedGlass(Block block, String color) {
+	private static void connectedGlass(Block block, String color, String id) {
 		final Identifier paintId = Xb.REG.id(color + "_connected_glass");
 		final XmPaint paint = XmPaintRegistry.INSTANCE.get(paintId);
 
 		final Block connectedGlass = Xb.REG.block(
-				color + "_connected_glass",
+				"g" + id,
 				new GlassBlock(Block.Settings.copy(block)));
 
 		final PrimitiveStateFunction stateFunc = PrimitiveStateFunction.ofDefaultState(

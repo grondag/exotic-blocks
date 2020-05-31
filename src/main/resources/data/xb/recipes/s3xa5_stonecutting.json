@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:red_wool"
+  },
+  "result": "xb:s3xa5",
+  "count": 1
+}
+

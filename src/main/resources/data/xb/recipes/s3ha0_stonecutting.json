@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:blue_ice"
+  },
+  "result": "xb:s3ha0",
+  "count": 2
+}
+

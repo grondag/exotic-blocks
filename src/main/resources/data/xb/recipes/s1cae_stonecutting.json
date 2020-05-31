@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:smooth_red_sandstone"
+  },
+  "result": "xb:s1cae",
+  "count": 6
+}
+

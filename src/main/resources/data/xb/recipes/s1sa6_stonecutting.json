@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:birch_planks"
+  },
+  "result": "xb:s1sa6",
+  "count": 1
+}
+

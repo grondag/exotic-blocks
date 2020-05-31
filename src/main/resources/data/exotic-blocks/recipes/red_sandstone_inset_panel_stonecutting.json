@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:red_sandstone"
-  },
-  "result": "exotic-blocks:red_sandstone_inset_panel",
-  "count": 1
-}

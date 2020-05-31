@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:green_concrete"
-  },
-  "result": "exotic-blocks:green_concrete_inset_panel",
-  "count": 1
-}

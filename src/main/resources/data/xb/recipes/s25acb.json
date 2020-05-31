@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "b",
+  "pattern": [
+    " G ",
+    "G#G",
+    " G "
+  ],
+  "key": {
+    "#": {
+      "item": "xb:s25ac"
+    },
+    "G": {
+      "item": "minecraft:prismarine_crystals"
+    }
+  },
+  "result": {
+    "item": "xb:s25acb",
+    "count": 1
+  }
+}
+

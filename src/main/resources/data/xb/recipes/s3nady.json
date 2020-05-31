@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "y",
+  "pattern": [
+    " G ",
+    "G#G",
+    " G "
+  ],
+  "key": {
+    "#": {
+      "item": "xb:s3nad"
+    },
+    "G": {
+      "item": "minecraft:glowstone_dust"
+    }
+  },
+  "result": {
+    "item": "xb:s3nady",
+    "count": 1
+  }
+}
+

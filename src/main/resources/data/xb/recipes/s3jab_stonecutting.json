@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:warped_wart_block"
+  },
+  "result": "xb:s3jab",
+  "count": 1
+}
+

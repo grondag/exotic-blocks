@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:light_gray_wool"
+  },
+  "result": "xb:s3rac",
+  "count": 1
+}
+

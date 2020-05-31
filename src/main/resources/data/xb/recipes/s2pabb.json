@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "b",
+  "pattern": [
+    " G ",
+    "G#G",
+    " G "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:lapis_block"
+    },
+    "G": {
+      "item": "minecraft:prismarine_crystals"
+    }
+  },
+  "result": {
+    "item": "xb:s2pabb",
+    "count": 1
+  }
+}
+

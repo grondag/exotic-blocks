@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:birch_planks"
-  },
-  "result": "exotic-blocks:birch_wedge_straight",
-  "count": 2
-}

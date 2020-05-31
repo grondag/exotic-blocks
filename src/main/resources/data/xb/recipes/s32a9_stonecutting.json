@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:tube_coral"
+  },
+  "result": "xb:s32a9",
+  "count": 1
+}
+

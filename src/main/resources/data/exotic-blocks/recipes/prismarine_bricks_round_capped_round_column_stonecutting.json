@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:prismarine_bricks"
-  },
-  "result": "exotic-blocks:prismarine_bricks_round_capped_round_column",
-  "count": 1
-}

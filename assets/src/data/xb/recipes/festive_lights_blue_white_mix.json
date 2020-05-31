@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "festive_lights",
+  "ingredients": [
+    {
+      "tag": "xb:festive_lights_blue"
+    },
+    {
+      "tag": "xb:festive_lights_white"
+    }
+  ],
+  "result": {
+    "item": "xb:fna",
+    "count": 2
+  }
+}

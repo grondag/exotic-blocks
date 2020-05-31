@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:basalt"
+  },
+  "result": "xb:s34a2",
+  "count": 1
+}
+

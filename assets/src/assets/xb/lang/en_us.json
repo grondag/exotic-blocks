@@ -1,0 +1,47 @@
+{
+	"config.xb.title" : "Exotic Blocks",
+	"config.xb.reset" : "Reset",
+
+	"config.xb.category.vanilla" : "Work In Progress",
+
+	"config.xb.value.mod_key" : "Placement Modifier",
+	"config.xb.help.mod_key" : "Hold while placing for horizontal placement;and to break connection with neighbors.;(Primary/Secondary/Tertiary is in Fermion Mod Keys config.)",
+	"config.xb.value.force_key" : "Secondary Placement Modifier",
+	"config.xb.help.force_key" : "Hold while placing to use crosshair location instead;of view angle to control placement.;(Primary/Secondary/Tertiary is in Fermion Mod Keys config.)",
+
+
+	"item.xb.iron_cutter": "Portable Block Cutter",
+	"block.xb.g": "Connected Glass",
+
+<#list block_variants as block>
+	"block.xb.${block.name}": "${block.english}",
+</#list>
+
+<#list colors as color>
+	"block.xb.g${color.short_name}": "${color.english} Connected Glass",
+</#list>
+
+<#list shape_blocks as block>
+	<#list shapes as shape>
+		<#if shape.lamp != "Surface">
+			"block.xb.${block.name}${shape.name}": "${block.english} ${shape.english}",
+		</#if>
+
+		<#if shape.lamp != "None">
+			<#list inlays as inlay>
+				<#if inlay.english != "SKIP">
+					"block.xb.${block.name}${shape.name}${inlay.name}": "${block.english} ${shape.english} ${inlay.english}",
+				</#if>
+			</#list>
+		</#if>
+	</#list>
+</#list>
+
+<#list light_colors as color>
+	<#list light_shapes as shape>
+	"block.xb.f${color.name}${shape.name}": "Festive Lights - ${color.english}, ${shape.english}",
+	</#list>
+</#list>
+
+  "itemGroup.xb.group": "Exotic Blocks"
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "connected_glass_undo",
+  "ingredients": [
+    {
+      "item": "xb:gp"
+    }
+  ],
+  "result": {
+    "item": "minecraft:pink_stained_glass",
+    "count": 1
+  }
+}

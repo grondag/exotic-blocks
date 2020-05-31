@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:dead_brain_coral"
+  },
+  "result": "xb:s2vac",
+  "count": 1
+}
+

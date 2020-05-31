@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "xb:b07"
+  },
+  "result": "minecraft:diorite",
+  "count": 1
+}

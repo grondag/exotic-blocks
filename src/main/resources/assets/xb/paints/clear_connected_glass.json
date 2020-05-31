@@ -1,0 +1,9 @@
+{
+	"layers": [
+		{
+			"blendMode": "translucent",
+			"color": "0xFFAAAAAA",
+			"texture": "xb:fancy_glass"
+		}
+	]
+}

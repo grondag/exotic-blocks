@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:polished_diorite"
+  },
+  "result": "xb:s15a8",
+  "count": 1
+}
+

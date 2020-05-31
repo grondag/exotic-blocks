@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "festive_lights",
+  "pattern": [
+    "ABC",
+    "DEF",
+    "G  "
+  ],
+  "key": {
+    "A": {
+      "tag": "xb:festive_lights_red"
+    },
+    "B": {
+      "tag": "xb:festive_lights_blue"
+    },
+    "C": {
+      "tag": "xb:festive_lights_green"
+    },
+    "D": {
+      "tag": "xb:festive_lights_cyan"
+    },
+    "E": {
+      "tag": "xb:festive_lights_purple"
+    },
+    "F": {
+      "tag": "xb:festive_lights_magenta"
+    },
+    "G": {
+      "tag": "xb:festive_lights_yellow"
+    }
+  },
+  "result": {
+    "item": "xb:fea",
+    "count": 7
+  }
+}

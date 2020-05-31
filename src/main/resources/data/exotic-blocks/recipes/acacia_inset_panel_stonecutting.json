@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:acacia_planks"
-  },
-  "result": "exotic-blocks:acacia_inset_panel",
-  "count": 1
-}

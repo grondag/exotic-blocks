@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:mossy_stone_bricks"
+  },
+  "result": "xb:s0zab",
+  "count": 1
+}
+

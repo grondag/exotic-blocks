@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:crying_obsidian"
+  },
+  "result": "xb:s37a6",
+  "count": 1
+}
+

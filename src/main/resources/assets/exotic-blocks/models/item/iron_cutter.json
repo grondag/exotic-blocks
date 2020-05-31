@@ -1,6 +1,0 @@
-{
-    "parent": "item/handheld",
-    "textures": {
-        "layer0": "exotic-blocks:item/iron_cutter"
-    }
-}

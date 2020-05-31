@@ -1,0 +1,19 @@
+          {
+            "type": "minecraft:block",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "xb:s10a7w"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "condition": "minecraft:survives_explosion"
+                  }
+                ]
+              }
+            ]
+          }

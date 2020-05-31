@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:orange_concrete"
-  },
-  "result": "exotic-blocks:orange_concrete_capped_round_column",
-  "count": 1
-}

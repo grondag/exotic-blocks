@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:netherrack"
+  },
+  "result": "xb:s2qa9",
+  "count": 1
+}
+

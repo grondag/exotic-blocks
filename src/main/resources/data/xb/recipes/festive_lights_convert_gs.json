@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "festive_lights",
+  "ingredients": [
+		{
+			"item": "xb:fgh"
+		}
+  ],
+  "result": {
+    "item": "xb:fgs",
+    "count": 1
+  }
+}

@@ -1,0 +1,15 @@
+<@pp.dropOutputFile />
+<#list shape_blocks as block>
+<#list shapes as shape>
+
+<@pp.changeOutputFile name = block.name + shape.name + "_stonecutting.json" />
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "${block.mod}:${block.id}"
+  },
+  "result": "xb:${block.name}${shape.name}",
+  "count": ${shape.outputCount}
+}
+</#list>
+</#list>

@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:yellow_terracotta"
-  },
-  "result": "exotic-blocks:yellow_terracotta_inset_panel",
-  "count": 1
-}

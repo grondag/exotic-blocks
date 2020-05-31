@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:white_concrete"
+  },
+  "result": "xb:s0va0",
+  "count": 2
+}
+

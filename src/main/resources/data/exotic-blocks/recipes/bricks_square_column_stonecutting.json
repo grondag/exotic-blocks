@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:bricks"
-  },
-  "result": "exotic-blocks:bricks_square_column",
-  "count": 1
-}

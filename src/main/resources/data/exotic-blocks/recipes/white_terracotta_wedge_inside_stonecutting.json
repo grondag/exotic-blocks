@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:white_terracotta"
-  },
-  "result": "exotic-blocks:white_terracotta_wedge_inside",
-  "count": 1
-}

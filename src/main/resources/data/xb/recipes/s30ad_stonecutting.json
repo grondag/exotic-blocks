@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:horn_coral"
+  },
+  "result": "xb:s30ad",
+  "count": 1
+}
+

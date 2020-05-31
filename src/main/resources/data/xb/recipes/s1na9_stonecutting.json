@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:acacia_planks"
+  },
+  "result": "xb:s1na9",
+  "count": 1
+}
+

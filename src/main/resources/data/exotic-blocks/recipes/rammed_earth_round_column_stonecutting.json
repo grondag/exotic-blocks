@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "exotic-blocks:rammed_earth"
-  },
-  "result": "exotic-blocks:rammed_earth_round_column",
-  "count": 1
-}

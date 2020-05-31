@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:yellow_terracotta"
-  },
-  "result": "exotic-blocks:yellow_terracotta_omni_stair_inside",
-  "count": 1
-}

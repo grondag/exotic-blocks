@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:stripped_jungle_log"
+  },
+  "result": "xb:s27a1",
+  "count": 2
+}
+

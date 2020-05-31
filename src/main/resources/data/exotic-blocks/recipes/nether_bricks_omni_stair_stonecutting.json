@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:nether_bricks"
-  },
-  "result": "exotic-blocks:nether_bricks_omni_stair",
-  "count": 1
-}

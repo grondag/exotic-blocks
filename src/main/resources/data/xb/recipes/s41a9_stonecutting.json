@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "xb:b00"
+  },
+  "result": "xb:s41a9",
+  "count": 1
+}
+

@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:purpur_block"
-  },
-  "result": "exotic-blocks:purpur_block_wedge_cap",
-  "count": 6
-}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:orange_concrete"
+  },
+  "result": "xb:s0ra5",
+  "count": 1
+}
+

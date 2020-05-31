@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:nether_bricks"
+  },
+  "result": "xb:s1gab",
+  "count": 1
+}
+

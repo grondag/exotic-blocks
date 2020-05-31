@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:birch_log"
+  },
+  "result": "xb:s1xad",
+  "count": 1
+}
+

@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:gray_concrete"
-  },
-  "result": "exotic-blocks:gray_concrete_wedge_cap",
-  "count": 6
-}

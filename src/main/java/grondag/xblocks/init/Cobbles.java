@@ -3,6 +3,7 @@ package grondag.xblocks.init;
 import net.minecraft.block.Blocks;
 
 import grondag.xblocks.block.SpeciesBlock;
+import grondag.xblocks.data.BlockNames;
 import grondag.xm.api.paint.PaintBlendMode;
 import grondag.xm.api.paint.XmPaint;
 import grondag.xm.api.texture.core.CoreTextures;
@@ -11,7 +12,6 @@ public enum Cobbles {
 	;
 
 	static {
-
 		final XmPaint connectedPaint = XmPaint.finder()
 				.textureDepth(2)
 				.texture(0, CoreTextures.BIGTEX_COBBLE_SQUARES)
@@ -21,6 +21,6 @@ public enum Cobbles {
 				.blendMode(1, PaintBlendMode.TRANSLUCENT)
 				.find();
 
-		SpeciesBlock.species(Blocks.COBBLESTONE, "cobble_squares_block", connectedPaint);
+		SpeciesBlock.species(Blocks.COBBLESTONE, BlockNames.BLOCK_COBBLE_SMALL_SQUARE, connectedPaint);
 	}
 }

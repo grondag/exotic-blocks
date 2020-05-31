@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:oak_log"
+  },
+  "result": "xb:s20a1",
+  "count": 2
+}
+

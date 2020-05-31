@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:dirt"
+  },
+  "result": "xb:s3fa5",
+  "count": 1
+}
+

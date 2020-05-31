@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:andesite"
-  },
-  "result": "exotic-blocks:andesite_omni_stair",
-  "count": 1
-}

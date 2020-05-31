@@ -4,8 +4,10 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 
 import grondag.xblocks.Xb;
-import grondag.xblocks.block.BlockRegistrator;
+import grondag.xblocks.block.ShapedBlockRegistrator;
 import grondag.xblocks.block.SpeciesBlock;
+import grondag.xblocks.data.BlockNames;
+import grondag.xblocks.data.ShapedBlockNames;
 import grondag.xm.api.block.XmBlockRegistry;
 import grondag.xm.api.modelstate.primitive.PrimitiveStateFunction;
 import grondag.xm.api.paint.PaintBlendMode;
@@ -17,11 +19,7 @@ import grondag.xm.api.texture.core.CoreTextures;
 public enum FancyGranite {
 	;
 
-	static final String ID = "fancy_granite";
-	static final String ID_BLOCK = ID + "_block";
-
 	static {
-
 		final XmPaint mainPaint = XmPaint.finder()
 				.textureDepth(2)
 				.texture(0, XmTextures.TILE_NOISE_MODERATE)
@@ -43,14 +41,13 @@ public enum FancyGranite {
 				.blendMode(2, PaintBlendMode.TRANSLUCENT)
 				.find();
 
-		final Block block = Xb.REG.block(ID_BLOCK, new Block(Block.Settings.copy(Blocks.GRANITE)));
+		final Block block = Xb.REG.block(BlockNames.BLOCK_FANCY_GRANITE, new Block(Block.Settings.copy(Blocks.GRANITE)));
 		XmBlockRegistry.addBlock(block, PrimitiveStateFunction.ofDefaultState(
 				Cube.INSTANCE.newState()
 				.paintAll(mainPaint)
 				.releaseToImmutable()));
 
-		BlockRegistrator.register(block, ID_BLOCK, mainPaint, false);
-
-		SpeciesBlock.species(block, ID_BLOCK + "_species", connectedPaint);
+		SpeciesBlock.species(block, BlockNames.BLOCK_CONNECTED_FANCY_GRANITE, connectedPaint);
+		ShapedBlockRegistrator.registerShapes(block, ShapedBlockNames.SHAPED_FANCY_GRANITE, mainPaint, false);
 	}
 }

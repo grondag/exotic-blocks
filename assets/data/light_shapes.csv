@@ -1,5 +1,5 @@
 name;english;convertsFrom;
-all;All Faces;pendant;
-horizontal;Horizontal Faces;all;
-single;Single Face;horizontal;
-pendant;Pendant;single;
+a;All Faces;p;
+h;Horizontal Faces;a;
+s;Single Face;h;
+p;Pendant;s;

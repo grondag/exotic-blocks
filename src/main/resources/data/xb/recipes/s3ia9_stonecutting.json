@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:magma_block"
+  },
+  "result": "xb:s3ia9",
+  "count": 1
+}
+

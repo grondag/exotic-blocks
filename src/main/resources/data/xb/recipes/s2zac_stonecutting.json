@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:dead_fire_coral"
+  },
+  "result": "xb:s2zac",
+  "count": 1
+}
+

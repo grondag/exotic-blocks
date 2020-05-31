@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:birch_wood"
+  },
+  "result": "xb:s1wab",
+  "count": 1
+}
+

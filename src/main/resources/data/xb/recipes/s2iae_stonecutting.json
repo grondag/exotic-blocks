@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:crimson_stem"
+  },
+  "result": "xb:s2iae",
+  "count": 6
+}
+

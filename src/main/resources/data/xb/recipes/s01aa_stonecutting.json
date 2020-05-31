@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:black_terracotta"
+  },
+  "result": "xb:s01aa",
+  "count": 1
+}
+

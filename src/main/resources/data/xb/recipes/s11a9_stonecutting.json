@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:mossy_cobblestone"
+  },
+  "result": "xb:s11a9",
+  "count": 1
+}
+

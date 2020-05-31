@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:snow_block"
-  },
-  "result": "exotic-blocks:snow_block_wedge_straight",
-  "count": 2
-}

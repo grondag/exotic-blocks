@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:andesite"
+  },
+  "result": "xb:s12ac",
+  "count": 1
+}
+

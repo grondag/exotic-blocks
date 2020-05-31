@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:purple_concrete"
-  },
-  "result": "exotic-blocks:purple_concrete_omni_stair_outside",
-  "count": 1
-}

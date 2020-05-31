@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:oak_wood"
+  },
+  "result": "xb:s1zac",
+  "count": 1
+}
+

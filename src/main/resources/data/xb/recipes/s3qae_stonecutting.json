@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:light_blue_wool"
+  },
+  "result": "xb:s3qae",
+  "count": 6
+}
+

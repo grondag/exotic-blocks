@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:green_wool"
+  },
+  "result": "xb:s3pa2",
+  "count": 1
+}
+

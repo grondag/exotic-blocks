@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:emerald_block"
+  },
+  "result": "xb:s3aa4",
+  "count": 1
+}
+

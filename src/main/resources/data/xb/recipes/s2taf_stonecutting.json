@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:bone_block"
+  },
+  "result": "xb:s2taf",
+  "count": 1
+}
+

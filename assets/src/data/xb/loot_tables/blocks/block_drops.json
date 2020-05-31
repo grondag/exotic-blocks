@@ -1,0 +1,101 @@
+<@pp.dropOutputFile />
+<#list shape_blocks as block>
+	<#list shapes as shape>
+		<#if shape.lamp != "Surface">
+      <@pp.changeOutputFile name = block.name + shape.name + ".json" />
+      {
+        "type": "minecraft:block",
+        "pools": [
+          {
+            "rolls": 1,
+            "entries": [
+              {
+                "type": "minecraft:item",
+                "name": "xb:${block.name}${shape.name}"
+              }
+            ],
+            "conditions": [
+              {
+                "condition": "minecraft:survives_explosion"
+              }
+            ]
+          }
+        ]
+      }
+    </#if>
+
+		<#if shape.lamp != "None">
+			<#list inlays as inlay>
+				<#if inlay.english != "SKIP">
+          <@pp.changeOutputFile name = block.name + shape.name + inlay.name + ".json" />
+          {
+            "type": "minecraft:block",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "xb:${block.name}${shape.name}${inlay.name}"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "condition": "minecraft:survives_explosion"
+                  }
+                ]
+              }
+            ]
+          }
+				</#if>
+			</#list>
+		</#if>
+	</#list>
+</#list>
+
+<#list block_variants as block>
+<@pp.changeOutputFile name = block.name + ".json" />
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "xb:${block.name}"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ]
+    }
+  ]
+}
+</#list>
+<#list light_colors as color>
+	<#list light_shapes as shape>
+  <@pp.changeOutputFile name = "f" + color.name + shape.name + ".json" />
+  {
+    "type": "minecraft:block",
+    "pools": [
+      {
+        "rolls": 1,
+        "entries": [
+          {
+            "type": "minecraft:item",
+            "name": "xb:f${color.name}${shape.name}"
+          }
+        ],
+        "conditions": [
+          {
+            "condition": "minecraft:survives_explosion"
+          }
+        ]
+      }
+    ]
+  }
+	</#list>
+</#list>

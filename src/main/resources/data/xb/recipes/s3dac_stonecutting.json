@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:redstone_block"
+  },
+  "result": "xb:s3dac",
+  "count": 1
+}
+

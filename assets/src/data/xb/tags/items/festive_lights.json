@@ -1,0 +1,12 @@
+<@pp.dropOutputFile />
+<#list light_colors as color>
+<@pp.changeOutputFile name= "festive_lights_" + color.long_name + ".json" />
+{
+	"replace": false,
+	"values": [
+    	<#list light_shapes as shape>
+		"xb:f${color.name}${shape.name}"<#sep>,</#sep>
+    </#list>
+	]
+}
+</#list>

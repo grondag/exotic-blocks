@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:yellow_wool"
+  },
+  "result": "xb:s3za8",
+  "count": 1
+}
+

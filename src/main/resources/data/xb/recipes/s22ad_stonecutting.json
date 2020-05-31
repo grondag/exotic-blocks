@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:dark_oak_wood"
+  },
+  "result": "xb:s22ad",
+  "count": 1
+}
+

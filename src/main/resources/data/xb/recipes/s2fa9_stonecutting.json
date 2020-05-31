@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:crimson_planks"
+  },
+  "result": "xb:s2fa9",
+  "count": 1
+}
+

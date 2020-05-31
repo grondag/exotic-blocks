@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:polished_granite"
-  },
-  "result": "exotic-blocks:polished_granite_inset_panel",
-  "count": 1
-}

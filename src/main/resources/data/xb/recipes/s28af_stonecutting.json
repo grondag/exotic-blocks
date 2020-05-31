@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:spruce_wood"
+  },
+  "result": "xb:s28af",
+  "count": 1
+}
+

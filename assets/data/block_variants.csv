@@ -1,12 +1,14 @@
-base_mod;base_id;variant_id;variant_name;
-minecraft;snow_block;fancy_snow_block;Fancy Snow;
-minecraft;snow_block;fancy_snow_block_species;Connected Fancy Snow;
-minecraft;stone;fancy_stone_block;Fancy Stone
-minecraft;stone;fancy_stone_block_species;Connected Fancy Stone;
-minecraft;andesite;fancy_andesite_block;Fancy Andesite;
-minecraft;andesite;fancy_andesite_block_species;Connected Fancy Andesite;
-minecraft;diorite;fancy_diorite_block;Fancy Diorite;
-minecraft;diorite;fancy_diorite_block_species;Connected Fancy Diorite;
-minecraft;granite;fancy_granite_block;Fancy Granite;
-minecraft;granite;fancy_granite_block_species;Connected Fancy Granite;
-exotic-blocks;rammed_earth;rammed_earth_species;Connected Rammed Earth;
+name;base_mod;base_id;english;
+b00;minecraft;snow_block;Fancy Snow;
+b01;minecraft;snow_block;Connected Fancy Snow;
+b02;minecraft;stone;Fancy Stone;
+b03;minecraft;stone;Connected Fancy Stone;
+b04;minecraft;cobblestone;Cobblestone - Small Squares;
+b05;minecraft;andesite;Fancy Andesite;
+b06;minecraft;andesite;Connected Fancy Andesite;
+b07;minecraft;diorite;Fancy Diorite;
+b08;minecraft;diorite;Connected Fancy Diorite;
+b09;minecraft;granite;Fancy Granite;
+b0a;minecraft;granite;Connected Fancy Granite;
+b0b;;;Rammed Earth;
+b0c;xb;b0b;Connected Rammed Earth;

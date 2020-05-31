@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:black_terracotta"
-  },
-  "result": "exotic-blocks:black_terracotta_omni_slab",
-  "count": 2
-}

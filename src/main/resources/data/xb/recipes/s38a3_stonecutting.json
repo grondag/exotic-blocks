@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:gold_block"
+  },
+  "result": "xb:s38a3",
+  "count": 1
+}
+

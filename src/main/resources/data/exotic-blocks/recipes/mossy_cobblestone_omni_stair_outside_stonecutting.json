@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:mossy_cobblestone"
-  },
-  "result": "exotic-blocks:mossy_cobblestone_omni_stair_outside",
-  "count": 1
-}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:netherite_block"
+  },
+  "result": "xb:s2sa4",
+  "count": 1
+}
+

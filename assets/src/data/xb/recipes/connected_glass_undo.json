@@ -1,0 +1,17 @@
+<@pp.dropOutputFile />
+<#list colors as color>
+<@pp.changeOutputFile name=color.long_name + "_connected_glass_undo.json" />
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "connected_glass_undo",
+  "ingredients": [
+    {
+      "item": "xb:g${color.short_name}"
+    }
+  ],
+  "result": {
+    "item": "minecraft:${color.long_name}_stained_glass",
+    "count": 1
+  }
+}
+</#list>

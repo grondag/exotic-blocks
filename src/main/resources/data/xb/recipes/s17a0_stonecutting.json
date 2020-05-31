@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:polished_granite"
+  },
+  "result": "xb:s17a0",
+  "count": 2
+}
+

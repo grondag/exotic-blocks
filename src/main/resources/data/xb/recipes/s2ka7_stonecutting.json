@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:warped_planks"
+  },
+  "result": "xb:s2ka7",
+  "count": 1
+}
+

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:white_wool"
+  },
+  "result": "xb:s3yac",
+  "count": 1
+}
+

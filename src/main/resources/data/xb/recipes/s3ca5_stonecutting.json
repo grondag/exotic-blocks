@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:coal_block"
+  },
+  "result": "xb:s3ca5",
+  "count": 1
+}
+

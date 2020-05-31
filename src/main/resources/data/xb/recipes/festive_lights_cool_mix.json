@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "festive_lights",
+  "pattern": [
+    "ABC",
+    "DE "
+  ],
+  "key": {
+    "A": {
+      "tag": "xb:festive_lights_cyan"
+    },
+    "B": {
+      "tag": "xb:festive_lights_blue"
+    },
+    "C": {
+      "tag": "xb:festive_lights_green"
+    },
+    "D": {
+      "tag": "xb:festive_lights_magenta"
+    },
+    "E": {
+      "tag": "xb:festive_lights_purple"
+    }
+  },
+  "result": {
+    "item": "xb:fha",
+    "count": 5
+  }
+}

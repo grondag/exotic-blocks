@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:dark_prismarine"
+  },
+  "result": "xb:s1fa3",
+  "count": 1
+}
+

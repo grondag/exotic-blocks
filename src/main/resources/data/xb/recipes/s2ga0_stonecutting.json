@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:crimson_hyphae"
+  },
+  "result": "xb:s2ga0",
+  "count": 2
+}
+

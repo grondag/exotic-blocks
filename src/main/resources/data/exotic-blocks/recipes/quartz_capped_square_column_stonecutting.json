@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:quartz"
-  },
-  "result": "exotic-blocks:quartz_capped_square_column",
-  "count": 1
-}

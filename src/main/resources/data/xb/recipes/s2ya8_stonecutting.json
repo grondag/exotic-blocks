@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:fire_coral"
+  },
+  "result": "xb:s2ya8",
+  "count": 1
+}
+

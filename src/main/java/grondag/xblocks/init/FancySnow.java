@@ -8,8 +8,11 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 
 import grondag.xblocks.Xb;
-import grondag.xblocks.block.BlockRegistrator;
+import grondag.xblocks.block.ShapedBlockRegistrator;
 import grondag.xblocks.block.SpeciesBlock;
+import grondag.xblocks.data.BlockNames;
+import grondag.xblocks.data.ShapedBlockNames;
+import grondag.xblocks.data.Paints;
 import grondag.xm.api.block.XmBlockRegistry;
 import grondag.xm.api.modelstate.primitive.PrimitiveStateFunction;
 import grondag.xm.api.paint.XmPaint;
@@ -19,11 +22,8 @@ import grondag.xm.api.primitive.simple.Cube;
 public enum FancySnow {
 	;
 
-	static final String ID_BASE = "fancy_snow";
-	static final String ID_BLOCK = ID_BASE + "_block";
-
 	public static final Material FANCY_SNOW_MATERIAL = (new Material.Builder(MaterialColor.WHITE)).build();
-	public final static Block FANCY_SNOW_BLOCK = Xb.REG.block(ID_BLOCK, new Block(settings()));
+	public final static Block FANCY_SNOW_BLOCK = Xb.REG.block(BlockNames.BLOCK_FANCY_SNOW, new Block(settings()));
 
 	//	public static Block basalt_cool_dynamic_height = null;
 	//	public static Block basalt_cool_dynamic_filler = null;
@@ -37,16 +37,16 @@ public enum FancySnow {
 
 	static {
 
-		final XmPaint paint = XmPaintRegistry.INSTANCE.get(Xb.REG.id(ID_BASE));
+		final XmPaint paint = XmPaintRegistry.INSTANCE.get(Xb.REG.id(Paints.PAINT_FANCY_SNOW));
 
 		XmBlockRegistry.addBlock(FANCY_SNOW_BLOCK, PrimitiveStateFunction.ofDefaultState(
 				Cube.INSTANCE.newState()
 				.paintAll(paint)
 				.releaseToImmutable()));
 
-		BlockRegistrator.register(FANCY_SNOW_BLOCK, ID_BLOCK, ID_BASE, false);
+		ShapedBlockRegistrator.registerShapes(FANCY_SNOW_BLOCK, ShapedBlockNames.SHAPED_FANCY_SNOW, Paints.PAINT_FANCY_SNOW, false);
 
-		SpeciesBlock.species(FANCY_SNOW_BLOCK, ID_BLOCK + "_species", XmPaintRegistry.INSTANCE.get(Xb.REG.id(ID_BASE + "_species")));
+		SpeciesBlock.species(FANCY_SNOW_BLOCK, BlockNames.BLOCK_CONNECTED_FANCY_SNOW, XmPaintRegistry.INSTANCE.get(Xb.REG.id(Paints.PAINT_CONNECTED_FANCY_SNOW)));
 
 		//		TerrainModelState.Mutable terrainModel;
 		//

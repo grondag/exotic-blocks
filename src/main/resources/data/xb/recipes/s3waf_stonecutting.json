@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:purple_wool"
+  },
+  "result": "xb:s3waf",
+  "count": 1
+}
+

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "exotic-blocks",
+  "id": "xb",
   "version": "${version}",
 
   "name": "Exotic Blocks",
@@ -14,7 +14,7 @@
   },
 
   "license": "Apache 2.0",
-  "icon": "assets/exotic-blocks/icon.png",
+  "icon": "assets/xb/icon.png",
 
   "environment": "*",
   "entrypoints": {

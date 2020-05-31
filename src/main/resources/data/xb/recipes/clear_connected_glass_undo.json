@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "connected_glass",
+  "ingredients": [
+    {
+      "item": "minecraft:glass"
+    }
+  ],
+  "result": {
+    "item": "xb:g",
+    "count": 1
+  }
+}

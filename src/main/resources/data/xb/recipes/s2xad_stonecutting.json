@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:dead_bubble_coral"
+  },
+  "result": "xb:s2xad",
+  "count": 1
+}
+

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:end_stone"
+  },
+  "result": "xb:s40af",
+  "count": 1
+}
+

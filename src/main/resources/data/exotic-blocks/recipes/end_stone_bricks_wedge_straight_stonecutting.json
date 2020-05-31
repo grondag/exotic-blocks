@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:end_stone_bricks"
-  },
-  "result": "exotic-blocks:end_stone_bricks_wedge_straight",
-  "count": 2
-}

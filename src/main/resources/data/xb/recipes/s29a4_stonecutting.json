@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:spruce_log"
+  },
+  "result": "xb:s29a4",
+  "count": 1
+}
+

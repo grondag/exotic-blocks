@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:diamond_block"
+  },
+  "result": "xb:s39a3",
+  "count": 1
+}
+

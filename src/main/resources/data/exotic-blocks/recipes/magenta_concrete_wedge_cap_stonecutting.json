@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:magenta_concrete"
-  },
-  "result": "exotic-blocks:magenta_concrete_wedge_cap",
-  "count": 6
-}

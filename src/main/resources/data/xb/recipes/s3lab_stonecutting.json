@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:blue_wool"
+  },
+  "result": "xb:s3lab",
+  "count": 1
+}
+

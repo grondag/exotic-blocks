@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:yellow_concrete"
+  },
+  "result": "xb:s0wad",
+  "count": 1
+}
+

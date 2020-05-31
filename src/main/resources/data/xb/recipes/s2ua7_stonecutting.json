@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:brain_coral"
+  },
+  "result": "xb:s2ua7",
+  "count": 1
+}
+

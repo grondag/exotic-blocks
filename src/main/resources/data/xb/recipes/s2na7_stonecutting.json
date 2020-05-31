@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:warped_stem"
+  },
+  "result": "xb:s2na7",
+  "count": 1
+}
+

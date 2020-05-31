@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "exotic-blocks:fancy_granite_block"
-  },
-  "result": "exotic-blocks:fancy_granite_block_omni_stair_outside",
-  "count": 1
-}

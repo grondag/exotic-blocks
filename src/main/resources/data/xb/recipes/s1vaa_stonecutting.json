@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:stripped_acacia_log"
+  },
+  "result": "xb:s1vaa",
+  "count": 1
+}
+

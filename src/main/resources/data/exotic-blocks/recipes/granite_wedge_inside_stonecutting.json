@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:granite"
-  },
-  "result": "exotic-blocks:granite_wedge_inside",
-  "count": 1
-}

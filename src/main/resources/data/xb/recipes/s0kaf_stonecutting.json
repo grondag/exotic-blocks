@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:cyan_concrete"
+  },
+  "result": "xb:s0kaf",
+  "count": 1
+}
+

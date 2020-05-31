@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:pink_wool"
+  },
+  "result": "xb:s3vab",
+  "count": 1
+}
+

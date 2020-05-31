@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:stripped_dark_oak_log"
+  },
+  "result": "xb:s24a5",
+  "count": 1
+}
+

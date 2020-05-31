@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:stripped_warped_hyphae"
+  },
+  "result": "xb:s2maa",
+  "count": 1
+}
+

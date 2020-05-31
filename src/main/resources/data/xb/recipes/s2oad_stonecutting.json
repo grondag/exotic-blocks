@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:stripped_warped_stem"
+  },
+  "result": "xb:s2oad",
+  "count": 1
+}
+

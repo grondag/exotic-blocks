@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:gray_terracotta"
-  },
-  "result": "exotic-blocks:gray_terracotta_capped_square_column",
-  "count": 1
-}

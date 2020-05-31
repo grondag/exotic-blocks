@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:cyan_wool"
+  },
+  "result": "xb:s3nab",
+  "count": 1
+}
+

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:acacia_wood"
+  },
+  "result": "xb:s1ta2",
+  "count": 1
+}
+

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:packed_ice"
+  },
+  "result": "xb:s3ga4",
+  "count": 1
+}
+

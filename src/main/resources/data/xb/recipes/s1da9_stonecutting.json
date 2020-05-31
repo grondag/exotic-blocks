@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:prismarine"
+  },
+  "result": "xb:s1da9",
+  "count": 1
+}
+

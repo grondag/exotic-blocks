@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:lapis_block"
+  },
+  "result": "xb:s2pa0",
+  "count": 2
+}
+

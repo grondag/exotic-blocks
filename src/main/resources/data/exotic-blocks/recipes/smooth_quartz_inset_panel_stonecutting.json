@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:smooth_quartz"
-  },
-  "result": "exotic-blocks:smooth_quartz_inset_panel",
-  "count": 1
-}

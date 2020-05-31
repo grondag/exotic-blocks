@@ -1,0 +1,19 @@
+<@pp.dropOutputFile />
+<#list light_colors as color>
+	<#list light_shapes as shape>
+<@pp.changeOutputFile name= "festive_lights_convert_" + color.name + shape.name + ".json" />
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "festive_lights",
+  "ingredients": [
+		{
+			"item": "xb:f${color.name}${shape.convertsFrom}"
+		}
+  ],
+  "result": {
+    "item": "xb:f${color.name}${shape.name}",
+    "count": 1
+  }
+}
+</#list>
+</#list>

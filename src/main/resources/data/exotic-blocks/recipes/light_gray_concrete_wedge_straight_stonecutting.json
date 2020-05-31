@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:light_gray_concrete"
-  },
-  "result": "exotic-blocks:light_gray_concrete_wedge_straight",
-  "count": 2
-}

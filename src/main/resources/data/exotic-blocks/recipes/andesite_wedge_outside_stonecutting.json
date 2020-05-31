@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:andesite"
-  },
-  "result": "exotic-blocks:andesite_wedge_outside",
-  "count": 1
-}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:stone_bricks"
+  },
+  "result": "xb:s0ya7",
+  "count": 1
+}
+

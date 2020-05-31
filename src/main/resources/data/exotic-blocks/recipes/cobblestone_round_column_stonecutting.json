@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:cobblestone"
-  },
-  "result": "exotic-blocks:cobblestone_round_column",
-  "count": 1
-}

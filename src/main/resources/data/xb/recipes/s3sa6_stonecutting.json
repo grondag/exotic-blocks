@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:lime_wool"
+  },
+  "result": "xb:s3sa6",
+  "count": 1
+}
+

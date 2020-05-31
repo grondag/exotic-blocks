@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:snow_block"
+  },
+  "result": "xb:s1ma9",
+  "count": 1
+}
+

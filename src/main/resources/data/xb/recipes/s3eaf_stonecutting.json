@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:clay"
+  },
+  "result": "xb:s3eaf",
+  "count": 1
+}
+

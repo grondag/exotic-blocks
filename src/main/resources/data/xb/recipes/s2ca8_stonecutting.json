@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:gilded_blackstone"
+  },
+  "result": "xb:s2ca8",
+  "count": 1
+}
+

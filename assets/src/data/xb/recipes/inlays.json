@@ -1,0 +1,56 @@
+<@pp.dropOutputFile />
+<#list shape_blocks as block>
+  <#list shapes as shape>
+    <#if shape.lamp != "None">
+      <#list inlays as inlay>
+        <#if inlay.recipeType == "lamp" || inlay.recipeType == "white_lamp">
+          <#assign outCount = "1">
+        <#else>
+          <#assign outCount = "8">
+        </#if>
+
+<@pp.changeOutputFile name=block.name + shape.name + inlay.name + ".json" />
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "${inlay.name}",
+  "pattern": [
+<#if inlay.recipeType == "lamp">
+    " G ",
+    "G#G",
+    " G "
+<#elseif inlay.recipeType == "white_lamp">
+    "RGR",
+    "G#G",
+    "RGR"
+<#else>
+    "###",
+    "#G#",
+    "###"
+</#if>
+  ],
+  "key": {
+    "#": {
+<#if shape.lamp == "Surface">
+      "item": "${block.mod}:${block.id}"
+<#else>
+      "item": "xb:${block.name}${shape.name}"
+</#if>
+    },
+<#if inlay.recipeType == "white_lamp">
+  "R": {
+    "item": "minecraft:redstone"
+  },
+</#if>
+    "G": {
+      "item": "${inlay.glowItem}"
+    }
+  },
+  "result": {
+    "item": "xb:${block.name}${shape.name}${inlay.name}",
+    "count": ${outCount}
+  }
+}
+      </#list>
+    </#if>
+  </#list>
+</#list>

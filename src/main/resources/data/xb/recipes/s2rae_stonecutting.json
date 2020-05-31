@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:nether_wart_block"
+  },
+  "result": "xb:s2rae",
+  "count": 6
+}
+

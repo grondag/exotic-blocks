@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:jungle_wood"
+  },
+  "result": "xb:s25a2",
+  "count": 1
+}
+

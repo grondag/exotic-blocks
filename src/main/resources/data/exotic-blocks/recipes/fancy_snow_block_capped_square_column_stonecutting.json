@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "exotic-blocks:fancy_snow_block"
-  },
-  "result": "exotic-blocks:fancy_snow_block_capped_square_column",
-  "count": 1
-}
