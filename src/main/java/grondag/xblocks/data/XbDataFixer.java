@@ -139,22 +139,22 @@ public class XbDataFixer {
 		MAP.put("rammed_earth", "b0b");
 		MAP.put("rammed_earth_species", "b0c");
 
-		MAP.put("black_connected_glass", "Black Connected Glass");
-		MAP.put("blue_connected_glass", "Blue Connected Glass");
-		MAP.put("brown_connected_glass", "Brown Connected Glass");
-		MAP.put("cyan_connected_glass", "Cyan Connected Glass");
-		MAP.put("gray_connected_glass", "Gray Connected Glass");
-		MAP.put("green_connected_glass", "Green Connected Glass");
-		MAP.put("light_blue_connected_glass", "Light Blue Connected Glass");
-		MAP.put("light_gray_connected_glass", "Light Gray Connected Glass");
-		MAP.put("lime_connected_glass", "Lime Connected Glass");
-		MAP.put("magenta_connected_glass", "Magenta Connected Glass");
-		MAP.put("orange_connected_glass", "Orange Connected Glass");
-		MAP.put("pink_connected_glass", "Pink Connected Glass");
-		MAP.put("purple_connected_glass", "Purple Connected Glass");
-		MAP.put("red_connected_glass", "Red Connected Glass");
-		MAP.put("white_connected_glass", "White Connected Glass");
-		MAP.put("yellow_connected_glass", "Yellow Connected Glass");
+		MAP.put("black_connected_glass", "gk");
+		MAP.put("blue_connected_glass", "gb");
+		MAP.put("brown_connected_glass", "gw");
+		MAP.put("cyan_connected_glass", "gc");
+		MAP.put("gray_connected_glass", "gn");
+		MAP.put("green_connected_glass", "gg");
+		MAP.put("light_blue_connected_glass", "gu");
+		MAP.put("light_gray_connected_glass", "ga");
+		MAP.put("lime_connected_glass", "gl");
+		MAP.put("magenta_connected_glass", "gm");
+		MAP.put("orange_connected_glass", "go");
+		MAP.put("pink_connected_glass", "gp");
+		MAP.put("purple_connected_glass", "gv");
+		MAP.put("red_connected_glass", "gr");
+		MAP.put("white_connected_glass", "gi");
+		MAP.put("yellow_connected_glass", "gy");
 
 		MAP.put("terracotta_wedge_straight", "s00a0");
 		MAP.put("terracotta_wedge_inside", "s00a2");

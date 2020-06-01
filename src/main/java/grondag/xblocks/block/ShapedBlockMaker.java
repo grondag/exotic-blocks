@@ -178,7 +178,7 @@ public class ShapedBlockMaker {
 
 
 		XmBlockRegistry.addBlockStates(block, bs -> PrimitiveStateFunction.builder()
-				.withJoin(BlockConnectors.SAME_BLOCK_OR_CONNECTABLE)
+				.withJoin(BlockConnectors.AXIS_JOIN_SAME_OR_CONNECTABLE)
 				.withDefaultState(PrimitiveState.AXIS_FROM_BLOCKSTATE.mutate(defaultState.mutableCopy(), bs))
 				.build());
 
