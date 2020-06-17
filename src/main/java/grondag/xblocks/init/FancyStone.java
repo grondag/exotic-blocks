@@ -6,12 +6,11 @@ import net.minecraft.block.Blocks;
 import grondag.xblocks.Xb;
 import grondag.xblocks.block.ShapedBlockRegistrator;
 import grondag.xblocks.block.SpeciesBlock;
-import grondag.xblocks.block.VertexProcessors;
 import grondag.xblocks.data.BlockNames;
 import grondag.xblocks.data.ShapedBlockNames;
 import grondag.xm.api.block.XmBlockRegistry;
 import grondag.xm.api.modelstate.primitive.PrimitiveStateFunction;
-import grondag.xm.api.paint.PaintBlendMode;
+import grondag.xm.api.paint.VertexProcessors;
 import grondag.xm.api.paint.XmPaint;
 import grondag.xm.api.primitive.simple.Cube;
 import grondag.xm.api.texture.XmTextures;
@@ -27,7 +26,6 @@ public enum FancyStone {
 				.texture(0, CoreTextures.BIGTEX_SANDSTONE)
 				.textureColor(0, 0xFF9090A0)
 				.texture(1, XmTextures.TILE_NOISE_BLUE_A)
-				.blendMode(1, PaintBlendMode.TRANSLUCENT)
 				.textureColor(1, 0xA0656d75)
 				.find();
 
@@ -38,10 +36,8 @@ public enum FancyStone {
 				.textureColor(0, 0xFF9090A0)
 				.texture(1, XmTextures.TILE_NOISE_BLUE_A)
 				.textureColor(1, 0xA0656d75)
-				.blendMode(1, PaintBlendMode.TRANSLUCENT)
 				.texture(2, CoreTextures.BORDER_SMOOTH_BLEND)
 				.textureColor(2, 0x802b2f33)
-				.blendMode(2, PaintBlendMode.TRANSLUCENT)
 				.find();
 
 		final Block fancyStone = Xb.REG.block(BlockNames.BLOCK_FANCY_STONE, new Block(Block.Settings.copy(Blocks.STONE)));

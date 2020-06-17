@@ -6,12 +6,11 @@ import net.minecraft.block.Blocks;
 import grondag.xblocks.Xb;
 import grondag.xblocks.block.ShapedBlockRegistrator;
 import grondag.xblocks.block.SpeciesBlock;
-import grondag.xblocks.block.VertexProcessors;
 import grondag.xblocks.data.BlockNames;
 import grondag.xblocks.data.ShapedBlockNames;
 import grondag.xm.api.block.XmBlockRegistry;
 import grondag.xm.api.modelstate.primitive.PrimitiveStateFunction;
-import grondag.xm.api.paint.PaintBlendMode;
+import grondag.xm.api.paint.VertexProcessors;
 import grondag.xm.api.paint.XmPaint;
 import grondag.xm.api.primitive.simple.Cube;
 import grondag.xm.api.texture.core.CoreTextures;
@@ -33,7 +32,6 @@ public enum RammedEarth {
 				.vertexProcessor(0, VertexProcessors.SPECIES_VARIATION)
 				.texture(1, CoreTextures.BORDER_WEATHERED_BLEND)
 				.textureColor(1, 0xB0402a1e)
-				.blendMode(1, PaintBlendMode.TRANSLUCENT)
 				.find();
 
 		final Block block = Xb.REG.block(BlockNames.BLOCK_RAMMED_EARTH, new Block(Block.Settings.copy(Blocks.TERRACOTTA)));

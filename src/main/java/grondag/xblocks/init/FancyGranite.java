@@ -10,7 +10,6 @@ import grondag.xblocks.data.BlockNames;
 import grondag.xblocks.data.ShapedBlockNames;
 import grondag.xm.api.block.XmBlockRegistry;
 import grondag.xm.api.modelstate.primitive.PrimitiveStateFunction;
-import grondag.xm.api.paint.PaintBlendMode;
 import grondag.xm.api.paint.XmPaint;
 import grondag.xm.api.primitive.simple.Cube;
 import grondag.xm.api.texture.XmTextures;
@@ -26,7 +25,6 @@ public enum FancyGranite {
 				.textureColor(0, 0xFF936655)
 				.texture(1, XmTextures.TILE_NOISE_BLUE_A)
 				.textureColor(1, 0x50FFEEDD)
-				.blendMode(1, PaintBlendMode.TRANSLUCENT)
 				.find();
 
 		final XmPaint connectedPaint = XmPaint.finder()
@@ -35,10 +33,8 @@ public enum FancyGranite {
 				.textureColor(0, 0xFF936655)
 				.texture(1, XmTextures.TILE_NOISE_BLUE_A)
 				.textureColor(1, 0x70FFEEDD)
-				.blendMode(1, PaintBlendMode.TRANSLUCENT)
 				.texture(2, CoreTextures.BORDER_BEVEL)
 				.textureColor(2, 0x80604030)
-				.blendMode(2, PaintBlendMode.TRANSLUCENT)
 				.find();
 
 		final Block block = Xb.REG.block(BlockNames.BLOCK_FANCY_GRANITE, new Block(Block.Settings.copy(Blocks.GRANITE)));
