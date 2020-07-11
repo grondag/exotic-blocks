@@ -21,7 +21,7 @@
   	"main": [ "grondag.xblocks.Xb" ],
   	"client": [ "grondag.xblocks.client.XbClient" ],
   	"modmenu": [ "grondag.xblocks.client.ModMenuHelper" ],
-	"rei_plugins_v0": [ "grondag.xblocks.compat.rei.XbReiPlugin" ]
+	"rei_plugins_v0": [ "grondag.xblocks.compat.XbReiPlugin" ]
   },
   "mixins": [
 	  {

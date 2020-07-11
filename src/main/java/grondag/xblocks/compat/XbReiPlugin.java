@@ -1,4 +1,4 @@
-package grondag.xblocks.compat.rei;
+package grondag.xblocks.compat;
 
 import me.shedaniel.rei.api.EntryRegistry;
 import me.shedaniel.rei.api.EntryStack;
