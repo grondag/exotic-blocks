@@ -1,0 +1,18 @@
+{
+	"layers": [
+		{
+			"blendMode": "solid",
+			"color": "0xFF441910",
+			"texture": "exotic-matter:sandstone",
+			"processor": "exotic-matter:variation"
+		}, {
+			"blendMode": "translucent",
+			"color": "0xFF3E6723",
+			"texture": "exotic-matter:blue_noise_a"
+		}, {
+			"blendMode": "translucent",
+			"color": "0xFF232730",
+			"texture": "exotic-matter:border_weathered_blend"
+		}
+	]
+}

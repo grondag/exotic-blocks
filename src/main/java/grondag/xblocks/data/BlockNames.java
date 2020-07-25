@@ -16,4 +16,14 @@ public abstract class BlockNames {
 	public static final String BLOCK_CONNECTED_FANCY_GRANITE = "b0a";
 	public static final String BLOCK_RAMMED_EARTH = "b0b";
 	public static final String BLOCK_CONNECTED_RAMMED_EARTH = "b0c";
+	public static final String BLOCK_OLD_STONE = "b0d";
+	public static final String BLOCK_OLD_STONE_MEGABRICK = "b0e";
+	public static final String BLOCK_ANCIENT_STONE = "b0f";
+	public static final String BLOCK_ANCIENT_STONE_MEGABRICK = "b0g";
+	public static final String BLOCK_BLACK_IRON = "b0h";
+	public static final String BLOCK_BLACK_IRON_PLATE = "b0i";
+	public static final String BLOCK_OLD_BLACK_IRON = "b0j";
+	public static final String BLOCK_OLD_BLACK_IRON_PLATE = "b0k";
+	public static final String BLOCK_RUSTY_BLACK_IRON = "b0l";
+	public static final String BLOCK_RUSTY_BLACK_IRON_PLATE = "b0m";
 }

@@ -1,0 +1,17 @@
+{
+	"layers": [
+		{
+			"blendMode": "solid",
+			"color": "0xFF161B2A",
+			"texture": "exotic-matter:granite"
+		}, {
+			"blendMode": "translucent",
+			"color": "0xFF602012",
+			"texture": "exotic-matter:blue_noise_a"
+		}, {
+			"blendMode": "translucent",
+			"color": "0xFF161B2A",
+			"texture": "exotic-matter:border_cobble"
+		}
+	]
+}

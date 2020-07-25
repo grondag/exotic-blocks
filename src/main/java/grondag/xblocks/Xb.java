@@ -32,6 +32,7 @@ import grondag.xblocks.init.FancyStone;
 import grondag.xblocks.init.FestiveLights;
 import grondag.xblocks.init.RammedEarth;
 import grondag.xblocks.init.ShapedBlocks;
+import grondag.xblocks.init.SimpleBlocks;
 import grondag.xblocks.init.XbItems;
 
 public class Xb implements ModInitializer {
@@ -51,6 +52,7 @@ public class Xb implements ModInitializer {
 		FancyDiorite.values();
 		FancyAndesite.values();
 		Cobbles.values();
+		SimpleBlocks.values();
 		ShapedBlocks.values();
 		FestiveLights.values();
 		XbItems.values();

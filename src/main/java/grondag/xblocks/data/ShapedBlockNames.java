@@ -154,4 +154,11 @@ public abstract class ShapedBlockNames {
 	public static final String SHAPED_FANCY_DIORITE = "s44";
 	public static final String SHAPED_FANCY_GRANITE = "s45";
 	public static final String SHAPED_RAMMED_EARTH = "s46";
+	public static final String SHAPED_OLD_STONE = "s47";
+	public static final String SHAPED_ANCIENT_STONE = "s48";
+	public static final String SHAPED_BLACK_IRON = "s49";
+	public static final String SHAPED_OLD_BLACK_IRON = "s4a";
+	public static final String SHAPED_RUSTY_BLACK_IRON = "s4b";
+
+
 }
