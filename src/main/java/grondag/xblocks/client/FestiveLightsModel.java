@@ -5,6 +5,9 @@ import java.util.Random;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
+import grondag.fermion.client.models.SimpleModel;
+import grondag.fermion.varia.BlueNoise;
+import grondag.xblocks.block.FestiveLightsBlock;
 import it.unimi.dsi.fastutil.floats.FloatArrayList;
 
 import net.minecraft.block.Block;
@@ -30,12 +33,8 @@ import net.fabricmc.fabric.api.renderer.v1.mesh.QuadEmitter;
 import net.fabricmc.fabric.api.renderer.v1.model.ModelHelper;
 import net.fabricmc.fabric.api.renderer.v1.render.RenderContext;
 
-import grondag.fermion.client.models.SimpleModel;
-import grondag.fermion.varia.BlueNoise;
-import grondag.xblocks.block.FestiveLightsBlock;
-
 public class FestiveLightsModel extends SimpleModel {
-	public static final List<SpriteIdentifier> TEXTURES = XbClient.REGISTRAR.spriteIdList(SpriteAtlasTexture.BLOCK_ATLAS_TEX, "block/small_lamps");
+	public static final List<SpriteIdentifier> TEXTURES = XbClient.REGISTRAR.spriteIdList(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, "block/small_lamps");
 
 	public static FestiveLightsModel create(Function<SpriteIdentifier, Sprite> spriteMap) {
 		return new FestiveLightsModel(spriteMap.apply(TEXTURES.get(0)));
@@ -56,9 +55,9 @@ public class FestiveLightsModel extends SimpleModel {
 
 	private static final float UV_STEP = 5f / 16f;
 	private static final float[] COLOR_UV = {
-			0, 0, 0, UV_STEP, 0, UV_STEP * 2,
-			UV_STEP, 0, UV_STEP, UV_STEP, UV_STEP, UV_STEP *  2,
-			UV_STEP * 2, 0, UV_STEP * 2, UV_STEP, UV_STEP * 2, UV_STEP * 2};
+	0, 0, 0, UV_STEP, 0, UV_STEP * 2,
+	UV_STEP, 0, UV_STEP, UV_STEP, UV_STEP, UV_STEP *  2,
+	UV_STEP * 2, 0, UV_STEP * 2, UV_STEP, UV_STEP * 2, UV_STEP * 2};
 
 	private static final float[][][] NOISE = new float[16][16][];
 
@@ -138,8 +137,8 @@ public class FestiveLightsModel extends SimpleModel {
 			}
 
 			final RangeFilter filterY = hasUp
-					? hasDown ?  FILTER_ENDS : FILTER_HIGH
-							: hasDown ? FILTER_LOW : FILTER_NONE;
+			? hasDown ?  FILTER_ENDS : FILTER_HIGH
+			: hasDown ? FILTER_LOW : FILTER_NONE;
 
 
 			if (hasEast) {
@@ -220,26 +219,26 @@ public class FestiveLightsModel extends SimpleModel {
 
 			if(xFilter.test(x) && yFilter.test(y)) {
 				switch(face) {
-				case UP:
-					emitQuads(qe, color, x, 1 - step, y, step);
-					break;
-				case DOWN:
-					emitQuads(qe, color, x, 0, y, step);
-					break;
-				case EAST:
-					emitQuads(qe, color, 1 - step, y, x, step);
-					break;
-				case NORTH:
-					emitQuads(qe, color, x, y, 0, step);
-					break;
-				case SOUTH:
-					emitQuads(qe, color, x, y, 1 - step, step);
-					break;
-				case WEST:
-					emitQuads(qe, color, 0, y, x, step);
-					break;
-				default:
-					break;
+					case UP:
+						emitQuads(qe, color, x, 1 - step, y, step);
+						break;
+					case DOWN:
+						emitQuads(qe, color, x, 0, y, step);
+						break;
+					case EAST:
+						emitQuads(qe, color, 1 - step, y, x, step);
+						break;
+					case NORTH:
+						emitQuads(qe, color, x, y, 0, step);
+						break;
+					case SOUTH:
+						emitQuads(qe, color, x, y, 1 - step, step);
+						break;
+					case WEST:
+						emitQuads(qe, color, 0, y, x, step);
+						break;
+					default:
+						break;
 
 				}
 			}
@@ -280,20 +279,20 @@ public class FestiveLightsModel extends SimpleModel {
 			final float y  = rand.nextFloat() * 0.5f + 0.25f;
 
 			switch(face) {
-			case EAST:
-				emitPendantQuads(qe, color, 1 - STEP, y, x, STEP);
-				break;
-			case NORTH:
-				emitPendantQuads(qe, color, x, y, 0, STEP);
-				break;
-			case SOUTH:
-				emitPendantQuads(qe, color, x, y, 1 - STEP, STEP);
-				break;
-			case WEST:
-				emitPendantQuads(qe, color, 0, y, x, STEP);
-				break;
-			default:
-				break;
+				case EAST:
+					emitPendantQuads(qe, color, 1 - STEP, y, x, STEP);
+					break;
+				case NORTH:
+					emitPendantQuads(qe, color, x, y, 0, STEP);
+					break;
+				case SOUTH:
+					emitPendantQuads(qe, color, x, y, 1 - STEP, STEP);
+					break;
+				case WEST:
+					emitPendantQuads(qe, color, 0, y, x, STEP);
+					break;
+				default:
+					break;
 			}
 		}
 	}

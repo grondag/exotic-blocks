@@ -26,6 +26,16 @@
 	"block.xb.b0a": "Connected Fancy Granite",
 	"block.xb.b0b": "Rammed Earth",
 	"block.xb.b0c": "Connected Rammed Earth",
+	"block.xb.b0d": "Old Stone",
+	"block.xb.b0e": "Old Stone Giant Bricks",
+	"block.xb.b0f": "Ancient Stone",
+	"block.xb.b0g": "Ancient Stone Giant Bricks",
+	"block.xb.b0h": "Black Iron",
+	"block.xb.b0i": "Black Iron Plates",
+	"block.xb.b0j": "Old Black Iron",
+	"block.xb.b0k": "Old Black Iron Plates",
+	"block.xb.b0l": "Rusty Black Iron",
+	"block.xb.b0m": "Rusty Black Iron Plates",
 
 	"block.xb.gk": "Black Connected Glass",
 	"block.xb.gb": "Blue Connected Glass",
@@ -8499,6 +8509,286 @@
 			"block.xb.s46ae": "Rammed Earth Wedge Cap",
 
 			"block.xb.s46af": "Rammed Earth Round-Capped Round Column",
+
+			"block.xb.s47a0": "Old Stone Straight Wedge",
+
+			"block.xb.s47a1": "Old Stone Omnidirectional Slab",
+
+			"block.xb.s47a2": "Old Stone Inside Wedge",
+
+			"block.xb.s47a3": "Old Stone Outside Wedge",
+
+			"block.xb.s47a4": "Old Stone Omnidirectional Stair",
+
+			"block.xb.s47a5": "Old Stone Inside Omnidirectional Stair",
+
+			"block.xb.s47a6": "Old Stone Outside Omnidirectional Stair",
+
+			"block.xb.s47a7": "Old Stone Square Column",
+
+					"block.xb.s47a7g": "Old Stone Square Column with Glowstone Inlay",
+					"block.xb.s47a7p": "Old Stone Square Column with Prismarine Inlay",
+					"block.xb.s47a7w": "Old Stone Square Column Lamp",
+					"block.xb.s47a7y": "Old Stone Square Column Glowstone Lamp",
+					"block.xb.s47a7b": "Old Stone Square Column Prismarine Lamp",
+			"block.xb.s47a8": "Old Stone Capped Round Column",
+
+			"block.xb.s47a9": "Old Stone Round Column",
+
+			"block.xb.s47aa": "Old Stone Cut Round Column",
+
+					"block.xb.s47aag": "Old Stone Cut Round Column with Glowstone Inlay",
+					"block.xb.s47aap": "Old Stone Cut Round Column with Prismarine Inlay",
+					"block.xb.s47aaw": "Old Stone Cut Round Column Lamp",
+					"block.xb.s47aay": "Old Stone Cut Round Column Glowstone Lamp",
+					"block.xb.s47aab": "Old Stone Cut Round Column Prismarine Lamp",
+
+					"block.xb.s47abg": "Old Stone Flat Panel with Glowstone Inlay",
+					"block.xb.s47abp": "Old Stone Flat Panel with Prismarine Inlay",
+					"block.xb.s47abw": "Old Stone Flat Panel Lamp",
+					"block.xb.s47aby": "Old Stone Flat Panel Glowstone Lamp",
+					"block.xb.s47abb": "Old Stone Flat Panel Prismarine Lamp",
+			"block.xb.s47ac": "Old Stone Inset Panel",
+
+					"block.xb.s47acg": "Old Stone Inset Panel with Glowstone Inlay",
+					"block.xb.s47acp": "Old Stone Inset Panel with Prismarine Inlay",
+					"block.xb.s47acw": "Old Stone Inset Panel Lamp",
+					"block.xb.s47acy": "Old Stone Inset Panel Glowstone Lamp",
+					"block.xb.s47acb": "Old Stone Inset Panel Prismarine Lamp",
+			"block.xb.s47ad": "Old Stone Capped Square Column",
+
+					"block.xb.s47adg": "Old Stone Capped Square Column with Glowstone Inlay",
+					"block.xb.s47adp": "Old Stone Capped Square Column with Prismarine Inlay",
+					"block.xb.s47adw": "Old Stone Capped Square Column Lamp",
+					"block.xb.s47ady": "Old Stone Capped Square Column Glowstone Lamp",
+					"block.xb.s47adb": "Old Stone Capped Square Column Prismarine Lamp",
+			"block.xb.s47ae": "Old Stone Wedge Cap",
+
+			"block.xb.s47af": "Old Stone Round-Capped Round Column",
+
+			"block.xb.s48a0": "Ancient Stone Straight Wedge",
+
+			"block.xb.s48a1": "Ancient Stone Omnidirectional Slab",
+
+			"block.xb.s48a2": "Ancient Stone Inside Wedge",
+
+			"block.xb.s48a3": "Ancient Stone Outside Wedge",
+
+			"block.xb.s48a4": "Ancient Stone Omnidirectional Stair",
+
+			"block.xb.s48a5": "Ancient Stone Inside Omnidirectional Stair",
+
+			"block.xb.s48a6": "Ancient Stone Outside Omnidirectional Stair",
+
+			"block.xb.s48a7": "Ancient Stone Square Column",
+
+					"block.xb.s48a7g": "Ancient Stone Square Column with Glowstone Inlay",
+					"block.xb.s48a7p": "Ancient Stone Square Column with Prismarine Inlay",
+					"block.xb.s48a7w": "Ancient Stone Square Column Lamp",
+					"block.xb.s48a7y": "Ancient Stone Square Column Glowstone Lamp",
+					"block.xb.s48a7b": "Ancient Stone Square Column Prismarine Lamp",
+			"block.xb.s48a8": "Ancient Stone Capped Round Column",
+
+			"block.xb.s48a9": "Ancient Stone Round Column",
+
+			"block.xb.s48aa": "Ancient Stone Cut Round Column",
+
+					"block.xb.s48aag": "Ancient Stone Cut Round Column with Glowstone Inlay",
+					"block.xb.s48aap": "Ancient Stone Cut Round Column with Prismarine Inlay",
+					"block.xb.s48aaw": "Ancient Stone Cut Round Column Lamp",
+					"block.xb.s48aay": "Ancient Stone Cut Round Column Glowstone Lamp",
+					"block.xb.s48aab": "Ancient Stone Cut Round Column Prismarine Lamp",
+
+					"block.xb.s48abg": "Ancient Stone Flat Panel with Glowstone Inlay",
+					"block.xb.s48abp": "Ancient Stone Flat Panel with Prismarine Inlay",
+					"block.xb.s48abw": "Ancient Stone Flat Panel Lamp",
+					"block.xb.s48aby": "Ancient Stone Flat Panel Glowstone Lamp",
+					"block.xb.s48abb": "Ancient Stone Flat Panel Prismarine Lamp",
+			"block.xb.s48ac": "Ancient Stone Inset Panel",
+
+					"block.xb.s48acg": "Ancient Stone Inset Panel with Glowstone Inlay",
+					"block.xb.s48acp": "Ancient Stone Inset Panel with Prismarine Inlay",
+					"block.xb.s48acw": "Ancient Stone Inset Panel Lamp",
+					"block.xb.s48acy": "Ancient Stone Inset Panel Glowstone Lamp",
+					"block.xb.s48acb": "Ancient Stone Inset Panel Prismarine Lamp",
+			"block.xb.s48ad": "Ancient Stone Capped Square Column",
+
+					"block.xb.s48adg": "Ancient Stone Capped Square Column with Glowstone Inlay",
+					"block.xb.s48adp": "Ancient Stone Capped Square Column with Prismarine Inlay",
+					"block.xb.s48adw": "Ancient Stone Capped Square Column Lamp",
+					"block.xb.s48ady": "Ancient Stone Capped Square Column Glowstone Lamp",
+					"block.xb.s48adb": "Ancient Stone Capped Square Column Prismarine Lamp",
+			"block.xb.s48ae": "Ancient Stone Wedge Cap",
+
+			"block.xb.s48af": "Ancient Stone Round-Capped Round Column",
+
+			"block.xb.s49a0": "Black Iron Straight Wedge",
+
+			"block.xb.s49a1": "Black Iron Omnidirectional Slab",
+
+			"block.xb.s49a2": "Black Iron Inside Wedge",
+
+			"block.xb.s49a3": "Black Iron Outside Wedge",
+
+			"block.xb.s49a4": "Black Iron Omnidirectional Stair",
+
+			"block.xb.s49a5": "Black Iron Inside Omnidirectional Stair",
+
+			"block.xb.s49a6": "Black Iron Outside Omnidirectional Stair",
+
+			"block.xb.s49a7": "Black Iron Square Column",
+
+					"block.xb.s49a7g": "Black Iron Square Column with Glowstone Inlay",
+					"block.xb.s49a7p": "Black Iron Square Column with Prismarine Inlay",
+					"block.xb.s49a7w": "Black Iron Square Column Lamp",
+					"block.xb.s49a7y": "Black Iron Square Column Glowstone Lamp",
+					"block.xb.s49a7b": "Black Iron Square Column Prismarine Lamp",
+			"block.xb.s49a8": "Black Iron Capped Round Column",
+
+			"block.xb.s49a9": "Black Iron Round Column",
+
+			"block.xb.s49aa": "Black Iron Cut Round Column",
+
+					"block.xb.s49aag": "Black Iron Cut Round Column with Glowstone Inlay",
+					"block.xb.s49aap": "Black Iron Cut Round Column with Prismarine Inlay",
+					"block.xb.s49aaw": "Black Iron Cut Round Column Lamp",
+					"block.xb.s49aay": "Black Iron Cut Round Column Glowstone Lamp",
+					"block.xb.s49aab": "Black Iron Cut Round Column Prismarine Lamp",
+
+					"block.xb.s49abg": "Black Iron Flat Panel with Glowstone Inlay",
+					"block.xb.s49abp": "Black Iron Flat Panel with Prismarine Inlay",
+					"block.xb.s49abw": "Black Iron Flat Panel Lamp",
+					"block.xb.s49aby": "Black Iron Flat Panel Glowstone Lamp",
+					"block.xb.s49abb": "Black Iron Flat Panel Prismarine Lamp",
+			"block.xb.s49ac": "Black Iron Inset Panel",
+
+					"block.xb.s49acg": "Black Iron Inset Panel with Glowstone Inlay",
+					"block.xb.s49acp": "Black Iron Inset Panel with Prismarine Inlay",
+					"block.xb.s49acw": "Black Iron Inset Panel Lamp",
+					"block.xb.s49acy": "Black Iron Inset Panel Glowstone Lamp",
+					"block.xb.s49acb": "Black Iron Inset Panel Prismarine Lamp",
+			"block.xb.s49ad": "Black Iron Capped Square Column",
+
+					"block.xb.s49adg": "Black Iron Capped Square Column with Glowstone Inlay",
+					"block.xb.s49adp": "Black Iron Capped Square Column with Prismarine Inlay",
+					"block.xb.s49adw": "Black Iron Capped Square Column Lamp",
+					"block.xb.s49ady": "Black Iron Capped Square Column Glowstone Lamp",
+					"block.xb.s49adb": "Black Iron Capped Square Column Prismarine Lamp",
+			"block.xb.s49ae": "Black Iron Wedge Cap",
+
+			"block.xb.s49af": "Black Iron Round-Capped Round Column",
+
+			"block.xb.s4aa0": "Old Black Iron Straight Wedge",
+
+			"block.xb.s4aa1": "Old Black Iron Omnidirectional Slab",
+
+			"block.xb.s4aa2": "Old Black Iron Inside Wedge",
+
+			"block.xb.s4aa3": "Old Black Iron Outside Wedge",
+
+			"block.xb.s4aa4": "Old Black Iron Omnidirectional Stair",
+
+			"block.xb.s4aa5": "Old Black Iron Inside Omnidirectional Stair",
+
+			"block.xb.s4aa6": "Old Black Iron Outside Omnidirectional Stair",
+
+			"block.xb.s4aa7": "Old Black Iron Square Column",
+
+					"block.xb.s4aa7g": "Old Black Iron Square Column with Glowstone Inlay",
+					"block.xb.s4aa7p": "Old Black Iron Square Column with Prismarine Inlay",
+					"block.xb.s4aa7w": "Old Black Iron Square Column Lamp",
+					"block.xb.s4aa7y": "Old Black Iron Square Column Glowstone Lamp",
+					"block.xb.s4aa7b": "Old Black Iron Square Column Prismarine Lamp",
+			"block.xb.s4aa8": "Old Black Iron Capped Round Column",
+
+			"block.xb.s4aa9": "Old Black Iron Round Column",
+
+			"block.xb.s4aaa": "Old Black Iron Cut Round Column",
+
+					"block.xb.s4aaag": "Old Black Iron Cut Round Column with Glowstone Inlay",
+					"block.xb.s4aaap": "Old Black Iron Cut Round Column with Prismarine Inlay",
+					"block.xb.s4aaaw": "Old Black Iron Cut Round Column Lamp",
+					"block.xb.s4aaay": "Old Black Iron Cut Round Column Glowstone Lamp",
+					"block.xb.s4aaab": "Old Black Iron Cut Round Column Prismarine Lamp",
+
+					"block.xb.s4aabg": "Old Black Iron Flat Panel with Glowstone Inlay",
+					"block.xb.s4aabp": "Old Black Iron Flat Panel with Prismarine Inlay",
+					"block.xb.s4aabw": "Old Black Iron Flat Panel Lamp",
+					"block.xb.s4aaby": "Old Black Iron Flat Panel Glowstone Lamp",
+					"block.xb.s4aabb": "Old Black Iron Flat Panel Prismarine Lamp",
+			"block.xb.s4aac": "Old Black Iron Inset Panel",
+
+					"block.xb.s4aacg": "Old Black Iron Inset Panel with Glowstone Inlay",
+					"block.xb.s4aacp": "Old Black Iron Inset Panel with Prismarine Inlay",
+					"block.xb.s4aacw": "Old Black Iron Inset Panel Lamp",
+					"block.xb.s4aacy": "Old Black Iron Inset Panel Glowstone Lamp",
+					"block.xb.s4aacb": "Old Black Iron Inset Panel Prismarine Lamp",
+			"block.xb.s4aad": "Old Black Iron Capped Square Column",
+
+					"block.xb.s4aadg": "Old Black Iron Capped Square Column with Glowstone Inlay",
+					"block.xb.s4aadp": "Old Black Iron Capped Square Column with Prismarine Inlay",
+					"block.xb.s4aadw": "Old Black Iron Capped Square Column Lamp",
+					"block.xb.s4aady": "Old Black Iron Capped Square Column Glowstone Lamp",
+					"block.xb.s4aadb": "Old Black Iron Capped Square Column Prismarine Lamp",
+			"block.xb.s4aae": "Old Black Iron Wedge Cap",
+
+			"block.xb.s4aaf": "Old Black Iron Round-Capped Round Column",
+
+			"block.xb.s4ba0": "Rusty Black Iron Straight Wedge",
+
+			"block.xb.s4ba1": "Rusty Black Iron Omnidirectional Slab",
+
+			"block.xb.s4ba2": "Rusty Black Iron Inside Wedge",
+
+			"block.xb.s4ba3": "Rusty Black Iron Outside Wedge",
+
+			"block.xb.s4ba4": "Rusty Black Iron Omnidirectional Stair",
+
+			"block.xb.s4ba5": "Rusty Black Iron Inside Omnidirectional Stair",
+
+			"block.xb.s4ba6": "Rusty Black Iron Outside Omnidirectional Stair",
+
+			"block.xb.s4ba7": "Rusty Black Iron Square Column",
+
+					"block.xb.s4ba7g": "Rusty Black Iron Square Column with Glowstone Inlay",
+					"block.xb.s4ba7p": "Rusty Black Iron Square Column with Prismarine Inlay",
+					"block.xb.s4ba7w": "Rusty Black Iron Square Column Lamp",
+					"block.xb.s4ba7y": "Rusty Black Iron Square Column Glowstone Lamp",
+					"block.xb.s4ba7b": "Rusty Black Iron Square Column Prismarine Lamp",
+			"block.xb.s4ba8": "Rusty Black Iron Capped Round Column",
+
+			"block.xb.s4ba9": "Rusty Black Iron Round Column",
+
+			"block.xb.s4baa": "Rusty Black Iron Cut Round Column",
+
+					"block.xb.s4baag": "Rusty Black Iron Cut Round Column with Glowstone Inlay",
+					"block.xb.s4baap": "Rusty Black Iron Cut Round Column with Prismarine Inlay",
+					"block.xb.s4baaw": "Rusty Black Iron Cut Round Column Lamp",
+					"block.xb.s4baay": "Rusty Black Iron Cut Round Column Glowstone Lamp",
+					"block.xb.s4baab": "Rusty Black Iron Cut Round Column Prismarine Lamp",
+
+					"block.xb.s4babg": "Rusty Black Iron Flat Panel with Glowstone Inlay",
+					"block.xb.s4babp": "Rusty Black Iron Flat Panel with Prismarine Inlay",
+					"block.xb.s4babw": "Rusty Black Iron Flat Panel Lamp",
+					"block.xb.s4baby": "Rusty Black Iron Flat Panel Glowstone Lamp",
+					"block.xb.s4babb": "Rusty Black Iron Flat Panel Prismarine Lamp",
+			"block.xb.s4bac": "Rusty Black Iron Inset Panel",
+
+					"block.xb.s4bacg": "Rusty Black Iron Inset Panel with Glowstone Inlay",
+					"block.xb.s4bacp": "Rusty Black Iron Inset Panel with Prismarine Inlay",
+					"block.xb.s4bacw": "Rusty Black Iron Inset Panel Lamp",
+					"block.xb.s4bacy": "Rusty Black Iron Inset Panel Glowstone Lamp",
+					"block.xb.s4bacb": "Rusty Black Iron Inset Panel Prismarine Lamp",
+			"block.xb.s4bad": "Rusty Black Iron Capped Square Column",
+
+					"block.xb.s4badg": "Rusty Black Iron Capped Square Column with Glowstone Inlay",
+					"block.xb.s4badp": "Rusty Black Iron Capped Square Column with Prismarine Inlay",
+					"block.xb.s4badw": "Rusty Black Iron Capped Square Column Lamp",
+					"block.xb.s4bady": "Rusty Black Iron Capped Square Column Glowstone Lamp",
+					"block.xb.s4badb": "Rusty Black Iron Capped Square Column Prismarine Lamp",
+			"block.xb.s4bae": "Rusty Black Iron Wedge Cap",
+
+			"block.xb.s4baf": "Rusty Black Iron Round-Capped Round Column",
 
 
 	"block.xb.faa": "Festive Lights - Warm White, All Faces",

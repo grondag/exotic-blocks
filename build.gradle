@@ -1,5 +1,5 @@
 plugins {
-	id "fabric-loom" version "0.2.7-SNAPSHOT"
+	id "fabric-loom" version "0.5-SNAPSHOT"
 	id "eclipse"
 	id "maven-publish"
 	id "com.github.breadmoirai.github-release" version "2.2.9"
@@ -159,12 +159,13 @@ githubRelease {
 		repo project.github_repository
 	}
 
-	tagName project.version
+	body changelog()
+  
+	tagName project.version + "-unstable"
 	targetCommitish { org.ajoberstar.grgit.Grgit.open(dir: ".").branch.current().name }
-	releaseName project.version
-
-	FilenameFilter filter = { dir, filename -> filename.contains(project.version) && !filename.contains("-dev.jar") }
-	releaseAssets = jar.destinationDir.listFiles filter
+	releaseName project.version + " Unstable"
+	prerelease true
+	releaseAssets = remapJar
 }
 
 curseforge {
