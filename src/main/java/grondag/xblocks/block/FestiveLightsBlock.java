@@ -1,6 +1,6 @@
 package grondag.xblocks.block;
 
-import javax.annotation.Nullable;
+import org.jetbrains.annotations.Nullable;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -71,11 +71,11 @@ public abstract class FestiveLightsBlock extends Block implements Waterloggable 
 
 	public FestiveLightsBlock(int... colors) {
 		super(FabricBlockSettings.of(Material.SUPPORTED)
-				.breakByHand(true)
-				.strength(0.2F, 0.2F)
-				.noCollision()
-				.lightLevel(4)
-				.sounds(BlockSoundGroup.LANTERN));
+			.breakByHand(true)
+			.strength(0.2F, 0.2F)
+			.noCollision()
+			.lightLevel(4)
+			.sounds(BlockSoundGroup.LANTERN));
 		setDefaultState(defaultState());
 		this.colors = colors;
 	}
@@ -210,26 +210,26 @@ public abstract class FestiveLightsBlock extends Block implements Waterloggable 
 	@Override
 	public BlockState rotate(BlockState blockState, BlockRotation blockRotation) {
 		switch(blockRotation) {
-		case CLOCKWISE_180:
-			return blockState.with(NORTH, blockState.get(SOUTH)).with(EAST, blockState.get(WEST)).with(SOUTH, blockState.get(NORTH)).with(WEST, blockState.get(EAST));
-		case COUNTERCLOCKWISE_90:
-			return blockState.with(NORTH, blockState.get(EAST)).with(EAST, blockState.get(SOUTH)).with(SOUTH, blockState.get(WEST)).with(WEST, blockState.get(NORTH));
-		case CLOCKWISE_90:
-			return blockState.with(NORTH, blockState.get(WEST)).with(EAST, blockState.get(NORTH)).with(SOUTH, blockState.get(EAST)).with(WEST, blockState.get(SOUTH));
-		default:
-			return blockState;
+			case CLOCKWISE_180:
+				return blockState.with(NORTH, blockState.get(SOUTH)).with(EAST, blockState.get(WEST)).with(SOUTH, blockState.get(NORTH)).with(WEST, blockState.get(EAST));
+			case COUNTERCLOCKWISE_90:
+				return blockState.with(NORTH, blockState.get(EAST)).with(EAST, blockState.get(SOUTH)).with(SOUTH, blockState.get(WEST)).with(WEST, blockState.get(NORTH));
+			case CLOCKWISE_90:
+				return blockState.with(NORTH, blockState.get(WEST)).with(EAST, blockState.get(NORTH)).with(SOUTH, blockState.get(EAST)).with(WEST, blockState.get(SOUTH));
+			default:
+				return blockState;
 		}
 	}
 
 	@Override
 	public BlockState mirror(BlockState blockState, BlockMirror blockMirror) {
 		switch(blockMirror) {
-		case LEFT_RIGHT:
-			return blockState.with(NORTH, blockState.get(SOUTH)).with(SOUTH, blockState.get(NORTH));
-		case FRONT_BACK:
-			return blockState.with(EAST, blockState.get(WEST)).with(WEST, blockState.get(EAST));
-		default:
-			return super.mirror(blockState, blockMirror);
+			case LEFT_RIGHT:
+				return blockState.with(NORTH, blockState.get(SOUTH)).with(SOUTH, blockState.get(NORTH));
+			case FRONT_BACK:
+				return blockState.with(EAST, blockState.get(WEST)).with(WEST, blockState.get(EAST));
+			default:
+				return super.mirror(blockState, blockMirror);
 		}
 	}
 
