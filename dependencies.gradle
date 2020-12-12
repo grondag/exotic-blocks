@@ -54,6 +54,7 @@ dependencies {
 	modImplementation ("grondag:exotic-matter-${project.mc_tag}:${project.exotic_matter_version}.+") { transitive = false }
 	modImplementation ("grondag:exotic-art-core-${project.mc_tag}:${project.exotic_art_core_version}.+") { transitive = false }
 	modImplementation ("grondag:frex-${project.mc_tag}:${project.frex_version}.+") { transitive = false }
+	modImplementation ("grondag:frex-events-${project.mc_tag}:${project.frex_events_version}.+") { transitive = false }
 	modImplementation ("grondag:fermion-${project.mc_tag}:${project.fermion_version}.+") { transitive = false }
 	modImplementation ("grondag:fermion-modkeys-${project.mc_tag}:${project.fermion_modkeys_version}.+") { transitive = false }
     modImplementation ("grondag:fermion-varia-${project.mc_tag}:${project.fermion_varia_version}.+") { transitive = false }
@@ -68,6 +69,7 @@ dependencies {
 	    include "grondag:fermion-varia-${project.mc_tag}:${project.fermion_varia_version}.+"
 	    include "grondag:fermion-orientation-${project.mc_tag}:${project.fermion_orientation_version}.+"
 	    include "grondag:special-circumstances-${project.mc_tag}:${project.special_circumstances_version}.+"
+	    include "grondag:frex-events-${project.mc_tag}:${project.frex_events_version}.+"
 		include "io.github.cottonmc:Jankson-Fabric:${jankson_version}"
 		include "me.shedaniel.cloth:config-2:${clothconfig_version}"
  	}
