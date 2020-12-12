@@ -5,9 +5,6 @@ import java.util.Random;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-import grondag.fermion.client.models.SimpleModel;
-import grondag.fermion.varia.BlueNoise;
-import grondag.xblocks.block.FestiveLightsBlock;
 import it.unimi.dsi.fastutil.floats.FloatArrayList;
 
 import net.minecraft.block.Block;
@@ -32,6 +29,10 @@ import net.fabricmc.fabric.api.renderer.v1.mesh.MutableQuadView;
 import net.fabricmc.fabric.api.renderer.v1.mesh.QuadEmitter;
 import net.fabricmc.fabric.api.renderer.v1.model.ModelHelper;
 import net.fabricmc.fabric.api.renderer.v1.render.RenderContext;
+
+import grondag.fermion.client.models.SimpleModel;
+import grondag.fermion.varia.BlueNoise;
+import grondag.xblocks.block.FestiveLightsBlock;
 
 public class FestiveLightsModel extends SimpleModel {
 	public static final List<SpriteIdentifier> TEXTURES = XbClient.REGISTRAR.spriteIdList(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, "block/small_lamps");
@@ -250,8 +251,8 @@ public class FestiveLightsModel extends SimpleModel {
 		emitFace(qe, Direction.DOWN, color, x, z, y, step);
 		emitFace(qe, Direction.EAST, color, 1 - z - step, y, 1 - x - step, step);
 		emitFace(qe, Direction.WEST, color, z, y, x, step);
-		emitFace(qe, Direction.NORTH, color, x, y, z, step);
-		emitFace(qe, Direction.SOUTH, color, 1 - x - step, y, 1 - z - step, step);
+		emitFace(qe, Direction.NORTH, color, 1 - x - step, y, z, step);
+		emitFace(qe, Direction.SOUTH, color, x, y, 1 - z - step, step);
 	}
 
 	protected final void emitFace(QuadEmitter qe, Direction face, int color, float x, float y, float d, float step) {
