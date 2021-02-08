@@ -35,6 +35,7 @@ public enum RammedEarth {
 				.find();
 
 		final Block block = Xb.REG.block(BlockNames.BLOCK_RAMMED_EARTH, new Block(Block.Settings.copy(Blocks.TERRACOTTA)));
+
 		XmBlockRegistry.addBlock(block, PrimitiveStateFunction.ofDefaultState(
 				Cube.INSTANCE.newState()
 				.paintAll(mainPaint)
