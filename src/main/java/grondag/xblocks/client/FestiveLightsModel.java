@@ -303,8 +303,8 @@ public class FestiveLightsModel extends SimpleModel {
 		emitPendantFace(qe, Direction.DOWN, color, x, z, 1 - y, step);
 		emitPendantFace(qe, Direction.EAST, color, 1 - z - step, 1 - y, 1 - x - step, step);
 		emitPendantFace(qe, Direction.WEST, color, z, 1 - y, x, step);
-		emitPendantFace(qe, Direction.NORTH, color, x, 1 - y, z, step);
-		emitPendantFace(qe, Direction.SOUTH, color, 1 - x - step, 1 - y, 1 - z - step, step);
+		emitPendantFace(qe, Direction.NORTH, color, 1 - x - step, 1 - y, z, step);
+		emitPendantFace(qe, Direction.SOUTH, color, x, 1 - y, 1 - z - step, step);
 	}
 
 	protected final void emitPendantFace(QuadEmitter qe, Direction face, int color, float x, float y, float d, float step) {

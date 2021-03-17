@@ -1,8 +1,8 @@
 package grondag.xblocks.init;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.MapColor;
 import net.minecraft.block.Material;
-import net.minecraft.block.MaterialColor;
 import net.minecraft.sound.BlockSoundGroup;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -22,7 +22,7 @@ public enum FancySnow {
 	;
 
 
-	public static final Material FANCY_SNOW_MATERIAL = (new Material.Builder(MaterialColor.WHITE)).build();
+	public static final Material FANCY_SNOW_MATERIAL = (new Material.Builder(MapColor.WHITE)).build();
 	public final static Block FANCY_SNOW_BLOCK = Xb.REG.block(BlockNames.BLOCK_FANCY_SNOW, new Block(settings()));
 
 	//	public static Block basalt_cool_dynamic_height = null;

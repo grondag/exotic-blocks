@@ -70,11 +70,11 @@ public abstract class FestiveLightsBlock extends Block implements Waterloggable 
 	public final int colors[];
 
 	public FestiveLightsBlock(int... colors) {
-		super(FabricBlockSettings.of(Material.SUPPORTED)
+		super(FabricBlockSettings.of(Material.AGGREGATE)
 			.breakByHand(true)
 			.strength(0.2F, 0.2F)
 			.noCollision()
-			.lightLevel(4)
+			.luminance(4)
 			.sounds(BlockSoundGroup.LANTERN));
 		setDefaultState(defaultState());
 		this.colors = colors;
