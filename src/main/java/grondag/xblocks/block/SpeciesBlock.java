@@ -50,7 +50,7 @@ public class SpeciesBlock extends Block {
 	@Override
 	public BlockState getPlacementState(ItemPlacementContext context) {
 		final Direction onFace = context.getSide();
-		final BlockPos onPos = context.getBlockPos().offset(onFace.getOpposite());
+		final BlockPos onPos = context.getBlockPos().method_35851(onFace.getOpposite());
 		final SpeciesMode mode = XbConfig.modKey.test(context.getPlayer())
 				? SpeciesMode.COUNTER_MOST : SpeciesMode.MATCH_MOST;
 		final int species = Species.speciesForPlacement(context.getWorld(), onPos, onFace, mode, speciesFunc);
