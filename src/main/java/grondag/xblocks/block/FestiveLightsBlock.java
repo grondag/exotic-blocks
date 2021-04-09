@@ -154,7 +154,7 @@ public abstract class FestiveLightsBlock extends Block implements Waterloggable 
 	}
 
 	protected boolean shouldHaveSide(BlockView blockView, BlockPos blockPos, Direction direction) {
-		return direction != null && shouldConnectTo(blockView, blockPos.method_35851(direction), direction);
+		return direction != null && shouldConnectTo(blockView, blockPos.offset(direction), direction);
 	}
 
 	protected boolean shouldConnectTo(BlockView blockView, BlockPos blockPos, Direction direction) {
