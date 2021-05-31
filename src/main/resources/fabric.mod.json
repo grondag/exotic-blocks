@@ -35,9 +35,5 @@
     "minecraft": "1.17.x",
     "java": ">=16",
     "exotic-matter": "*"
-  },
-  "custom": {
-    "modmenu:api": false,
-    "modmenu:clientsideOnly": false
   }
 }

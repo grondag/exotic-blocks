@@ -36,11 +36,11 @@ dependencies {
         exclude group :"net.fabricmc.fabric-loader"
     }
     
-    modImplementation ("me.shedaniel:RoughlyEnoughItems:${project.rei_version}") {
-        exclude module:  "ModMenu"
-        exclude group: "net.fabricmc.fabric-api"
-        exclude group :"net.fabricmc.fabric-loader"
-	}
+    //modImplementation ("me.shedaniel:RoughlyEnoughItems:${project.rei_version}") {
+    //    exclude module:  "ModMenu"
+    //    exclude group: "net.fabricmc.fabric-api"
+    //    exclude group :"net.fabricmc.fabric-loader"
+	//}
     
 	modImplementation ("me.shedaniel.cloth:cloth-config-fabric:${clothconfig_version}") {
         exclude group :"io.github.prospector.modmenu"
@@ -48,10 +48,10 @@ dependencies {
         exclude group :"net.fabricmc.fabric-loader"
     }
 	
-	//modImplementation ("io.github.prospector:modmenu:${project.modmenu_version}") {
-    //    exclude group :"net.fabricmc.fabric-api"
-    //    exclude group :"net.fabricmc.fabric-loader"
-    //}
+	modApi("com.terraformersmc:modmenu:${project.modmenu_version}") {
+		exclude group: "net.fabricmc.fabric-api"
+		exclude group: "net.fabricmc.fabric-loader"
+	}
     
 	modImplementation ("grondag:exotic-matter-${project.mc_tag}:${project.exotic_matter_version}.+") { transitive = false; changing = true; }
 	modImplementation ("grondag:exotic-art-core-${project.mc_tag}:${project.exotic_art_core_version}.+") { transitive = false; changing = true; }
