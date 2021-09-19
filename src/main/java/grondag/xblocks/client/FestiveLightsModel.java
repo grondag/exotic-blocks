@@ -6,19 +6,6 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 
 import it.unimi.dsi.fastutil.floats.FloatArrayList;
-
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.client.texture.Sprite;
-import net.minecraft.client.texture.SpriteAtlasTexture;
-import net.minecraft.client.util.SpriteIdentifier;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.Direction.Axis;
-import net.minecraft.world.BlockRenderView;
-
 import net.fabricmc.fabric.api.renderer.v1.Renderer;
 import net.fabricmc.fabric.api.renderer.v1.RendererAccess;
 import net.fabricmc.fabric.api.renderer.v1.material.BlendMode;
@@ -29,15 +16,25 @@ import net.fabricmc.fabric.api.renderer.v1.mesh.MutableQuadView;
 import net.fabricmc.fabric.api.renderer.v1.mesh.QuadEmitter;
 import net.fabricmc.fabric.api.renderer.v1.model.ModelHelper;
 import net.fabricmc.fabric.api.renderer.v1.render.RenderContext;
-
+import net.minecraft.client.renderer.texture.TextureAtlas;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.client.resources.model.Material;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.Direction.Axis;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.BlockAndTintGetter;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
 import grondag.fermion.client.models.SimpleModel;
 import grondag.fermion.varia.BlueNoise;
 import grondag.xblocks.block.FestiveLightsBlock;
 
 public class FestiveLightsModel extends SimpleModel {
-	public static final List<SpriteIdentifier> TEXTURES = XbClient.REGISTRAR.spriteIdList(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, "block/small_lamps");
+	public static final List<Material> TEXTURES = XbClient.REGISTRAR.spriteIdList(TextureAtlas.LOCATION_BLOCKS, "block/small_lamps");
 
-	public static FestiveLightsModel create(Function<SpriteIdentifier, Sprite> spriteMap) {
+	public static FestiveLightsModel create(Function<Material, TextureAtlasSprite> spriteMap) {
 		return new FestiveLightsModel(spriteMap.apply(TEXTURES.get(0)));
 	}
 
@@ -87,12 +84,12 @@ public class FestiveLightsModel extends SimpleModel {
 	protected final Renderer renderer = RendererAccess.INSTANCE.getRenderer();
 	protected final RenderMaterial material = renderer.materialFinder().emissive(0, true).disableAo(0, true).disableDiffuse(0, true).blendMode(0, BlendMode.SOLID).find();
 
-	public FestiveLightsModel(Sprite sprite) {
+	public FestiveLightsModel(TextureAtlasSprite sprite) {
 		super(sprite, ModelHelper.MODEL_TRANSFORM_BLOCK);
 	}
 
 	@Override
-	public final void emitBlockQuads(BlockRenderView blockView, BlockState state, BlockPos pos, Supplier<Random> randomSupplier, RenderContext context) {
+	public final void emitBlockQuads(BlockAndTintGetter blockView, BlockState state, BlockPos pos, Supplier<Random> randomSupplier, RenderContext context) {
 
 		if (!(state.getBlock() instanceof FestiveLightsBlock)) {
 			return;

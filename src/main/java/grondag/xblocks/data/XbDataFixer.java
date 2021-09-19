@@ -3,27 +3,24 @@ package grondag.xblocks.data;
 import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.StringTag;
+import net.minecraft.nbt.Tag;
 import org.apache.commons.lang3.StringUtils;
-
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtElement;
-import net.minecraft.nbt.NbtList;
-import net.minecraft.nbt.NbtString;
-
 import grondag.xblocks.Xb;
 
 public class XbDataFixer {
 	public static final int MINIFY_STARTING_WORLD_VERSION = 2555;
 
-	public static void update(int vanillaDynamicDataVersion, int vanillaRuntimeDataVersion, NbtCompound tag) {
+	public static void update(int vanillaDynamicDataVersion, int vanillaRuntimeDataVersion, CompoundTag tag) {
 		if (vanillaDynamicDataVersion < MINIFY_STARTING_WORLD_VERSION) {
 			assert vanillaRuntimeDataVersion >= MINIFY_STARTING_WORLD_VERSION;
 			fixCompoundTag(tag);
 		}
 	}
 
-	static void fixListTag(NbtList tag) {
+	static void fixListTag(ListTag tag) {
 		if (tag.isEmpty()) {
 			return;
 		}
@@ -31,24 +28,24 @@ public class XbDataFixer {
 		final int limit = tag.size();
 
 		for (int i = 0; i < limit; ++i ) {
-			final NbtElement subTag = tag.get(i);
+			final Tag subTag = tag.get(i);
 
 			if (subTag != null) {
-				switch(subTag.getType()) {
+				switch(subTag.getId()) {
 				case  8: {
 					// string
-					final String val = fixStringTag(tag.asString());
+					final String val = fixStringTag(tag.getAsString());
 
 					if (val != null) {
-						tag.set(i, NbtString.of(val));
+						tag.set(i, StringTag.valueOf(val));
 					}
 					break;
 				}
 				case  9: // list
-					fixListTag((NbtList) subTag);
+					fixListTag((ListTag) subTag);
 					break;
 				case 10: // compound
-					fixCompoundTag((NbtCompound) subTag);
+					fixCompoundTag((CompoundTag) subTag);
 					break;
 				default:
 					// NOOP
@@ -82,19 +79,19 @@ public class XbDataFixer {
 		return null;
 	}
 
-	static void fixCompoundTag(NbtCompound tag) {
+	static void fixCompoundTag(CompoundTag tag) {
 		if (tag.isEmpty()) {
 			return;
 		}
 
-		for (final String key : tag.getKeys()) {
-			final NbtElement subTag = tag.get(key);
+		for (final String key : tag.getAllKeys()) {
+			final Tag subTag = tag.get(key);
 
 			if (subTag != null) {
-				switch(subTag.getType()) {
+				switch(subTag.getId()) {
 				case  8: {
 					// string
-					final String val = fixStringTag(subTag.asString());
+					final String val = fixStringTag(subTag.getAsString());
 
 					if (val != null) {
 						tag.putString(key, val);
@@ -104,11 +101,11 @@ public class XbDataFixer {
 				}
 
 				case  9: // list
-					fixListTag((NbtList) subTag);
+					fixListTag((ListTag) subTag);
 					break;
 
 				case 10: // compound
-					fixCompoundTag((NbtCompound) subTag);
+					fixCompoundTag((CompoundTag) subTag);
 					break;
 
 				default:

@@ -2,11 +2,10 @@ package grondag.xblocks.init;
 
 import static grondag.xblocks.block.ShapedBlockRegistrator.registerShapes;
 
-import net.minecraft.block.Blocks;
-
 import grondag.xblocks.data.ShapedBlockNames;
 import grondag.xm.api.paint.XmPaint;
 import grondag.xm.api.texture.McTextures;
+import net.minecraft.world.level.block.Blocks;
 
 public enum ShapedBlocks {
 	;

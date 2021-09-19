@@ -1,7 +1,7 @@
 package grondag.xblocks.init;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 
 import grondag.xblocks.Xb;
 import grondag.xblocks.block.ShapedBlockRegistrator;
@@ -34,7 +34,7 @@ public enum RammedEarth {
 				.textureColor(1, 0xB0402a1e)
 				.find();
 
-		final Block block = Xb.REG.block(BlockNames.BLOCK_RAMMED_EARTH, new Block(Block.Settings.copy(Blocks.TERRACOTTA)));
+		final Block block = Xb.REG.block(BlockNames.BLOCK_RAMMED_EARTH, new Block(Block.Properties.copy(Blocks.TERRACOTTA)));
 
 		XmBlockRegistry.addBlock(block, PrimitiveStateFunction.ofDefaultState(
 				Cube.INSTANCE.newState()

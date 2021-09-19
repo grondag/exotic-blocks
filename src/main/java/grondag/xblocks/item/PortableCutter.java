@@ -1,35 +1,35 @@
 package grondag.xblocks.item;
 
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.screen.NamedScreenHandlerFactory;
-import net.minecraft.screen.ScreenHandlerContext;
-import net.minecraft.screen.SimpleNamedScreenHandlerFactory;
-import net.minecraft.stat.Stats;
-import net.minecraft.text.TranslatableText;
-import net.minecraft.util.Hand;
-import net.minecraft.util.TypedActionResult;
-import net.minecraft.world.World;
+import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.stats.Stats;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.MenuProvider;
+import net.minecraft.world.SimpleMenuProvider;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.ContainerLevelAccess;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 
 public class PortableCutter extends Item {
 
-	private static final TranslatableText CONTAINER_NAME = new TranslatableText("container.stonecutter", new Object[0]);
+	private static final TranslatableComponent CONTAINER_NAME = new TranslatableComponent("container.stonecutter", new Object[0]);
 
-	public PortableCutter(Settings settings) {
+	public PortableCutter(Properties settings) {
 		super(settings);
 	}
 
 	@Override
-	public TypedActionResult<ItemStack> use(World world, PlayerEntity playerEntity, Hand hand) {
-		if (!world.isClient) {
-			final NamedScreenHandlerFactory provider = new SimpleNamedScreenHandlerFactory((i, playerInventory, player) -> {
-				return new PortableCutterContainer(i, playerInventory, ScreenHandlerContext.create(world, playerEntity.getBlockPos()), player.getStackInHand(hand));
+	public InteractionResultHolder<ItemStack> use(Level world, Player playerEntity, InteractionHand hand) {
+		if (!world.isClientSide) {
+			final MenuProvider provider = new SimpleMenuProvider((i, playerInventory, player) -> {
+				return new PortableCutterContainer(i, playerInventory, ContainerLevelAccess.create(world, playerEntity.blockPosition()), player.getItemInHand(hand));
 			}, CONTAINER_NAME);
 
-			playerEntity.openHandledScreen(provider);
-			playerEntity.incrementStat(Stats.INTERACT_WITH_STONECUTTER);
+			playerEntity.openMenu(provider);
+			playerEntity.awardStat(Stats.INTERACT_WITH_STONECUTTER);
 		}
-		return TypedActionResult.success(playerEntity.getStackInHand(hand));
+		return InteractionResultHolder.success(playerEntity.getItemInHand(hand));
 	}
 }

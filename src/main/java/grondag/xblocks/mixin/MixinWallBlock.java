@@ -19,12 +19,10 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
-import net.minecraft.block.BlockState;
-import net.minecraft.block.WallBlock;
-import net.minecraft.util.math.Direction;
-
 import grondag.xblocks.block.FenceHelper;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.block.WallBlock;
+import net.minecraft.world.level.block.state.BlockState;
 
 @Mixin(WallBlock.class)
 public class MixinWallBlock {

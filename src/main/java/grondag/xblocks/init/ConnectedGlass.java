@@ -34,10 +34,10 @@ import static grondag.xm.api.texture.TextureRenderIntent.OVERLAY_ONLY;
 import static grondag.xm.api.texture.TextureScale.SINGLE;
 import static grondag.xm.api.texture.TextureTransform.IDENTITY;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.GlassBlock;
-import net.minecraft.util.Identifier;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.GlassBlock;
 
 import grondag.xblocks.Xb;
 import grondag.xblocks.data.ColorNames;
@@ -114,12 +114,12 @@ public enum ConnectedGlass {
 	}
 
 	private static void connectedGlass(Block block, String color, String id) {
-		final Identifier paintId = Xb.REG.id(color + "_connected_glass");
+		final ResourceLocation paintId = Xb.REG.id(color + "_connected_glass");
 		final XmPaint paint = XmPaintRegistry.INSTANCE.get(paintId);
 
 		final Block connectedGlass = Xb.REG.block(
 				"g" + id,
-				new GlassBlock(Block.Settings.copy(block)));
+				new GlassBlock(Block.Properties.copy(block)));
 
 		final PrimitiveStateFunction stateFunc = PrimitiveStateFunction.ofDefaultState(
 				Cube.INSTANCE.newState()

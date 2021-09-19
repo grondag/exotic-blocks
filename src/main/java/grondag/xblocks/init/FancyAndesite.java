@@ -1,7 +1,7 @@
 package grondag.xblocks.init;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 
 import grondag.xblocks.Xb;
 import grondag.xblocks.block.ShapedBlockRegistrator;
@@ -36,7 +36,7 @@ public enum FancyAndesite {
 				.textureColor(2, 0xA0b6bcbc)
 				.find();
 
-		final Block block = Xb.REG.block(BlockNames.BLOCK_FANCY_ANDESITE, new Block(Block.Settings.copy(Blocks.ANDESITE)));
+		final Block block = Xb.REG.block(BlockNames.BLOCK_FANCY_ANDESITE, new Block(Block.Properties.copy(Blocks.ANDESITE)));
 		XmBlockRegistry.addBlock(block, PrimitiveStateFunction.ofDefaultState(
 				Cube.INSTANCE.newState()
 				.paintAll(mainPaint)

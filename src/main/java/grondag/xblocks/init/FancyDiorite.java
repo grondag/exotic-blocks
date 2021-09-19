@@ -1,7 +1,7 @@
 package grondag.xblocks.init;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 
 import grondag.xblocks.Xb;
 import grondag.xblocks.block.ShapedBlockRegistrator;
@@ -37,7 +37,7 @@ public enum FancyDiorite {
 				.textureColor(2, 0x60000000)
 				.find();
 
-		final Block block = Xb.REG.block(BlockNames.BLOCK_FANCY_DIORITE, new Block(Block.Settings.copy(Blocks.DIORITE)));
+		final Block block = Xb.REG.block(BlockNames.BLOCK_FANCY_DIORITE, new Block(Block.Properties.copy(Blocks.DIORITE)));
 		XmBlockRegistry.addBlock(block, PrimitiveStateFunction.ofDefaultState(
 				Cube.INSTANCE.newState()
 				.paintAll(mainPaint)

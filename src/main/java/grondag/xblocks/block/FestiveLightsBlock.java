@@ -2,40 +2,40 @@ package grondag.xblocks.block;
 
 import org.jetbrains.annotations.Nullable;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.ConnectingBlock;
-import net.minecraft.block.Material;
-import net.minecraft.block.ShapeContext;
-import net.minecraft.block.Waterloggable;
-import net.minecraft.fluid.FluidState;
-import net.minecraft.fluid.Fluids;
-import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.state.StateManager;
-import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.state.property.Properties;
-import net.minecraft.util.BlockMirror;
-import net.minecraft.util.BlockRotation;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.Direction.Axis;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.util.shape.VoxelShapes;
-import net.minecraft.world.BlockView;
-import net.minecraft.world.WorldAccess;
-import net.minecraft.world.WorldView;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.Direction.Axis;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.Mirror;
+import net.minecraft.world.level.block.PipeBlock;
+import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.level.block.SimpleWaterloggedBlock;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 
-public abstract class FestiveLightsBlock extends Block implements Waterloggable {
-	public static final BooleanProperty UP = ConnectingBlock.UP;
-	public static final BooleanProperty DOWN = ConnectingBlock.DOWN;
-	public static final BooleanProperty NORTH = ConnectingBlock.NORTH;
-	public static final BooleanProperty EAST = ConnectingBlock.EAST;
-	public static final BooleanProperty SOUTH = ConnectingBlock.SOUTH;
-	public static final BooleanProperty WEST = ConnectingBlock.WEST;
+public abstract class FestiveLightsBlock extends Block implements SimpleWaterloggedBlock {
+	public static final BooleanProperty UP = PipeBlock.UP;
+	public static final BooleanProperty DOWN = PipeBlock.DOWN;
+	public static final BooleanProperty NORTH = PipeBlock.NORTH;
+	public static final BooleanProperty EAST = PipeBlock.EAST;
+	public static final BooleanProperty SOUTH = PipeBlock.SOUTH;
+	public static final BooleanProperty WEST = PipeBlock.WEST;
 
 	private static final Direction[] FACES = Direction.values();
 	public static final BooleanProperty[] FACING_PROPERTIES;
@@ -50,12 +50,12 @@ public abstract class FestiveLightsBlock extends Block implements Waterloggable 
 		FACING_PROPERTIES[Direction.WEST.ordinal()] = WEST;
 	}
 
-	protected static final VoxelShape UP_SHAPE = Block.createCuboidShape(0.0D, 15.0D, 0.0D, 16.0D, 16.0D, 16.0D);
-	protected static final VoxelShape DOWN_SHAPE = Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 1.0D, 16.0D);
-	protected static final VoxelShape WEST_SHAPE = Block.createCuboidShape(0.0D, 0.0D, 0.0D, 1.0D, 16.0D, 16.0D);
-	protected static final VoxelShape EAST_SHAPE = Block.createCuboidShape(15.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D);
-	protected static final VoxelShape NORTH_SHAPE = Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 1.0D);
-	protected static final VoxelShape SOUTH_SHAPE = Block.createCuboidShape(0.0D, 0.0D, 15.0D, 16.0D, 16.0D, 16.0D);
+	protected static final VoxelShape UP_SHAPE = Block.box(0.0D, 15.0D, 0.0D, 16.0D, 16.0D, 16.0D);
+	protected static final VoxelShape DOWN_SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 1.0D, 16.0D);
+	protected static final VoxelShape WEST_SHAPE = Block.box(0.0D, 0.0D, 0.0D, 1.0D, 16.0D, 16.0D);
+	protected static final VoxelShape EAST_SHAPE = Block.box(15.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D);
+	protected static final VoxelShape NORTH_SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 1.0D);
+	protected static final VoxelShape SOUTH_SHAPE = Block.box(0.0D, 0.0D, 15.0D, 16.0D, 16.0D, 16.0D);
 
 	public static final int WARM_WHITE = 0;
 	public static final int BLUE = 1;
@@ -70,23 +70,23 @@ public abstract class FestiveLightsBlock extends Block implements Waterloggable 
 	public final int colors[];
 
 	public FestiveLightsBlock(int... colors) {
-		super(FabricBlockSettings.of(Material.AGGREGATE)
+		super(FabricBlockSettings.of(Material.SAND)
+			.luminance(4)
 			.breakByHand(true)
 			.strength(0.2F, 0.2F)
-			.noCollision()
-			.luminance(4)
-			.sounds(BlockSoundGroup.LANTERN));
-		setDefaultState(defaultState());
+			.noCollission()
+			.sound(SoundType.LANTERN));
+		registerDefaultState(defaultState());
 		this.colors = colors;
 	}
 
 	@Override
-	protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-		builder.add(Properties.WATERLOGGED);
+	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+		builder.add(BlockStateProperties.WATERLOGGED);
 	}
 
 	protected BlockState defaultState() {
-		return stateManager.getDefaultState().with(Properties.WATERLOGGED, false);
+		return stateDefinition.any().setValue(BlockStateProperties.WATERLOGGED, false);
 	}
 
 	public abstract boolean hasFace(BlockState state, Direction face);
@@ -96,38 +96,38 @@ public abstract class FestiveLightsBlock extends Block implements Waterloggable 
 	}
 
 	@Override
-	public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos blockPos, ShapeContext entityContext) {
-		VoxelShape voxelShape = VoxelShapes.empty();
+	public VoxelShape getShape(BlockState blockState, BlockGetter blockView, BlockPos blockPos, CollisionContext entityContext) {
+		VoxelShape voxelShape = Shapes.empty();
 
 		if (hasFace(blockState, Direction.UP)) {
-			voxelShape = VoxelShapes.union(voxelShape, UP_SHAPE);
+			voxelShape = Shapes.or(voxelShape, UP_SHAPE);
 		}
 
 		if (hasFace(blockState, Direction.NORTH)) {
-			voxelShape = VoxelShapes.union(voxelShape, NORTH_SHAPE);
+			voxelShape = Shapes.or(voxelShape, NORTH_SHAPE);
 		}
 
 		if (hasFace(blockState, Direction.EAST)) {
-			voxelShape = VoxelShapes.union(voxelShape, EAST_SHAPE);
+			voxelShape = Shapes.or(voxelShape, EAST_SHAPE);
 		}
 
 		if (hasFace(blockState, Direction.SOUTH)) {
-			voxelShape = VoxelShapes.union(voxelShape, SOUTH_SHAPE);
+			voxelShape = Shapes.or(voxelShape, SOUTH_SHAPE);
 		}
 
 		if (hasFace(blockState, Direction.WEST)) {
-			voxelShape = VoxelShapes.union(voxelShape, WEST_SHAPE);
+			voxelShape = Shapes.or(voxelShape, WEST_SHAPE);
 		}
 
 		if (hasFace(blockState, Direction.DOWN)) {
-			voxelShape = VoxelShapes.union(voxelShape, DOWN_SHAPE);
+			voxelShape = Shapes.or(voxelShape, DOWN_SHAPE);
 		}
 
 		return voxelShape;
 	}
 
 	@Override
-	public boolean canPlaceAt(BlockState blockState, WorldView worldView, BlockPos blockPos) {
+	public boolean canSurvive(BlockState blockState, LevelReader worldView, BlockPos blockPos) {
 		for(final Direction face : FACES) {
 			if (shouldHaveSide(worldView, blockPos,  face)) {
 				return true;
@@ -153,81 +153,81 @@ public abstract class FestiveLightsBlock extends Block implements Waterloggable 
 		return count;
 	}
 
-	protected boolean shouldHaveSide(BlockView blockView, BlockPos blockPos, Direction direction) {
-		return direction != null && shouldConnectTo(blockView, blockPos.offset(direction), direction);
+	protected boolean shouldHaveSide(BlockGetter blockView, BlockPos blockPos, Direction direction) {
+		return direction != null && shouldConnectTo(blockView, blockPos.relative(direction), direction);
 	}
 
-	protected boolean shouldConnectTo(BlockView blockView, BlockPos blockPos, Direction direction) {
+	protected boolean shouldConnectTo(BlockGetter blockView, BlockPos blockPos, Direction direction) {
 		final BlockState blockState = blockView.getBlockState(blockPos);
-		return Block.isFaceFullSquare(blockState.getCollisionShape(blockView, blockPos), direction.getOpposite());
+		return Block.isFaceFull(blockState.getCollisionShape(blockView, blockPos), direction.getOpposite());
 	}
 
 	@Override
-	public BlockState getStateForNeighborUpdate(BlockState blockState, Direction direction, BlockState blockState2, WorldAccess iWorld, BlockPos blockPos, BlockPos blockPos2) {
+	public BlockState updateShape(BlockState blockState, Direction direction, BlockState blockState2, LevelAccessor iWorld, BlockPos blockPos, BlockPos blockPos2) {
 		for(int i = 0; i < 6; i++) {
 			final Direction face = FACES[i];
 			final boolean needsFace = shouldHaveSide(iWorld, blockPos, face);
 
 			if (hasFace(blockState, face) != needsFace)  {
-				blockState = blockState.with(FACING_PROPERTIES[i], needsFace);
+				blockState = blockState.setValue(FACING_PROPERTIES[i], needsFace);
 			}
 		}
 
-		if (blockState.get(Properties.WATERLOGGED)) {
-			iWorld.getFluidTickScheduler().schedule(blockPos, Fluids.WATER, Fluids.WATER.getTickRate(iWorld));
+		if (blockState.getValue(BlockStateProperties.WATERLOGGED)) {
+			iWorld.getLiquidTicks().scheduleTick(blockPos, Fluids.WATER, Fluids.WATER.getTickDelay(iWorld));
 		}
 
-		return !hasAdjacentBlocks(blockState) ? Blocks.AIR.getDefaultState() : blockState;
+		return !hasAdjacentBlocks(blockState) ? Blocks.AIR.defaultBlockState() : blockState;
 	}
 
 	@Override
 	@Nullable
-	public BlockState getPlacementState(ItemPlacementContext itemPlacementContext) {
-		BlockState result = getDefaultState();
+	public BlockState getStateForPlacement(BlockPlaceContext itemPlacementContext) {
+		BlockState result = defaultBlockState();
 		boolean valid = false;
 
-		final WorldView worldView = itemPlacementContext.getWorld();
-		final BlockPos blockPos = itemPlacementContext.getBlockPos();
+		final LevelReader worldView = itemPlacementContext.getLevel();
+		final BlockPos blockPos = itemPlacementContext.getClickedPos();
 		final FluidState fluidState = worldView.getFluidState(blockPos);
 
-		for(final Direction direction : itemPlacementContext.getPlacementDirections()) {
+		for(final Direction direction : itemPlacementContext.getNearestLookingDirections()) {
 			final BooleanProperty prop = getFacingProperty(direction);
 
 			if (shouldHaveSide(worldView, blockPos, direction)) {
-				result = result.with(prop, true);
+				result = result.setValue(prop, true);
 				valid = true;
 			}
 		}
 
-		return valid ? result.with(Properties.WATERLOGGED, fluidState.getFluid() == Fluids.WATER) : null;
+		return valid ? result.setValue(BlockStateProperties.WATERLOGGED, fluidState.getType() == Fluids.WATER) : null;
 	}
 
 	@Override
 	public FluidState getFluidState(BlockState blockState) {
-		return blockState.get(Properties.WATERLOGGED) ? Fluids.WATER.getStill(false) : super.getFluidState(blockState);
+		return blockState.getValue(BlockStateProperties.WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(blockState);
 	}
 
 	@Override
-	public BlockState rotate(BlockState blockState, BlockRotation blockRotation) {
+	public BlockState rotate(BlockState blockState, Rotation blockRotation) {
 		switch(blockRotation) {
 			case CLOCKWISE_180:
-				return blockState.with(NORTH, blockState.get(SOUTH)).with(EAST, blockState.get(WEST)).with(SOUTH, blockState.get(NORTH)).with(WEST, blockState.get(EAST));
+				return blockState.setValue(NORTH, blockState.getValue(SOUTH)).setValue(EAST, blockState.getValue(WEST)).setValue(SOUTH, blockState.getValue(NORTH)).setValue(WEST, blockState.getValue(EAST));
 			case COUNTERCLOCKWISE_90:
-				return blockState.with(NORTH, blockState.get(EAST)).with(EAST, blockState.get(SOUTH)).with(SOUTH, blockState.get(WEST)).with(WEST, blockState.get(NORTH));
+				return blockState.setValue(NORTH, blockState.getValue(EAST)).setValue(EAST, blockState.getValue(SOUTH)).setValue(SOUTH, blockState.getValue(WEST)).setValue(WEST, blockState.getValue(NORTH));
 			case CLOCKWISE_90:
-				return blockState.with(NORTH, blockState.get(WEST)).with(EAST, blockState.get(NORTH)).with(SOUTH, blockState.get(EAST)).with(WEST, blockState.get(SOUTH));
+				return blockState.setValue(NORTH, blockState.getValue(WEST)).setValue(EAST, blockState.getValue(NORTH)).setValue(SOUTH, blockState.getValue(EAST)).setValue(WEST, blockState.getValue(SOUTH));
 			default:
 				return blockState;
 		}
 	}
 
 	@Override
-	public BlockState mirror(BlockState blockState, BlockMirror blockMirror) {
+	public BlockState mirror(BlockState blockState, Mirror blockMirror) {
 		switch(blockMirror) {
 			case LEFT_RIGHT:
-				return blockState.with(NORTH, blockState.get(SOUTH)).with(SOUTH, blockState.get(NORTH));
+				return blockState.setValue(NORTH, blockState.getValue(SOUTH)).setValue(SOUTH, blockState.getValue(NORTH));
 			case FRONT_BACK:
-				return blockState.with(EAST, blockState.get(WEST)).with(WEST, blockState.get(EAST));
+				return blockState.setValue(EAST, blockState.getValue(WEST)).setValue(WEST, blockState.getValue(EAST));
 			default:
 				return super.mirror(blockState, blockMirror);
 		}
@@ -244,17 +244,17 @@ public abstract class FestiveLightsBlock extends Block implements Waterloggable 
 
 		@Override
 		protected BlockState defaultState() {
-			return super.defaultState().with(UP, false).with(NORTH, false).with(EAST, false).with(SOUTH, false).with(WEST, false).with(DOWN, false);
+			return super.defaultState().setValue(UP, false).setValue(NORTH, false).setValue(EAST, false).setValue(SOUTH, false).setValue(WEST, false).setValue(DOWN, false);
 		}
 
 		@Override
 		public boolean hasFace(BlockState state, Direction face) {
-			return state.get(getFacingProperty(face));
+			return state.getValue(getFacingProperty(face));
 		}
 
 		@Override
-		protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-			super.appendProperties(builder);
+		protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+			super.createBlockStateDefinition(builder);
 			builder.add(UP, DOWN, NORTH, EAST, SOUTH, WEST);
 		}
 	}
@@ -266,7 +266,7 @@ public abstract class FestiveLightsBlock extends Block implements Waterloggable 
 
 		@Override
 		protected BlockState defaultState() {
-			return super.defaultState().with(NORTH, false).with(EAST, false).with(SOUTH, false).with(WEST, false);
+			return super.defaultState().setValue(NORTH, false).setValue(EAST, false).setValue(SOUTH, false).setValue(WEST, false);
 		}
 
 		@Override
@@ -274,18 +274,18 @@ public abstract class FestiveLightsBlock extends Block implements Waterloggable 
 			if (face == Direction.UP || face == Direction.DOWN) {
 				return false;
 			} else {
-				return state.get(getFacingProperty(face));
+				return state.getValue(getFacingProperty(face));
 			}
 		}
 
 		@Override
-		protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-			super.appendProperties(builder);
+		protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+			super.createBlockStateDefinition(builder);
 			builder.add(NORTH, EAST, SOUTH, WEST);
 		}
 
 		@Override
-		protected boolean shouldConnectTo(BlockView blockView, BlockPos blockPos, Direction direction) {
+		protected boolean shouldConnectTo(BlockGetter blockView, BlockPos blockPos, Direction direction) {
 			return direction.getAxis() != Axis.Y &&  super.shouldConnectTo(blockView, blockPos, direction);
 		}
 	}
@@ -297,43 +297,43 @@ public abstract class FestiveLightsBlock extends Block implements Waterloggable 
 
 		@Override
 		public boolean hasFace(BlockState state, Direction face) {
-			return state.get(Properties.FACING) == face;
+			return state.getValue(BlockStateProperties.FACING) == face;
 		}
 
 		@Override
-		protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-			super.appendProperties(builder);
-			builder.add(Properties.FACING);
+		protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+			super.createBlockStateDefinition(builder);
+			builder.add(BlockStateProperties.FACING);
 		}
 
 		@Override
-		public BlockState rotate(BlockState blockState, BlockRotation blockRotation) {
-			return blockState.with(Properties.FACING, blockRotation.rotate(blockState.get(Properties.FACING)));
+		public BlockState rotate(BlockState blockState, Rotation blockRotation) {
+			return blockState.setValue(BlockStateProperties.FACING, blockRotation.rotate(blockState.getValue(BlockStateProperties.FACING)));
 		}
 
 		@Override
-		public BlockState mirror(BlockState blockState, BlockMirror blockMirror) {
-			return blockState.rotate(blockMirror.getRotation(blockState.get(Properties.FACING)));
+		public BlockState mirror(BlockState blockState, Mirror blockMirror) {
+			return blockState.rotate(blockMirror.getRotation(blockState.getValue(BlockStateProperties.FACING)));
 		}
 
 		@Override
 		@Nullable
-		public BlockState getPlacementState(ItemPlacementContext itemPlacementContext) {
-			final Direction direction = itemPlacementContext.getPlacementDirections()[0];
+		public BlockState getStateForPlacement(BlockPlaceContext itemPlacementContext) {
+			final Direction direction = itemPlacementContext.getNearestLookingDirections()[0];
 
-			if (shouldHaveSide(itemPlacementContext.getWorld(), itemPlacementContext.getBlockPos(), direction)) {
-				return  getDefaultState().with(Properties.FACING, direction);
+			if (shouldHaveSide(itemPlacementContext.getLevel(), itemPlacementContext.getClickedPos(), direction)) {
+				return  defaultBlockState().setValue(BlockStateProperties.FACING, direction);
 			}  else {
 				return null;
 			}
 		}
 
 		@Override
-		public BlockState getStateForNeighborUpdate(BlockState blockState, Direction direction, BlockState blockState2, WorldAccess iWorld, BlockPos blockPos, BlockPos blockPos2) {
-			if (direction != blockState.get(Properties.FACING)) {
+		public BlockState updateShape(BlockState blockState, Direction direction, BlockState blockState2, LevelAccessor iWorld, BlockPos blockPos, BlockPos blockPos2) {
+			if (direction != blockState.getValue(BlockStateProperties.FACING)) {
 				return blockState;
 			}else {
-				return shouldConnectTo(iWorld, blockPos2, direction) ? blockState : Blocks.AIR.getDefaultState();
+				return shouldConnectTo(iWorld, blockPos2, direction) ? blockState : Blocks.AIR.defaultBlockState();
 			}
 		}
 	}

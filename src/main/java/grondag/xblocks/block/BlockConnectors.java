@@ -18,13 +18,11 @@ package grondag.xblocks.block;
 
 import com.google.common.collect.ImmutableSet;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
-
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.PillarBlock;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction.Axis;
-
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction.Axis;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.state.BlockState;
 import grondag.xm.api.connect.world.BlockTest;
 import grondag.xm.api.modelstate.primitive.PrimitiveState;
 
@@ -55,7 +53,7 @@ public enum BlockConnectors {
 	public static BlockTest<PrimitiveState> AXIS_JOIN_SAME_BLOCK = ctx -> {
 		// must be an axis block, obviously.
 		final BlockState fromBlock = ctx.fromBlockState();
-		if (!fromBlock.contains(PillarBlock.AXIS)) {
+		if (!fromBlock.hasProperty(RotatedPillarBlock.AXIS)) {
 			return false;
 		}
 
@@ -66,8 +64,8 @@ public enum BlockConnectors {
 		}
 
 		// must be same axis
-		final Axis axis = fromBlock.get(PillarBlock.AXIS);
-		if (axis != toBlock.get(PillarBlock.AXIS)) {
+		final Axis axis = fromBlock.getValue(RotatedPillarBlock.AXIS);
+		if (axis != toBlock.getValue(RotatedPillarBlock.AXIS)) {
 			return false;
 		}
 
@@ -82,7 +80,7 @@ public enum BlockConnectors {
 	public static BlockTest<PrimitiveState> AXIS_JOIN_SAME_OR_CONNECTABLE = ctx -> {
 		// must be an axis block, obviously.
 		final BlockState fromBlock = ctx.fromBlockState();
-		if (!fromBlock.contains(PillarBlock.AXIS)) {
+		if (!fromBlock.hasProperty(RotatedPillarBlock.AXIS)) {
 			return false;
 		}
 
@@ -95,8 +93,8 @@ public enum BlockConnectors {
 		}
 
 		// must be same axis
-		final Axis axis = fromBlock.get(PillarBlock.AXIS);
-		if (axis != toBlock.get(PillarBlock.AXIS)) {
+		final Axis axis = fromBlock.getValue(RotatedPillarBlock.AXIS);
+		if (axis != toBlock.getValue(RotatedPillarBlock.AXIS)) {
 			return false;
 		}
 

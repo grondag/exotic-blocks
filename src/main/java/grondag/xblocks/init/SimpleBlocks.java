@@ -1,7 +1,7 @@
 package grondag.xblocks.init;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 
 import grondag.xblocks.Xb;
 import grondag.xblocks.block.ShapedBlockRegistrator;
@@ -39,7 +39,7 @@ public enum SimpleBlocks {
 	}
 
 	public static Block simpleBlock(Block template, String mainName, String paintName) {
-		final Block block = Xb.REG.block(mainName, new Block(Block.Settings.copy(template)));
+		final Block block = Xb.REG.block(mainName, new Block(Block.Properties.copy(template)));
 
 		XmBlockRegistry.addBlock(block, PrimitiveStateFunction.ofDefaultState(
 				Cube.INSTANCE.newState()

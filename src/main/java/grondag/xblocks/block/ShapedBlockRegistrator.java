@@ -16,8 +16,8 @@
 
 package grondag.xblocks.block;
 
-import net.minecraft.block.Block;
-import net.minecraft.util.Identifier;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Block;
 
 import grondag.fermion.color.ColorHelper;
 import grondag.xblocks.Xb;
@@ -81,7 +81,7 @@ public class ShapedBlockRegistrator {
 
 		final Block wedge = Xb.REG.block(
 				name + Shapes.WEDGE,
-				new StairLike(blockIn.getDefaultState(), Block.Settings.copy(blockIn), StairLike.Shape.STRAIGHT, XbConfig::isModKeyPressed, XbConfig::isForceKeyPressed));
+				new StairLike(blockIn.defaultBlockState(), Block.Properties.copy(blockIn), StairLike.Shape.STRAIGHT, XbConfig::isModKeyPressed, XbConfig::isForceKeyPressed));
 		XmBlockRegistry.addBlockStates(wedge, bs -> PrimitiveStateFunction.builder()
 				.withDefaultState(StairLike.MODELSTATE_FROM_BLOCKSTATE.mutate(
 						Wedge.INSTANCE.newState()
@@ -93,7 +93,7 @@ public class ShapedBlockRegistrator {
 
 		final Block insideWedge = Xb.REG.block(
 				name + Shapes.INSIDE_WEDGE,
-				new StairLike(blockIn.getDefaultState(), Block.Settings.copy(blockIn), StairLike.Shape.INSIDE_CORNER, XbConfig::isModKeyPressed, XbConfig::isForceKeyPressed));
+				new StairLike(blockIn.defaultBlockState(), Block.Properties.copy(blockIn), StairLike.Shape.INSIDE_CORNER, XbConfig::isModKeyPressed, XbConfig::isForceKeyPressed));
 		XmBlockRegistry.addBlockStates(insideWedge, bs -> PrimitiveStateFunction.builder()
 				.withDefaultState(StairLike.MODELSTATE_FROM_BLOCKSTATE.mutate(
 						Wedge.INSTANCE.newState()
@@ -105,7 +105,7 @@ public class ShapedBlockRegistrator {
 
 		final Block outsideWedge = Xb.REG.block(
 				name + Shapes.OUTSIDE_WEDGE,
-				new StairLike(blockIn.getDefaultState(), Block.Settings.copy(blockIn), StairLike.Shape.OUTSIDE_CORNER, XbConfig::isModKeyPressed, XbConfig::isForceKeyPressed));
+				new StairLike(blockIn.defaultBlockState(), Block.Properties.copy(blockIn), StairLike.Shape.OUTSIDE_CORNER, XbConfig::isModKeyPressed, XbConfig::isForceKeyPressed));
 		XmBlockRegistry.addBlockStates(outsideWedge, bs -> PrimitiveStateFunction.builder()
 				.withDefaultState(StairLike.MODELSTATE_FROM_BLOCKSTATE.mutate(
 						Wedge.INSTANCE.newState()
@@ -117,7 +117,7 @@ public class ShapedBlockRegistrator {
 
 		final Block omniStair = Xb.REG.block(
 				name + Shapes.STAIR,
-				new StairLike(blockIn.getDefaultState(), Block.Settings.copy(blockIn), StairLike.Shape.STRAIGHT, XbConfig::isModKeyPressed, XbConfig::isForceKeyPressed));
+				new StairLike(blockIn.defaultBlockState(), Block.Properties.copy(blockIn), StairLike.Shape.STRAIGHT, XbConfig::isModKeyPressed, XbConfig::isForceKeyPressed));
 		XmBlockRegistry.addBlockStates(omniStair, bs -> PrimitiveStateFunction.builder()
 				.withDefaultState(StairLike.MODELSTATE_FROM_BLOCKSTATE.mutate(
 						Stair.INSTANCE.newState()
@@ -131,7 +131,7 @@ public class ShapedBlockRegistrator {
 
 		final Block omniStairInside = Xb.REG.block(
 				name + Shapes.INSIDE_STAIR,
-				new StairLike(blockIn.getDefaultState(), Block.Settings.copy(blockIn), StairLike.Shape.INSIDE_CORNER, XbConfig::isModKeyPressed, XbConfig::isForceKeyPressed));
+				new StairLike(blockIn.defaultBlockState(), Block.Properties.copy(blockIn), StairLike.Shape.INSIDE_CORNER, XbConfig::isModKeyPressed, XbConfig::isForceKeyPressed));
 		XmBlockRegistry.addBlockStates(omniStairInside, bs -> PrimitiveStateFunction.builder()
 				.withDefaultState(StairLike.MODELSTATE_FROM_BLOCKSTATE.mutate(
 						Stair.INSTANCE.newState()
@@ -145,7 +145,7 @@ public class ShapedBlockRegistrator {
 
 		final Block omniStairOutside = Xb.REG.block(
 				name + Shapes.OUTSIDE_STAIR,
-				new StairLike(blockIn.getDefaultState(), Block.Settings.copy(blockIn), StairLike.Shape.OUTSIDE_CORNER, XbConfig::isModKeyPressed, XbConfig::isForceKeyPressed));
+				new StairLike(blockIn.defaultBlockState(), Block.Properties.copy(blockIn), StairLike.Shape.OUTSIDE_CORNER, XbConfig::isModKeyPressed, XbConfig::isForceKeyPressed));
 		XmBlockRegistry.addBlockStates(omniStairOutside, bs -> PrimitiveStateFunction.builder()
 				.withDefaultState(StairLike.MODELSTATE_FROM_BLOCKSTATE.mutate(
 						Stair.INSTANCE.newState()
@@ -167,7 +167,7 @@ public class ShapedBlockRegistrator {
 		final Block wedgeCap =  ShapedBlockMaker.wedgeCap(name, "", blockIn, paintTop, paintBottom);
 		final Block slab =  ShapedBlockMaker.slab(name, "", blockIn, paintTop, paintBottom, paintSide);
 
-		XmPaint glow = XmPaintRegistry.INSTANCE.get(new Identifier("xb:prismarine_glow"));
+		XmPaint glow = XmPaintRegistry.INSTANCE.get(new ResourceLocation("xb:prismarine_glow"));
 
 		final Block prismarineInsetPanel =  ShapedBlockMaker.insetPanel(name, Inlays.PRISMARINE_GLOW, blockIn, paintTop, paintSide, glow, 0);
 		final Block prismarineFlatPanel = ShapedBlockMaker.flatPanel(name, Inlays.PRISMARINE_GLOW, blockIn, paintTop, glow, 0);
@@ -187,7 +187,7 @@ public class ShapedBlockRegistrator {
 		BlockConnectors.connect(prismarineCappedSquareColumn, prismarineCappedSquareColumnLamp);
 		BlockConnectors.connect(prismarineCutRoundColumn, prismarineCutRoundColumnLamp);
 
-		glow = XmPaintRegistry.INSTANCE.get(new Identifier("xb:glowstone_glow"));
+		glow = XmPaintRegistry.INSTANCE.get(new ResourceLocation("xb:glowstone_glow"));
 
 		final Block glowstoneInsetPanel = ShapedBlockMaker.insetPanel(name, Inlays.GLOWSTONE_GLOW, blockIn, paintTop, paintSide, glow, 0);
 		final Block glowstoneFlatPanel = ShapedBlockMaker.flatPanel(name, Inlays.GLOWSTONE_GLOW, blockIn, paintTop, glow, 0);
@@ -207,7 +207,7 @@ public class ShapedBlockRegistrator {
 		BlockConnectors.connect(glowstoneCappedSquareColumn, glowstoneCappedSquareColumnLamp);
 		BlockConnectors.connect(glowstoneCutRoundColumn, glowstoneCutRoundColumnLamp);
 
-		glow = XmPaintRegistry.INSTANCE.get(new Identifier("xb:lamp_glow"));
+		glow = XmPaintRegistry.INSTANCE.get(new ResourceLocation("xb:lamp_glow"));
 
 		final Block insetPanelLamp = ShapedBlockMaker.insetPanel(name, Inlays.WHITE_LAMP, blockIn, paintTop, paintSide, glow, 15);
 		final Block flatPanelLamp = ShapedBlockMaker.flatPanel(name, Inlays.WHITE_LAMP, blockIn, paintTop, glow, 15);

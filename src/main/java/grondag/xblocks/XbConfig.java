@@ -24,11 +24,8 @@ import blue.endless.jankson.Jankson;
 import blue.endless.jankson.JsonObject;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
-import net.minecraft.entity.player.PlayerEntity;
-
 import net.fabricmc.loader.api.FabricLoader;
-
+import net.minecraft.world.entity.player.Player;
 import grondag.fermion.modkeys.api.ModKeys;
 
 public class XbConfig {
@@ -38,13 +35,13 @@ public class XbConfig {
 		SECONDARY(ModKeys::isSecondaryPressed),
 		TERTIARY(ModKeys::isTertiaryPressed);
 
-		private final Predicate<PlayerEntity> test;
+		private final Predicate<Player> test;
 
-		Key(Predicate<PlayerEntity> test) {
+		Key(Predicate<Player> test) {
 			this.test = test;
 		}
 
-		public boolean test(PlayerEntity player) {
+		public boolean test(Player player) {
 			return test.test(player);
 		}
 	}
@@ -114,11 +111,11 @@ public class XbConfig {
 		}
 	}
 
-	public static boolean isModKeyPressed(PlayerEntity player) {
+	public static boolean isModKeyPressed(Player player) {
 		return modKey.test(player);
 	}
 
-	public static boolean isForceKeyPressed(PlayerEntity player) {
+	public static boolean isForceKeyPressed(Player player) {
 		return forceKey.test(player);
 	}
 }

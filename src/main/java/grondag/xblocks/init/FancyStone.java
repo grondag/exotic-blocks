@@ -1,7 +1,7 @@
 package grondag.xblocks.init;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 
 import grondag.xblocks.Xb;
 import grondag.xblocks.block.ShapedBlockRegistrator;
@@ -40,7 +40,7 @@ public enum FancyStone {
 				.textureColor(2, 0x802b2f33)
 				.find();
 
-		final Block fancyStone = Xb.REG.block(BlockNames.BLOCK_FANCY_STONE, new Block(Block.Settings.copy(Blocks.STONE)));
+		final Block fancyStone = Xb.REG.block(BlockNames.BLOCK_FANCY_STONE, new Block(Block.Properties.copy(Blocks.STONE)));
 		XmBlockRegistry.addBlock(fancyStone, PrimitiveStateFunction.ofDefaultState(
 				Cube.INSTANCE.newState()
 				.paintAll(mainPaint)

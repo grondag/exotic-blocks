@@ -16,12 +16,12 @@
 
 package grondag.xblocks.block;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.state.StateManager.Builder;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition.Builder;
 
 import grondag.xblocks.Xb;
 import grondag.xblocks.XbConfig;
@@ -35,31 +35,31 @@ import grondag.xm.api.paint.XmPaint;
 import grondag.xm.api.primitive.simple.Cube;
 
 public class SpeciesBlock extends Block {
-	public SpeciesBlock(Settings settings) {
+	public SpeciesBlock(Properties settings) {
 		super(settings);
 	}
 
 	@Override
-	protected void appendProperties(Builder<Block, BlockState> builder) {
-		super.appendProperties(builder);
+	protected void createBlockStateDefinition(Builder<Block, BlockState> builder) {
+		super.createBlockStateDefinition(builder);
 		builder.add(SpeciesProperty.SPECIES);
 	}
 
 	private final SpeciesFunction speciesFunc = SpeciesProperty.speciesForBlock(this);
 
 	@Override
-	public BlockState getPlacementState(ItemPlacementContext context) {
-		final Direction onFace = context.getSide();
-		final BlockPos onPos = context.getBlockPos().offset(onFace.getOpposite());
+	public BlockState getStateForPlacement(BlockPlaceContext context) {
+		final Direction onFace = context.getClickedFace();
+		final BlockPos onPos = context.getClickedPos().relative(onFace.getOpposite());
 		final SpeciesMode mode = XbConfig.modKey.test(context.getPlayer())
 				? SpeciesMode.COUNTER_MOST : SpeciesMode.MATCH_MOST;
-		final int species = Species.speciesForPlacement(context.getWorld(), onPos, onFace, mode, speciesFunc);
-		return getDefaultState().with(SpeciesProperty.SPECIES, species);
+		final int species = Species.speciesForPlacement(context.getLevel(), onPos, onFace, mode, speciesFunc);
+		return defaultBlockState().setValue(SpeciesProperty.SPECIES, species);
 	}
 
 	public static Block species(Block template, String id, XmPaint paint) {
 
-		Block block = new SpeciesBlock(Block.Settings.copy(template));
+		Block block = new SpeciesBlock(Block.Properties.copy(template));
 
 		block = Xb.REG.block(id, block);
 

@@ -16,8 +16,7 @@
 package grondag.xblocks.block;
 
 import java.util.IdentityHashMap;
-
-import net.minecraft.block.Block;
+import net.minecraft.world.level.block.Block;
 
 public class FenceHelper {
 	private static final IdentityHashMap<Block, Boolean> CONNECTABLES = new IdentityHashMap<>();

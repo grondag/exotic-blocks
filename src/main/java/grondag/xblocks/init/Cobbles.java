@@ -1,11 +1,10 @@
 package grondag.xblocks.init;
 
-import net.minecraft.block.Blocks;
-
 import grondag.xblocks.block.SpeciesBlock;
 import grondag.xblocks.data.BlockNames;
 import grondag.xm.api.paint.XmPaint;
 import grondag.xm.api.texture.core.CoreTextures;
+import net.minecraft.world.level.block.Blocks;
 
 public enum Cobbles {
 	;
