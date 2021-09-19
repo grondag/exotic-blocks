@@ -19,15 +19,17 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import grondag.xblocks.block.FenceHelper;
+
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
+import grondag.xblocks.block.FenceHelper;
+
 @Mixin(WallBlock.class)
 public class MixinWallBlock {
-	@Inject(at = @At("HEAD"), method = "shouldConnectTo", cancellable = true)
-	private void hookShouldConnectTo(BlockState blockState, boolean bl, Direction direction, CallbackInfoReturnable<Boolean> ci) {
+	@Inject(at = @At("HEAD"), method = "connectsTo", cancellable = true)
+	private void hookConnectTo(BlockState blockState, boolean bl, Direction direction, CallbackInfoReturnable<Boolean> ci) {
 		if(FenceHelper.shouldConnect(blockState.getBlock())) {
 			ci.setReturnValue(true);
 		}

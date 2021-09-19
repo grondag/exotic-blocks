@@ -5,7 +5,7 @@
   "compatibilityLevel": "JAVA_16",
   "mixins": [
     "MixinFenceBlock",
-    "MixinNbtHelper",
+    "MixinNbtUtils",
     "MixinWallBlock"
       ],
   "injectors": {
