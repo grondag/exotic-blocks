@@ -64,6 +64,7 @@ dependencies {
     modImplementation ("grondag:special-circumstances-${project.mc_tag}:${project.special_circumstances_version}.+") { transitive = false }
 	
 	if (!(gradle.startParameter.taskNames.contains("publish") || gradle.startParameter.taskNames.contains("publishToMavenLocal"))) {
+		include "grondag:frex-${project.mc_tag}:${project.frex_version}.+"
 		include "grondag:exotic-matter-${project.mc_tag}:${project.exotic_matter_version}.+"
 		include "grondag:exotic-art-core-${project.mc_tag}:${project.exotic_art_core_version}.+"
 		include "grondag:fermion-${project.mc_tag}:${project.fermion_version}.+"
