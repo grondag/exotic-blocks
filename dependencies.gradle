@@ -60,7 +60,7 @@ dependencies {
 	modImplementation ("grondag:fermion-modkeys-${project.mc_tag}:${project.fermion_modkeys_version}.+") { transitive = false }
     modImplementation ("grondag:fermion-varia-${project.mc_tag}:${project.fermion_varia_version}.+") { transitive = false }
     modImplementation ("grondag:fermion-orientation-${project.mc_tag}:${project.fermion_orientation_version}.+") { transitive = false }
-    modImplementation ("io.vram:special-circumstances-${project.mc_tag}:${project.special_circumstances_version}.+") { transitive = false }
+    modImplementation ("io.vram:special-circumstances:${project.special_circumstances_version}.+") { transitive = false }
 	modImplementation("io.vram:bitkit:${bitkit_version}.+") { changing = true; }
 	
 	if (!(gradle.startParameter.taskNames.contains("publish") || gradle.startParameter.taskNames.contains("publishToMavenLocal"))) {
@@ -71,7 +71,7 @@ dependencies {
 		include "grondag:fermion-modkeys-${project.mc_tag}:${project.fermion_modkeys_version}.+"
 	    include "grondag:fermion-varia-${project.mc_tag}:${project.fermion_varia_version}.+"
 	    include "grondag:fermion-orientation-${project.mc_tag}:${project.fermion_orientation_version}.+"
-	    include "io.vram:special-circumstances-${project.mc_tag}:${project.special_circumstances_version}.+"
+	    include "io.vram:special-circumstances:${project.special_circumstances_version}.+"
 	    include "io.vram:bitkit:${bitkit_version}.+"
 		include "io.github.cottonmc:Jankson-Fabric:${jankson_version}"
 		include "me.shedaniel.cloth:cloth-config-fabric:${clothconfig_version}"
