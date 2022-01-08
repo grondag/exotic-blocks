@@ -13,6 +13,7 @@ bin
 .classpath
 .project
 eclipse
+gruntle
 
 build
 run
@@ -42,3 +43,5 @@ discarded textures
 /.apt_generated/
 notes.txt
 .mixin.out/audit/mixin_implementation_report.txt
+.checkstyle
+.vscode

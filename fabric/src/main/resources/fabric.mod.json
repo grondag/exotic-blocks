@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "xb",
+  "version": "${version}",
+
+  "name": "Exotic Blocks",
+  "description": "Building/Test Mod for Exotic Matter",
+  "authors": [
+    "Grondag"
+  ],
+  "contact": {
+    "homepage": "https://github.com/grondag/exotic-blocks",
+    "sources": "https://github.com/grondag/exotic-blocks"
+  },
+
+  "license": "LGPL 3.0",
+  "icon": "assets/xb/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+  	"main": [ "grondag.xblocks.Xb" ],
+  	"client": [ "grondag.xblocks.client.XbClient" ],
+	"rei_plugins_v0": [ "grondag.xblocks.compat.XbReiPlugin" ]
+  },
+  "mixins": [
+	  {
+	      "config": "xblocks.common.json",
+	      "environment": "*"
+	  }
+  ],
+  "depends": {
+  	"fabricloader": ">=0.12.11",
+    "fabric": "*",
+    "minecraft": "1.18.1",
+    "java": ">=17",
+    "exotic-matter": "*"
+  }
+}

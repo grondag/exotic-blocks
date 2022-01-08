@@ -1,0 +1,19 @@
+
+project.group = 'grondag'
+ext.author = 'Grondag'
+ext.title = 'Exotic Blocks'
+ext.mod_name = 'exotic-blocks'
+ext.mod_version = '2.0'
+
+ext.github_repository_owner = 'grondag'
+ext.github_repository = 'exotic-blocks'
+
+ext.curseforge_id = '339561'
+//ext.modrinth_id = ''
+ext.release_type = 'release'
+
+ext.build_fat_jar = true
+ext.build_forge = false
+
+ext.optional_dep_slugs = "fabric-api, modmenu, roughly-enough-items"
+ext.embedded_lib_slugs = "frex, jankson, exotic-matter-library"
