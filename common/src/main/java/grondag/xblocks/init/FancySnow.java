@@ -25,8 +25,6 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-
 import grondag.xblocks.Xb;
 import grondag.xblocks.block.ShapedBlockRegistrator;
 import grondag.xblocks.block.SpeciesBlock;
@@ -51,7 +49,7 @@ public abstract class FancySnow {
 	//	public static Block basalt_cut = null;
 
 	static Block.Properties settings() {
-		return FabricBlockSettings.of(FANCY_SNOW_MATERIAL).breakByHand(true).strength(0.2F, 0.2F).sound(SoundType.SNOW);
+		return Block.Properties.of(FANCY_SNOW_MATERIAL).strength(0.2F, 0.2F).sound(SoundType.SNOW);
 	}
 
 	public static void initialize() {
