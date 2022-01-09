@@ -47,8 +47,6 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-
 public abstract class FestiveLightsBlock extends Block implements SimpleWaterloggedBlock {
 	public static final BooleanProperty UP = PipeBlock.UP;
 	public static final BooleanProperty DOWN = PipeBlock.DOWN;
@@ -90,9 +88,8 @@ public abstract class FestiveLightsBlock extends Block implements SimpleWaterlog
 	public final int[] colors;
 
 	public FestiveLightsBlock(int... colors) {
-		super(FabricBlockSettings.of(Material.SAND)
-			.luminance(4)
-			.breakByHand(true)
+		super(Block.Properties.of(Material.DECORATION)
+			.lightLevel(bs -> 4)
 			.strength(0.2F, 0.2F)
 			.noCollission()
 			.sound(SoundType.LANTERN));
