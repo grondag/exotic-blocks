@@ -20,6 +20,8 @@
 
 package grondag.xblocks;
 
+import dev.architectury.registry.CreativeTabRegistry;
+import dev.architectury.registry.registries.DeferredRegister;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -30,8 +32,6 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
-
-import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 
 import io.vram.modkeys.api.ModKey;
 
@@ -59,10 +59,12 @@ public class Xb {
 	public static ModKey forceKey;
 	public static ModKey modifyKey;
 	private static CreativeModeTab itemGroup;
+	private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(MODID, Registry.ITEM_REGISTRY);
+	private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(MODID, Registry.BLOCK_REGISTRY);
 
 	public static void initialize() {
 		final ResourceLocation itemGroupItemId = new ResourceLocation(MODID, BlockNames.BLOCK_CONNECTED_FANCY_STONE);
-		itemGroup = FabricItemGroupBuilder.build(new ResourceLocation(MODID, "group"), () -> new ItemStack(Registry.ITEM.get(itemGroupItemId)));
+		itemGroup = CreativeTabRegistry.create(new ResourceLocation(MODID, "group"), () -> new ItemStack(Registry.ITEM.get(itemGroupItemId)));
 
 		forceKey = ModKey.getOrCreate(FORCE_KEY_NAME);
 		modifyKey = ModKey.getOrCreate(MODIFY_KEY_NAME);
@@ -79,6 +81,9 @@ public class Xb {
 		ShapedBlocks.initialize();
 		FestiveLights.initialize();
 		XbItems.initialize();
+
+		ITEMS.register();
+		BLOCKS.register();
 	}
 
 	public static ResourceLocation id(String name) {
@@ -98,17 +103,18 @@ public class Xb {
 	}
 
 	public static <T extends Block> T block(String name, T block, BlockItem item) {
-		final T b = Registry.register(Registry.BLOCK, id(name), block);
+		BLOCKS.register(id(name), () -> block);
 
 		if (item != null) {
 			final BlockItem bi = item(name, item);
 			bi.registerBlocks(BlockItem.BY_BLOCK, bi);
 		}
 
-		return b;
+		return block;
 	}
 
 	public static <T extends Item> T item(String name, T item) {
-		return Registry.register(Registry.ITEM, id(name), item);
+		ITEMS.register(id(name), () -> item);
+		return item;
 	}
 }
