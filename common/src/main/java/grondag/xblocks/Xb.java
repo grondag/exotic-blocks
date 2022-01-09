@@ -25,8 +25,6 @@ import org.apache.logging.log4j.Logger;
 
 import net.minecraft.resources.ResourceLocation;
 
-import net.fabricmc.api.ModInitializer;
-
 import io.vram.modkeys.api.ModKey;
 
 import grondag.xblocks.data.BlockNames;
@@ -43,7 +41,7 @@ import grondag.xblocks.init.ShapedBlocks;
 import grondag.xblocks.init.SimpleBlocks;
 import grondag.xblocks.init.XbItems;
 
-public class Xb implements ModInitializer {
+public class Xb {
 	public static final String MODID = "xb";
 	public static final ResourceLocation FORCE_KEY_NAME = new ResourceLocation(MODID, "force");
 	public static final ResourceLocation MODIFY_KEY_NAME = new ResourceLocation(MODID, "modify");
@@ -54,8 +52,7 @@ public class Xb implements ModInitializer {
 
 	public static Registrar REG = new Registrar(MODID, BlockNames.BLOCK_CONNECTED_FANCY_STONE);
 
-	@Override
-	public void onInitialize() {
+	public static void initialize() {
 		forceKey = ModKey.getOrCreate(FORCE_KEY_NAME);
 		modifyKey = ModKey.getOrCreate(MODIFY_KEY_NAME);
 

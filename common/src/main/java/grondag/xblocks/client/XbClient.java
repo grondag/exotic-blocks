@@ -1,5 +1,5 @@
 /*
- * This file is part of Exotic Blocks and is licensed to the project under
+`````TGGG * This file is part of Exotic Blocks and is licensed to the project under
  * terms that are compatible with the GNU Lesser General Public License.
  * See the NOTICE file distributed with this work for additional information
  * regarding copyright ownership and licensing.
@@ -27,17 +27,14 @@ import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 
-import net.fabricmc.api.ClientModInitializer;
-
 import io.vram.frex.base.client.model.ProceduralModel;
 import io.vram.modkeys.api.client.ModKeyBinding;
 
 import grondag.xblocks.Xb;
 import grondag.xblocks.init.FestiveLights;
 
-public class XbClient implements ClientModInitializer {
-	@Override
-	public void onInitializeClient() {
+public class XbClient {
+	public static void initialize() {
 		ProceduralModel.createAndRegisterProvider(FestiveLightsModel::build, FestiveLights.FESTIVE_LIGHTS.toArray(new ResourceLocation[FestiveLights.FESTIVE_LIGHTS.size()]));
 
 		final var forceKey = new KeyMapping("key.xb.force", GLFW.GLFW_KEY_LEFT_CONTROL, "key.xb.category");

@@ -18,8 +18,8 @@
 
   "environment": "*",
   "entrypoints": {
-  	"main": [ "grondag.xblocks.Xb" ],
-  	"client": [ "grondag.xblocks.client.XbClient" ],
+  	"main": [ "grondag.xblocks.XbFabric" ],
+  	"client": [ "grondag.xblocks.client.XbFabricClient" ],
 	"rei_plugins_v0": [ "grondag.xblocks.compat.XbReiPlugin" ]
   },
   "mixins": [
