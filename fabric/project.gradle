@@ -8,7 +8,7 @@ configurations {
 dependencies {
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
   
-	modIncludeImplementation("grondag:exotic-matter-fabric-mc118:3.0.430:fat")
+	modIncludeImplementation("grondag:exotic-matter-fabric-mc118:3.0.431:fat")
   modIncludeImplementation("io.vram:dtklib:1.0.3")
   modIncludeImplementation("io.vram:modkeys-fabric-mc118:1.0.8")
 

@@ -1,5 +1,5 @@
 /*
-`````TGGG * This file is part of Exotic Blocks and is licensed to the project under
+ * This file is part of Exotic Blocks and is licensed to the project under
  * terms that are compatible with the GNU Lesser General Public License.
  * See the NOTICE file distributed with this work for additional information
  * regarding copyright ownership and licensing.
