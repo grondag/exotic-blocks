@@ -63,7 +63,7 @@ public class SpeciesBlock extends Block {
 	public static Block species(Block template, String id, XmPaint paint) {
 		Block block = new SpeciesBlock(Block.Properties.copy(template));
 
-		block = Xb.REG.block(id, block);
+		block = Xb.block(id, block);
 
 		XmBlockRegistry.addBlockStates(block, bs -> PrimitiveStateFunction.builder()
 				.withJoin(SpeciesProperty.matchBlockAndSpecies())

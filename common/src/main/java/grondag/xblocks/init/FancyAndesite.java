@@ -56,7 +56,7 @@ public abstract class FancyAndesite {
 				.textureColor(2, 0xA0b6bcbc)
 				.find();
 
-		final Block block = Xb.REG.block(BlockNames.BLOCK_FANCY_ANDESITE, new Block(Block.Properties.copy(Blocks.ANDESITE)));
+		final Block block = Xb.block(BlockNames.BLOCK_FANCY_ANDESITE, new Block(Block.Properties.copy(Blocks.ANDESITE)));
 		XmBlockRegistry.addBlock(block, PrimitiveStateFunction.ofDefaultState(
 				Cube.INSTANCE.newState()
 				.paintAll(mainPaint)

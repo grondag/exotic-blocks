@@ -42,7 +42,7 @@ public abstract class FancySnow {
 	private FancySnow() { }
 
 	public static final Material FANCY_SNOW_MATERIAL = (new Material.Builder(MaterialColor.SNOW)).build();
-	public static final Block FANCY_SNOW_BLOCK = Xb.REG.block(BlockNames.BLOCK_FANCY_SNOW, new Block(settings()));
+	public static final Block FANCY_SNOW_BLOCK = Xb.block(BlockNames.BLOCK_FANCY_SNOW, new Block(settings()));
 
 	//	public static Block basalt_cool_dynamic_height = null;
 	//	public static Block basalt_cool_dynamic_filler = null;
@@ -58,7 +58,7 @@ public abstract class FancySnow {
 		final String PAINT_FANCY_SNOW = "fancy_snow";
 		final String PAINT_CONNECTED_FANCY_SNOW = "fancy_snow_species";
 
-		final XmPaint paint = XmPaintRegistry.INSTANCE.get(Xb.REG.id(PAINT_FANCY_SNOW));
+		final XmPaint paint = XmPaintRegistry.INSTANCE.get(Xb.id(PAINT_FANCY_SNOW));
 
 		XmBlockRegistry.addBlock(FANCY_SNOW_BLOCK, PrimitiveStateFunction.ofDefaultState(
 				Cube.INSTANCE.newState()
@@ -67,7 +67,7 @@ public abstract class FancySnow {
 
 		ShapedBlockRegistrator.registerShapes(FANCY_SNOW_BLOCK, ShapedBlockNames.SHAPED_FANCY_SNOW, PAINT_FANCY_SNOW, false);
 
-		SpeciesBlock.species(FANCY_SNOW_BLOCK, BlockNames.BLOCK_CONNECTED_FANCY_SNOW, XmPaintRegistry.INSTANCE.get(Xb.REG.id(PAINT_CONNECTED_FANCY_SNOW)));
+		SpeciesBlock.species(FANCY_SNOW_BLOCK, BlockNames.BLOCK_CONNECTED_FANCY_SNOW, XmPaintRegistry.INSTANCE.get(Xb.id(PAINT_CONNECTED_FANCY_SNOW)));
 
 		//		TerrainModelState.Mutable terrainModel;
 		//

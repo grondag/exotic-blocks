@@ -57,7 +57,7 @@ public abstract class FancyDiorite {
 				.textureColor(2, 0x60000000)
 				.find();
 
-		final Block block = Xb.REG.block(BlockNames.BLOCK_FANCY_DIORITE, new Block(Block.Properties.copy(Blocks.DIORITE)));
+		final Block block = Xb.block(BlockNames.BLOCK_FANCY_DIORITE, new Block(Block.Properties.copy(Blocks.DIORITE)));
 		XmBlockRegistry.addBlock(block, PrimitiveStateFunction.ofDefaultState(
 				Cube.INSTANCE.newState()
 				.paintAll(mainPaint)

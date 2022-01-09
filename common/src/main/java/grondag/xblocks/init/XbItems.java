@@ -28,7 +28,7 @@ import grondag.xblocks.item.PortableCutter;
 public abstract class XbItems {
 	private XbItems() { }
 
-	public static final Item PORTABLE_CUTTER = Xb.REG.item("iron_cutter", new PortableCutter(Xb.REG.itemSettings().stacksTo(1)));
+	public static final Item PORTABLE_CUTTER = Xb.item("iron_cutter", new PortableCutter(Xb.itemSettings().stacksTo(1)));
 
 	public static void initialize() {
 		// NOOP - handled in declaration

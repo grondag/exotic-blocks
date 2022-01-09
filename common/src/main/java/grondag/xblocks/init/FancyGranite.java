@@ -57,7 +57,7 @@ public abstract class FancyGranite {
 				.textureColor(2, 0x80604030)
 				.find();
 
-		final Block block = Xb.REG.block(BlockNames.BLOCK_FANCY_GRANITE, new Block(Block.Properties.copy(Blocks.GRANITE)));
+		final Block block = Xb.block(BlockNames.BLOCK_FANCY_GRANITE, new Block(Block.Properties.copy(Blocks.GRANITE)));
 		XmBlockRegistry.addBlock(block, PrimitiveStateFunction.ofDefaultState(
 				Cube.INSTANCE.newState()
 				.paintAll(mainPaint)

@@ -54,7 +54,7 @@ public abstract class RammedEarth {
 				.textureColor(1, 0xB0402a1e)
 				.find();
 
-		final Block block = Xb.REG.block(BlockNames.BLOCK_RAMMED_EARTH, new Block(Block.Properties.copy(Blocks.TERRACOTTA)));
+		final Block block = Xb.block(BlockNames.BLOCK_RAMMED_EARTH, new Block(Block.Properties.copy(Blocks.TERRACOTTA)));
 
 		XmBlockRegistry.addBlock(block, PrimitiveStateFunction.ofDefaultState(
 				Cube.INSTANCE.newState()

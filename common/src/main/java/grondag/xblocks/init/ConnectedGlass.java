@@ -84,7 +84,7 @@ public abstract class ConnectedGlass {
 
 	public static final TextureSet GLASS_BORDER = TextureSet.builder()
 			.displayNameToken("fancy_glass")
-			.baseTextureName(Xb.REG.id("block/glass").toString())
+			.baseTextureName(Xb.id("block/glass").toString())
 			.versionCount(1)
 			.scale(SINGLE)
 			.layout(BORDER_LAYOUT)
@@ -92,7 +92,7 @@ public abstract class ConnectedGlass {
 			.renderIntent(OVERLAY_ONLY)
 			.groups(STATIC_BORDERS)
 			.renderNoBorderAsTile(true)
-			.build(Xb.REG.id("fancy_glass").toString());
+			.build(Xb.id("fancy_glass").toString());
 
 	public static void initialize() {
 		connectedGlass(Blocks.GLASS, "clear", "");
@@ -119,10 +119,10 @@ public abstract class ConnectedGlass {
 	}
 
 	private static void connectedGlass(Block block, String color, String id) {
-		final ResourceLocation paintId = Xb.REG.id(color + "_connected_glass");
+		final ResourceLocation paintId = Xb.id(color + "_connected_glass");
 		final XmPaint paint = XmPaintRegistry.INSTANCE.get(paintId);
 
-		final Block connectedGlass = Xb.REG.block(
+		final Block connectedGlass = Xb.block(
 				"g" + id,
 				new GlassBlock(Block.Properties.copy(block)));
 

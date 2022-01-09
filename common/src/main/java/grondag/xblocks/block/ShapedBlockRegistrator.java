@@ -38,9 +38,9 @@ import grondag.xm.api.util.ColorUtil;
 
 public class ShapedBlockRegistrator {
 	public static void registerShapes(Block block, String name, String paintName, boolean coarse) {
-		final XmPaint paint = XmPaintRegistry.INSTANCE.get(Xb.REG.id(paintName));
-		final XmPaint paintInner = XmPaintRegistry.INSTANCE.get(Xb.REG.id(paintName + "_inner"));
-		final XmPaint paintCut = XmPaintRegistry.INSTANCE.get(Xb.REG.id(paintName + "_cut"));
+		final XmPaint paint = XmPaintRegistry.INSTANCE.get(Xb.id(paintName));
+		final XmPaint paintInner = XmPaintRegistry.INSTANCE.get(Xb.id(paintName + "_inner"));
+		final XmPaint paintCut = XmPaintRegistry.INSTANCE.get(Xb.id(paintName + "_cut"));
 		registerShapes(block, name, paint, paint, paint, paintInner, paintCut, coarse);
 	}
 
@@ -82,7 +82,7 @@ public class ShapedBlockRegistrator {
 			XmPaint paintCut,
 			boolean coarse
 	) {
-		final Block wedge = Xb.REG.block(
+		final Block wedge = Xb.block(
 				name + Shapes.WEDGE,
 				new StairLike(blockIn.defaultBlockState(), Block.Properties.copy(blockIn), StairLike.Shape.STRAIGHT, Xb.modifyKey::isPressed, Xb.forceKey::isPressed));
 		XmBlockRegistry.addBlockStates(wedge, bs -> PrimitiveStateFunction.builder()
@@ -94,7 +94,7 @@ public class ShapedBlockRegistrator {
 						.paint(Wedge.SURFACE_SIDES, paintSide), bs))
 				.build());
 
-		final Block insideWedge = Xb.REG.block(
+		final Block insideWedge = Xb.block(
 				name + Shapes.INSIDE_WEDGE,
 				new StairLike(blockIn.defaultBlockState(), Block.Properties.copy(blockIn), StairLike.Shape.INSIDE_CORNER, Xb.modifyKey::isPressed, Xb.forceKey::isPressed));
 		XmBlockRegistry.addBlockStates(insideWedge, bs -> PrimitiveStateFunction.builder()
@@ -106,7 +106,7 @@ public class ShapedBlockRegistrator {
 						.paint(Wedge.SURFACE_SIDES, paintSide), bs))
 				.build());
 
-		final Block outsideWedge = Xb.REG.block(
+		final Block outsideWedge = Xb.block(
 				name + Shapes.OUTSIDE_WEDGE,
 				new StairLike(blockIn.defaultBlockState(), Block.Properties.copy(blockIn), StairLike.Shape.OUTSIDE_CORNER, Xb.modifyKey::isPressed, Xb.forceKey::isPressed));
 		XmBlockRegistry.addBlockStates(outsideWedge, bs -> PrimitiveStateFunction.builder()
@@ -118,7 +118,7 @@ public class ShapedBlockRegistrator {
 						.paint(Wedge.SURFACE_SIDES, paintSide), bs))
 				.build());
 
-		final Block omniStair = Xb.REG.block(
+		final Block omniStair = Xb.block(
 				name + Shapes.STAIR,
 				new StairLike(blockIn.defaultBlockState(), Block.Properties.copy(blockIn), StairLike.Shape.STRAIGHT, Xb.modifyKey::isPressed, Xb.forceKey::isPressed));
 		XmBlockRegistry.addBlockStates(omniStair, bs -> PrimitiveStateFunction.builder()
@@ -132,7 +132,7 @@ public class ShapedBlockRegistrator {
 						.paint(Stair.SURFACE_LEFT, paintSide), bs))
 				.build());
 
-		final Block omniStairInside = Xb.REG.block(
+		final Block omniStairInside = Xb.block(
 				name + Shapes.INSIDE_STAIR,
 				new StairLike(blockIn.defaultBlockState(), Block.Properties.copy(blockIn), StairLike.Shape.INSIDE_CORNER, Xb.modifyKey::isPressed, Xb.forceKey::isPressed));
 		XmBlockRegistry.addBlockStates(omniStairInside, bs -> PrimitiveStateFunction.builder()
@@ -146,7 +146,7 @@ public class ShapedBlockRegistrator {
 						.paint(Stair.SURFACE_LEFT, paintSide), bs))
 				.build());
 
-		final Block omniStairOutside = Xb.REG.block(
+		final Block omniStairOutside = Xb.block(
 				name + Shapes.OUTSIDE_STAIR,
 				new StairLike(blockIn.defaultBlockState(), Block.Properties.copy(blockIn), StairLike.Shape.OUTSIDE_CORNER, Xb.modifyKey::isPressed, Xb.forceKey::isPressed));
 		XmBlockRegistry.addBlockStates(omniStairOutside, bs -> PrimitiveStateFunction.builder()

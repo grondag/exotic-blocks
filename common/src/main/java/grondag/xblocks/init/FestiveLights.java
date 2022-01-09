@@ -69,14 +69,14 @@ public abstract class FestiveLights {
 
 	static void festiveLights(String colorName, Function<int[], FestiveLightsBlock> func, int... colors) {
 		final String name = "f" + colorName;
-		Xb.REG.block(addLightName(name + LightShapes.ALL_FACES), new FestiveLightsBlock.All(colors));
-		Xb.REG.block(addLightName(name + LightShapes.HORIZONTAL_FACES), new FestiveLightsBlock.Horizontal(colors));
-		Xb.REG.block(addLightName(name + LightShapes.SINGLE_FACE), new FestiveLightsBlock.Single(colors));
-		Xb.REG.block(addLightName(name + LightShapes.PENDANT), new FestiveLightsBlock.Pendant(colors));
+		Xb.block(addLightName(name + LightShapes.ALL_FACES), new FestiveLightsBlock.All(colors));
+		Xb.block(addLightName(name + LightShapes.HORIZONTAL_FACES), new FestiveLightsBlock.Horizontal(colors));
+		Xb.block(addLightName(name + LightShapes.SINGLE_FACE), new FestiveLightsBlock.Single(colors));
+		Xb.block(addLightName(name + LightShapes.PENDANT), new FestiveLightsBlock.Pendant(colors));
 	}
 
 	static String addLightName(String name) {
-		FESTIVE_LIGHTS.add(Xb.REG.id(name));
+		FESTIVE_LIGHTS.add(Xb.id(name));
 		return name;
 	}
 }

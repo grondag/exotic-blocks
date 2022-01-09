@@ -222,6 +222,7 @@ public abstract class FestiveLightsBlock extends Block implements SimpleWaterlog
 		return valid ? result.setValue(BlockStateProperties.WATERLOGGED, fluidState.getType() == Fluids.WATER) : null;
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public FluidState getFluidState(BlockState blockState) {
 		return blockState.getValue(BlockStateProperties.WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(blockState);
@@ -241,6 +242,7 @@ public abstract class FestiveLightsBlock extends Block implements SimpleWaterlog
 		}
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public BlockState mirror(BlockState blockState, Mirror blockMirror) {
 		switch (blockMirror) {

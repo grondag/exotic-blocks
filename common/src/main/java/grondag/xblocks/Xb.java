@@ -23,7 +23,15 @@ package grondag.xblocks;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Block;
+
+import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 
 import io.vram.modkeys.api.ModKey;
 
@@ -45,14 +53,17 @@ public class Xb {
 	public static final String MODID = "xb";
 	public static final ResourceLocation FORCE_KEY_NAME = new ResourceLocation(MODID, "force");
 	public static final ResourceLocation MODIFY_KEY_NAME = new ResourceLocation(MODID, "modify");
-	public static ModKey forceKey;
-	public static ModKey modifyKey;
 
 	public static Logger LOG = LogManager.getLogger("Exotic Blocks");
 
-	public static Registrar REG = new Registrar(MODID, BlockNames.BLOCK_CONNECTED_FANCY_STONE);
+	public static ModKey forceKey;
+	public static ModKey modifyKey;
+	private static CreativeModeTab itemGroup;
 
 	public static void initialize() {
+		final ResourceLocation itemGroupItemId = new ResourceLocation(MODID, BlockNames.BLOCK_CONNECTED_FANCY_STONE);
+		itemGroup = FabricItemGroupBuilder.build(new ResourceLocation(MODID, "group"), () -> new ItemStack(Registry.ITEM.get(itemGroupItemId)));
+
 		forceKey = ModKey.getOrCreate(FORCE_KEY_NAME);
 		modifyKey = ModKey.getOrCreate(MODIFY_KEY_NAME);
 
@@ -68,5 +79,36 @@ public class Xb {
 		ShapedBlocks.initialize();
 		FestiveLights.initialize();
 		XbItems.initialize();
+	}
+
+	public static ResourceLocation id(String name) {
+		return new ResourceLocation(MODID, name);
+	}
+
+	public static Item.Properties itemSettings() {
+		return new Item.Properties().tab(itemGroup);
+	}
+
+	public static <T extends Block> T block(String name, T block, Item.Properties settings) {
+		return block(name, block, new BlockItem(block, settings));
+	}
+
+	public static <T extends Block> T block(String name, T block) {
+		return block(name, block, itemSettings());
+	}
+
+	public static <T extends Block> T block(String name, T block, BlockItem item) {
+		final T b = Registry.register(Registry.BLOCK, id(name), block);
+
+		if (item != null) {
+			final BlockItem bi = item(name, item);
+			bi.registerBlocks(BlockItem.BY_BLOCK, bi);
+		}
+
+		return b;
+	}
+
+	public static <T extends Item> T item(String name, T item) {
+		return Registry.register(Registry.ITEM, id(name), item);
 	}
 }
