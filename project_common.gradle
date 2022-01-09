@@ -9,7 +9,7 @@ ext.github_repository_owner = 'grondag'
 ext.github_repository = 'exotic-blocks'
 
 ext.curseforge_id = '339561'
-//ext.modrinth_id = ''
+ext.modrinth_id = 'zdSBbMbU'
 ext.release_type = 'release'
 
 ext.build_fat_jar = true
