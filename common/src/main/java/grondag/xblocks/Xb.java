@@ -51,8 +51,8 @@ import grondag.xblocks.init.XbItems;
 
 public class Xb {
 	public static final String MODID = "xb";
-	public static final ResourceLocation FORCE_KEY_NAME = new ResourceLocation(MODID, "force");
-	public static final ResourceLocation MODIFY_KEY_NAME = new ResourceLocation(MODID, "modify");
+	public static final ResourceLocation FORCE_KEY_NAME = id("force");
+	public static final ResourceLocation MODIFY_KEY_NAME = id("modify");
 
 	public static Logger LOG = LogManager.getLogger("Exotic Blocks");
 
@@ -63,9 +63,7 @@ public class Xb {
 	private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(MODID, Registry.BLOCK_REGISTRY);
 
 	public static void initialize() {
-		final ResourceLocation itemGroupItemId = new ResourceLocation(MODID, BlockNames.BLOCK_CONNECTED_FANCY_STONE);
-		itemGroup = CreativeTabRegistry.create(new ResourceLocation(MODID, "group"), () -> new ItemStack(Registry.ITEM.get(itemGroupItemId)));
-
+		itemGroup = CreativeTabRegistry.create(id("group"), () -> new ItemStack(Registry.ITEM.get(id(BlockNames.BLOCK_CONNECTED_FANCY_STONE))));
 		forceKey = ModKey.getOrCreate(FORCE_KEY_NAME);
 		modifyKey = ModKey.getOrCreate(MODIFY_KEY_NAME);
 
