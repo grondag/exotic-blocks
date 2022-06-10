@@ -20,14 +20,13 @@
 
 package grondag.xblocks.client;
 
-import java.util.Random;
-
 import it.unimi.dsi.fastutil.floats.FloatArrayList;
 
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Direction.Axis;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
 
@@ -117,7 +116,7 @@ public class FestiveLightsModel {
 		final int[] colors = block.colors;
 
 		final QuadEmitter qe = out.asQuadEmitter();
-		final Random rand = in.random();
+		final RandomSource rand = in.random();
 		final TextureAtlasSprite sprite = SpriteProvider.forBlocksAndItems().getSprite(SPRITE_ID);
 
 		if (block.isPendant()) {
@@ -218,7 +217,7 @@ public class FestiveLightsModel {
 		}
 	};
 
-	protected static void emitQuadsForFace(TextureAtlasSprite sprite, QuadEmitter qe, Direction face, float[] noise, int[] colors, Random rand, float step, RangeFilter xFilter, RangeFilter yFilter) {
+	protected static void emitQuadsForFace(TextureAtlasSprite sprite, QuadEmitter qe, Direction face, float[] noise, int[] colors, RandomSource rand, float step, RangeFilter xFilter, RangeFilter yFilter) {
 		final int pointSize = noise.length;
 		final int colorCount = colors.length;
 
@@ -281,7 +280,7 @@ public class FestiveLightsModel {
 		qe.emit();
 	}
 
-	protected static void emitPendantQuadsForFace(TextureAtlasSprite sprite, QuadEmitter qe, Direction face, int[] colors, Random rand) {
+	protected static void emitPendantQuadsForFace(TextureAtlasSprite sprite, QuadEmitter qe, Direction face, int[] colors, RandomSource rand) {
 		final int colorCount = colors.length;
 
 		for (int i = 0; i < 4; i++) {

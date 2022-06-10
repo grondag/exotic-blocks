@@ -8,15 +8,16 @@ configurations {
 dependencies {
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
   
-	modIncludeImplementation("grondag:exotic-matter-fabric-mc118:3.0.435:fat")
-  modIncludeImplementation("io.vram:dtklib:1.0.6")
-  modIncludeImplementation("io.vram:modkeys-fabric-mc118:1.0.9")
+	// Note that BitKit is included via FREX, FREX included via XM
+	modIncludeImplementation("grondag:exotic-matter-fabric-mc119:3.0.435:fat")
+	modIncludeImplementation("io.vram:dtklib:1.0.6")
+	modIncludeImplementation("io.vram:modkeys-fabric-mc119:1.0.9")
 
-  modApi "dev.architectury:architectury-fabric:4.4.56"
-	modCompileOnly "me.shedaniel:RoughlyEnoughItems-fabric:8.2.463"
-	modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:8.2.463"
-  modCompileOnly "com.terraformersmc:modmenu:3.2.2"
-  modRuntimeOnly "com.terraformersmc:modmenu:3.2.2"
+	modApi "dev.architectury:architectury-fabric:5.4.15"
+	modCompileOnly "me.shedaniel:RoughlyEnoughItems-fabric:9.0.466"
+	modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:9.0.466"
+	modCompileOnly "com.terraformersmc:modmenu:4.0.0-beta.4"
+	modRuntimeOnly "com.terraformersmc:modmenu:4.0.0-beta.4"
 }
 
 sourceSets {

@@ -20,7 +20,7 @@
   "entrypoints": {
   	"main": [ "grondag.xblocks.XbFabric" ],
   	"client": [ "grondag.xblocks.client.XbFabricClient" ],
-	"rei_plugins_v0": [ "grondag.xblocks.compat.XbReiPlugin" ]
+	"rei_common": [ "grondag.xblocks.compat.XbReiPlugin" ]
   },
   "mixins": [
 	  {
@@ -30,8 +30,8 @@
   ],
   "depends": {
   	"fabricloader": ">=0.14.6",
-    "minecraft": ">=1.18.2",
-    "architectury": ">=4.4.56",
+    "minecraft": ">=1.19-rc.2",
+    "architectury": ">=5.4.15",
     "java": ">=17",
     "exotic-matter": "*"
   }

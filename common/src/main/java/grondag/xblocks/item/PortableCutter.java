@@ -20,7 +20,7 @@
 
 package grondag.xblocks.item;
 
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -33,7 +33,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
 public class PortableCutter extends Item {
-	private static final TranslatableComponent CONTAINER_NAME = new TranslatableComponent("container.stonecutter", new Object[0]);
+	private static final Component CONTAINER_NAME = Component.translatable("container.stonecutter", new Object[0]);
 
 	public PortableCutter(Properties settings) {
 		super(settings);
