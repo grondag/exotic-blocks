@@ -30,7 +30,7 @@
   ],
   "depends": {
   	"fabricloader": ">=0.14.6",
-    "minecraft": ">=1.19-rc.2",
+    "minecraft": ">=1.19",
     "architectury": ">=5.4.15",
     "java": ">=17",
     "exotic-matter": "*"
