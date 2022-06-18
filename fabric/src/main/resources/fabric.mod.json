@@ -20,7 +20,7 @@
   "entrypoints": {
   	"main": [ "grondag.xblocks.XbFabric" ],
   	"client": [ "grondag.xblocks.client.XbFabricClient" ],
-	"rei_common": [ "grondag.xblocks.compat.XbReiPlugin" ]
+	"rei_client": [ "grondag.xblocks.compat.XbReiPlugin" ]
   },
   "mixins": [
 	  {
