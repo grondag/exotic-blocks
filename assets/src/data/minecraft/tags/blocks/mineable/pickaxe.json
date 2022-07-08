@@ -1,0 +1,29 @@
+{
+	"replace": false,
+	"values": [
+    <#list block_variants as block>
+			<#if block.tool == "pickaxe">
+		"xb:${block.name}",
+			</#if>
+    </#list>
+    <#list colors as color>
+  	"xb:g${color.short_name}",
+    </#list>
+    <#list shape_blocks as block>
+			<#if block.tool == "pickaxe">
+	    	<#list shapes as shape>
+	    		<#if shape.lamp != "Surface">
+		"xb:${block.name}${shape.name}",
+	    		</#if>
+	    		<#if shape.lamp != "None">
+	    			<#list inlays as inlay>
+	    				<#if inlay.english != "SKIP">
+		"xb:${block.name}${shape.name}${inlay.name}",
+	    				</#if>
+	    			</#list>
+	    		</#if>
+	    	</#list>
+			</#if>
+    </#list>
+	]
+}
