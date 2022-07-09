@@ -28,6 +28,7 @@ import grondag.xblocks.data.Inlays;
 import grondag.xblocks.data.Shapes;
 import grondag.xm.api.block.XmBlockRegistry;
 import grondag.xm.api.block.base.StairLike;
+import grondag.xm.api.connect.world.BlockConnectors;
 import grondag.xm.api.modelstate.primitive.PrimitiveStateFunction;
 import grondag.xm.api.paint.XmPaint;
 import grondag.xm.api.paint.XmPaintRegistry;
