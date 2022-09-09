@@ -4,8 +4,7 @@
   "package": "grondag.xblocks.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "MixinFenceBlock",
-    "MixinWallBlock"
+    "MixinNbtUtils"
       ],
   "injectors": {
     "defaultRequire": 1
