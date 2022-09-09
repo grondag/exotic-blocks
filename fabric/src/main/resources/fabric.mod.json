@@ -29,9 +29,9 @@
 	  }
   ],
   "depends": {
-  	"fabricloader": ">=0.14.8",
-    "minecraft": ">=1.19",
-    "architectury": ">=5.7.28",
+  	"fabricloader": ">=0.14.9",
+    "minecraft": ">=1.19.2",
+    "architectury": ">=6.2.43",
     "java": ">=17",
     "exotic-matter": "*"
   }
