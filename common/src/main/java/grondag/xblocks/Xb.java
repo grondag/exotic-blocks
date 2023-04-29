@@ -20,12 +20,14 @@
 
 package grondag.xblocks;
 
+import dev.architectury.extensions.injected.InjectedItemPropertiesExtension;
 import dev.architectury.registry.CreativeTabRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -58,12 +60,12 @@ public class Xb {
 
 	public static ModKey forceKey;
 	public static ModKey modifyKey;
-	private static CreativeModeTab itemGroup;
-	private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(MODID, Registry.ITEM_REGISTRY);
-	private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(MODID, Registry.BLOCK_REGISTRY);
+	private static CreativeTabRegistry.TabSupplier itemGroup;
+	private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(MODID, Registries.ITEM);
+	private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(MODID, Registries.BLOCK);
 
 	public static void initialize() {
-		itemGroup = CreativeTabRegistry.create(id("group"), () -> new ItemStack(Registry.ITEM.get(id(BlockNames.BLOCK_CONNECTED_FANCY_STONE))));
+		itemGroup = CreativeTabRegistry.create(id("group"), () -> new ItemStack(BuiltInRegistries.ITEM.get(id(BlockNames.BLOCK_CONNECTED_FANCY_STONE))));
 		forceKey = ModKey.getOrCreate(FORCE_KEY_NAME);
 		modifyKey = ModKey.getOrCreate(MODIFY_KEY_NAME);
 
@@ -89,7 +91,7 @@ public class Xb {
 	}
 
 	public static Item.Properties itemSettings() {
-		return new Item.Properties().tab(itemGroup);
+		return ((InjectedItemPropertiesExtension) new Item.Properties()).arch$tab(itemGroup);
 	}
 
 	public static <T extends Block> T block(String name, T block, Item.Properties settings) {
