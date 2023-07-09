@@ -20,12 +20,17 @@
 
 package grondag.xblocks;
 
-import dev.architectury.registry.CreativeTabRegistry;
+import java.util.ArrayList;
+
 import dev.architectury.registry.registries.DeferredRegister;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -58,12 +63,13 @@ public class Xb {
 
 	public static ModKey forceKey;
 	public static ModKey modifyKey;
-	private static CreativeModeTab itemGroup;
-	private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(MODID, Registry.ITEM_REGISTRY);
-	private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(MODID, Registry.BLOCK_REGISTRY);
+	private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(MODID, Registries.ITEM);
+	private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(MODID, Registries.BLOCK);
+	private static final ArrayList<Item> itemsForGroup = new ArrayList<>();
+	private static final ResourceKey<CreativeModeTab> ITEM_GROUP = ResourceKey.create(Registries.CREATIVE_MODE_TAB, new ResourceLocation(MODID, "exotic_blocks"));
 
 	public static void initialize() {
-		itemGroup = CreativeTabRegistry.create(id("group"), () -> new ItemStack(Registry.ITEM.get(id(BlockNames.BLOCK_CONNECTED_FANCY_STONE))));
+
 		forceKey = ModKey.getOrCreate(FORCE_KEY_NAME);
 		modifyKey = ModKey.getOrCreate(MODIFY_KEY_NAME);
 
@@ -82,14 +88,16 @@ public class Xb {
 
 		ITEMS.register();
 		BLOCKS.register();
+
+		Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, ITEM_GROUP, CreativeModeTab.builder(CreativeModeTab.Row.TOP, 0)
+				.title(Component.translatable("itemGroup.xb.group"))
+				.icon(() -> new ItemStack(BuiltInRegistries.ITEM.get(id(BlockNames.BLOCK_CONNECTED_FANCY_STONE))))
+				.displayItems((idp, output) -> itemsForGroup.forEach(output::accept))
+				.build());
 	}
 
 	public static ResourceLocation id(String name) {
 		return new ResourceLocation(MODID, name);
-	}
-
-	public static Item.Properties itemSettings() {
-		return new Item.Properties().tab(itemGroup);
 	}
 
 	public static <T extends Block> T block(String name, T block, Item.Properties settings) {
@@ -97,7 +105,7 @@ public class Xb {
 	}
 
 	public static <T extends Block> T block(String name, T block) {
-		return block(name, block, itemSettings());
+		return block(name, block, new Item.Properties());
 	}
 
 	public static <T extends Block> T block(String name, T block, BlockItem item) {
@@ -112,6 +120,7 @@ public class Xb {
 	}
 
 	public static <T extends Item> T item(String name, T item) {
+		itemsForGroup.add(item);
 		ITEMS.register(id(name), () -> item);
 		return item;
 	}

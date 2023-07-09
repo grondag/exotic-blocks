@@ -22,8 +22,7 @@ package grondag.xblocks.init;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.level.material.MapColor;
 
 import grondag.xblocks.Xb;
 import grondag.xblocks.block.ShapedBlockRegistrator;
@@ -39,7 +38,6 @@ import grondag.xm.api.primitive.simple.Cube;
 public abstract class FancySnow {
 	private FancySnow() { }
 
-	public static final Material FANCY_SNOW_MATERIAL = (new Material.Builder(MaterialColor.SNOW)).build();
 	public static final Block FANCY_SNOW_BLOCK = Xb.block(BlockNames.BLOCK_FANCY_SNOW, new Block(settings()));
 
 	//	public static Block basalt_cool_dynamic_height = null;
@@ -49,7 +47,7 @@ public abstract class FancySnow {
 	//	public static Block basalt_cut = null;
 
 	static Block.Properties settings() {
-		return Block.Properties.of(FANCY_SNOW_MATERIAL).strength(0.2F, 0.2F).sound(SoundType.SNOW);
+		return Block.Properties.of().strength(0.2F, 0.2F).sound(SoundType.SNOW).mapColor(MapColor.SNOW);
 	}
 
 	public static void initialize() {

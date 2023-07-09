@@ -13,11 +13,11 @@ dependencies {
 	modIncludeImplementation("io.vram:dtklib:1.0.6")
 	modIncludeImplementation("io.vram:modkeys-fabric-mc119:1.0.12")
 
-	modApi "dev.architectury:architectury-fabric:6.3.56"
-	modCompileOnly "me.shedaniel:RoughlyEnoughItems-fabric:9.1.577"
-	modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:9.1.577"
-	modCompileOnly "com.terraformersmc:modmenu:4.0.6"
-	modRuntimeOnly "com.terraformersmc:modmenu:4.0.6"
+	modApi "dev.architectury:architectury-fabric:9.0.5"
+	modCompileOnly "me.shedaniel:RoughlyEnoughItems-fabric:12.0.613"
+	modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:12.0.613"
+	modCompileOnly "com.terraformersmc:modmenu:7.0.0-beta.2"
+	modRuntimeOnly "com.terraformersmc:modmenu:7.0.0-beta.2"
 }
 
 sourceSets {

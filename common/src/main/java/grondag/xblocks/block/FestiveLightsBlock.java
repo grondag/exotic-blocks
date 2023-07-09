@@ -42,7 +42,8 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -88,7 +89,9 @@ public abstract class FestiveLightsBlock extends Block implements SimpleWaterlog
 	public final int[] colors;
 
 	public FestiveLightsBlock(int... colors) {
-		super(Block.Properties.of(Material.DECORATION)
+		super(Block.Properties.of()
+			.mapColor(MapColor.NONE)
+			.pushReaction(PushReaction.DESTROY)
 			.lightLevel(bs -> 4)
 			.strength(0.2F, 0.2F)
 			.noCollission()
